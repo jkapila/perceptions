@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "perceptions",
+    "section": "",
+    "text": "Post With Code\n\n\n \n\n\nnews\n\ncode\n\nanalysis\n\n\n \n\n\n\n\n\nJan 29, 2025\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n \n\n\nnews\n\n\n \n\n\n\n\n\nJan 26, 2025\nTristan O'Malley\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "“Tao Te Ching, chapter 36, translation by Stephen Mitchell” &gt; As Lao Tzu says:\n If you want to shrink something, you must first allow it to expand.\nIf you want to get rid of something, you must first allow it to flourish.\nIf you want to take something, you must first allow it to be given.\nThis is called the subtle perception of the way things are.\n The soft overcomes the hard. The slow overcomes the fast.\nLet your workings remain a mystery. Just show people the results. \nWell I am born and bought up in Bhilai, C.G (a Tire-II City of India). A guy who just loved to look around and Observe. Though at a very young age it just made me lose my interest in standard schooling and constrained studies, yet it’s the exactly same thing that has helped me build my career.\nI have graduated as a Mechanical Engineer, completed my Post Grads in Thermal Engineering which eventually took a twisted turn to make me Dive into Data Science. I am presently working with Ascena Retail GIC, as Senior Data Scientist, where I am responsible to create End-to-End analytical solutions that help The Business make Informed Decisions.\nI have worked on various projects from Retail Analytics to Fault Detection to Forecasting. Over the years my understanding of various concepts in Machine Learning and Deep Learning has gained those Eyes of Observations. This blog is my attempt to make those concepts more intuitive and easy, yet it would help you to form the basis of The Work we do that creates an Impact.\nTill next time, stay observant, stay crazy, stay safe, stay healthy."
+  },
+  {
+    "objectID": "about.html#about-this-blog",
+    "href": "about.html#about-this-blog",
+    "title": "About",
+    "section": "",
+    "text": "title: “About” draft: false showMeta: false comments: false showTags: flase showPagination: false showSocial: false showDate: false —\n\n“Tao Te Ching, chapter 36, translation by Stephen Mitchell” &gt; As Lao Tzu says:\n If you want to shrink something, you must first allow it to expand.\nIf you want to get rid of something, you must first allow it to flourish.\nIf you want to take something, you must first allow it to be given.\nThis is called the subtle perception of the way things are.\n The soft overcomes the hard. The slow overcomes the fast.\nLet your workings remain a mystery. Just show people the results. \nWell I am born and bought up in Bhilai, C.G (a Tire-II City of India). A guy who just loved to look around and Observe. Though at a very young age it just made me lose my interest in standard schooling and constrained studies, yet it’s the exactly same thing that has helped me build my career.\nI have graduated as a Mechanical Engineer, completed my Post Grads in Thermal Engineering which eventually took a twisted turn to make me Dive into Data Science. I am presently working with Ascena Retail GIC, as Senior Data Scientist, where I am responsible to create End-to-End analytical solutions that help The Business make Informed Decisions.\nI have worked on various projects from Retail Analytics to Fault Detection to Forecasting. Over the years my understanding of various concepts in Machine Learning and Deep Learning has gained those Eyes of Observations. This blog is my attempt to make those concepts more intuitive and easy, yet it would help you to form the basis of The Work we do that creates an Impact.\nTill next time, stay observant, stay crazy, stay safe, stay healthy."
+  }
+]
