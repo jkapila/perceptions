@@ -10,5 +10,23 @@
   },
   "index.qmd": {
     "index.html": "dbed75a2"
+  },
+  "blog.qmd": {
+    "blog.html": "1575bc7e"
+  },
+  "posts/01_adaptive_regression/index.qmd": {
+    "index.html": "c3e4cdc6"
+  },
+  "posts/02_post-with-code/index.qmd": {
+    "index.html": "37e18f9e"
+  },
+  "posts/03_welcome/index.qmd": {
+    "index.html": "5076355f"
+  },
+  "posts/02_hypothesis_test/index.qmd": {
+    "index.html": "74572100"
+  },
+  "posts/03_crosstab_sparsity/index.qmd": {
+    "index.html": "f37ac27b"
   }
 }

@@ -2,8 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html"
+      "/posts/03_crosstab_sparsity/index.html",
+      "/posts/02_hypothesis_test/index.html",
+      "/posts/01_adaptive_regression/index.html"
     ]
   }
 ]

@@ -1,8 +1,8 @@
 ---
 title: "About"
-image: profile.jpg
+image: display_image.jpg
 about:
-  template: jolla
+  template: solana
   links:
     - icon: twitter
       text: Twitter
@@ -15,10 +15,6 @@ about:
       href: https://github.com/jitinkapila
 
 ---
-
-
-<!-- 
-{{< image classes="fancybox nocaption left clear:below fig-50" src="/sitewide/author_pic_300x400.jpg" >}} -->
 
 **"Tao Te Ching, chapter 36, translation by Stephen Mitchell" >**
 As ***Lao Tzu*** says:  
@@ -41,3 +37,5 @@ I have worked on various projects from _Retail Analytics_ to _Fault Detection_ t
 
 
 ***Till next time, stay observant, stay crazy, stay safe, stay healthy.***
+
+

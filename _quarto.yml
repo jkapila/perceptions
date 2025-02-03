@@ -1,9 +1,19 @@
 project:
   type: website
+  resources:
+    - CNAME
 
 website:
   title: "Perceptions"
+  description: "A blog about data science, statistics, machine learning, and the scientific method"
+  favicon: "favicon-32x32.png"
   navbar:
+    logo: favicon.ico
+    background: dark
+    left:
+      - text: Blog
+        file: index.qmd
+
     right:
       - about.qmd
       - icon: github
@@ -14,8 +24,7 @@ website:
 format:
   html:
     theme:
-      - cosmo
-      - brand
+      light: yeti
     css: styles.css
 
 

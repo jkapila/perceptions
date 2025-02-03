@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>perceptions – Perceptions</title>
+<title>Perceptions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./favicon-32x32.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -40,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-6c21014d9765ba549c6ebad95917e4d7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-108ce38a02bc4a98c6c1f3f1e73ba65e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9b40422193b25b9933be6a0bdf71ad13.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-description','listing-categories','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -138,6 +139,9 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./favicon.ico" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Perceptions</span>
     </a>
@@ -147,6 +151,12 @@ window.Quarto = {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
@@ -173,7 +183,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
-      <h1 class="title">perceptions</h1>
+      <h1 class="title">Perceptions</h1>
                       </div>
   </div>
     
@@ -191,7 +201,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZWRh">eda <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aHlwb3RoZXNpcw==">hypothesis <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVncmVzc2lvbg==">regression <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVzZWFyY2g=">research <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -204,75 +214,137 @@ window.Quarto = {
 
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
 <div class="list quarto-listing-default">
 
-<div class="quarto-post image-right" data-index="0" data-categories="bmV3cyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1738089000000" data-listing-file-modified-sort="1738089795043" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7">
+<div class="quarto-post image-right" data-index="0" data-categories="ZWRhJTJDaHlwb3RoZXNpcw==" data-listing-date-sort="1651516200000" data-listing-file-modified-sort="1738585250755" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1695">
 
 <div class="thumbnail">
-<a href="./posts/post-with-code/index.html" class="no-external">
+<a href="./posts/03_crosstab_sparsity/index.html" class="no-external">
 
-<img loading="lazy" src="./posts/post-with-code/image.jpg" class="thumbnail-image">
+<p class="card-img-top"><img src="posts/03_crosstab_sparsity/Picture 1.png"  class="thumbnail-image card-img"/></p>
 
 </a>
 </div>
 
 <div class="body">
 
-<h3 class="no-anchor listing-title"><a href="./posts/post-with-code/index.html" class="no-external">Post With Code</a></h3>
-<div class="listing-subtitle"><a href="./posts/post-with-code/index.html" class="no-external"></a></div>
+<h3 class="no-anchor listing-title"><a href="./posts/03_crosstab_sparsity/index.html" class="no-external">Corsstab Sparsity</a></h3>
+<div class="listing-subtitle"><a href="./posts/03_crosstab_sparsity/index.html" class="no-external">A label and data type agnostic metric for evaluating clustering performance!</a></div>
 
  
 <div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">news</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ZWRh'); return false;">eda</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
+<div class="listing-category" onclick="window.quartoListingCategory('aHlwb3RoZXNpcw=='); return false;">hypothesis</div>
+
+</div>
+ 
+
+<div class="delink listing-description"><a href="./posts/03_crosstab_sparsity/index.html" class="no-external">Cluster analysis has always fascinated me as a window into the hidden structures of data. During my collaboration with Kumarjit Pathak, we grappled with a persistent…<strong></strong></a></div>
+
+</div>
+<div class="metadata"><a href="./posts/03_crosstab_sparsity/index.html" class="no-external">
+<div class="listing-date">May 3, 2022</div>
+
+</a></div>
+
+</div>
+
+<div class="quarto-post image-right" data-index="1" data-categories="ZWRhJTJDaHlwb3RoZXNpcyUyQ2FuYWx5c2lzJTJDcHl0aG9u" data-listing-date-sort="1628533800000" data-listing-file-modified-sort="1738571234460" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2242">
+
+<div class="thumbnail">
+<a href="./posts/02_hypothesis_test/index.html" class="no-external">
+
+<p class="card-img-top"><img src="posts/02_hypothesis_test/TukeyHSD.png" alt="Tukey’s HSD comparision based on Anova Results"  class="thumbnail-image card-img"/></p>
+
+</a>
+</div>
+
+<div class="body">
+
+<h3 class="no-anchor listing-title"><a href="./posts/02_hypothesis_test/index.html" class="no-external">A flow to Test Your Hypothesis in Python</a></h3>
+<div class="listing-subtitle"><a href="./posts/02_hypothesis_test/index.html" class="no-external">Making life easy to do some serious hypothesis testing in python.</a></div>
+
+ 
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZWRh'); return false;">eda</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aHlwb3RoZXNpcw=='); return false;">hypothesis</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
+
+</div>
+ 
+
+<div class="delink listing-description"><a href="./posts/02_hypothesis_test/index.html" class="no-external">A simple code to run your hypothesis test.</a></div>
+
+</div>
+<div class="metadata"><a href="./posts/02_hypothesis_test/index.html" class="no-external">
+<div class="listing-date">Aug 10, 2021</div>
+
+</a></div>
+
+</div>
+
+<div class="quarto-post image-right" data-index="2" data-categories="cmVncmVzc2lvbiUyQ3Jlc2VhcmNoJTJDYW5hbHlzaXM=" data-listing-date-sort="1525113000000" data-listing-file-modified-sort="1738571235624" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1098">
+
+<div class="thumbnail">
+<a href="./posts/01_adaptive_regression/index.html" class="no-external">
+
+<img loading="lazy" src="./posts/01_adaptive_regression/Post_Mape_Plot.png" class="thumbnail-image">
+
+</a>
+</div>
+
+<div class="body">
+
+<h3 class="no-anchor listing-title"><a href="./posts/01_adaptive_regression/index.html" class="no-external">Adaptive Regression</a></h3>
+<div class="listing-subtitle"><a href="./posts/01_adaptive_regression/index.html" class="no-external">We recently put through our observation on Regression Problem in our research. This post is a nonformal attempt to explain it.
+</a></div>
+
+ 
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVncmVzc2lvbg=='); return false;">regression</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVzZWFyY2g='); return false;">research</div>
 
 <div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
 
 </div>
  
 
-<div class="delink listing-description"><a href="./posts/post-with-code/index.html" class="no-external">This is a post with executable code.</a></div>
+<div class="delink listing-description"><a href="./posts/01_adaptive_regression/index.html" class="no-external">If things are simple lets keep it simple. [Paper here](https://arxiv.org/abs/1805.01618)</a></div>
 
 </div>
-<div class="metadata"><a href="./posts/post-with-code/index.html" class="no-external">
-<div class="listing-date">Jan 29, 2025</div>
-<div class="listing-author">Harlow Malloc</div>
-
-</a></div>
-
-</div>
-
-<div class="quarto-post image-right" data-index="1" data-categories="bmV3cw==" data-listing-date-sort="1737829800000" data-listing-file-modified-sort="1738089795043" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="32">
-
-<div class="thumbnail">
-<a href="./posts/welcome/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/welcome/thumbnail.jpg"  class="thumbnail-image card-img"/></p>
-
-</a>
-</div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/welcome/index.html" class="no-external">Welcome To My Blog</a></h3>
-<div class="listing-subtitle"><a href="./posts/welcome/index.html" class="no-external"></a></div>
-
- 
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">news</div>
-
-</div>
- 
-
-<div class="delink listing-description"><a href="./posts/welcome/index.html" class="no-external">This is the first post in a Quarto blog. Welcome!</a></div>
-
-</div>
-<div class="metadata"><a href="./posts/welcome/index.html" class="no-external">
-<div class="listing-date">Jan 26, 2025</div>
-<div class="listing-author">Tristan O'Malley</div>
+<div class="metadata"><a href="./posts/01_adaptive_regression/index.html" class="no-external">
+<div class="listing-date">May 1, 2018</div>
 
 </a></div>
 
