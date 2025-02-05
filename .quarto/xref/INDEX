@@ -28,5 +28,8 @@
   },
   "posts/03_crosstab_sparsity/index.qmd": {
     "index.html": "f37ac27b"
+  },
+  "posts/04_crosstab_sparsity_classification/index.qmd": {
+    "index.html": "0d1237e4"
   }
 }

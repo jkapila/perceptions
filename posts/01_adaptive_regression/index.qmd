@@ -11,10 +11,8 @@ license: "CC BY"
 # Default author
 author:
   - name: Jitin Kapila
-    url: https://www.jitinkapila.com
+    url: https://www.percieveit.com/about
 
-# Default fields for citation
-citation: true
 
 date: "2018-05-01"
 categories: [regression, research, analysis]

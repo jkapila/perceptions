@@ -8,15 +8,13 @@ license: "CC BY"
 # Default author
 author:
   - name: Jitin Kapila
-    url: https://www.jitinkapila.com
+    url: https://www.percieveit.com/about
 
-# Default fields for citation
-citation: true
 
 date: "2022-05-03"
 categories: [eda, hypothesis]
 keywords: [Metric, clustering]
-ightbox: true
+lightbox: true
 format:
   html:
     grid:

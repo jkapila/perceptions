@@ -22,7 +22,4 @@ page-layout: article
 #   html:
 #     include-after-body: ../footer.html
 
-# comments: 
-#   utterances: 
-#     repo:  jitinkapila/blogComments 
-# #########################
+

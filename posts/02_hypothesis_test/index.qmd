@@ -9,10 +9,7 @@ license: "CC BY"
 # Default author
 author:
   - name: Jitin Kapila
-    url: https://www.jitinkapila.com
-
-# Default fields for citation
-citation: true
+    url: https://www.percieveit.com/about
 
 date: "2021-08-10"
 categories: [eda, hypothesis, analysis, python]
