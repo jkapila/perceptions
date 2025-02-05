@@ -454,7 +454,10 @@ After applying feature selection based on CrossTab Sparsity, we’ll compare the
 
 ### Results and Discussion: Unveiling Insights
 
+**Model Comparison Table**
+
 After implementing CrossTab Sparsity in our feature selection process, let’s take a look at the results:
+
 ```{python}
 
 
@@ -475,7 +478,6 @@ metrics = {
 }
 display(pd.DataFrame(metrics).round(2).set_index('Metric').T)
 ```
-**Model Comparison Table**
 
 
 **Insights Gained**
