@@ -459,7 +459,8 @@ After applying feature selection based on CrossTab Sparsity, we’ll compare the
 After implementing CrossTab Sparsity in our feature selection process, let’s take a look at the results:
 
 ```{python}
-
+#| code-fold: true
+#| code-summary: "Comparision Code"
 
 metrics = {
     "Metric": ["Accuracy", "Precision", "Recall", "F1-Score"],
@@ -476,7 +477,7 @@ metrics = {
         f1_score(y_test, challenger_preds, average='weighted'),
     ]
 }
-display(pd.DataFrame(metrics).round(2).set_index('Metric').T)
+display(pd.DataFrame(metrics).round(4).set_index('Metric').T)
 ```
 
 
@@ -488,7 +489,7 @@ Through this analysis, several key insights emerge:
 #| code-fold: true
 #| code-summary: "Column Reduction %"
 n_orig = raw_df.shape[1]-1
-print(f'Reduction of similar accuracy from {n_orig} to 5 i.e {(n_orig-5)*100/n_orig:.2f}% reduction')
+display(f'Reduction of similar accuracy from {n_orig} to 5 i.e {(n_orig-5)*100/n_orig:.2f}% reduction')
 ```
 
 1. **Feature Interactions Matter**: The selected features based on CrossTab Sparsity significantly improved model accuracy—like finding out which ingredients make your favorite dish even better!

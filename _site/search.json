@@ -39,7 +39,7 @@
     "href": "posts/04_crosstab_sparsity_classification/index.html",
     "title": "Corsstab Sparsity for Classification",
     "section": "",
-    "text": "Picture this: you’re standing on the icy shores of Antarctica, the wind whipping around you as you watch a colony of Palmer Penguins waddling about, oblivious to the data detective work you’re about to embark on. As a data science architect, you’re not just an observer; you’re a sleuth armed with algorithms and insights, ready to unravel the mysteries hidden within data. Today, we’ll transform raw numbers into powerful narratives using CrossTab Sparsity as our guiding compass. This blog post will demonstrate how this metric can revolutionize classification tasks, shedding light on two fascinating datasets—the charming Palmer Penguins and the serious Diabetes dataset."
+    "text": "Picture this: you’re standing on the icy shores of Antarctica, the wind whipping around you as you watch a colony of Palmer Penguins waddling about, oblivious to the data detective work you’re about to embark on. As a data science architect, you’re not just an observer; you’re a sleuth armed with algorithms and insights, ready to unravel the mysteries hidden within data. Today, we’ll transform raw numbers into powerful narratives using CrossTab Sparsity as our guiding compass. This blog post will demonstrate how this metric can revolutionize classification tasks, shedding light on many fascinating datasets—the charming Palmer Penguins and the serious Obes, cerdicards and many more."
   },
   {
     "objectID": "posts/04_crosstab_sparsity_classification/index.html#footnotes",
