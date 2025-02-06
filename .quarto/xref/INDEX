@@ -31,5 +31,32 @@
   },
   "posts/04_crosstab_sparsity_classification/index.qmd": {
     "index.html": "0d1237e4"
+  },
+  "posts/11_what_is_trie_and_why_I_love_it/index.qmd": {
+    "index.html": "d85be279"
+  },
+  "posts/09_logistic_regression_the_right_way/index.qmd": {
+    "index.html": "6785131e"
+  },
+  "posts/learning_from_r_doing_in_python/index.qmd": {
+    "index.html": "c2ee913c"
+  },
+  "posts/05_crostab_sparsity_regression/index.qmd": {
+    "index.html": "0bed87df"
+  },
+  "posts/10_tree_classification_the_right_way/index.qmd": {
+    "index.html": "ab07428c"
+  },
+  "posts/06_saving_my_blog/index.qmd": {
+    "index.html": "8047a866"
+  },
+  "posts/going_back_to_basics_series/index.qmd": {
+    "index.html": "5191355b"
+  },
+  "posts/12_one_r_the_new way/index.qmd": {
+    "index.html": "ce2af2dc"
+  },
+  "posts/08_linear_regressoin_the_right_way/index.qmd": {
+    "index.html": "3d9ab9a1"
   }
 }

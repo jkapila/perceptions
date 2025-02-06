@@ -1,6 +1,6 @@
 ---
-title: "Corsstab Sparsity for Classification"
-subtitle: "Can our metric help us in making a claissification problem work better ?"
+title: "CorssTab Sparsity for Classification"
+subtitle: "Can our metric help us in making a classification problem work better ?"
 
 # Enable CC licence appendix
 license: "CC BY"
@@ -28,7 +28,7 @@ draft: false
 
 # Introduction: A Journey into Data
 
-Picture this: you’re standing on the icy shores of Antarctica, the wind whipping around you as you watch a colony of Palmer Penguins waddling about, oblivious to the data detective work you’re about to embark on. As a data science architect, you’re not just an observer; you’re a sleuth armed with algorithms and insights, ready to unravel the mysteries hidden within data. Today, we’ll transform raw numbers into powerful narratives using CrossTab Sparsity as our guiding compass. This blog post will demonstrate how this metric can revolutionize classification tasks, shedding light on many fascinating datasets—the charming Palmer Penguins and the serious Obes, cerdicards and many more.
+Picture this: you’re standing on the icy shores of Antarctica, the wind whipping around you as you watch a colony of Palmer Penguins waddling about, oblivious to the data detective work you’re about to embark on. As a data science architect, you’re not just an observer; you’re a sleuth armed with algorithms and insights, ready to unravel the mysteries hidden within data. Today, we’ll transform raw numbers into powerful narratives using CrossTab Sparsity as our guiding compass. This blog post will demonstrate how this metric can revolutionize classification tasks, shedding light on many fascinating datasets—the charming Palmer Penguins and the serious Obesity, Credit cards data and many more.
 
 # The Power of CrossTab Sparsity
 
@@ -58,15 +58,15 @@ _Little bit about the data:_ This dataset, shared on 12/12/2021, looks at factor
 
 **Key Features**:
 
-- Multiclass: Both data set cater a multi class problems wiht `NObeyesdad` and `Target` columns
-- Mixed Data Type: A good mix of categorical and continuous varaibels are availabel for usage.
-- Sizeable: More than 2 K rows are availabel for testing.
+- Multiclass: Both data set cater a multi class problems with `NObeyesdad` and `Target` columns
+- Mixed Data Type: A good mix of categorical and continuous variables are available for usage.
+- Sizeable: More than 2 K rows are available for testing.
 
 # Exploratory Data Analysis (EDA): Setting the Stage
 
 Before we dive into model creation, let’s explore our dataset through some quick EDA. Think of this as getting to know your non-obese friends before inviting them to a party.
 
-### EDA for Obestiy Data
+### EDA for Obesity Data
 
 Here’s a brief code snippet to perform essential EDA on the Obesity dataset:
 
@@ -92,7 +92,7 @@ sns.set_style("ticks")
 ```{python}
 
 #| code-fold: true
-#| code-summary: "Loading data and genrating basic descriptives"
+#| code-summary: "Loading data and generating basic descriptive"
 
 # Load the Obesity data
 # raw_df = pd.read_csv('ObesityDataSet_raw_and_data_sinthetic.csv')
@@ -177,7 +177,7 @@ With our exploratory analysis complete, we’re ready to create our baseline mod
 
 ```{python}
 #| code-fold: true
-#| code-summary: "Splitting data and traing a default Multinomila Logit model on our data"
+# | code-summary: "Splitting data and training a default Multinomila Logit model on our data"
 
 data_df = raw_df.dropna().reset_index(drop=True)
 data_df[target] = data_df[target].cat.codes
@@ -236,7 +236,7 @@ print("Classification Report:")
 print(report_orig)
 ```
 
-# Loking for some _Improvments!_
+# Looking for some _Improvments!_
 
 ### Feature Selection Using CrossTab Sparsity
 
@@ -244,10 +244,11 @@ Now comes the exciting part—using CrossTab Sparsity to refine our feature sele
 
 [^1]: This is based on work in Unique Metric for Health Analysis with Optimization of Clustering Activity and Cross Comparison of Results from Different Approach. [Paper Link](https://arxiv.org/abs/1810.03419)]
 
+[Code is here!](https://gist.github.com/jkapila/83bb8f6461ec91bfced437762f2c9220)
 
 ```{python}
-#| code-fold: true
-#| code-summary: "Show the code of Crosstab Sparsity"
+#| echo: false
+#| eval: true
 
 def crosstab_sparsity(df, clusters, numeric_bin='decile', method="fd", exhaustive=False):
     """

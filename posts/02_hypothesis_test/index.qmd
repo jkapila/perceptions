@@ -30,32 +30,32 @@ draft: false
 
 # Overview
 
-All the practioners of data science always hit one giant thing to do with data and you know it well its *EDA -Exploratory Data Analysis*.
-This word *EDA*[^1] was coined by Tukey himself in his seminal book publised in 1983. But do you think that before that *EDA* dosen't exsisted ?  
+All the practitioners of data science always hit one giant thing to do with data and you know it well its *EDA -Exploratory Data Analysis*.
+This word *EDA*[^1] was coined by Tukey himself in his seminal book published in 1983. But do you think that before that *EDA* doesn't existed ?  
 
 
 [^1]: Emerson, J. D., & Hoaglin, D. C. (1983). Stem-and-leaf displays. In D. C. Hoaglin, F. Mosteller, & J. W. Tukey (Eds.) Understanding Robust and Exploratory Data Analysis, pp. 7–32. New York: Wiley. [Book is here.](https://www.wiley.com/en-in/Understanding+Robust+and+Exploratory+Data+Analysis-p-9780471384915)
 
 
-Well glad you thought. Before that all were doing what is called as *_Hypothesis Tesing_*. Yes, before this the race was majorly to fit the data and make most unbiased and robust estimate. But remember one thing when you talk about *Hypothesis Testing* it was always and majorly would be related to *RCTs 
+Well glad you thought. Before that all were doing what is called as *_Hypothesis Testing_*. Yes, before this the race was majorly to fit the data and make most unbiased and robust estimate. But remember one thing when you talk about *Hypothesis Testing* it was always and majorly would be related to *RCTs 
 (Randomized Controlled Trials)* a.k.a Randomized Clinical Trials and is _Gold Standard_ of data.  
 
 ::: {.callout-tip collapse="true"}
 ## More on RCTs and ODs
 
-Now let me now not hijack the discussion to what is *RCTs* and *Observational Data (ODs)* as it is more of _Philosphical Reasoning_ rather than other quality of data, but essentially what we are trying to find is that can we by, using stats, identify *interesting patterns* in data. 
+Now let me now not hijack the discussion to what is *RCTs* and *Observational Data (ODs)* as it is more of _Philosophical Reasoning_ rather than other quality of data, but essentially what we are trying to find is that can we by, using stats, identify *interesting patterns* in data. 
 
-The only thing happens wit RCT data is that we tend to believe these intresting patterns coincide with some sort of _'Cause-Effect'_  kind of relationship. But essentially due to bia nature of ODs, we certainly cant conclude this. And hence, can only find _intresting_ patterns.
+The only thing happens wit RCT data is that we tend to believe these interesting patterns coincide with some sort of _'Cause-Effect'_  kind of relationship. But essentially due to bia nature of ODs, we certainly cant conclude this. And hence, can only find _interesting_ patterns.
 :::
 
-Lets move on. The big question is, for whatever reason you are doing _HT_ , you are doing it for finding _something intresting_. And that something intresting is usually found by using *_Post-Hoc Tests_*. Now there are variety of _Post-Hocs_ available but what is more know and hence easily found to be implemented in _Tukey's HSD_.
+Lets move on. The big question is, for whatever reason you are doing _HT_ , you are doing it for finding _something intreating_. And that something interesting is usually found by using *_Post-Hoc Tests_*. Now there are variety of _Post-Hocs_ available but what is more know and hence easily found to be implemented in _Tukey's HSD_.
 
-So lets directly jump to how to follow this procedure. We'll be using `bioinfokit` for this, as it is much simpler wrapper around whats impelmented in `statsmodels`.
+So lets directly jump to how to follow this procedure. We'll be using `bioinfokit` for this, as it is much simpler wrapper around whats implemented in `statsmodels`.
 
 
 # What are the results
 
-Pheww... Thats too much code right. But that would save a lot of your time in real life. So in reallife you would write code as 3 steps below:
+Pheww... Thats too much code right. But that would save a lot of your time in real life. So in real life you would write code as 3 steps below:
 
 ```{python}
 #| eval: false
@@ -128,7 +128,7 @@ plot_hsd(results.tukeyhsd.sort_values('Diff'), title="Tukey HSD resutls Anova of
 
 Results form the `plot_hsd`
 
-![**Tukey's HSD comparision based on Anova Results**](TukeyHSD.png)
+![**Tukey's HSD comparison based on Anova Results**](TukeyHSD.png)
 
 
 Plots look good with 'p-values'. 
@@ -137,8 +137,8 @@ Plots look good with 'p-values'.
   
 
 [Now since we applied the above to a *_Non RCT_* we cannot conclude that Difference in mpg based on cylinder is huge specially as number of cylinders goes up.
-But this statement might not be as explicit as might be apperiang from plot. Unless you have a strong believe that the data follows with rules and assumptions of RCTs,
-we should be only seeking *intresting* as in *associated* results and not *cause-effet* resluts.]{bg=lightgreen}
+But this statement might not be as explicit as might be appearing from plot. Unless you have a strong believe that the data follows with rules and assumptions of RCTs,
+we should be only seeking *interesting* as in *associated* results and not *cause-effect* results.]{bg=lightgreen}
 
 # Give me "The Code"
 
@@ -170,8 +170,8 @@ def do_anova_test(df, res_var, xfac_var, anova_model,ss_typ=3,
     
     :param df: Pandas DataFrame holding all the columns
     :param res_var: Variable for which we are checking ANOVA
-    :param xfac_var: Grouping Variables for which we want to do the comparisions
-    :param anova_model: SM forula for the model. This is life savour to make all things work
+    :param xfac_var: Grouping Variables for which we want to do the comparisons
+    :param anova_model: SM formula for the model. This is life savour to make all things work
     :param result_full: To provide all the results of intermediate steps
     
     """
@@ -195,7 +195,7 @@ def do_anova_test(df, res_var, xfac_var, anova_model,ss_typ=3,
             
     results = KeyResults(result_full)
     
-    # initiallize stat method
+    # initialize stat method
     res = analys.stat()
     
     # doing levens test

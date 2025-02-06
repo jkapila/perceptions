@@ -1,5 +1,5 @@
 ---
-title: "Corsstab Sparsity"
+title: "CorssTab Sparsity"
 subtitle: "A label and data type agnostic metric for evaluating clustering performance!"
 
 # Enable CC licence appendix
@@ -91,9 +91,9 @@ where:
 
 This formulation ensures **algorithmic invariance**, allowing comparison across methods like K-Means (distance-based) and GMM (probability-based). Also, now you can see from the formula two scenarios happens:
 1. If each variable crosstab is too dense then their is no separation between classes
-2. If each variable crosstab is too sparse then we loose on explaination.
+2. If each variable crosstab is too sparse then we loose on explanation.
 
-Hence the curve reaches a maximum and then falls down giving use the sepratabiltiy that the cluster can produce:
+Hence the curve reaches a maximum and then falls down giving use the separability that the cluster can produce:
 
 
 # Case Study: Vehicle Silhouettes (Through My Eyes)  
@@ -116,20 +116,20 @@ After refining the preprocessing:
 Finding best cluster for K-Means alone:
 !["Best Cluster for PAM method Using Crosstab sparsity"](Kmeans on Vehicle.png)
 
-Comparing all cluster methonds and find the optimal one:
+Comparing all cluster methods and find the optimal one:
 
 ![Optimal Cluster for many methods](Comparision across many methods.png)
 
 **The chunkiest part** : Understanding your variable for separateness. This gives direct insight of what variable in your data is most critical separator.
  
- ![All kind of variable scored angainst Metrics](Variable segregation.png)
+ ![All kind of variable scored against Metrics](Variable segregation.png)
 
 
-# Comparative Advantages and Creativty at Work  
+# Comparative Advantages and Creativity at Work  
 
 **_Comparative Advantage Over Traditional Metrics_**
 
-| **Feature/Scanairo**      | **Silhouette Index**       | **Davies-Bouldin**         | **Crosstab Sparsity**        |  
+| **Feature/Scenario**      | **Silhouette Index**       | **Davies-Bouldin**         | **Crosstab Sparsity**        |  
 |---------------------------|-----------------------------|----------------------------|----------------------------|  
 | Algorithm Agnostic    | ❌ (Distance-based only)     | ❌                          | ✔️                          |  
 | Handles Mixed Data     | ❌                          | ❌                          | ✔️                          |  
@@ -143,10 +143,10 @@ Comparing all cluster methonds and find the optimal one:
 <br>
 
 
-Our creativity yeilding boons. We wnated a simple metric to judge different kind of cluster, but we got much more from our experiments and work on this metric:  
+Our creativity yielding boons. We wanted a simple metric to judge different kind of cluster, but we got much more from our experiments and work on this metric:  
 
 1. Variable-Level Diagnostics: Low $S_v^k$ scores pinpoint variables muddying cluster separation.  
-2. Cross-Method Benchmarking: Compare K-Means (distance) vs GMM (probability) vs hierarchical vs partitional clustering fairly using a unified score.  
+2. Cross-Method Benchmarking: Compare K-Means (distance) vs GMM (probability) vs hierarchical vs partition clustering fairly using a unified score.  
 3. Scale Invariance: Logarithmic term makes scores comparable across datasets of varying sizes.  
 4. Debug Cluster Quality: Identify and remove noisy variables preemptively  
 5. Automate Model Selection: Objectively choose between K-Means, GMM, PAM, Agglomerative.  
@@ -154,61 +154,17 @@ Our creativity yeilding boons. We wnated a simple metric to judge different kind
 
 # Lessons Learned and Future Vision  
 
-**Few take aways from these experiments**  
-1. Binning Sensitivity: Quantile-based binning was transformative. Equal-width bins distorted scores for skewed variables.  
-2. Categorical Handling: Native levels for categoricals outperformed frequency-based grouping.  
-3. Non-Parametric Appraoch: This approach allowed us to make sense of data without being tied down by assumptions. We have seen how this metric can be a game-changer for statisticians, providing insights not just into cluster behavior but also into rare event modeling.
+**Few take away from these experiments**  
+1. Binning Sensitivity: Quantile-based binning was transformation. Equal-width bins distorted scores for skewed variables.  
+2. Categorical Handling: Native levels for categorical outperformed frequency-based grouping.  
+3. Non-Parametric Approach: This approach allowed us to make sense of data without being tied down by assumptions. We have seen how this metric can be a game-changer for statisticians, providing insights not just into cluster behavior but also into rare event modeling.
 
 The plots from these experiments not only clarify how clusters behave but also offer valuable insights for identifying outliers. I believe there's exciting potential to extend this metric into classification and value estimation modeling. Imagine using it as a loss function in both linear and non-linear methods to achieve better data segmentation! Thing for another blog someday!
 
 ### A Personal Reflection  
 Developing this metric taught me that **simplicity often masks depth**. A two-component formula now underpins clustering decisions in industries we never imagined—from fraud detection to genomics. Yet, I’m most proud of how it democratizes cluster analysis: business analysts at our partner firms now optimize clusters without PhD-level stats.  
 
-
-### Try It Yourself  
-
-Quickstart Guide
-
-
-1. **Preprocess Data**:  
-   ```python  
-   from sklearn.cluster import KMeans  
-   import pandas as pd  
-
-   # Cluster your data  
-   kmeans = KMeans(n_clusters=6)  
-   clusters = kmeans.fit_predict(X)  
-   ```
-
-2. **Calculate Scores**:  
-   ```python  
-   def calculate_Svk(df, variable, clusters, bins=10):  
-       # Discretize variable  
-       discretized = pd.qcut(df[variable], bins, labels=False)  
-       cross_tab = pd.crosstab(clusters, discretized)
-       l, k = cross_tab.shape  
-
-       # Segregation factor  
-       median = np.median(cross_tab.values)  
-       N_vk = np.sum(cross_tab > median)  
-       segregation = (N_vk / max(l, k))
-
-       # Explanation factor  
-       explanation = np.log(len(df) / (l * k))  
-
-       return  segregation * explanation, segregation, explanation  
-   ```
-
-
-```{python}
-#|eval: false
-#|echo : false
-
-#### Resources  
-# - [GitHub Repo](https://github.com/jitinkapila/cluster-metric) with experiment code  
-# - [Interactive Tutorial](https://colab.research.google.com) using the vehicle dataset  
-
-```
+You can find implementation of [python code here](https://gist.github.com/jkapila/83bb8f6461ec91bfced437762f2c9220)
 
 *This blog synthesizes findings from our original paper, available [here](https://arxiv.org/abs/1810.03419). For a deeper dive into the math, check Section 3 of the paper.*  
 

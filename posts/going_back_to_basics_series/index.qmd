@@ -1,0 +1,27 @@
+---
+title: "CorssTab Sparsity for Classification"
+subtitle: "Can our metric help us in making a classification problem work better ?"
+
+# Enable CC licence appendix
+license: "CC BY"
+
+# Default author
+author:
+  - name: Jitin Kapila
+    url: www.percieveit.com/about
+
+date: "2023-01-03"
+categories: [classification, metric, feature selection]
+keywords: [metric, classification, python, modelling]
+lightbox: true
+format:
+  html:
+    grid:
+      margin-width: 500px 
+
+code-fold: true
+code-tools: true
+
+
+draft: true
+---
