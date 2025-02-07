@@ -1,0 +1,3436 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.6">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jitin Kapila">
+<meta name="dcterms.date" content="2023-01-03">
+<meta name="description" content="Can our metric help us in making a classification problem work better ?">
+
+<title>CrossTab Sparsity for Classification – Preceptions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon-32x32.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-fd4efb276d373fbde0289c4466a15eeb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-2565029c5205f4d0efc56fe1992323f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: black;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: black;
+background: #f0f3f5;
+      }
+</style>
+<script defer="" src="https://cloud.umami.is/script.js" data-website-id="f255d40e-5114-4445-8d5b-9b356f5be573"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="floating nav-fixed slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../favicon.ico" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Preceptions</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <span class="nav-link">
+<span class="menu-text">Perceiving It !</span>
+    </span>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">CrossTab Sparsity for Classification</h1>
+                  <div>
+        <div class="description">
+          Can our metric help us in making a classification problem work better ?
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">classification</div>
+                <div class="quarto-category">metric</div>
+                <div class="quarto-category">feature selection</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jitin Kapila </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 3, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-a-journey-into-data" id="toc-introduction-a-journey-into-data" class="nav-link active" data-scroll-target="#introduction-a-journey-into-data">Introduction: A Journey into Data</a></li>
+  <li><a href="#the-power-of-crosstab-sparsity" id="toc-the-power-of-crosstab-sparsity" class="nav-link" data-scroll-target="#the-power-of-crosstab-sparsity">The Power of CrossTab Sparsity</a>
+  <ul class="collapse">
+  <li><a href="#what-is-crosstab-sparsity" id="toc-what-is-crosstab-sparsity" class="nav-link" data-scroll-target="#what-is-crosstab-sparsity">What is CrossTab Sparsity?</a></li>
+  </ul></li>
+  <li><a href="#data-overview-our-data-people-at-work-here" id="toc-data-overview-our-data-people-at-work-here" class="nav-link" data-scroll-target="#data-overview-our-data-people-at-work-here">Data Overview: Our Data People at work here</a>
+  <ul class="collapse">
+  <li><a href="#the-datasets" id="toc-the-datasets" class="nav-link" data-scroll-target="#the-datasets">The Datasets</a></li>
+  </ul></li>
+  <li><a href="#exploratory-data-analysis-eda-setting-the-stage" id="toc-exploratory-data-analysis-eda-setting-the-stage" class="nav-link" data-scroll-target="#exploratory-data-analysis-eda-setting-the-stage">Exploratory Data Analysis (EDA): Setting the Stage</a>
+  <ul class="collapse">
+  <li><a href="#eda-for-obesity-data" id="toc-eda-for-obesity-data" class="nav-link" data-scroll-target="#eda-for-obesity-data">EDA for Obesity Data</a></li>
+  </ul></li>
+  <li><a href="#model-creation-establishing-a-baseline" id="toc-model-creation-establishing-a-baseline" class="nav-link" data-scroll-target="#model-creation-establishing-a-baseline">Model Creation: Establishing a Baseline</a>
+  <ul class="collapse">
+  <li><a href="#evaluating-model-performance" id="toc-evaluating-model-performance" class="nav-link" data-scroll-target="#evaluating-model-performance">Evaluating Model Performance</a></li>
+  </ul></li>
+  <li><a href="#looking-for-some-improvments" id="toc-looking-for-some-improvments" class="nav-link" data-scroll-target="#looking-for-some-improvments">Looking for some <em>Improvments!</em></a>
+  <ul class="collapse">
+  <li><a href="#feature-selection-using-crosstab-sparsity" id="toc-feature-selection-using-crosstab-sparsity" class="nav-link" data-scroll-target="#feature-selection-using-crosstab-sparsity">Feature Selection Using CrossTab Sparsity</a></li>
+  <li><a href="#standared-steps-for-feature-selection" id="toc-standared-steps-for-feature-selection" class="nav-link" data-scroll-target="#standared-steps-for-feature-selection">Standared Steps for Feature Selection</a></li>
+  <li><a href="#and-drum-rolls-pelase" id="toc-and-drum-rolls-pelase" class="nav-link" data-scroll-target="#and-drum-rolls-pelase">And Drum Rolls pelase!!!</a></li>
+  </ul></li>
+  <li><a href="#impact-on-model-accuracy" id="toc-impact-on-model-accuracy" class="nav-link" data-scroll-target="#impact-on-model-accuracy">Impact on Model Accuracy</a>
+  <ul class="collapse">
+  <li><a href="#results-and-discussion-unveiling-insights" id="toc-results-and-discussion-unveiling-insights" class="nav-link" data-scroll-target="#results-and-discussion-unveiling-insights">Results and Discussion: Unveiling Insights</a></li>
+  </ul></li>
+  <li><a href="#conclusion-the-road-ahead" id="toc-conclusion-the-road-ahead" class="nav-link" data-scroll-target="#conclusion-the-road-ahead">Conclusion: The Road Ahead</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+
+
+
+
+
+<section id="introduction-a-journey-into-data" class="level1">
+<h1>Introduction: A Journey into Data</h1>
+<p>Picture this: you’re standing on the icy shores of Antarctica, the wind whipping around you as you watch a colony of Palmer Penguins waddling about, oblivious to the data detective work you’re about to embark on. As a data science architect, you’re not just an observer; you’re a sleuth armed with algorithms and insights, ready to unravel the mysteries hidden within data. Today, we’ll transform raw numbers into powerful narratives using CrossTab Sparsity as our guiding compass. This blog post will demonstrate how this metric can revolutionize classification tasks, shedding light on many fascinating datasets—the charming Palmer Penguins and the serious Obesity, Credit cards data and many more.</p>
+</section>
+<section id="the-power-of-crosstab-sparsity" class="level1">
+<h1>The Power of CrossTab Sparsity</h1>
+<section id="what-is-crosstab-sparsity" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-crosstab-sparsity">What is CrossTab Sparsity?</h3>
+<p>CrossTab Sparsity isn’t just a fancy term that sounds good at dinner parties; it’s a statistical measure that helps us peer into the intricate relationships between categorical variables. Imagine it as a magnifying glass that reveals how different categories interact within a contingency table. Understanding these interactions is crucial in classification tasks, where the right features can make or break your model (and your day).</p>
+<p><strong>Why Does It Matter?</strong></p>
+<p>In the world of data science, especially in classification, selecting relevant features is like picking the right ingredients for a gourmet meal—get it wrong, and you might end up with something unpalatable. CrossTab Sparsity helps us achieve this by:</p>
+<ul>
+<li>Highlighting Relationships: It’s like having a friend who always points out when two people are meant to be together—understanding how features interact with the target variable.</li>
+<li>Streamlining Models: Reducing complexity by focusing on significant features means less time spent untangling spaghetti code.</li>
+<li>Enhancing Interpretability: Making models easier to understand and explain to stakeholders is like translating tech jargon into plain English—everyone appreciates that!</li>
+</ul>
+</section>
+</section>
+<section id="data-overview-our-data-people-at-work-here" class="level1">
+<h1>Data Overview: Our Data People at work here</h1>
+<section id="the-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="the-datasets">The Datasets</h3>
+<p>Data 1: <a href="https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition">Estimation of Obesity Levels Based On Eating Habits and Physical Condition</a></p>
+<p><em>Little bit about the data:</em> This dataset, shared on 8/26/2019, looks at obesity levels in people from Mexico, Peru, and Colombia based on their eating habits and physical health. It includes 2,111 records with 16 features, and classifies individuals into different obesity levels, from insufficient weight to obesity type III. Most of the data (77%) was created using a tool, while the rest (23%) was collected directly from users online.</p>
+<p>Data 2: <a href="https://archive.ics.uci.edu/dataset/697/predict+students+dropout+and+academic+success">Predict Students’ Dropout and Academic Success</a></p>
+<p><em>Little bit about the data:</em> This dataset, shared on 12/12/2021, looks at factors like students’ backgrounds, academic path, and socio-economic status to predict whether they’ll drop out or succeed in their studies. With 4,424 records across 36 features, it covers students from different undergrad programs. The goal is to use machine learning to spot at-risk students early, so schools can offer support. The data has been cleaned and doesn’t have any missing values. It’s a classification task with three outcomes: dropout, still enrolled, or graduated</p>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li>Multiclass: Both data set cater a multi class problems with <code>NObeyesdad</code> and <code>Target</code> columns</li>
+<li>Mixed Data Type: A good mix of categorical and continuous variables are available for usage.</li>
+<li>Sizeable: More than 2 K rows are available for testing.</li>
+</ul>
+</section>
+</section>
+<section id="exploratory-data-analysis-eda-setting-the-stage" class="level1 page-columns page-full">
+<h1>Exploratory Data Analysis (EDA): Setting the Stage</h1>
+<p>Before we dive into model creation, let’s explore our dataset through some quick EDA. Think of this as getting to know your non-obese friends before inviting them to a party.</p>
+<section id="eda-for-obesity-data" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="eda-for-obesity-data">EDA for Obesity Data</h3>
+<p>Here’s a brief code snippet to perform essential EDA on the Obesity dataset:</p>
+<div id="6188c29e" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Loading data and generating basic descriptive</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the Obesity data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>raw_df <span class="op">=</span> pd.read_csv(<span class="st">'ObesityDataSet_raw_and_data_sinthetic.csv'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> <span class="st">'NObeyesdad'</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load Students data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load Credit data</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># raw_data = sm.datasets.get_rdataset("credit_data",'modeldata')</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># raw_df = raw_data.data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># target = 'Status'</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># # Load Palmer penguins data</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># raw_data = sm.datasets.get_rdataset("penguins",'palmerpenguins')</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># raw_df = raw_data.data</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># target = 'species'</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># # Load Credit data</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># raw_data = sm.datasets.get_rdataset("CreditCard",'AER')</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># raw_df = raw_data.data</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># target = 'card'</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># setting things up for aal the next steps</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>raw_df[target] <span class="op">=</span> raw_df[target].astype(<span class="st">'category'</span>) </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'No of data points available to work:'</span>,raw_df.shape)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>display(raw_df.head())</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>display(raw_df.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>No of data points available to work: (2111, 17)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Gender</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Height</th>
+<th data-quarto-table-cell-role="th">Weight</th>
+<th data-quarto-table-cell-role="th">Famil_Hist_Owt</th>
+<th data-quarto-table-cell-role="th">FAVC</th>
+<th data-quarto-table-cell-role="th">FCVC</th>
+<th data-quarto-table-cell-role="th">NCP</th>
+<th data-quarto-table-cell-role="th">CAEC</th>
+<th data-quarto-table-cell-role="th">SMOKE</th>
+<th data-quarto-table-cell-role="th">CH2O</th>
+<th data-quarto-table-cell-role="th">SCC</th>
+<th data-quarto-table-cell-role="th">FAF</th>
+<th data-quarto-table-cell-role="th">TUE</th>
+<th data-quarto-table-cell-role="th">CALC</th>
+<th data-quarto-table-cell-role="th">MTRANS</th>
+<th data-quarto-table-cell-role="th">NObeyesdad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Female</td>
+<td>21.0</td>
+<td>1.62</td>
+<td>64.0</td>
+<td>yes</td>
+<td>no</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>Sometimes</td>
+<td>no</td>
+<td>2.0</td>
+<td>no</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>no</td>
+<td>Public_Transportation</td>
+<td>Normal_Weight</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Female</td>
+<td>21.0</td>
+<td>1.52</td>
+<td>56.0</td>
+<td>yes</td>
+<td>no</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>Sometimes</td>
+<td>yes</td>
+<td>3.0</td>
+<td>yes</td>
+<td>3.0</td>
+<td>0.0</td>
+<td>Sometimes</td>
+<td>Public_Transportation</td>
+<td>Normal_Weight</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Male</td>
+<td>23.0</td>
+<td>1.80</td>
+<td>77.0</td>
+<td>yes</td>
+<td>no</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>Sometimes</td>
+<td>no</td>
+<td>2.0</td>
+<td>no</td>
+<td>2.0</td>
+<td>1.0</td>
+<td>Frequently</td>
+<td>Public_Transportation</td>
+<td>Normal_Weight</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Male</td>
+<td>27.0</td>
+<td>1.80</td>
+<td>87.0</td>
+<td>no</td>
+<td>no</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>Sometimes</td>
+<td>no</td>
+<td>2.0</td>
+<td>no</td>
+<td>2.0</td>
+<td>0.0</td>
+<td>Frequently</td>
+<td>Walking</td>
+<td>Overweight_Level_I</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Male</td>
+<td>22.0</td>
+<td>1.78</td>
+<td>89.8</td>
+<td>no</td>
+<td>no</td>
+<td>2.0</td>
+<td>1.0</td>
+<td>Sometimes</td>
+<td>no</td>
+<td>2.0</td>
+<td>no</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>Sometimes</td>
+<td>Public_Transportation</td>
+<td>Overweight_Level_II</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Height</th>
+<th data-quarto-table-cell-role="th">Weight</th>
+<th data-quarto-table-cell-role="th">FCVC</th>
+<th data-quarto-table-cell-role="th">NCP</th>
+<th data-quarto-table-cell-role="th">CH2O</th>
+<th data-quarto-table-cell-role="th">FAF</th>
+<th data-quarto-table-cell-role="th">TUE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>2111.000000</td>
+<td>2111.000000</td>
+<td>2111.000000</td>
+<td>2111.000000</td>
+<td>2111.000000</td>
+<td>2111.000000</td>
+<td>2111.000000</td>
+<td>2111.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>24.312600</td>
+<td>1.701677</td>
+<td>86.586058</td>
+<td>2.419043</td>
+<td>2.685628</td>
+<td>2.008011</td>
+<td>1.010298</td>
+<td>0.657866</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>6.345968</td>
+<td>0.093305</td>
+<td>26.191172</td>
+<td>0.533927</td>
+<td>0.778039</td>
+<td>0.612953</td>
+<td>0.850592</td>
+<td>0.608927</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>14.000000</td>
+<td>1.450000</td>
+<td>39.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>19.947192</td>
+<td>1.630000</td>
+<td>65.473343</td>
+<td>2.000000</td>
+<td>2.658738</td>
+<td>1.584812</td>
+<td>0.124505</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>22.777890</td>
+<td>1.700499</td>
+<td>83.000000</td>
+<td>2.385502</td>
+<td>3.000000</td>
+<td>2.000000</td>
+<td>1.000000</td>
+<td>0.625350</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>26.000000</td>
+<td>1.768464</td>
+<td>107.430682</td>
+<td>3.000000</td>
+<td>3.000000</td>
+<td>2.477420</td>
+<td>1.666678</td>
+<td>1.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>61.000000</td>
+<td>1.980000</td>
+<td>173.000000</td>
+<td>3.000000</td>
+<td>4.000000</td>
+<td>3.000000</td>
+<td>3.000000</td>
+<td>2.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><em>Target distribution</em></p>
+<div id="acd083e6" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Target and Correlation</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize target data distribution</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>raw_df, x<span class="op">=</span>target, hue<span class="op">=</span>target, palette<span class="op">=</span><span class="st">'Set2'</span>,)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Distribution of </span><span class="sc">{</span>target<span class="sc">}</span><span class="ss"> levels'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap to check for correlations between numeric variables</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> raw_df.corr(<span class="st">'kendall'</span>,numeric_only<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">'coolwarm'</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Kendall Correlation Heatmap'</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/cell-4-output-1.png" width="400" height="392" class="figure-img img-fluid"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-4-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="index_files/figure-html/cell-4-output-2.png" width="544" height="431" class="figure-img img-fluid"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Some Mode EDA for the data
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="ea06f00e" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>EDA code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the distribution of numerical variables</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sns.pairplot(raw_df, hue<span class="op">=</span>target, corner<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Gettign Categorical data</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>categorical_columns <span class="op">=</span> raw_df.select_dtypes(include<span class="op">=</span><span class="st">'object'</span>).columns</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot categorical variables with respect to the target variable</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> categorical_columns:</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    sns.countplot(data<span class="op">=</span>raw_df,x<span class="op">=</span>col, hue<span class="op">=</span>target)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"Countplot of </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss"> with respect to </span><span class="sc">{</span>target<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="index_files/figure-html/cell-5-output-1.png" width="2085" height="1885" class="figure-img img-fluid"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="index_files/figure-html/cell-5-output-2.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-5-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/cell-5-output-3.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="index_files/figure-html/cell-5-output-4.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-5-output-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="index_files/figure-html/cell-5-output-5.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-5-output-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="index_files/figure-html/cell-5-output-6.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-5-output-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="index_files/figure-html/cell-5-output-7.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-5-output-8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="index_files/figure-html/cell-5-output-8.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-5-output-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="index_files/figure-html/cell-5-output-9.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div></section>
+</section>
+<section id="model-creation-establishing-a-baseline" class="level1 page-columns page-full">
+<h1>Model Creation: Establishing a Baseline</h1>
+<p>With our exploratory analysis complete, we’re ready to create our baseline model using logistic regression with Statsmodels. This initial model will serve as our reference point—like setting up a benchmark for your favorite video game.</p>
+<div id="9c710880" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Splitting data and training a default Multinomila Logit model on our data</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data_df <span class="op">=</span> raw_df.dropna().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data_df[target] <span class="op">=</span> data_df[target].cat.codes</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># X = data_df[['bill_length_mm','bill_depth_mm','flipper_length_mm','body_mass_g']] </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data_df_test <span class="op">=</span> data_df.sample(frac<span class="op">=</span><span class="fl">0.1</span>,random_state<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>data_df_train <span class="op">=</span> data_df.drop(data_df_test.index)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Using MN logistic regression model using formula API</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># This would essentially bold down to pair wise logsitic regression</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>logit_model <span class="op">=</span> sm.MNLogit.from_formula(</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>target<span class="sc">}</span><span class="ss"> ~ </span><span class="sc">{</span><span class="st">' + '</span><span class="sc">.</span>join([col <span class="cf">for</span> col <span class="kw">in</span> data_df_train.columns <span class="cf">if</span> col <span class="op">!=</span> target])<span class="sc">}</span><span class="ss">"</span>, </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>data_df_train</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>).fit_regularized()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimization terminated successfully    (Exit mode 0)
+            Current function value: 0.17113347578942742
+            Iterations: 489
+            Function evaluations: 670
+            Gradient evaluations: 489</code></pre>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Base model summary for geeks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="e1dc2efb" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Display summary</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>display(logit_model.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>MNLogit Regression Results</caption>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Dep. Variable:</td>
+<td>NObeyesdad</td>
+<td data-quarto-table-cell-role="th">No. Observations:</td>
+<td>1900</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Model:</td>
+<td>MNLogit</td>
+<td data-quarto-table-cell-role="th">Df Residuals:</td>
+<td>1756</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Method:</td>
+<td>MLE</td>
+<td data-quarto-table-cell-role="th">Df Model:</td>
+<td>138</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Date:</td>
+<td>Fri, 07 Feb 2025</td>
+<td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
+<td>0.9119</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Time:</td>
+<td>18:42:17</td>
+<td data-quarto-table-cell-role="th">Log-Likelihood:</td>
+<td>-325.15</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">converged:</td>
+<td>True</td>
+<td data-quarto-table-cell-role="th">LL-Null:</td>
+<td>-3691.8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Covariance Type:</td>
+<td>nonrobust</td>
+<td data-quarto-table-cell-role="th">LLR p-value:</td>
+<td>0.000</td>
+</tr>
+</tbody>
+</table>
+
+
+<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NObeyesdad=1</td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">z</td>
+<td data-quarto-table-cell-role="th">P&gt;|z|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Intercept</td>
+<td>-11.3439</td>
+<td>3.45e+05</td>
+<td>-3.29e-05</td>
+<td>1.000</td>
+<td>-6.76e+05</td>
+<td>6.76e+05</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Gender[T.Male]</td>
+<td>-3.4606</td>
+<td>0.819</td>
+<td>-4.224</td>
+<td>0.000</td>
+<td>-5.066</td>
+<td>-1.855</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</td>
+<td>-0.8874</td>
+<td>0.658</td>
+<td>-1.349</td>
+<td>0.177</td>
+<td>-2.177</td>
+<td>0.402</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FAVC[T.yes]</td>
+<td>0.2631</td>
+<td>0.782</td>
+<td>0.337</td>
+<td>0.736</td>
+<td>-1.269</td>
+<td>1.795</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CAEC[T.Frequently]</td>
+<td>-8.2219</td>
+<td>2.342</td>
+<td>-3.511</td>
+<td>0.000</td>
+<td>-12.811</td>
+<td>-3.632</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CAEC[T.Sometimes]</td>
+<td>-6.2475</td>
+<td>2.265</td>
+<td>-2.758</td>
+<td>0.006</td>
+<td>-10.687</td>
+<td>-1.808</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CAEC[T.no]</td>
+<td>-8.6341</td>
+<td>2.916</td>
+<td>-2.961</td>
+<td>0.003</td>
+<td>-14.349</td>
+<td>-2.919</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SMOKE[T.yes]</td>
+<td>4.5048</td>
+<td>3.105</td>
+<td>1.451</td>
+<td>0.147</td>
+<td>-1.582</td>
+<td>10.591</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SCC[T.yes]</td>
+<td>-0.7063</td>
+<td>1.458</td>
+<td>-0.484</td>
+<td>0.628</td>
+<td>-3.565</td>
+<td>2.152</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CALC[T.Frequently]</td>
+<td>-12.6173</td>
+<td>3.45e+05</td>
+<td>-3.66e-05</td>
+<td>1.000</td>
+<td>-6.76e+05</td>
+<td>6.76e+05</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CALC[T.Sometimes]</td>
+<td>-13.3244</td>
+<td>3.45e+05</td>
+<td>-3.86e-05</td>
+<td>1.000</td>
+<td>-6.76e+05</td>
+<td>6.76e+05</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CALC[T.no]</td>
+<td>-14.1980</td>
+<td>3.45e+05</td>
+<td>-4.12e-05</td>
+<td>1.000</td>
+<td>-6.76e+05</td>
+<td>6.76e+05</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MTRANS[T.Bike]</td>
+<td>15.8821</td>
+<td>2529.381</td>
+<td>0.006</td>
+<td>0.995</td>
+<td>-4941.614</td>
+<td>4973.378</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</td>
+<td>4.0050</td>
+<td>47.345</td>
+<td>0.085</td>
+<td>0.933</td>
+<td>-88.790</td>
+<td>96.800</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</td>
+<td>4.5116</td>
+<td>1.001</td>
+<td>4.505</td>
+<td>0.000</td>
+<td>2.549</td>
+<td>6.474</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MTRANS[T.Walking]</td>
+<td>4.3989</td>
+<td>1.507</td>
+<td>2.918</td>
+<td>0.004</td>
+<td>1.445</td>
+<td>7.353</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>0.3779</td>
+<td>0.098</td>
+<td>3.858</td>
+<td>0.000</td>
+<td>0.186</td>
+<td>0.570</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Height</td>
+<td>-14.4182</td>
+<td>4.123</td>
+<td>-3.497</td>
+<td>0.000</td>
+<td>-22.499</td>
+<td>-6.338</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Weight</td>
+<td>1.0784</td>
+<td>0.146</td>
+<td>7.384</td>
+<td>0.000</td>
+<td>0.792</td>
+<td>1.365</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FCVC</td>
+<td>-0.7676</td>
+<td>0.428</td>
+<td>-1.793</td>
+<td>0.073</td>
+<td>-1.607</td>
+<td>0.072</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">NCP</td>
+<td>-1.7199</td>
+<td>0.489</td>
+<td>-3.516</td>
+<td>0.000</td>
+<td>-2.679</td>
+<td>-0.761</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CH2O</td>
+<td>-1.7255</td>
+<td>0.578</td>
+<td>-2.985</td>
+<td>0.003</td>
+<td>-2.859</td>
+<td>-0.592</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">FAF</td>
+<td>-0.1753</td>
+<td>0.281</td>
+<td>-0.624</td>
+<td>0.533</td>
+<td>-0.726</td>
+<td>0.375</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TUE</td>
+<td>-0.9735</td>
+<td>0.458</td>
+<td>-2.124</td>
+<td>0.034</td>
+<td>-1.872</td>
+<td>-0.075</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">NObeyesdad=2</td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">z</td>
+<td data-quarto-table-cell-role="th">P&gt;|z|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Intercept</td>
+<td>17.3832</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Gender[T.Male]</td>
+<td>-13.9964</td>
+<td>1.976</td>
+<td>-7.083</td>
+<td>0.000</td>
+<td>-17.869</td>
+<td>-10.123</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</td>
+<td>2.0850</td>
+<td>1.721</td>
+<td>1.212</td>
+<td>0.226</td>
+<td>-1.288</td>
+<td>5.458</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">FAVC[T.yes]</td>
+<td>1.0223</td>
+<td>1.765</td>
+<td>0.579</td>
+<td>0.562</td>
+<td>-2.437</td>
+<td>4.482</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CAEC[T.Frequently]</td>
+<td>-10.0658</td>
+<td>4.392</td>
+<td>-2.292</td>
+<td>0.022</td>
+<td>-18.674</td>
+<td>-1.458</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CAEC[T.Sometimes]</td>
+<td>-1.0233</td>
+<td>3.443</td>
+<td>-0.297</td>
+<td>0.766</td>
+<td>-7.771</td>
+<td>5.724</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CAEC[T.no]</td>
+<td>-0.4821</td>
+<td>977.119</td>
+<td>-0.000</td>
+<td>1.000</td>
+<td>-1915.601</td>
+<td>1914.637</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SMOKE[T.yes]</td>
+<td>8.1449</td>
+<td>4.011</td>
+<td>2.030</td>
+<td>0.042</td>
+<td>0.283</td>
+<td>16.007</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SCC[T.yes]</td>
+<td>-7.6939</td>
+<td>155.443</td>
+<td>-0.049</td>
+<td>0.961</td>
+<td>-312.356</td>
+<td>296.968</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CALC[T.Frequently]</td>
+<td>-2.4712</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CALC[T.Sometimes]</td>
+<td>-7.5357</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CALC[T.no]</td>
+<td>-7.2634</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MTRANS[T.Bike]</td>
+<td>-11.9360</td>
+<td>1.16e+08</td>
+<td>-1.03e-07</td>
+<td>1.000</td>
+<td>-2.27e+08</td>
+<td>2.27e+08</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</td>
+<td>10.9302</td>
+<td>48.258</td>
+<td>0.226</td>
+<td>0.821</td>
+<td>-83.653</td>
+<td>105.513</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</td>
+<td>11.2094</td>
+<td>1.756</td>
+<td>6.383</td>
+<td>0.000</td>
+<td>7.767</td>
+<td>14.651</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MTRANS[T.Walking]</td>
+<td>1.7141</td>
+<td>2.758</td>
+<td>0.622</td>
+<td>0.534</td>
+<td>-3.691</td>
+<td>7.119</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>0.8105</td>
+<td>0.133</td>
+<td>6.108</td>
+<td>0.000</td>
+<td>0.550</td>
+<td>1.071</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Height</td>
+<td>-184.0655</td>
+<td>14.785</td>
+<td>-12.450</td>
+<td>0.000</td>
+<td>-213.043</td>
+<td>-155.088</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Weight</td>
+<td>3.9430</td>
+<td>0.288</td>
+<td>13.681</td>
+<td>0.000</td>
+<td>3.378</td>
+<td>4.508</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">FCVC</td>
+<td>0.8899</td>
+<td>1.009</td>
+<td>0.882</td>
+<td>0.378</td>
+<td>-1.088</td>
+<td>2.867</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NCP</td>
+<td>-1.1103</td>
+<td>0.710</td>
+<td>-1.564</td>
+<td>0.118</td>
+<td>-2.502</td>
+<td>0.281</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CH2O</td>
+<td>-1.5409</td>
+<td>0.877</td>
+<td>-1.757</td>
+<td>0.079</td>
+<td>-3.259</td>
+<td>0.178</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FAF</td>
+<td>-1.4599</td>
+<td>0.593</td>
+<td>-2.461</td>
+<td>0.014</td>
+<td>-2.622</td>
+<td>-0.297</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">TUE</td>
+<td>-0.5909</td>
+<td>0.840</td>
+<td>-0.704</td>
+<td>0.482</td>
+<td>-2.237</td>
+<td>1.055</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NObeyesdad=3</td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">z</td>
+<td data-quarto-table-cell-role="th">P&gt;|z|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Intercept</td>
+<td>-138.5283</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Gender[T.Male]</td>
+<td>-16.6646</td>
+<td>8.382</td>
+<td>-1.988</td>
+<td>0.047</td>
+<td>-33.094</td>
+<td>-0.235</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</td>
+<td>2.3697</td>
+<td>11.592</td>
+<td>0.204</td>
+<td>0.838</td>
+<td>-20.350</td>
+<td>25.090</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FAVC[T.yes]</td>
+<td>-8.7847</td>
+<td>5.440</td>
+<td>-1.615</td>
+<td>0.106</td>
+<td>-19.447</td>
+<td>1.878</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CAEC[T.Frequently]</td>
+<td>-71.7139</td>
+<td>2.13e+08</td>
+<td>-3.37e-07</td>
+<td>1.000</td>
+<td>-4.17e+08</td>
+<td>4.17e+08</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CAEC[T.Sometimes]</td>
+<td>-3.9355</td>
+<td>4.749</td>
+<td>-0.829</td>
+<td>0.407</td>
+<td>-13.244</td>
+<td>5.373</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CAEC[T.no]</td>
+<td>7.7274</td>
+<td>977.625</td>
+<td>0.008</td>
+<td>0.994</td>
+<td>-1908.382</td>
+<td>1923.836</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SMOKE[T.yes]</td>
+<td>3.5336</td>
+<td>19.117</td>
+<td>0.185</td>
+<td>0.853</td>
+<td>-33.935</td>
+<td>41.002</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SCC[T.yes]</td>
+<td>-19.4881</td>
+<td>156.920</td>
+<td>-0.124</td>
+<td>0.901</td>
+<td>-327.046</td>
+<td>288.070</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CALC[T.Frequently]</td>
+<td>-43.6047</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CALC[T.Sometimes]</td>
+<td>-45.7392</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CALC[T.no]</td>
+<td>-28.2608</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MTRANS[T.Bike]</td>
+<td>0.0374</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</td>
+<td>-2.3922</td>
+<td>1.05e+11</td>
+<td>-2.28e-11</td>
+<td>1.000</td>
+<td>-2.05e+11</td>
+<td>2.05e+11</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</td>
+<td>22.6192</td>
+<td>6.634</td>
+<td>3.410</td>
+<td>0.001</td>
+<td>9.618</td>
+<td>35.621</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MTRANS[T.Walking]</td>
+<td>-5.3362</td>
+<td>34.114</td>
+<td>-0.156</td>
+<td>0.876</td>
+<td>-72.198</td>
+<td>61.526</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>2.5098</td>
+<td>0.960</td>
+<td>2.615</td>
+<td>0.009</td>
+<td>0.629</td>
+<td>4.391</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Height</td>
+<td>-278.8861</td>
+<td>44.172</td>
+<td>-6.314</td>
+<td>0.000</td>
+<td>-365.461</td>
+<td>-192.311</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Weight</td>
+<td>7.1526</td>
+<td>1.391</td>
+<td>5.141</td>
+<td>0.000</td>
+<td>4.426</td>
+<td>9.879</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FCVC</td>
+<td>4.1479</td>
+<td>3.269</td>
+<td>1.269</td>
+<td>0.204</td>
+<td>-2.258</td>
+<td>10.554</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">NCP</td>
+<td>-1.5833</td>
+<td>2.388</td>
+<td>-0.663</td>
+<td>0.507</td>
+<td>-6.264</td>
+<td>3.098</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CH2O</td>
+<td>-13.3811</td>
+<td>5.527</td>
+<td>-2.421</td>
+<td>0.015</td>
+<td>-24.213</td>
+<td>-2.549</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">FAF</td>
+<td>-9.8066</td>
+<td>4.355</td>
+<td>-2.252</td>
+<td>0.024</td>
+<td>-18.342</td>
+<td>-1.271</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TUE</td>
+<td>-5.7061</td>
+<td>3.289</td>
+<td>-1.735</td>
+<td>0.083</td>
+<td>-12.152</td>
+<td>0.739</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">NObeyesdad=4</td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">z</td>
+<td data-quarto-table-cell-role="th">P&gt;|z|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Intercept</td>
+<td>-87.3253</td>
+<td>6.43e+07</td>
+<td>-1.36e-06</td>
+<td>1.000</td>
+<td>-1.26e+08</td>
+<td>1.26e+08</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Gender[T.Male]</td>
+<td>-200.2957</td>
+<td>4.25e+07</td>
+<td>-4.71e-06</td>
+<td>1.000</td>
+<td>-8.33e+07</td>
+<td>8.33e+07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</td>
+<td>-30.9113</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">FAVC[T.yes]</td>
+<td>-53.1787</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CAEC[T.Frequently]</td>
+<td>-28.5507</td>
+<td>2.16e+08</td>
+<td>-1.32e-07</td>
+<td>1.000</td>
+<td>-4.23e+08</td>
+<td>4.23e+08</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CAEC[T.Sometimes]</td>
+<td>-21.5727</td>
+<td>4.19e+07</td>
+<td>-5.15e-07</td>
+<td>1.000</td>
+<td>-8.21e+07</td>
+<td>8.21e+07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CAEC[T.no]</td>
+<td>-2.1999</td>
+<td>1.31e+29</td>
+<td>-1.69e-29</td>
+<td>1.000</td>
+<td>-2.56e+29</td>
+<td>2.56e+29</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SMOKE[T.yes]</td>
+<td>-6.0935</td>
+<td>9.24e+08</td>
+<td>-6.59e-09</td>
+<td>1.000</td>
+<td>-1.81e+09</td>
+<td>1.81e+09</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SCC[T.yes]</td>
+<td>-12.3062</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CALC[T.Frequently]</td>
+<td>-6.2458</td>
+<td>1.59e+10</td>
+<td>-3.93e-10</td>
+<td>1.000</td>
+<td>-3.12e+10</td>
+<td>3.12e+10</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CALC[T.Sometimes]</td>
+<td>-37.1969</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CALC[T.no]</td>
+<td>-64.5072</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MTRANS[T.Bike]</td>
+<td>-0.2989</td>
+<td>1.92e+53</td>
+<td>-1.56e-54</td>
+<td>1.000</td>
+<td>-3.76e+53</td>
+<td>3.76e+53</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</td>
+<td>-0.2031</td>
+<td>3.86e+35</td>
+<td>-5.26e-37</td>
+<td>1.000</td>
+<td>-7.57e+35</td>
+<td>7.57e+35</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</td>
+<td>-57.6929</td>
+<td>5.78e+07</td>
+<td>-9.98e-07</td>
+<td>1.000</td>
+<td>-1.13e+08</td>
+<td>1.13e+08</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MTRANS[T.Walking]</td>
+<td>-7.4454</td>
+<td>2.11e+15</td>
+<td>-3.52e-15</td>
+<td>1.000</td>
+<td>-4.14e+15</td>
+<td>4.14e+15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>-9.3711</td>
+<td>100.732</td>
+<td>-0.093</td>
+<td>0.926</td>
+<td>-206.803</td>
+<td>188.061</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Height</td>
+<td>-174.4791</td>
+<td>585.777</td>
+<td>-0.298</td>
+<td>0.766</td>
+<td>-1322.581</td>
+<td>973.623</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Weight</td>
+<td>8.7401</td>
+<td>34.352</td>
+<td>0.254</td>
+<td>0.799</td>
+<td>-58.588</td>
+<td>76.068</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">FCVC</td>
+<td>49.0843</td>
+<td>3.05e+04</td>
+<td>0.002</td>
+<td>0.999</td>
+<td>-5.98e+04</td>
+<td>5.99e+04</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NCP</td>
+<td>2.3456</td>
+<td>4587.346</td>
+<td>0.001</td>
+<td>1.000</td>
+<td>-8988.688</td>
+<td>8993.379</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CH2O</td>
+<td>-18.5876</td>
+<td>33.678</td>
+<td>-0.552</td>
+<td>0.581</td>
+<td>-84.595</td>
+<td>47.420</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FAF</td>
+<td>-65.1863</td>
+<td>257.967</td>
+<td>-0.253</td>
+<td>0.801</td>
+<td>-570.792</td>
+<td>440.420</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">TUE</td>
+<td>-44.3687</td>
+<td>279.949</td>
+<td>-0.158</td>
+<td>0.874</td>
+<td>-593.058</td>
+<td>504.321</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NObeyesdad=5</td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">z</td>
+<td data-quarto-table-cell-role="th">P&gt;|z|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Intercept</td>
+<td>-12.5582</td>
+<td>3.45e+05</td>
+<td>-3.64e-05</td>
+<td>1.000</td>
+<td>-6.76e+05</td>
+<td>6.76e+05</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Gender[T.Male]</td>
+<td>-6.8927</td>
+<td>1.091</td>
+<td>-6.319</td>
+<td>0.000</td>
+<td>-9.031</td>
+<td>-4.755</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</td>
+<td>-0.5826</td>
+<td>0.791</td>
+<td>-0.736</td>
+<td>0.462</td>
+<td>-2.134</td>
+<td>0.969</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FAVC[T.yes]</td>
+<td>2.6029</td>
+<td>0.975</td>
+<td>2.670</td>
+<td>0.008</td>
+<td>0.692</td>
+<td>4.514</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CAEC[T.Frequently]</td>
+<td>-7.2782</td>
+<td>2.533</td>
+<td>-2.873</td>
+<td>0.004</td>
+<td>-12.243</td>
+<td>-2.314</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CAEC[T.Sometimes]</td>
+<td>-2.8841</td>
+<td>2.442</td>
+<td>-1.181</td>
+<td>0.238</td>
+<td>-7.671</td>
+<td>1.903</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CAEC[T.no]</td>
+<td>-3.8084</td>
+<td>3.166</td>
+<td>-1.203</td>
+<td>0.229</td>
+<td>-10.013</td>
+<td>2.397</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SMOKE[T.yes]</td>
+<td>3.1147</td>
+<td>3.291</td>
+<td>0.947</td>
+<td>0.344</td>
+<td>-3.335</td>
+<td>9.565</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SCC[T.yes]</td>
+<td>2.1332</td>
+<td>1.626</td>
+<td>1.312</td>
+<td>0.190</td>
+<td>-1.054</td>
+<td>5.320</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CALC[T.Frequently]</td>
+<td>-9.0218</td>
+<td>3.45e+05</td>
+<td>-2.61e-05</td>
+<td>1.000</td>
+<td>-6.76e+05</td>
+<td>6.76e+05</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CALC[T.Sometimes]</td>
+<td>-9.1622</td>
+<td>3.45e+05</td>
+<td>-2.66e-05</td>
+<td>1.000</td>
+<td>-6.76e+05</td>
+<td>6.76e+05</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CALC[T.no]</td>
+<td>-10.7609</td>
+<td>3.45e+05</td>
+<td>-3.12e-05</td>
+<td>1.000</td>
+<td>-6.76e+05</td>
+<td>6.76e+05</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MTRANS[T.Bike]</td>
+<td>19.0539</td>
+<td>2529.381</td>
+<td>0.008</td>
+<td>0.994</td>
+<td>-4938.442</td>
+<td>4976.550</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</td>
+<td>1.6649</td>
+<td>47.401</td>
+<td>0.035</td>
+<td>0.972</td>
+<td>-91.240</td>
+<td>94.570</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</td>
+<td>6.0083</td>
+<td>1.212</td>
+<td>4.956</td>
+<td>0.000</td>
+<td>3.632</td>
+<td>8.385</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MTRANS[T.Walking]</td>
+<td>4.3751</td>
+<td>1.779</td>
+<td>2.460</td>
+<td>0.014</td>
+<td>0.889</td>
+<td>7.861</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>0.4896</td>
+<td>0.107</td>
+<td>4.589</td>
+<td>0.000</td>
+<td>0.281</td>
+<td>0.699</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Height</td>
+<td>-49.9784</td>
+<td>6.729</td>
+<td>-7.427</td>
+<td>0.000</td>
+<td>-63.167</td>
+<td>-36.790</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Weight</td>
+<td>1.7920</td>
+<td>0.168</td>
+<td>10.650</td>
+<td>0.000</td>
+<td>1.462</td>
+<td>2.122</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FCVC</td>
+<td>-0.8144</td>
+<td>0.599</td>
+<td>-1.359</td>
+<td>0.174</td>
+<td>-1.989</td>
+<td>0.360</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">NCP</td>
+<td>-1.4253</td>
+<td>0.552</td>
+<td>-2.580</td>
+<td>0.010</td>
+<td>-2.508</td>
+<td>-0.343</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CH2O</td>
+<td>-1.8250</td>
+<td>0.678</td>
+<td>-2.690</td>
+<td>0.007</td>
+<td>-3.155</td>
+<td>-0.495</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">FAF</td>
+<td>-0.5296</td>
+<td>0.375</td>
+<td>-1.412</td>
+<td>0.158</td>
+<td>-1.265</td>
+<td>0.206</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TUE</td>
+<td>-0.8409</td>
+<td>0.557</td>
+<td>-1.510</td>
+<td>0.131</td>
+<td>-1.932</td>
+<td>0.250</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">NObeyesdad=6</td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">z</td>
+<td data-quarto-table-cell-role="th">P&gt;|z|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Intercept</td>
+<td>-2.1495</td>
+<td>1.51e+06</td>
+<td>-1.42e-06</td>
+<td>1.000</td>
+<td>-2.96e+06</td>
+<td>2.96e+06</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Gender[T.Male]</td>
+<td>-6.7717</td>
+<td>1.213</td>
+<td>-5.583</td>
+<td>0.000</td>
+<td>-9.149</td>
+<td>-4.395</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</td>
+<td>1.9277</td>
+<td>1.078</td>
+<td>1.789</td>
+<td>0.074</td>
+<td>-0.185</td>
+<td>4.040</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">FAVC[T.yes]</td>
+<td>-0.4390</td>
+<td>1.141</td>
+<td>-0.385</td>
+<td>0.700</td>
+<td>-2.676</td>
+<td>1.798</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CAEC[T.Frequently]</td>
+<td>-5.4475</td>
+<td>3.295</td>
+<td>-1.653</td>
+<td>0.098</td>
+<td>-11.906</td>
+<td>1.011</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CAEC[T.Sometimes]</td>
+<td>0.8345</td>
+<td>3.075</td>
+<td>0.271</td>
+<td>0.786</td>
+<td>-5.192</td>
+<td>6.861</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CAEC[T.no]</td>
+<td>1.6818</td>
+<td>3.972</td>
+<td>0.423</td>
+<td>0.672</td>
+<td>-6.103</td>
+<td>9.466</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SMOKE[T.yes]</td>
+<td>7.0586</td>
+<td>3.567</td>
+<td>1.979</td>
+<td>0.048</td>
+<td>0.068</td>
+<td>14.049</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SCC[T.yes]</td>
+<td>1.3350</td>
+<td>2.021</td>
+<td>0.661</td>
+<td>0.509</td>
+<td>-2.625</td>
+<td>5.295</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CALC[T.Frequently]</td>
+<td>-2.1230</td>
+<td>1.51e+06</td>
+<td>-1.41e-06</td>
+<td>1.000</td>
+<td>-2.96e+06</td>
+<td>2.96e+06</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CALC[T.Sometimes]</td>
+<td>-4.6506</td>
+<td>1.51e+06</td>
+<td>-3.08e-06</td>
+<td>1.000</td>
+<td>-2.96e+06</td>
+<td>2.96e+06</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CALC[T.no]</td>
+<td>-4.1703</td>
+<td>1.51e+06</td>
+<td>-2.76e-06</td>
+<td>1.000</td>
+<td>-2.96e+06</td>
+<td>2.96e+06</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MTRANS[T.Bike]</td>
+<td>-21.8443</td>
+<td>6.4e+09</td>
+<td>-3.41e-09</td>
+<td>1.000</td>
+<td>-1.26e+10</td>
+<td>1.26e+10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</td>
+<td>3.1683</td>
+<td>47.467</td>
+<td>0.067</td>
+<td>0.947</td>
+<td>-89.865</td>
+<td>96.202</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</td>
+<td>8.7749</td>
+<td>1.423</td>
+<td>6.165</td>
+<td>0.000</td>
+<td>5.985</td>
+<td>11.564</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MTRANS[T.Walking]</td>
+<td>1.2621</td>
+<td>2.258</td>
+<td>0.559</td>
+<td>0.576</td>
+<td>-3.163</td>
+<td>5.687</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>0.6974</td>
+<td>0.116</td>
+<td>6.002</td>
+<td>0.000</td>
+<td>0.470</td>
+<td>0.925</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Height</td>
+<td>-104.7093</td>
+<td>9.038</td>
+<td>-11.585</td>
+<td>0.000</td>
+<td>-122.424</td>
+<td>-86.995</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Weight</td>
+<td>2.6268</td>
+<td>0.190</td>
+<td>13.821</td>
+<td>0.000</td>
+<td>2.254</td>
+<td>2.999</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">FCVC</td>
+<td>0.2192</td>
+<td>0.764</td>
+<td>0.287</td>
+<td>0.774</td>
+<td>-1.278</td>
+<td>1.716</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NCP</td>
+<td>-1.8144</td>
+<td>0.606</td>
+<td>-2.992</td>
+<td>0.003</td>
+<td>-3.003</td>
+<td>-0.626</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CH2O</td>
+<td>-1.9110</td>
+<td>0.757</td>
+<td>-2.525</td>
+<td>0.012</td>
+<td>-3.394</td>
+<td>-0.428</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FAF</td>
+<td>-0.9928</td>
+<td>0.439</td>
+<td>-2.264</td>
+<td>0.024</td>
+<td>-1.852</td>
+<td>-0.133</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">TUE</td>
+<td>0.0701</td>
+<td>0.671</td>
+<td>0.104</td>
+<td>0.917</td>
+<td>-1.246</td>
+<td>1.386</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><section id="evaluating-model-performance" class="level3">
+<h3 class="anchored" data-anchor-id="evaluating-model-performance">Evaluating Model Performance</h3>
+<p>To gauge our models’ effectiveness, we’ll employ various metrics such as accuracy, precision, recall, and F1-score. A confusion matrix will help visualize how well our models perform in classifying outcomes—think of it as a report card for your model!</p>
+<div id="d1d05110" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Evaluating the Logit model</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on test data</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>base_preds <span class="op">=</span> logit_model.predict(data_df_test).idxmax(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> data_df_test[target]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>accuracy_orig <span class="op">=</span> accuracy_score(y_test, base_preds)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>report_orig <span class="op">=</span> classification_report(y_test, base_preds)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_orig)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Classification Report:"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report_orig)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy: 0.909952606635071
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.93      0.86      0.89        29
+           1       0.86      0.83      0.84        29
+           2       0.95      0.91      0.93        45
+           3       0.94      0.97      0.95        31
+           4       1.00      0.96      0.98        27
+           5       0.83      0.90      0.86        21
+           6       0.84      0.93      0.89        29
+
+    accuracy                           0.91       211
+   macro avg       0.91      0.91      0.91       211
+weighted avg       0.91      0.91      0.91       211
+</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="looking-for-some-improvments" class="level1 page-columns page-full">
+<h1>Looking for some <em>Improvments!</em></h1>
+<section id="feature-selection-using-crosstab-sparsity" class="level3">
+<h3 class="anchored" data-anchor-id="feature-selection-using-crosstab-sparsity">Feature Selection Using CrossTab Sparsity</h3>
+<p>Now comes the exciting part—using CrossTab Sparsity to refine our feature selection process! It’s like cleaning up your closet and only keeping the clothes that spark joy (thank you, Marie Kondo). <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><a href="https://gist.github.com/jkapila/83bb8f6461ec91bfced437762f2c9220">Code is here!</a></p>
+</section>
+<section id="standared-steps-for-feature-selection" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="standared-steps-for-feature-selection">Standared Steps for Feature Selection</h3>
+<ol type="1">
+<li><strong>Calculate CrossTab Sparsity</strong>: For each feature against the target variable.</li>
+<li><strong>Select Features</strong>: Based on sparsity scores that indicate significant interactions with the target variable.</li>
+<li><strong>Recreate Models</strong>: Train new models using only the selected features—less is often more!</li>
+</ol>
+<p>Here we go!!!</p>
+<div class="page-columns page-full">
+<div id="11a2f424" class="cell page-columns page-full" data-execution_count="9">
+<details class="code-fold">
+<summary>Doing what needs to Done Code ;)</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"white"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sns.set_context(<span class="st">"paper"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating Crostab sparsity for each Column</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> crosstab_sparsity(data_df_train.iloc[:,:<span class="op">-</span><span class="dv">1</span>],data_df_train[target],numeric_bin<span class="op">=</span><span class="st">'decile'</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># presenting results for consumption</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>df_long <span class="op">=</span> pd.melt(results[<span class="st">'scores'</span>], id_vars<span class="op">=</span>[<span class="st">'Columns'</span>], value_vars<span class="op">=</span>[<span class="st">'seggregation'</span>, <span class="st">'explaination'</span>, <span class="st">'metric'</span>],</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                  var_name<span class="op">=</span><span class="st">'Metric'</span>, value_name<span class="op">=</span><span class="st">'values'</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding jitter: small random noise to 'Columns' (x-axis)</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># df_long['values_jittered'] = df_long['Value'] + np.random.uniform(-0.1, 0.1, size=len(df_long))</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a seaborn scatter plot with jitter, more professional color palette, and transparency</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'Columns'</span>, y<span class="op">=</span><span class="st">'values'</span>, hue<span class="op">=</span><span class="st">'Metric'</span>, style<span class="op">=</span><span class="st">'Metric'</span>,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        data<span class="op">=</span>df_long, s<span class="op">=</span><span class="dv">100</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, palette<span class="op">=</span><span class="st">'deep'</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Title and labels</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Metrics by Columns'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>) </span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Columns'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Value'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Display legend outside the plot for better readability</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Metric'</span>, loc<span class="op">=</span><span class="st">'upper right'</span>, fancybox<span class="op">=</span><span class="va">True</span>, framealpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>CSP calculated with decile for breaks!
+
+Scores for 7 groups(s) is : 140.96057955229762</code></pre>
+</div>
+<div class="cell-output cell-output-display page-columns page-full">
+<div class="page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><a href="index_files/figure-html/cell-10-output-2.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-12"><img src="index_files/figure-html/cell-10-output-2.png" width="1142" height="471" class="figure-img column-page-right"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="and-drum-rolls-pelase" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="and-drum-rolls-pelase">And Drum Rolls pelase!!!</h3>
+<p>Using just top 5 varaibles we are getting almost similar or better overall accuracy. This amounts to greatly simplifing the models and clearly explain why some variable are not useful for modeling.</p>
+<div id="f748dd52" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>And finally training and evaluating with drum rolls</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>logit_model_rev <span class="op">=</span> sm.MNLogit.from_formula(<span class="ss">f"</span><span class="sc">{</span>target<span class="sc">}</span><span class="ss"> ~ </span><span class="sc">{</span><span class="st">' + '</span><span class="sc">.</span>join(results[<span class="st">'scores'</span>].loc[:<span class="dv">5</span>,<span class="st">'Columns'</span>].values)<span class="sc">}</span><span class="ss">"</span>, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>data_df_train</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>).fit_regularized()</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on test data</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>challenger_preds <span class="op">=</span> logit_model_rev.predict(data_df_test).idxmax(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> data_df_test[target]</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>accuracy_new <span class="op">=</span> accuracy_score(y_test, challenger_preds)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>report_new <span class="op">=</span> classification_report(y_test, challenger_preds)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_new)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Classification Report:"</span>)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimization terminated successfully    (Exit mode 0)
+            Current function value: 0.174380345428068
+            Iterations: 417
+            Function evaluations: 662
+            Gradient evaluations: 417
+Accuracy: 0.9383886255924171
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.93      0.97      0.95        29
+           1       0.93      0.93      0.93        29
+           2       0.96      1.00      0.98        45
+           3       0.93      0.90      0.92        31
+           4       0.93      0.93      0.93        27
+           5       0.90      0.90      0.90        21
+           6       0.96      0.90      0.93        29
+
+    accuracy                           0.94       211
+   macro avg       0.94      0.93      0.93       211
+weighted avg       0.94      0.94      0.94       211
+</code></pre>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Summary of retrained model
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="06db05ee" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>display(logit_model_rev.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>MNLogit Regression Results</caption>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Dep. Variable:</td>
+<td>NObeyesdad</td>
+<td data-quarto-table-cell-role="th">No. Observations:</td>
+<td>1900</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Model:</td>
+<td>MNLogit</td>
+<td data-quarto-table-cell-role="th">Df Residuals:</td>
+<td>1858</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Method:</td>
+<td>MLE</td>
+<td data-quarto-table-cell-role="th">Df Model:</td>
+<td>36</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Date:</td>
+<td>Fri, 07 Feb 2025</td>
+<td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
+<td>0.9103</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Time:</td>
+<td>18:42:18</td>
+<td data-quarto-table-cell-role="th">Log-Likelihood:</td>
+<td>-331.32</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">converged:</td>
+<td>True</td>
+<td data-quarto-table-cell-role="th">LL-Null:</td>
+<td>-3691.8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Covariance Type:</td>
+<td>nonrobust</td>
+<td data-quarto-table-cell-role="th">LLR p-value:</td>
+<td>0.000</td>
+</tr>
+</tbody>
+</table>
+
+
+<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NObeyesdad=1</td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">z</td>
+<td data-quarto-table-cell-role="th">P&gt;|z|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Intercept</td>
+<td>58.1248</td>
+<td>9.361</td>
+<td>6.209</td>
+<td>0.000</td>
+<td>39.778</td>
+<td>76.472</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TUE</td>
+<td>0.1130</td>
+<td>0.445</td>
+<td>0.254</td>
+<td>0.799</td>
+<td>-0.759</td>
+<td>0.985</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CH2O</td>
+<td>-0.8634</td>
+<td>0.609</td>
+<td>-1.419</td>
+<td>0.156</td>
+<td>-2.056</td>
+<td>0.329</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FAF</td>
+<td>0.1425</td>
+<td>0.334</td>
+<td>0.426</td>
+<td>0.670</td>
+<td>-0.513</td>
+<td>0.798</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>0.0579</td>
+<td>0.077</td>
+<td>0.754</td>
+<td>0.451</td>
+<td>-0.093</td>
+<td>0.208</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Height</td>
+<td>-76.5735</td>
+<td>10.536</td>
+<td>-7.268</td>
+<td>0.000</td>
+<td>-97.224</td>
+<td>-55.923</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Weight</td>
+<td>1.3337</td>
+<td>0.176</td>
+<td>7.566</td>
+<td>0.000</td>
+<td>0.988</td>
+<td>1.679</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NObeyesdad=2</td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">z</td>
+<td data-quarto-table-cell-role="th">P&gt;|z|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Intercept</td>
+<td>328.4616</td>
+<td>25.112</td>
+<td>13.080</td>
+<td>0.000</td>
+<td>279.242</td>
+<td>377.681</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TUE</td>
+<td>2.2275</td>
+<td>0.870</td>
+<td>2.560</td>
+<td>0.010</td>
+<td>0.522</td>
+<td>3.933</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CH2O</td>
+<td>-1.4150</td>
+<td>0.984</td>
+<td>-1.439</td>
+<td>0.150</td>
+<td>-3.343</td>
+<td>0.513</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FAF</td>
+<td>-1.3585</td>
+<td>0.747</td>
+<td>-1.820</td>
+<td>0.069</td>
+<td>-2.822</td>
+<td>0.105</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>0.1537</td>
+<td>0.097</td>
+<td>1.591</td>
+<td>0.112</td>
+<td>-0.036</td>
+<td>0.343</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Height</td>
+<td>-426.3945</td>
+<td>30.970</td>
+<td>-13.768</td>
+<td>0.000</td>
+<td>-487.095</td>
+<td>-365.694</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Weight</td>
+<td>5.3584</td>
+<td>0.372</td>
+<td>14.386</td>
+<td>0.000</td>
+<td>4.628</td>
+<td>6.088</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NObeyesdad=3</td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">z</td>
+<td data-quarto-table-cell-role="th">P&gt;|z|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Intercept</td>
+<td>306.6447</td>
+<td>33.046</td>
+<td>9.279</td>
+<td>0.000</td>
+<td>241.876</td>
+<td>371.413</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TUE</td>
+<td>-7.8630</td>
+<td>5.691</td>
+<td>-1.382</td>
+<td>0.167</td>
+<td>-19.017</td>
+<td>3.291</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CH2O</td>
+<td>-21.0118</td>
+<td>11.508</td>
+<td>-1.826</td>
+<td>0.068</td>
+<td>-43.567</td>
+<td>1.543</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FAF</td>
+<td>-11.3624</td>
+<td>5.759</td>
+<td>-1.973</td>
+<td>0.048</td>
+<td>-22.650</td>
+<td>-0.075</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>2.4017</td>
+<td>1.260</td>
+<td>1.905</td>
+<td>0.057</td>
+<td>-0.069</td>
+<td>4.872</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Height</td>
+<td>-710.3867</td>
+<td>156.303</td>
+<td>-4.545</td>
+<td>0.000</td>
+<td>-1016.734</td>
+<td>-404.039</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Weight</td>
+<td>10.1072</td>
+<td>2.588</td>
+<td>3.905</td>
+<td>0.000</td>
+<td>5.034</td>
+<td>15.180</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NObeyesdad=4</td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">z</td>
+<td data-quarto-table-cell-role="th">P&gt;|z|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Intercept</td>
+<td>352.4249</td>
+<td>33.573</td>
+<td>10.497</td>
+<td>0.000</td>
+<td>286.623</td>
+<td>418.227</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TUE</td>
+<td>-9.2469</td>
+<td>5.711</td>
+<td>-1.619</td>
+<td>0.105</td>
+<td>-20.440</td>
+<td>1.946</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CH2O</td>
+<td>-20.6780</td>
+<td>11.516</td>
+<td>-1.796</td>
+<td>0.073</td>
+<td>-43.250</td>
+<td>1.894</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FAF</td>
+<td>-14.7525</td>
+<td>5.794</td>
+<td>-2.546</td>
+<td>0.011</td>
+<td>-26.108</td>
+<td>-3.397</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>2.1487</td>
+<td>1.262</td>
+<td>1.703</td>
+<td>0.089</td>
+<td>-0.325</td>
+<td>4.622</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Height</td>
+<td>-758.2318</td>
+<td>156.401</td>
+<td>-4.848</td>
+<td>0.000</td>
+<td>-1064.772</td>
+<td>-451.692</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Weight</td>
+<td>10.5011</td>
+<td>2.589</td>
+<td>4.056</td>
+<td>0.000</td>
+<td>5.427</td>
+<td>15.575</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NObeyesdad=5</td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">z</td>
+<td data-quarto-table-cell-role="th">P&gt;|z|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Intercept</td>
+<td>126.2892</td>
+<td>12.539</td>
+<td>10.072</td>
+<td>0.000</td>
+<td>101.713</td>
+<td>150.865</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TUE</td>
+<td>0.5832</td>
+<td>0.541</td>
+<td>1.077</td>
+<td>0.281</td>
+<td>-0.478</td>
+<td>1.645</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CH2O</td>
+<td>-0.8764</td>
+<td>0.706</td>
+<td>-1.242</td>
+<td>0.214</td>
+<td>-2.260</td>
+<td>0.507</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FAF</td>
+<td>-0.1920</td>
+<td>0.403</td>
+<td>-0.476</td>
+<td>0.634</td>
+<td>-0.983</td>
+<td>0.599</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>0.0719</td>
+<td>0.082</td>
+<td>0.874</td>
+<td>0.382</td>
+<td>-0.089</td>
+<td>0.233</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Height</td>
+<td>-160.2982</td>
+<td>14.026</td>
+<td>-11.429</td>
+<td>0.000</td>
+<td>-187.788</td>
+<td>-132.808</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Weight</td>
+<td>2.3663</td>
+<td>0.208</td>
+<td>11.397</td>
+<td>0.000</td>
+<td>1.959</td>
+<td>2.773</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NObeyesdad=6</td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">z</td>
+<td data-quarto-table-cell-role="th">P&gt;|z|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Intercept</td>
+<td>207.3760</td>
+<td>15.374</td>
+<td>13.489</td>
+<td>0.000</td>
+<td>177.244</td>
+<td>237.508</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TUE</td>
+<td>1.6561</td>
+<td>0.646</td>
+<td>2.564</td>
+<td>0.010</td>
+<td>0.390</td>
+<td>2.922</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CH2O</td>
+<td>-0.6583</td>
+<td>0.773</td>
+<td>-0.851</td>
+<td>0.395</td>
+<td>-2.174</td>
+<td>0.857</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FAF</td>
+<td>-0.1243</td>
+<td>0.485</td>
+<td>-0.256</td>
+<td>0.798</td>
+<td>-1.076</td>
+<td>0.827</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>0.1042</td>
+<td>0.087</td>
+<td>1.197</td>
+<td>0.231</td>
+<td>-0.066</td>
+<td>0.275</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Height</td>
+<td>-266.6050</td>
+<td>17.598</td>
+<td>-15.150</td>
+<td>0.000</td>
+<td>-301.097</td>
+<td>-232.113</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Weight</td>
+<td>3.6160</td>
+<td>0.241</td>
+<td>15.026</td>
+<td>0.000</td>
+<td>3.144</td>
+<td>4.088</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div></section>
+</section>
+<section id="impact-on-model-accuracy" class="level1">
+<h1>Impact on Model Accuracy</h1>
+<p>After applying feature selection based on CrossTab Sparsity, we’ll compare the accuracy of our new models against our baseline models. This comparison will reveal how effectively CrossTab Sparsity enhances classification performance.</p>
+<section id="results-and-discussion-unveiling-insights" class="level3">
+<h3 class="anchored" data-anchor-id="results-and-discussion-unveiling-insights">Results and Discussion: Unveiling Insights</h3>
+<p><strong>Model Comparison Table</strong></p>
+<p>After implementing CrossTab Sparsity in our feature selection process, let’s take a look at the results:</p>
+<div id="17d3703a" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Comparision Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>metrics <span class="op">=</span> {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Metric"</span>: [<span class="st">"Accuracy"</span>, <span class="st">"Precision"</span>, <span class="st">"Recall"</span>, <span class="st">"F1-Score"</span>],</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Baseline Model with all Parameters"</span>: [</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        accuracy_score(y_test, base_preds),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        precision_score(y_test, base_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        recall_score(y_test, base_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        f1_score(y_test, base_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Challenger Model with only 5 Variables"</span>: [</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        accuracy_score(y_test, challenger_preds),</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        precision_score(y_test, challenger_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        recall_score(y_test, challenger_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        f1_score(y_test, challenger_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>display(pd.DataFrame(metrics).<span class="bu">round</span>(<span class="dv">4</span>).set_index(<span class="st">'Metric'</span>).T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Metric</th>
+<th data-quarto-table-cell-role="th">Accuracy</th>
+<th data-quarto-table-cell-role="th">Precision</th>
+<th data-quarto-table-cell-role="th">Recall</th>
+<th data-quarto-table-cell-role="th">F1-Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Baseline Model with all Parameters</td>
+<td>0.9100</td>
+<td>0.9123</td>
+<td>0.9100</td>
+<td>0.9103</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Challenger Model with only 5 Variables</td>
+<td>0.9384</td>
+<td>0.9384</td>
+<td>0.9384</td>
+<td>0.9381</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><strong>Insights Gained</strong></p>
+<p>Through this analysis, several key insights emerge:</p>
+<div id="0948a996" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-stdout">
+<pre><code>Reduction of similar accuracy from 16 to 5 i.e 68.75% reduction</code></pre>
+</div>
+</div>
+<ol type="1">
+<li><strong>Feature Interactions Matter</strong>: The selected features based on CrossTab Sparsity significantly improved model accuracy—like finding out which ingredients make your favorite dish even better!</li>
+<li><strong>Simplicity is Key</strong>: By focusing on relevant features, we enhance accuracy while simplifying model interpretation—because nobody likes unnecessary complexity.</li>
+<li><strong>Real-World Applications</strong>: These findings have practical implications in fields such as environmental science where classification plays a critical role—helping us make better decisions for our planet.</li>
+</ol>
+</section>
+</section>
+<section id="conclusion-the-road-ahead" class="level1">
+<h1>Conclusion: The Road Ahead</h1>
+<p>In conclusion, this blog has illustrated how CrossTab Sparsity can be a game-changer in classification tasks using the Obesity dataset. By leveraging this metric for feature selection, we achieved notable improvements in model performance—proof that sometimes less really is more!</p>
+<p><strong>Future Work: Expanding Horizons</strong></p>
+<p>As we look ahead, there are exciting avenues to explore:</p>
+<ul>
+<li>Investigating regression problems using CrossTab Sparsity.</li>
+<li>Comparing its effectiveness with other feature selection methods such as Recursive Feature Elimination (RFE) or comparision with other feature selection mehtods.</li>
+</ul>
+<p>By continuing this journey into data science, we not only enhance our technical skills but also contribute valuable insights that can drive meaningful change in various industries.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This is based on work in Unique Metric for Health Analysis with Optimization of Clustering Activity and Cross Comparison of Results from Different Approach. <a href="https://arxiv.org/abs/1810.03419">Paper Link</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.percieveit\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="jkapila/perceptions" issue-term="url" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Made with Quarto
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jkapila">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/jitinkapila">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/jitinkapila">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
