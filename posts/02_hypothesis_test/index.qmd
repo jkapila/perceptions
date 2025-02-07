@@ -1,28 +1,22 @@
 ---
 title: "A flow to Test Your Hypothesis in Python"
-subtitle: Making life easy to do some serious hypothesis testing in python. 
-description: "A simple code to run your hypothesis test."
+description: Making life easy to do some serious hypothesis testing in python. 
 
 # Enable CC licence appendix
 license: "CC BY"
 
-# Default author
-author:
-  - name: Jitin Kapila
-    url: https://www.percieveit.com/about
-
 date: "2021-08-10"
 categories: [eda, hypothesis, analysis, python]
 tags: [hypothesis, python, eda]
-keywords: [anova, hypothesis, python, tukeyhsd, analysis, tests, datascience]
-
-lightbox: true
 format:
   html:
     grid:
       margin-width: 350px 
 reference-location: margin
 citation-location: margin
+toc-location: left
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
 
 draft: false
 ---
@@ -147,15 +141,34 @@ we should be only seeking *interesting* as in *associated* results and not *caus
 
 ## Performing Anova
 
-`anova_test.py`
+
 
 ```{python}
 #| eval: false
+#| code-fold: true
+#| code-summary: Anova Test `anova_test.py`
 
 from bioinfokit import analys
 
 import numpy as np
 from scipy import stats
+
+class KeyResults:
+    """
+    A basic class to hold all the results
+    """
+    
+    def __init__(self,result_full):
+        self.keys = []
+        self.result_full = result_full
+    
+    def add_result(self,name,result):
+        if name == 'tukeyhsd':
+            self.keys.append(name)
+            setattr(self, name, result)
+        elif self.result_full:
+            self.keys.append(name)
+            setattr(self, name, result)
 
 
 # Anova test code
@@ -175,24 +188,7 @@ def do_anova_test(df, res_var, xfac_var, anova_model,ss_typ=3,
     :param result_full: To provide all the results of intermediate steps
     
     """
-    
-    class KeyResults:
-        """
-        A basic class to hold all the results
-        """
-        
-        def __init__(self,result_full):
-            self.keys = []
-            self.result_full = result_full
-        
-        def add_result(self,name,result):
-            if name == 'tukeyhsd':
-                self.keys.append(name)
-                setattr(self, name, result)
-            elif self.result_full:
-                self.keys.append(name)
-                setattr(self, name, result)
-            
+
     results = KeyResults(result_full)
     
     # initialize stat method
@@ -248,10 +244,12 @@ def do_anova_test(df, res_var, xfac_var, anova_model,ss_typ=3,
 
 ## Plotting Results
 
-`plot_hsd.py`
+
 
 ```{python}
 #| eval: false
+#| code-fold: true
+#| code-summary: Plotting results `plot_hsd.py`
 
 import seaborn as sns
 import matplotlib.pyplot as plt

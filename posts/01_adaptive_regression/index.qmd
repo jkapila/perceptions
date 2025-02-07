@@ -1,23 +1,15 @@
 ---
 title: "Adaptive Regression"
-subtitle: |
+description : |
       We recently put through our observation on Regression Problem in our research. This post is a nonformal attempt to explain it.
-
-description: If things are simple lets keep it simple. [Paper here](https://arxiv.org/abs/1805.01618)
 
 # Enable CC licence appendix
 license: "CC BY"
 
-# Default author
-author:
-  - name: Jitin Kapila
-    url: https://www.percieveit.com/about
-
-
 date: "2018-05-01"
 categories: [regression, research, analysis]
-keywords: [regression, adaptive]
-image: "Post_Mape_Plot.png"
+# keywords: [regression, adaptive]
+# image: "Post_Mape_Plot.png"
 lightbox: true
 format:
   html:
@@ -25,10 +17,35 @@ format:
       margin-width: 350px 
 reference-location: margin
 citation-location: margin
-
+toc-location: left
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
 draft: false
 
 ---
+<!-- 
+<div class="parallax-container"><div class="parallax-image-container"></div></div>
+<style>
+.parallax-container {
+  position: relative;
+}
+
+.parallax-image-container {
+  background-image: url(https://github.com/holtzy/dataviz-inspiration/blob/main/public/misc/overview1.png?raw=true);
+  height: 50px;
+  background-attachment: fixed;
+  opacity: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: screen;
+}
+</style>
+
+
+<div class="parallax-container"><div class="parallax-image-container"></div></div> 
+-->
+
+
 
 # Introduction
 Here I am trying to express our logic to find such Observation. Lets dive in.
@@ -59,6 +76,8 @@ If you look at the average value of MAPE in each decile you would see an interes
 ![](Pre_Mape_Plot.png)
 
 As you can see it is absolutely evident that either of the side in the distribution of MAPE values is going wild!!!!!!! ***Still overall MAPE is good (18%).***
+
+<!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
 
 # Seeking Scope of Improvement
 
@@ -93,6 +112,7 @@ How this framework with same method reduced MAPEs so much and made model much mo
 
 The DAR framework splits the data at either ends of the order target variable and performs regression on these “split” data individually. This inherently reduces the so called “noise” part of the data and treat it as an individual data.
 
+<!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
 
 # Scoring on New Data
 Now you might be thinking while applying regression this sounds good but how will one score this on new data. Well to answer that we used our most simple yet very effective friend “KNN” (Though any multiclass Classifier can be used here). So ideally scoring involves two step method :
@@ -102,28 +122,29 @@ Now you might be thinking while applying regression this sounds good but how wil
 
 So now we know how we can improve the prediction power of data for regression.
 
+<!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
 
 # Code and Flowchart
-Refer flowchart and code below for implementation of this framework!
-
+If things are simple lets keep it simple. Refer flowchart and code below for implementation of this framework.
+[Paper here!](https://arxiv.org/abs/1805.01618)
 
 ::: {.panel-tabset}
 
-## Here is the code
 
+## R code
 ::: {.callout-tip collapse=true}
-## R and Python Code
-
-::: {.panel-tabset}
-
-### R Code
+## Click to Expand
 
 <script src="https://gist.github.com/jkapila/ccc3d0f05fce86ea3075dc7190f8c181.js"></script>
 
-### Python Code
+:::
+
+
+## Python code
+::: {.callout-tip collapse=true}
+## Click to Expand
 
 <script src="https://gist.github.com/jkapila/b97d881e2ae8b75141184ac0f7831601.js"></script>
-:::
 
 :::
 

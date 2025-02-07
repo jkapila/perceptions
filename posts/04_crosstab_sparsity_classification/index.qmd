@@ -1,26 +1,30 @@
 ---
-title: "CorssTab Sparsity for Classification"
-subtitle: "Can our metric help us in making a classification problem work better ?"
+title: "CrossTab Sparsity for Classification"
+description: "Can our metric help us in making a classification problem work better ?"
 
-# Enable CC licence appendix
+# Enable CC license appendix
 license: "CC BY"
 
-# Default author
-author:
-  - name: Jitin Kapila
-    url: www.percieveit.com/about
+# # Default author
+# author:
+#   - name: Jitin Kapila
+#     url: www.percieveit.com/about
 
 date: "2023-01-03"
 categories: [classification, metric, feature selection]
-keywords: [metric, classification, python, modelling]
+# keywords: [metric, classification, python, modelling]
 lightbox: true
 format:
   html:
     grid:
-      margin-width: 500px 
-
+      margin-width: 400px 
+image: crossroad-unsplash.jpg
+image-height: 100px
 code-fold: true
-code-tools: true
+toc-location: left
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
+# title-block-banner: Cross Road image.jpg
 
 
 draft: false
@@ -95,15 +99,15 @@ sns.set_style("ticks")
 #| code-summary: "Loading data and generating basic descriptive"
 
 # Load the Obesity data
-# raw_df = pd.read_csv('ObesityDataSet_raw_and_data_sinthetic.csv')
-# target = 'NObeyesdad'
+raw_df = pd.read_csv('ObesityDataSet_raw_and_data_sinthetic.csv')
+target = 'NObeyesdad'
 
 # Load Students data
 
 # Load Credit data
-raw_data = sm.datasets.get_rdataset("credit_data",'modeldata')
-raw_df = raw_data.data
-target = 'Status'
+# raw_data = sm.datasets.get_rdataset("credit_data",'modeldata')
+# raw_df = raw_data.data
+# target = 'Status'
 
 # # Load Palmer penguins data
 # raw_data = sm.datasets.get_rdataset("penguins",'palmerpenguins')
@@ -117,7 +121,7 @@ target = 'Status'
 # target = 'card'
 
 
-# setting thigns up for aal the next steps
+# setting things up for aal the next steps
 raw_df[target] = raw_df[target].astype('category') 
 print('No of data points available to work:',raw_df.shape)
 display(raw_df.head())
@@ -130,29 +134,41 @@ display(raw_df.describe())
 
 ::: {.column-margin}
 
-::: {.callout collapse="true"}
-# Some EDA for the data
+*Target distribution*
 
 ```{python}
 #| code-fold: true
-#| code-summary: "EDA code"
+#| code-summary: "Target and Correlation"
 
 # Visualize target data distribution
+plt.figure(figsize=(4, 3))
 sns.countplot(data=raw_df, x=target, hue=target, palette='Set2',)
 plt.title(f'Distribution of {target} levels')
 plt.xticks(rotation=45)
 plt.show()
-
-# Visualize the distribution of numerical variables
-sns.pairplot(raw_df, hue=target)
-plt.show()
-
 
 # Heatmap to check for correlations between numeric variables
 corr = raw_df.corr('kendall',numeric_only=True)
 sns.heatmap(corr, annot=True, cmap='coolwarm')
 plt.title('Kendall Correlation Heatmap')
 plt.show()
+
+```
+
+::: {.callout collapse="true"}
+
+# Some Mode EDA for the data
+
+```{python}
+#| code-fold: true
+#| code-summary: "EDA code"
+
+# Visualize the distribution of numerical variables
+sns.pairplot(raw_df, hue=target, corner=True)
+plt.show()
+
+
+
 
 # Gettign Categorical data
 categorical_columns = raw_df.select_dtypes(include='object').columns
@@ -240,9 +256,7 @@ print(report_orig)
 
 ### Feature Selection Using CrossTab Sparsity
 
-Now comes the exciting part—using CrossTab Sparsity to refine our feature selection process! It’s like cleaning up your closet and only keeping the clothes that spark joy (thank you, Marie Kondo). [^1]
-
-[^1]: This is based on work in Unique Metric for Health Analysis with Optimization of Clustering Activity and Cross Comparison of Results from Different Approach. [Paper Link](https://arxiv.org/abs/1810.03419)]
+Now comes the exciting part—using CrossTab Sparsity to refine our feature selection process! It’s like cleaning up your closet and only keeping the clothes that spark joy (thank you, Marie Kondo). ^[This is based on work in Unique Metric for Health Analysis with Optimization of Clustering Activity and Cross Comparison of Results from Different Approach. [Paper Link](https://arxiv.org/abs/1810.03419)]
 
 [Code is here!](https://gist.github.com/jkapila/83bb8f6461ec91bfced437762f2c9220)
 
@@ -374,6 +388,8 @@ def crosstab_sparsity(df, clusters, numeric_bin='decile', method="fd", exhaustiv
 
 Here we go!!!
 
+::: {.column-page-right}
+
 ```{python}
 #| code-fold: true
 #| code-summary: "Doing what needs to Done Code ;)"
@@ -381,18 +397,18 @@ Here we go!!!
 sns.set_style("white")
 sns.set_context("paper")
 # Calculating Crostab sparsity for each Column
-results = crosstab_sparsity(data_df_train,data_df_train[target])
+results = crosstab_sparsity(data_df_train.iloc[:,:-1],data_df_train[target],numeric_bin='decile')
 
 # presenting results for consumption
 df_long = pd.melt(results['scores'], id_vars=['Columns'], value_vars=['seggregation', 'explaination', 'metric'],
-                  var_name='Metric', value_name='Value')
+                  var_name='Metric', value_name='values')
 
 # Adding jitter: small random noise to 'Columns' (x-axis)
-df_long['values_jittered'] = df_long['Value'] + np.random.uniform(-0.1, 0.1, size=len(df_long))
+# df_long['values_jittered'] = df_long['Value'] + np.random.uniform(-0.1, 0.1, size=len(df_long))
 
 # Create a seaborn scatter plot with jitter, more professional color palette, and transparency
-plt.figure(figsize=(10, 5))
-sns.scatterplot(x='Columns', y='values_jittered', hue='Metric', style='Metric',
+plt.figure(figsize=(12, 5))
+sns.scatterplot(x='Columns', y='values', hue='Metric', style='Metric',
         data=df_long, s=100, alpha=0.7, palette='deep')
 
 # Title and labels
@@ -402,13 +418,16 @@ plt.xlabel('Columns', fontsize=10)
 plt.ylabel('Value', fontsize=10)
 
 # Display legend outside the plot for better readability
-plt.legend(title='Metric', bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.legend(title='Metric', loc='upper right', fancybox=True, framealpha=0.5)
 
 # Show the plot
 plt.tight_layout()
 plt.show()
 
 ```
+
+
+:::
 
 ### And Drum Rolls pelase!!!
 Using just top 5 varaibles we are getting almost similar or better overall accuracy. This amounts to greatly simplifing the models and clearly explain why some variable are not useful for modeling.
@@ -487,17 +506,17 @@ display(pd.DataFrame(metrics).round(4).set_index('Metric').T)
 Through this analysis, several key insights emerge:
 
 ```{python}
-#| code-fold: true
-#| code-summary: "Column Reduction %"
+#| echo: false
+ 
 n_orig = raw_df.shape[1]-1
-display(f'Reduction of similar accuracy from {n_orig} to 5 i.e {(n_orig-5)*100/n_orig:.2f}% reduction')
+print(f'Reduction of similar accuracy from {n_orig} to 5 i.e {(n_orig-5)*100/n_orig:.2f}% reduction')
 ```
 
 1. **Feature Interactions Matter**: The selected features based on CrossTab Sparsity significantly improved model accuracy—like finding out which ingredients make your favorite dish even better!
 2. **Simplicity is Key**: By focusing on relevant features, we enhance accuracy while simplifying model interpretation—because nobody likes unnecessary complexity.
 3. **Real-World Applications**: These findings have practical implications in fields such as environmental science where classification plays a critical role—helping us make better decisions for our planet.
 
-### Conclusion: The Road Ahead
+# Conclusion: The Road Ahead
 
 In conclusion, this blog has illustrated how CrossTab Sparsity can be a game-changer in classification tasks using the Obesity dataset. By leveraging this metric for feature selection, we achieved notable improvements in model performance—proof that sometimes less really is more!
 
@@ -506,6 +525,6 @@ In conclusion, this blog has illustrated how CrossTab Sparsity can be a game-cha
 As we look ahead, there are exciting avenues to explore:
 
 - Investigating regression problems using CrossTab Sparsity.
-- Comparing its effectiveness with other feature selection methods such as Recursive Feature Elimination (RFE) or LASSO regression.
+- Comparing its effectiveness with other feature selection methods such as Recursive Feature Elimination (RFE) or comparision with other feature selection mehtods.
 
 By continuing this journey into data science, we not only enhance our technical skills but also contribute valuable insights that can drive meaningful change in various industries.

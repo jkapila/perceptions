@@ -6,26 +6,39 @@ project:
     - CNAME
 
 website:
-  title: "Percieve It!"
+  title: "Preceptions"
   site-url: https://www.percieveit.com
   description: "A blog about data science, statistics, machine learning, and the scientific method"
   favicon: "favicon-32x32.png"
   # margin-header: includes/subscriber.html
   navbar:
     logo: favicon.ico
-    background: dark
+    # background: dark
+    background: "#000000"
+    foreground: "#FFFFFF"
+    pinned: true
     left:
-      - text: Blog
-        file: index.qmd
+      - text: "Perceiving It !"    
       # - text: Learnign DS Series
       #   file: learningds.qmd 
-
     right:
-      - about.qmd
+      - text: Blog
+        file: index.qmd
+      - text: "About"
+        file: about.qmd
+    
+  page-footer:
+    left:
+      - text: Made with Quarto 
+    right:
+      - icon: rss
+        href: index.xml
       - icon: github
         href: https://github.com/jkapila
       - icon: twitter
         href: https://twitter.com/jitinkapila
+      - icon: linkedin
+        href: https://linkedin.com/jitinkapila
   comments: 
     utterances:
       repo: jkapila/perceptions
@@ -35,10 +48,12 @@ website:
 format:
   html:
     theme:
-      light: yeti
+      light: [literia, styles.scss]
     css: styles.css
     include-in-header:
       - includes/umami.html
+    highlight-style: printing
+    
 
 
 

@@ -1,27 +1,24 @@
 ---
-title: "CorssTab Sparsity"
-subtitle: "A label and data type agnostic metric for evaluating clustering performance!"
+title: "CrossTab Sparsity"
+description: "A label and data type agnostic metric for evaluating clustering performance!"
 
 # Enable CC licence appendix
 license: "CC BY"
 
-# Default author
-author:
-  - name: Jitin Kapila
-    url: https://www.percieveit.com/about
-
-
 date: "2022-05-03"
-categories: [eda, hypothesis]
-keywords: [Metric, clustering]
+categories: [clustering, analysis]
+# keywords: [Metric, clustering]
 lightbox: true
 format:
   html:
     grid:
-      margin-width: 350px 
+      margin-width: 400px 
 reference-location: margin
 citation-location: margin
-
+toc-location: left
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
+cap-location: margin
 draft: false
 ---
 
@@ -54,7 +51,11 @@ Elbow plots and dendrograms left too much room for human interpretation.
 
 ## Our "Aha!" Moment - Crosstab Sparsity 
 
+::: {.column-page-right}
+
 ![Best Cluster for K-means Using Crosstab sparsity](Picture 1.png)
+
+:::
 
 While analyzing cross-tab matrices of variable distributions across clusters, we noticed a pattern: **well-segregated clusters consistently showed higher frequencies along matrix diagonals**. This inspired our two-part metric:  
 
@@ -110,20 +111,35 @@ We tested our metric on a vehicle silhouette dataset with 18 shape-related featu
 ### The Breakthrough  
 
 After refining the preprocessing:    
+
 > Optimal Clusters: Our metric plateaued at $k=6$ , aligning perfectly with known vehicle categories (sedans, trucks, etc.).   
 > Noise Detection: Variables like *Max.LWR* (length-width ratio) scored poorly, revealing inconsistent clustering. We later found this was due to manufacturers’ design variances.  
 
 Finding best cluster for K-Means alone:
-!["Best Cluster for PAM method Using Crosstab sparsity"](Kmeans on Vehicle.png)
+
+::: {.column-page-right}
+
+![Best Cluster for PAM method Using Crosstab sparsity](Kmeans on Vehicle.png)
+
+:::
+
 
 Comparing all cluster methods and find the optimal one:
 
+::: {.column-page-right}
+
 ![Optimal Cluster for many methods](Comparision across many methods.png)
 
+:::
+
+
 **The chunkiest part** : Understanding your variable for separateness. This gives direct insight of what variable in your data is most critical separator.
- 
+
+::: {.column-page-right}
+
  ![All kind of variable scored against Metrics](Variable segregation.png)
 
+:::
 
 # Comparative Advantages and Creativity at Work  
 

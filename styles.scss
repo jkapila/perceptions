@@ -1,0 +1,78 @@
+/*-- scss:defaults --*/
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inconsolata:wght@200..900&display=swap');
+
+$font-family-sans-serif:  "Crimson Text" !default;
+$font-family-serif:       "Crimson Text" !default;
+$font-family-monospace:   "Inconsolata" !default;
+$font-size-base:          1.1rem !default;
+
+// Nav bar
+
+.li.a.dropdown-item {
+  color: "#2B2423";
+}
+
+.dropdown-text {
+  color: "#FFFFFF";
+}
+
+// Typography
+
+h1.title {
+  font-family: "Crimson Text";
+  font-size: 30px;
+}
+
+h1.title.display-7 {
+  font-family: "Crimson Text";
+}
+
+p.subtitle.lead {
+  text-align: center;
+}
+
+a:href {
+  color: #00ab6b;
+}
+
+a:hover {
+    color: #038252;
+    text-decoration: none;
+}
+
+//** Global textual link color.
+$link-color:            #2e94e2 !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%) !default;
+//** Link decoration.
+$link-decoration: none;
+$link-hover-decoration: none;
+
+// $code-block-bg: #2B2423;
+
+.navbar {
+  color: #FFFFFF;
+}
+
+.navbar-title {
+  color: #FFFFFF;
+  font-family: "Crimson Text";
+}
+
+a.sidebar-item-text.sidebar-link {
+    color: #FFFFFF;
+}
+
+.navbar li.dropdown-header {
+  text-transform: none;
+}
+
+.quarto-listing-category {
+    font-family: "Crimson Text";
+}
+
+.quarto-listing-category-title {
+    font-family: "Crimson Text";
+}
