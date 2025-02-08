@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/06_saving_my_blog/index.html",
       "/posts/04_crosstab_sparsity_classification/index.html",
       "/posts/03_crosstab_sparsity/index.html",
       "/posts/02_hypothesis_test/index.html",

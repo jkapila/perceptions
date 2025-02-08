@@ -14,7 +14,14 @@ comments: false
 draft: false
 ---
 
-> Unique Metric for Health Analysis with Optimization of Clustering Activity and Cross Comparison of Results from Different Approach. [Paper Link](https://arxiv.org/abs/1810.03419)
+> Unique Metric for Health Analysis with Optimization of Clustering Activity and Cross Comparison of Results from Different Approach. [Paper Link](https://arxiv.org/abs/1810.03419) 
+
+<!-- {{{< ai arxiv >}}} 
+{{< fa thumbs-up >}}
+
+{{< fa <group> <icon-name> <size=...> <title=...> >}}
+
+{{< pagebreak >}} -->
 
 * A method for estimating clusters **holistically**. The *metric* dose not depend on any assumptions about the *Approach to Cluster* the ***Data***. All that matters is the **Data** what it fits on and what are the **Cluster Segments** observed.
 
