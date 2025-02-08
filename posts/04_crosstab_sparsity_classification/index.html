@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-fd4efb276d373fbde0289c4466a15eeb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2565029c5205f4d0efc56fe1992323f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-5831d06d173b363171133d210e9d63db.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
       .quarto-title-block .quarto-title-banner {
         color: black;
-background: #f0f3f5;
+background: white;
       }
 </style>
 <script defer="" src="https://cloud.umami.is/script.js" data-website-id="f255d40e-5114-4445-8d5b-9b356f5be573"></script>
@@ -262,6 +262,12 @@ background: #f0f3f5;
 
 
 
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><a href="crossroad-unsplash-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Cross Roads where everyone meets!"><img src="crossroad-unsplash-thumb.jpg" class="img-fluid figure-img" alt="Cross Roads where everyone meets!"></a></p>
+<figcaption class="margin-caption">Cross Roads where everyone meets!</figcaption>
+</figure>
+</div>
 <section id="introduction-a-journey-into-data" class="level1">
 <h1>Introduction: A Journey into Data</h1>
 <p>Picture this: you’re standing on the icy shores of Antarctica, the wind whipping around you as you watch a colony of Palmer Penguins waddling about, oblivious to the data detective work you’re about to embark on. As a data science architect, you’re not just an observer; you’re a sleuth armed with algorithms and insights, ready to unravel the mysteries hidden within data. Today, we’ll transform raw numbers into powerful narratives using CrossTab Sparsity as our guiding compass. This blog post will demonstrate how this metric can revolutionize classification tasks, shedding light on many fascinating datasets—the charming Palmer Penguins and the serious Obesity, Credit cards data and many more.</p>
@@ -302,40 +308,40 @@ background: #f0f3f5;
 <section id="eda-for-obesity-data" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="eda-for-obesity-data">EDA for Obesity Data</h3>
 <p>Here’s a brief code snippet to perform essential EDA on the Obesity dataset:</p>
-<div id="6188c29e" class="cell" data-execution_count="2">
+<div id="3fa273b8" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Loading data and generating basic descriptive</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the Obesity data</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>raw_df <span class="op">=</span> pd.read_csv(<span class="st">'ObesityDataSet_raw_and_data_sinthetic.csv'</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> <span class="st">'NObeyesdad'</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load Students data</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load Credit data</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># raw_data = sm.datasets.get_rdataset("credit_data",'modeldata')</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># raw_df = raw_data.data</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># target = 'Status'</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># # Load Palmer penguins data</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># raw_data = sm.datasets.get_rdataset("penguins",'palmerpenguins')</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># raw_df = raw_data.data</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># target = 'species'</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># # Load Credit data</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># raw_data = sm.datasets.get_rdataset("CreditCard",'AER')</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># raw_df = raw_data.data</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># target = 'card'</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># setting things up for aal the next steps</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>raw_df[target] <span class="op">=</span> raw_df[target].astype(<span class="st">'category'</span>) </span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'No of data points available to work:'</span>,raw_df.shape)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>display(raw_df.head())</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>display(raw_df.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load the Obesity data</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>raw_df <span class="op">=</span> pd.read_csv(<span class="st">'ObesityDataSet_raw_and_data_sinthetic.csv'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>target <span class="op">=</span> <span class="st">'NObeyesdad'</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># Load Students data</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># Load Credit data</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># raw_data = sm.datasets.get_rdataset("credit_data",'modeldata')</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># raw_df = raw_data.data</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># target = 'Status'</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co"># # Load Palmer penguins data</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># raw_data = sm.datasets.get_rdataset("penguins",'palmerpenguins')</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co"># raw_df = raw_data.data</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="co"># target = 'species'</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="co"># # Load Credit data</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="co"># raw_data = sm.datasets.get_rdataset("CreditCard",'AER')</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="co"># raw_df = raw_data.data</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="co"># target = 'card'</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a></span>
+<span id="cb1-23"><a href="#cb1-23"></a></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="co"># setting things up for aal the next steps</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a>raw_df[target] <span class="op">=</span> raw_df[target].astype(<span class="st">'category'</span>) </span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="bu">print</span>(<span class="st">'No of data points available to work:'</span>,raw_df.shape)</span>
+<span id="cb1-27"><a href="#cb1-27"></a>display(raw_df.head())</span>
+<span id="cb1-28"><a href="#cb1-28"></a></span>
+<span id="cb1-29"><a href="#cb1-29"></a></span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="co"># Summary statistics</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a>display(raw_df.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>No of data points available to work: (2111, 17)</code></pre>
@@ -344,7 +350,7 @@ background: #f0f3f5;
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -477,7 +483,7 @@ background: #f0f3f5;
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -589,33 +595,33 @@ background: #f0f3f5;
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><em>Target distribution</em></p>
-<div id="acd083e6" class="cell" data-execution_count="3">
+<div id="3852b638" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Target and Correlation</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize target data distribution</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>raw_df, x<span class="op">=</span>target, hue<span class="op">=</span>target, palette<span class="op">=</span><span class="st">'Set2'</span>,)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Distribution of </span><span class="sc">{</span>target<span class="sc">}</span><span class="ss"> levels'</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap to check for correlations between numeric variables</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> raw_df.corr(<span class="st">'kendall'</span>,numeric_only<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">'coolwarm'</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Kendall Correlation Heatmap'</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Visualize target data distribution</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span>
+<span id="cb3-3"><a href="#cb3-3"></a>sns.countplot(data<span class="op">=</span>raw_df, x<span class="op">=</span>target, hue<span class="op">=</span>target, palette<span class="op">=</span><span class="st">'Set2'</span>,)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>plt.title(<span class="ss">f'Distribution of </span><span class="sc">{</span>target<span class="sc">}</span><span class="ss"> levels'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>plt.show()</span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co"># Heatmap to check for correlations between numeric variables</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>corr <span class="op">=</span> raw_df.corr(<span class="st">'kendall'</span>,numeric_only<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-10"><a href="#cb3-10"></a>sns.heatmap(corr, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">'coolwarm'</span>)</span>
+<span id="cb3-11"><a href="#cb3-11"></a>plt.title(<span class="st">'Kendall Correlation Heatmap'</span>)</span>
+<span id="cb3-12"><a href="#cb3-12"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/cell-4-output-1.png" width="400" height="392" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="index_files/figure-html/cell-4-output-1.png" width="400" height="392" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-4-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="index_files/figure-html/cell-4-output-2.png" width="544" height="431" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-4-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="index_files/figure-html/cell-4-output-2.png" width="544" height="431" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
@@ -632,86 +638,86 @@ Some Mode EDA for the data
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="ea06f00e" class="cell" data-execution_count="4">
+<div id="617c3760" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>EDA code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the distribution of numerical variables</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sns.pairplot(raw_df, hue<span class="op">=</span>target, corner<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Gettign Categorical data</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>categorical_columns <span class="op">=</span> raw_df.select_dtypes(include<span class="op">=</span><span class="st">'object'</span>).columns</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot categorical variables with respect to the target variable</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> categorical_columns:</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    sns.countplot(data<span class="op">=</span>raw_df,x<span class="op">=</span>col, hue<span class="op">=</span>target)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"Countplot of </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss"> with respect to </span><span class="sc">{</span>target<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Visualize the distribution of numerical variables</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>sns.pairplot(raw_df, hue<span class="op">=</span>target, corner<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>plt.show()</span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co"># Gettign Categorical data</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>categorical_columns <span class="op">=</span> raw_df.select_dtypes(include<span class="op">=</span><span class="st">'object'</span>).columns</span>
+<span id="cb4-10"><a href="#cb4-10"></a></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co"># Plot categorical variables with respect to the target variable</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="cf">for</span> col <span class="kw">in</span> categorical_columns:</span>
+<span id="cb4-13"><a href="#cb4-13"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
+<span id="cb4-14"><a href="#cb4-14"></a>    sns.countplot(data<span class="op">=</span>raw_df,x<span class="op">=</span>col, hue<span class="op">=</span>target)</span>
+<span id="cb4-15"><a href="#cb4-15"></a>    plt.title(<span class="ss">f"Countplot of </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss"> with respect to </span><span class="sc">{</span>target<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-16"><a href="#cb4-16"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="index_files/figure-html/cell-5-output-1.png" width="2085" height="1885" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="index_files/figure-html/cell-5-output-1.png" width="2085" height="1885" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="index_files/figure-html/cell-5-output-2.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/cell-5-output-2.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/cell-5-output-3.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="index_files/figure-html/cell-5-output-3.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="index_files/figure-html/cell-5-output-4.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="index_files/figure-html/cell-5-output-4.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="index_files/figure-html/cell-5-output-5.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="index_files/figure-html/cell-5-output-5.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="index_files/figure-html/cell-5-output-6.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="index_files/figure-html/cell-5-output-6.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="index_files/figure-html/cell-5-output-7.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="index_files/figure-html/cell-5-output-7.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="index_files/figure-html/cell-5-output-8.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="index_files/figure-html/cell-5-output-8.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="index_files/figure-html/cell-5-output-9.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="index_files/figure-html/cell-5-output-9.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
@@ -724,22 +730,22 @@ Some Mode EDA for the data
 <section id="model-creation-establishing-a-baseline" class="level1 page-columns page-full">
 <h1>Model Creation: Establishing a Baseline</h1>
 <p>With our exploratory analysis complete, we’re ready to create our baseline model using logistic regression with Statsmodels. This initial model will serve as our reference point—like setting up a benchmark for your favorite video game.</p>
-<div id="9c710880" class="cell" data-execution_count="5">
+<div id="fd9abf3c" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Splitting data and training a default Multinomila Logit model on our data</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data_df <span class="op">=</span> raw_df.dropna().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data_df[target] <span class="op">=</span> data_df[target].cat.codes</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># X = data_df[['bill_length_mm','bill_depth_mm','flipper_length_mm','body_mass_g']] </span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data_df_test <span class="op">=</span> data_df.sample(frac<span class="op">=</span><span class="fl">0.1</span>,random_state<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>data_df_train <span class="op">=</span> data_df.drop(data_df_test.index)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Using MN logistic regression model using formula API</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># This would essentially bold down to pair wise logsitic regression</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>logit_model <span class="op">=</span> sm.MNLogit.from_formula(</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>target<span class="sc">}</span><span class="ss"> ~ </span><span class="sc">{</span><span class="st">' + '</span><span class="sc">.</span>join([col <span class="cf">for</span> col <span class="kw">in</span> data_df_train.columns <span class="cf">if</span> col <span class="op">!=</span> target])<span class="sc">}</span><span class="ss">"</span>, </span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>data_df_train</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>).fit_regularized()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>data_df <span class="op">=</span> raw_df.dropna().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>data_df[target] <span class="op">=</span> data_df[target].cat.codes</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># X = data_df[['bill_length_mm','bill_depth_mm','flipper_length_mm','body_mass_g']] </span></span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>data_df_test <span class="op">=</span> data_df.sample(frac<span class="op">=</span><span class="fl">0.1</span>,random_state<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>data_df_train <span class="op">=</span> data_df.drop(data_df_test.index)</span>
+<span id="cb5-7"><a href="#cb5-7"></a></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co"># Using MN logistic regression model using formula API</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co"># This would essentially bold down to pair wise logsitic regression</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>logit_model <span class="op">=</span> sm.MNLogit.from_formula(</span>
+<span id="cb5-11"><a href="#cb5-11"></a>    <span class="ss">f"</span><span class="sc">{</span>target<span class="sc">}</span><span class="ss"> ~ </span><span class="sc">{</span><span class="st">' + '</span><span class="sc">.</span>join([col <span class="cf">for</span> col <span class="kw">in</span> data_df_train.columns <span class="cf">if</span> col <span class="op">!=</span> target])<span class="sc">}</span><span class="ss">"</span>, </span>
+<span id="cb5-12"><a href="#cb5-12"></a>    data<span class="op">=</span>data_df_train</span>
+<span id="cb5-13"><a href="#cb5-13"></a>).fit_regularized()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimization terminated successfully    (Exit mode 0)
@@ -763,13 +769,13 @@ Base model summary for geeks
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="e1dc2efb" class="cell" data-execution_count="6">
+<div id="227c65ea" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Display summary</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>display(logit_model.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>display(logit_model.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>MNLogit Regression Results</caption>
 <tbody>
 <tr class="odd">
@@ -792,13 +798,13 @@ Base model summary for geeks
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Fri, 07 Feb 2025</td>
+<td>Sat, 08 Feb 2025</td>
 <td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
 <td>0.9119</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>18:42:17</td>
+<td>14:09:42</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-325.15</td>
 </tr>
@@ -818,7 +824,7 @@ Base model summary for geeks
 </table>
 
 
-<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">NObeyesdad=1</td>
@@ -2180,20 +2186,20 @@ Base model summary for geeks
 </div></div><section id="evaluating-model-performance" class="level3">
 <h3 class="anchored" data-anchor-id="evaluating-model-performance">Evaluating Model Performance</h3>
 <p>To gauge our models’ effectiveness, we’ll employ various metrics such as accuracy, precision, recall, and F1-score. A confusion matrix will help visualize how well our models perform in classifying outcomes—think of it as a report card for your model!</p>
-<div id="d1d05110" class="cell" data-execution_count="7">
+<div id="8b3ded62" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Evaluating the Logit model</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on test data</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>base_preds <span class="op">=</span> logit_model.predict(data_df_test).idxmax(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> data_df_test[target]</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>accuracy_orig <span class="op">=</span> accuracy_score(y_test, base_preds)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>report_orig <span class="op">=</span> classification_report(y_test, base_preds)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_orig)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Classification Report:"</span>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report_orig)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Predict on test data</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>base_preds <span class="op">=</span> logit_model.predict(data_df_test).idxmax(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a>y_test <span class="op">=</span> data_df_test[target]</span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co"># Evaluate the model</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>accuracy_orig <span class="op">=</span> accuracy_score(y_test, base_preds)</span>
+<span id="cb8-7"><a href="#cb8-7"></a>report_orig <span class="op">=</span> classification_report(y_test, base_preds)</span>
+<span id="cb8-8"><a href="#cb8-8"></a></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_orig)</span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="bu">print</span>(<span class="st">"Classification Report:"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="bu">print</span>(report_orig)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy: 0.909952606635071
@@ -2218,10 +2224,10 @@ weighted avg       0.91      0.91      0.91       211
 </section>
 <section id="looking-for-some-improvments" class="level1 page-columns page-full">
 <h1>Looking for some <em>Improvments!</em></h1>
-<section id="feature-selection-using-crosstab-sparsity" class="level3">
+<section id="feature-selection-using-crosstab-sparsity" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="feature-selection-using-crosstab-sparsity">Feature Selection Using CrossTab Sparsity</h3>
 <p>Now comes the exciting part—using CrossTab Sparsity to refine our feature selection process! It’s like cleaning up your closet and only keeping the clothes that spark joy (thank you, Marie Kondo). <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p><a href="https://gist.github.com/jkapila/83bb8f6461ec91bfced437762f2c9220">Code is here!</a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;This is based on work in Unique Metric for Health Analysis with Optimization of Clustering Activity and Cross Comparison of Results from Different Approach. <a href="https://arxiv.org/abs/1810.03419">Paper Link</a></p></div></div><p><a href="https://gist.github.com/jkapila/83bb8f6461ec91bfced437762f2c9220">Code is here!</a></p>
 </section>
 <section id="standared-steps-for-feature-selection" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="standared-steps-for-feature-selection">Standared Steps for Feature Selection</h3>
@@ -2232,38 +2238,38 @@ weighted avg       0.91      0.91      0.91       211
 </ol>
 <p>Here we go!!!</p>
 <div class="page-columns page-full">
-<div id="11a2f424" class="cell page-columns page-full" data-execution_count="9">
+<div id="17ddb2ed" class="cell page-columns page-full" data-execution_count="10">
 <details class="code-fold">
 <summary>Doing what needs to Done Code ;)</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"white"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sns.set_context(<span class="st">"paper"</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating Crostab sparsity for each Column</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> crosstab_sparsity(data_df_train.iloc[:,:<span class="op">-</span><span class="dv">1</span>],data_df_train[target],numeric_bin<span class="op">=</span><span class="st">'decile'</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># presenting results for consumption</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>df_long <span class="op">=</span> pd.melt(results[<span class="st">'scores'</span>], id_vars<span class="op">=</span>[<span class="st">'Columns'</span>], value_vars<span class="op">=</span>[<span class="st">'seggregation'</span>, <span class="st">'explaination'</span>, <span class="st">'metric'</span>],</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                  var_name<span class="op">=</span><span class="st">'Metric'</span>, value_name<span class="op">=</span><span class="st">'values'</span>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding jitter: small random noise to 'Columns' (x-axis)</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># df_long['values_jittered'] = df_long['Value'] + np.random.uniform(-0.1, 0.1, size=len(df_long))</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a seaborn scatter plot with jitter, more professional color palette, and transparency</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'Columns'</span>, y<span class="op">=</span><span class="st">'values'</span>, hue<span class="op">=</span><span class="st">'Metric'</span>, style<span class="op">=</span><span class="st">'Metric'</span>,</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        data<span class="op">=</span>df_long, s<span class="op">=</span><span class="dv">100</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, palette<span class="op">=</span><span class="st">'deep'</span>)</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Title and labels</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Metrics by Columns'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>) </span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Columns'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Value'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Display legend outside the plot for better readability</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Metric'</span>, loc<span class="op">=</span><span class="st">'upper right'</span>, fancybox<span class="op">=</span><span class="va">True</span>, framealpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>sns.set_style(<span class="st">"white"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>sns.set_context(<span class="st">"paper"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co"># Calculating Crostab sparsity for each Column</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>results <span class="op">=</span> crosstab_sparsity(data_df_train.iloc[:,:<span class="op">-</span><span class="dv">1</span>],data_df_train[target],numeric_bin<span class="op">=</span><span class="st">'decile'</span>)</span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co"># presenting results for consumption</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>df_long <span class="op">=</span> pd.melt(results[<span class="st">'scores'</span>], id_vars<span class="op">=</span>[<span class="st">'Columns'</span>], value_vars<span class="op">=</span>[<span class="st">'seggregation'</span>, <span class="st">'explaination'</span>, <span class="st">'metric'</span>],</span>
+<span id="cb10-8"><a href="#cb10-8"></a>                  var_name<span class="op">=</span><span class="st">'Metric'</span>, value_name<span class="op">=</span><span class="st">'values'</span>)</span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co"># Adding jitter: small random noise to 'Columns' (x-axis)</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="co"># df_long['values_jittered'] = df_long['Value'] + np.random.uniform(-0.1, 0.1, size=len(df_long))</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co"># Create a seaborn scatter plot with jitter, more professional color palette, and transparency</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
+<span id="cb10-15"><a href="#cb10-15"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'Columns'</span>, y<span class="op">=</span><span class="st">'values'</span>, hue<span class="op">=</span><span class="st">'Metric'</span>, style<span class="op">=</span><span class="st">'Metric'</span>,</span>
+<span id="cb10-16"><a href="#cb10-16"></a>        data<span class="op">=</span>df_long, s<span class="op">=</span><span class="dv">100</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, palette<span class="op">=</span><span class="st">'deep'</span>)</span>
+<span id="cb10-17"><a href="#cb10-17"></a></span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="co"># Title and labels</span></span>
+<span id="cb10-19"><a href="#cb10-19"></a>plt.title(<span class="st">'Metrics by Columns'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb10-20"><a href="#cb10-20"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>) </span>
+<span id="cb10-21"><a href="#cb10-21"></a>plt.xlabel(<span class="st">'Columns'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb10-22"><a href="#cb10-22"></a>plt.ylabel(<span class="st">'Value'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb10-23"><a href="#cb10-23"></a></span>
+<span id="cb10-24"><a href="#cb10-24"></a><span class="co"># Display legend outside the plot for better readability</span></span>
+<span id="cb10-25"><a href="#cb10-25"></a>plt.legend(title<span class="op">=</span><span class="st">'Metric'</span>, loc<span class="op">=</span><span class="st">'upper right'</span>, fancybox<span class="op">=</span><span class="va">True</span>, framealpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb10-26"><a href="#cb10-26"></a></span>
+<span id="cb10-27"><a href="#cb10-27"></a><span class="co"># Show the plot</span></span>
+<span id="cb10-28"><a href="#cb10-28"></a>plt.tight_layout()</span>
+<span id="cb10-29"><a href="#cb10-29"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>CSP calculated with decile for breaks!
@@ -2273,7 +2279,7 @@ Scores for 7 groups(s) is : 140.96057955229762</code></pre>
 <div class="cell-output cell-output-display page-columns page-full">
 <div class="page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="index_files/figure-html/cell-10-output-2.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-12"><img src="index_files/figure-html/cell-10-output-2.png" width="1142" height="471" class="figure-img column-page-right"></a></p>
+<p class="page-columns page-full"><a href="index_files/figure-html/cell-10-output-2.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-13"><img src="index_files/figure-html/cell-10-output-2.png" width="1142" height="471" class="figure-img column-page-right"></a></p>
 </figure>
 </div>
 </div>
@@ -2283,24 +2289,24 @@ Scores for 7 groups(s) is : 140.96057955229762</code></pre>
 <section id="and-drum-rolls-pelase" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="and-drum-rolls-pelase">And Drum Rolls pelase!!!</h3>
 <p>Using just top 5 varaibles we are getting almost similar or better overall accuracy. This amounts to greatly simplifing the models and clearly explain why some variable are not useful for modeling.</p>
-<div id="f748dd52" class="cell" data-execution_count="10">
+<div id="1c45a005" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>And finally training and evaluating with drum rolls</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>logit_model_rev <span class="op">=</span> sm.MNLogit.from_formula(<span class="ss">f"</span><span class="sc">{</span>target<span class="sc">}</span><span class="ss"> ~ </span><span class="sc">{</span><span class="st">' + '</span><span class="sc">.</span>join(results[<span class="st">'scores'</span>].loc[:<span class="dv">5</span>,<span class="st">'Columns'</span>].values)<span class="sc">}</span><span class="ss">"</span>, </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>data_df_train</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>).fit_regularized()</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on test data</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>challenger_preds <span class="op">=</span> logit_model_rev.predict(data_df_test).idxmax(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> data_df_test[target]</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>accuracy_new <span class="op">=</span> accuracy_score(y_test, challenger_preds)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>report_new <span class="op">=</span> classification_report(y_test, challenger_preds)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_new)</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Classification Report:"</span>)</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>logit_model_rev <span class="op">=</span> sm.MNLogit.from_formula(<span class="ss">f"</span><span class="sc">{</span>target<span class="sc">}</span><span class="ss"> ~ </span><span class="sc">{</span><span class="st">' + '</span><span class="sc">.</span>join(results[<span class="st">'scores'</span>].loc[:<span class="dv">5</span>,<span class="st">'Columns'</span>].values)<span class="sc">}</span><span class="ss">"</span>, </span>
+<span id="cb12-2"><a href="#cb12-2"></a>    data<span class="op">=</span>data_df_train</span>
+<span id="cb12-3"><a href="#cb12-3"></a>).fit_regularized()</span>
+<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co"># Predict on test data</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>challenger_preds <span class="op">=</span> logit_model_rev.predict(data_df_test).idxmax(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-7"><a href="#cb12-7"></a>y_test <span class="op">=</span> data_df_test[target]</span>
+<span id="cb12-8"><a href="#cb12-8"></a></span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="co"># Evaluate the model</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a>accuracy_new <span class="op">=</span> accuracy_score(y_test, challenger_preds)</span>
+<span id="cb12-11"><a href="#cb12-11"></a>report_new <span class="op">=</span> classification_report(y_test, challenger_preds)</span>
+<span id="cb12-12"><a href="#cb12-12"></a></span>
+<span id="cb12-13"><a href="#cb12-13"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_new)</span>
+<span id="cb12-14"><a href="#cb12-14"></a><span class="bu">print</span>(<span class="st">"Classification Report:"</span>)</span>
+<span id="cb12-15"><a href="#cb12-15"></a><span class="bu">print</span>(report_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimization terminated successfully    (Exit mode 0)
@@ -2340,13 +2346,13 @@ Summary of retrained model
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="06db05ee" class="cell" data-execution_count="11">
+<div id="e437017c" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>display(logit_model_rev.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>display(logit_model_rev.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>MNLogit Regression Results</caption>
 <tbody>
 <tr class="odd">
@@ -2369,13 +2375,13 @@ Summary of retrained model
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Fri, 07 Feb 2025</td>
+<td>Sat, 08 Feb 2025</td>
 <td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
 <td>0.9103</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>18:42:18</td>
+<td>14:09:43</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-331.32</td>
 </tr>
@@ -2395,7 +2401,7 @@ Summary of retrained model
 </table>
 
 
-<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">NObeyesdad=1</td>
@@ -2845,31 +2851,31 @@ Summary of retrained model
 <h3 class="anchored" data-anchor-id="results-and-discussion-unveiling-insights">Results and Discussion: Unveiling Insights</h3>
 <p><strong>Model Comparison Table</strong></p>
 <p>After implementing CrossTab Sparsity in our feature selection process, let’s take a look at the results:</p>
-<div id="17d3703a" class="cell" data-execution_count="12">
+<div id="97acf2fe" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Comparision Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>metrics <span class="op">=</span> {</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Metric"</span>: [<span class="st">"Accuracy"</span>, <span class="st">"Precision"</span>, <span class="st">"Recall"</span>, <span class="st">"F1-Score"</span>],</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Baseline Model with all Parameters"</span>: [</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        accuracy_score(y_test, base_preds),</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        precision_score(y_test, base_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        recall_score(y_test, base_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        f1_score(y_test, base_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    ],</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Challenger Model with only 5 Variables"</span>: [</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        accuracy_score(y_test, challenger_preds),</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        precision_score(y_test, challenger_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        recall_score(y_test, challenger_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        f1_score(y_test, challenger_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>display(pd.DataFrame(metrics).<span class="bu">round</span>(<span class="dv">4</span>).set_index(<span class="st">'Metric'</span>).T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>metrics <span class="op">=</span> {</span>
+<span id="cb15-2"><a href="#cb15-2"></a>    <span class="st">"Metric"</span>: [<span class="st">"Accuracy"</span>, <span class="st">"Precision"</span>, <span class="st">"Recall"</span>, <span class="st">"F1-Score"</span>],</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    <span class="st">"Baseline Model with all Parameters"</span>: [</span>
+<span id="cb15-4"><a href="#cb15-4"></a>        accuracy_score(y_test, base_preds),</span>
+<span id="cb15-5"><a href="#cb15-5"></a>        precision_score(y_test, base_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
+<span id="cb15-6"><a href="#cb15-6"></a>        recall_score(y_test, base_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
+<span id="cb15-7"><a href="#cb15-7"></a>        f1_score(y_test, base_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
+<span id="cb15-8"><a href="#cb15-8"></a>    ],</span>
+<span id="cb15-9"><a href="#cb15-9"></a>    <span class="st">"Challenger Model with only 5 Variables"</span>: [</span>
+<span id="cb15-10"><a href="#cb15-10"></a>        accuracy_score(y_test, challenger_preds),</span>
+<span id="cb15-11"><a href="#cb15-11"></a>        precision_score(y_test, challenger_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
+<span id="cb15-12"><a href="#cb15-12"></a>        recall_score(y_test, challenger_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
+<span id="cb15-13"><a href="#cb15-13"></a>        f1_score(y_test, challenger_preds, average<span class="op">=</span><span class="st">'weighted'</span>),</span>
+<span id="cb15-14"><a href="#cb15-14"></a>    ]</span>
+<span id="cb15-15"><a href="#cb15-15"></a>}</span>
+<span id="cb15-16"><a href="#cb15-16"></a>display(pd.DataFrame(metrics).<span class="bu">round</span>(<span class="dv">4</span>).set_index(<span class="st">'Metric'</span>).T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">Metric</th>
@@ -2902,7 +2908,7 @@ Summary of retrained model
 </div>
 <p><strong>Insights Gained</strong></p>
 <p>Through this analysis, several key insights emerge:</p>
-<div id="0948a996" class="cell" data-execution_count="13">
+<div id="7be34d1d" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-stdout">
 <pre><code>Reduction of similar accuracy from 16 to 5 i.e 68.75% reduction</code></pre>
 </div>
@@ -2929,12 +2935,7 @@ Summary of retrained model
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>This is based on work in Unique Metric for Health Analysis with Optimization of Clustering Activity and Cross Comparison of Results from Different Approach. <a href="https://arxiv.org/abs/1810.03419">Paper Link</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -3025,7 +3026,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/www\.percieveit\.com");
+      var filterRegex = new RegExp("https:\/\/www\.jkapila\.github\.io");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

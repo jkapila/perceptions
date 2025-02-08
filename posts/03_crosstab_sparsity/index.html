@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-fd4efb276d373fbde0289c4466a15eeb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2565029c5205f4d0efc56fe1992323f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-5831d06d173b363171133d210e9d63db.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -120,7 +120,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
       .quarto-title-block .quarto-title-banner {
         color: black;
-background: #f0f3f5;
+background-image: url(img/pexels-n-voitkevich-5712829-thumb.jpg);
+background-size: cover;
       }
 </style>
 <script defer="" src="https://cloud.umami.is/script.js" data-website-id="f255d40e-5114-4445-8d5b-9b356f5be573"></script>
@@ -306,7 +307,7 @@ Noisy variables often contaminated clusters, but traditional methods required ma
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="Picture 1.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Best Cluster for K-means Using Crosstab sparsity"><img src="Picture 1.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for K-means Using Crosstab sparsity"></a></p>
+<p class="page-columns page-full"><a href="img/Picture 1.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Best Cluster for K-means Using Crosstab sparsity"><img src="img/Picture 1.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for K-means Using Crosstab sparsity"></a></p>
 <figcaption>Best Cluster for K-means Using Crosstab sparsity</figcaption>
 </figure>
 </div>
@@ -316,11 +317,11 @@ Noisy variables often contaminated clusters, but traditional methods required ma
 <div class="no-row-height column-margin column-container"><div class="">
 <ol type="1">
 <li><p><strong>Segregation Factor</strong>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simplified calculation from our codebase  </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>median <span class="op">=</span> np.median(cross_tab)  </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>N_vk <span class="op">=</span> np.<span class="bu">sum</span>(cross_tab <span class="op">&gt;</span> median)  <span class="co"># Count "well-segregated" instances  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Simplified calculation from our codebase  </span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>median <span class="op">=</span> np.median(cross_tab)  </span>
+<span id="cb1-3"><a href="#cb1-3"></a>N_vk <span class="op">=</span> np.<span class="bu">sum</span>(cross_tab <span class="op">&gt;</span> median)  <span class="co"># Count "well-segregated" instances  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><strong>Explanation Factor</strong>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>explanation <span class="op">=</span> np.log(<span class="bu">len</span>(data) <span class="op">/</span> (bins <span class="op">*</span> clusters))  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>explanation <span class="op">=</span> np.log(<span class="bu">len</span>(data) <span class="op">/</span> (bins <span class="op">*</span> clusters))  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 </div></div><ol type="1">
 <li><strong>Segregation Factor</strong>: Measures how distinctly clusters separate data points. We used the median (not mean) to avoid skew from outlier-dominated matrices.</li>
@@ -361,7 +362,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="Kmeans on Vehicle.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Best Cluster for PAM method Using Crosstab sparsity"><img src="Kmeans on Vehicle.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for PAM method Using Crosstab sparsity"></a></p>
+<p class="page-columns page-full"><a href="img/Kmeans on Vehicle.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Best Cluster for PAM method Using Crosstab sparsity"><img src="img/Kmeans on Vehicle.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for PAM method Using Crosstab sparsity"></a></p>
 <figcaption>Best Cluster for PAM method Using Crosstab sparsity</figcaption>
 </figure>
 </div>
@@ -370,7 +371,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="Comparision across many methods.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Optimal Cluster for many methods"><img src="Comparision across many methods.png" class="img-fluid figure-img column-page-right" alt="Optimal Cluster for many methods"></a></p>
+<p class="page-columns page-full"><a href="img/Comparision across many methods.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Optimal Cluster for many methods"><img src="img/Comparision across many methods.png" class="img-fluid figure-img column-page-right" alt="Optimal Cluster for many methods"></a></p>
 <figcaption>Optimal Cluster for many methods</figcaption>
 </figure>
 </div>
@@ -379,7 +380,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="Variable segregation.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="All kind of variable scored against Metrics"><img src="Variable segregation.png" class="img-fluid figure-img column-page-right" alt="All kind of variable scored against Metrics"></a></p>
+<p class="page-columns page-full"><a href="img/Variable segregation.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="All kind of variable scored against Metrics"><img src="img/Variable segregation.png" class="img-fluid figure-img column-page-right" alt="All kind of variable scored against Metrics"></a></p>
 <figcaption>All kind of variable scored against Metrics</figcaption>
 </figure>
 </div>
@@ -572,7 +573,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/www\.percieveit\.com");
+      var filterRegex = new RegExp("https:\/\/www\.jkapila\.github\.io");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

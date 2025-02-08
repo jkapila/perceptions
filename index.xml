@@ -6,21 +6,108 @@
       version="2.0">
 <channel>
 <title>Preceptions</title>
-<link>https://www.percieveit.com/</link>
-<atom:link href="https://www.percieveit.com/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://www.jkapila.github.io/</link>
+<atom:link href="https://www.jkapila.github.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog about data science, statistics, machine learning, and the scientific method</description>
 <generator>quarto-1.7.6</generator>
-<lastBuildDate>Mon, 02 Jan 2023 18:30:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 22 Jan 2024 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Journey back to Bloggin’ with Quarto</title>
+  <dc:creator>Jitin Kapila</dc:creator>
+  <link>https://www.jkapila.github.io/posts/06_saving_my_blog/</link>
+  <description><![CDATA[ 
+
+
+
+  
+
+
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><a href="mount-everest-6395759_640.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Journey that challenges you are the best! Image by Devraj Bajgain"><img src="https://www.jkapila.github.io/posts/06_saving_my_blog/mount-everest-6395759_640.jpg" class="img-fluid figure-img" alt="Journey that challenges you are the best! Image by Devraj Bajgain"></a></p>
+<figcaption class="margin-caption">Journey that challenges you are the best! Image by <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6395759">Devraj Bajgain</a></figcaption>
+</figure>
+</div>
+<section id="my-blogging-evolution-from-jekylls-depths-to-quartos-data-science-peak" class="level1">
+<h1>My Blogging Evolution: From Jekyll’s Depths to Quarto’s Data Science Peak</h1>
+<p>The realm of blogging platforms is expansive and constantly evolving, offering solutions for every niche. As a data science architect, my journey through this landscape has been a search for the ideal tool—one that integrates with my workflow, supports my use of R and Python, and enables me to share insights efficiently. This quest has led me from Jekyll to Hugo, and finally, to the data science-focused environment of Quarto. Let me recount this evolution.</p>
+<section id="the-beginning-jekylls-promise-and-problems" class="level3">
+<h3 class="anchored" data-anchor-id="the-beginning-jekylls-promise-and-problems">The Beginning: <a href="https://jekyllrb.com/">Jekyll’s</a> Promise and Problems</h3>
+<p>Around 2015, <em>Jekyll</em> was a leading choice for static site generation. It promised a simple, static blog, but the reality had its challenges. The setup was relatively straightforward, but as a data scientist, I encountered significant drawbacks. My workflow involved R and Python code, and integrating these into blog posts was cumbersome. I spent more time tweaking Ruby and HTMLthan writing, which wasn’t ideal.</p>
+<p><em>It was an inefficient process that stifled creativity</em>. I needed a platform that understood the needs of data scientists, allowing seamless integration of code, narrative, and visuals. Despite its initial appeal, <a href="https://danmackinlay.name/notebook/static_sites.html"><em>Jekyll proved more of a hindrance</em></a> <span class="emoji" data-emoji="disappointed_relieved">😥</span></p>
+</section>
+<section id="a-glimmer-of-hope-hugo-and-blogdown" class="level3">
+<h3 class="anchored" data-anchor-id="a-glimmer-of-hope-hugo-and-blogdown">A Glimmer of Hope: <a href="https://gohugo.io/">Hugo</a> and <a href="https://bookdown.org/yihui/blogdown/">Blogdown</a></h3>
+<p>Next, I discovered <em>Hugo</em>, along with the <em>blogdown</em> package in R. This combination allowed me to write blog posts directly in R Markdown, which was revolutionary. I created shortcodes that suited my style, and <em>writing in R Markdown was a game-changer</em>.</p>
+<p>However, my enthusiasm was short-lived. As I shifted more towards Python for development, I faced the same old problem: <em>juggling between environments</em>. The dream of a unified workflow remained <a href="https://rasmusnes.com/posts/hugo_vs_quarto/">out of reach</a>.</p>
+</section>
+<section id="the-ideal-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="the-ideal-quarto">The Ideal: <a href="https://quarto.org/">Quarto</a></h3>
+<p>Then came <em>Quarto</em>. This has been transformative. Quarto is designed for researchers and data scientists, supporting both R and Python seamlessly. I started migrating my site in early 2022, and the transition was smooth. <em>I built my site, deployed it on Netlify</em>, and finally had a natural and intuitive workflow.</p>
+<p><em>Quarto allowed me to focus on content</em>. I could write, code, and visualize without leaving my data science environment. Its support for multiple output formats made adapting content for different channels easy.</p>
+</section>
+<section id="the-hiatus-and-the-return" class="level3">
+<h3 class="anchored" data-anchor-id="the-hiatus-and-the-return">The Hiatus and the Return</h3>
+<p>Life intervened, and blogging took a backseat during 2023 and early 2024.</p>
+<p><em>Now, I’m back</em>. The goal is to blog <em>better</em>, creating content that sparks conversations and pushes data science communication. I aim to leverage Quarto’s full capabilities, building an engaging and informative blog, dashboards and whatever is possible. The plan is to distribute content across multiple channels and build a community. <em>Fingers crossed, I won’t stop this time</em>. <span class="emoji" data-emoji="v">✌️</span></p>
+</section>
+</section>
+<section id="lessons-learned-and-resources" class="level1">
+<h1>Lessons Learned and Resources</h1>
+<p>My blogging journey has taught me valuable lessons:</p>
+<ol type="1">
+<li><strong>Choose the Right Tool</strong>: The platform impacts your productivity. Select one that aligns with your workflow.</li>
+<li><strong>Embrace Simplicity</strong>: Focus on creating content and let the platform handle the rest.</li>
+<li><strong>Stay Consistent</strong>: Consistency is key. Maintain a realistic schedule.</li>
+<li><strong>Engage with Your Audience</strong>: Interact with readers and build a community.</li>
+</ol>
+<p>My recent inspiration is from :</p>
+<ul>
+<li><a href="https://ivelasq.rbind.io/">%&gt;% dreams</a> Blog by Isabella Velásquez.</li>
+<li><a href="https://blog.djnavarro.net/">Notes from a data witch</a> A blog by Danielle Navarro.</li>
+<li><a href="https://albert-rapp.de/">Albert Rapp</a> His personal Blog.</li>
+<li><a href="https://randomrealizations.com">Random Realizations</a> A great work by Matt Bowers especially for python users.</li>
+<li><a href="https://bitsofanalytics.org/">Bits of Analytics</a> A good simple site!</li>
+<li><a href="https://github.com/mcanouil/awesome-quarto">Awesome Quarto</a> A great place to find best things on Quarto!!!</li>
+</ul>
+<p>To enhance my blog, I’m referring to these resources:</p>
+<ul>
+<li><a href="https://www.asterhu.com/post/2023-03-30-jekyll-migrating-to-quarto/">Aster Hu’s experience migrating from Jekyll to Quarto</a></li>
+<li><a href="https://rasmusnes.com/posts/hugo_vs_quarto/">Rasmus Nes’s Blog on Hugo vs Quarto</a></li>
+<li><a href="https://news.ycombinator.com/item?id=39272953">Discussion on lightweight personal blogging platforms on Hacker News</a></li>
+<li><a href="https://danmackinlay.name/notebook/static_sites.html">Dan MacKinlay’s notes on static websites</a></li>
+<li><a href="https://news.ycombinator.com/item?id=41014806">Another Hacker News discussion on the best way to author blogs in 2024</a></li>
+<li><a href="https://github.com/quarto-dev/quarto-cli/discussions/6534">Can quarto work with Jekyll?</a></li>
+<li><a href="https://github.com/myles/awesome-static-generators">Swesome Static Generators</a></li>
+</ul>
+<p><em>Here’s to the next phase of my blogging evolution. May it be filled with insights and innovation!</em></p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
+  <category>blog</category>
+  <category>quarto</category>
+  <guid>https://www.jkapila.github.io/posts/06_saving_my_blog/</guid>
+  <pubDate>Mon, 22 Jan 2024 18:30:00 GMT</pubDate>
+  <media:content url="https://www.jkapila.github.io/posts/06_saving_my_blog/mount-everest-6395759_640.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>CrossTab Sparsity for Classification</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.percieveit.com/posts/04_crosstab_sparsity_classification/</link>
+  <link>https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/</link>
   <description><![CDATA[ 
 
 
 
 
 
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><a href="crossroad-unsplash-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Cross Roads where everyone meets!"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/crossroad-unsplash-thumb.jpg" class="img-fluid figure-img" alt="Cross Roads where everyone meets!"></a></p>
+<figcaption class="margin-caption">Cross Roads where everyone meets!</figcaption>
+</figure>
+</div>
 <section id="introduction-a-journey-into-data" class="level1">
 <h1>Introduction: A Journey into Data</h1>
 <p>Picture this: you’re standing on the icy shores of Antarctica, the wind whipping around you as you watch a colony of Palmer Penguins waddling about, oblivious to the data detective work you’re about to embark on. As a data science architect, you’re not just an observer; you’re a sleuth armed with algorithms and insights, ready to unravel the mysteries hidden within data. Today, we’ll transform raw numbers into powerful narratives using CrossTab Sparsity as our guiding compass. This blog post will demonstrate how this metric can revolutionize classification tasks, shedding light on many fascinating datasets—the charming Palmer Penguins and the serious Obesity, Credit cards data and many more.</p>
@@ -61,10 +148,10 @@
 <section id="eda-for-obesity-data" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="eda-for-obesity-data">EDA for Obesity Data</h3>
 <p>Here’s a brief code snippet to perform essential EDA on the Obesity dataset:</p>
-<div id="6188c29e" class="cell" data-execution_count="2">
+<div id="3fa273b8" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Loading data and generating basic descriptive</summary>
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Load the Obesity data</span></span>
 <span id="cb1-2">raw_df <span class="op" style="color: #5E5E5E;
@@ -151,7 +238,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -284,7 +371,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -396,10 +483,10 @@ font-style: inherit;"># Summary statistics</span></span>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><em>Target distribution</em></p>
-<div id="acd083e6" class="cell" data-execution_count="3">
+<div id="3852b638" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Target and Correlation</summary>
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Visualize target data distribution</span></span>
 <span id="cb3-2">plt.figure(figsize<span class="op" style="color: #5E5E5E;
@@ -465,14 +552,14 @@ font-style: inherit;">'Kendall Correlation Heatmap'</span>)</span>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://www.percieveit.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-4-output-1.png" width="400" height="392" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-4-output-1.png" width="400" height="392" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-4-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://www.percieveit.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-4-output-2.png" width="544" height="431" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-4-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-4-output-2.png" width="544" height="431" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
@@ -489,10 +576,10 @@ Some Mode EDA for the data
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="ea06f00e" class="cell" data-execution_count="4">
+<div id="617c3760" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>EDA code</summary>
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Visualize the distribution of numerical variables</span></span>
 <span id="cb4-2">sns.pairplot(raw_df, hue<span class="op" style="color: #5E5E5E;
@@ -562,63 +649,63 @@ font-style: inherit;">"</span>)</span>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="https://www.percieveit.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-1.png" width="2085" height="1885" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-1.png" width="2085" height="1885" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://www.percieveit.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-2.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-2.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="https://www.percieveit.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-3.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-3.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="https://www.percieveit.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-4.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-4.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="https://www.percieveit.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-5.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-5.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="https://www.percieveit.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-6.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-6.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="https://www.percieveit.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-7.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-7.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="https://www.percieveit.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-8.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-8.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="https://www.percieveit.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-9.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-9.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
@@ -631,10 +718,10 @@ font-style: inherit;">"</span>)</span>
 <section id="model-creation-establishing-a-baseline" class="level1 page-columns page-full">
 <h1>Model Creation: Establishing a Baseline</h1>
 <p>With our exploratory analysis complete, we’re ready to create our baseline model using logistic regression with Statsmodels. This initial model will serve as our reference point—like setting up a benchmark for your favorite video game.</p>
-<div id="9c710880" class="cell" data-execution_count="5">
+<div id="fd9abf3c" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Splitting data and training a default Multinomila Logit model on our data</summary>
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">data_df <span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1">data_df <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> raw_df.dropna().reset_index(drop<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -729,13 +816,13 @@ Base model summary for geeks
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="e1dc2efb" class="cell" data-execution_count="6">
+<div id="227c65ea" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Display summary</summary>
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">display(logit_model.summary())</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1">display(logit_model.summary())</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>MNLogit Regression Results</caption>
 <tbody>
 <tr class="odd">
@@ -758,13 +845,13 @@ Base model summary for geeks
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Fri, 07 Feb 2025</td>
+<td>Sat, 08 Feb 2025</td>
 <td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
 <td>0.9119</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>18:42:17</td>
+<td>14:09:42</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-325.15</td>
 </tr>
@@ -784,7 +871,7 @@ Base model summary for geeks
 </table>
 
 
-<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">NObeyesdad=1</td>
@@ -2146,10 +2233,10 @@ Base model summary for geeks
 </div></div><section id="evaluating-model-performance" class="level3">
 <h3 class="anchored" data-anchor-id="evaluating-model-performance">Evaluating Model Performance</h3>
 <p>To gauge our models’ effectiveness, we’ll employ various metrics such as accuracy, precision, recall, and F1-score. A confusion matrix will help visualize how well our models perform in classifying outcomes—think of it as a report card for your model!</p>
-<div id="d1d05110" class="cell" data-execution_count="7">
+<div id="8b3ded62" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Evaluating the Logit model</summary>
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Predict on test data</span></span>
 <span id="cb8-2">base_preds <span class="op" style="color: #5E5E5E;
@@ -2210,10 +2297,10 @@ weighted avg       0.91      0.91      0.91       211
 </section>
 <section id="looking-for-some-improvments" class="level1 page-columns page-full">
 <h1>Looking for some <em>Improvments!</em></h1>
-<section id="feature-selection-using-crosstab-sparsity" class="level3">
+<section id="feature-selection-using-crosstab-sparsity" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="feature-selection-using-crosstab-sparsity">Feature Selection Using CrossTab Sparsity</h3>
 <p>Now comes the exciting part—using CrossTab Sparsity to refine our feature selection process! It’s like cleaning up your closet and only keeping the clothes that spark joy (thank you, Marie Kondo). <sup>1</sup></p>
-<p><a href="https://gist.github.com/jkapila/83bb8f6461ec91bfced437762f2c9220">Code is here!</a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;This is based on work in Unique Metric for Health Analysis with Optimization of Clustering Activity and Cross Comparison of Results from Different Approach. <a href="https://arxiv.org/abs/1810.03419">Paper Link</a></p></div></div><p><a href="https://gist.github.com/jkapila/83bb8f6461ec91bfced437762f2c9220">Code is here!</a></p>
 </section>
 <section id="standared-steps-for-feature-selection" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="standared-steps-for-feature-selection">Standared Steps for Feature Selection</h3>
@@ -2224,10 +2311,10 @@ weighted avg       0.91      0.91      0.91       211
 </ol>
 <p>Here we go!!!</p>
 <div class="page-columns page-full">
-<div id="11a2f424" class="cell page-columns page-full" data-execution_count="9">
+<div id="17ddb2ed" class="cell page-columns page-full" data-execution_count="10">
 <details class="code-fold">
 <summary>Doing what needs to Done Code ;)</summary>
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">sns.set_style(<span class="st" style="color: #20794D;
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1">sns.set_style(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"white"</span>)</span>
 <span id="cb10-2">sns.set_context(<span class="st" style="color: #20794D;
@@ -2393,7 +2480,7 @@ Scores for 7 groups(s) is : 140.96057955229762</code></pre>
 <div class="cell-output cell-output-display page-columns page-full">
 <div class="page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="index_files/figure-html/cell-10-output-2.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-12"><img src="https://www.percieveit.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-10-output-2.png" width="1142" height="471" class="figure-img column-page-right"></a></p>
+<p class="page-columns page-full"><a href="index_files/figure-html/cell-10-output-2.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-13"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-10-output-2.png" width="1142" height="471" class="figure-img column-page-right"></a></p>
 </figure>
 </div>
 </div>
@@ -2403,10 +2490,10 @@ Scores for 7 groups(s) is : 140.96057955229762</code></pre>
 <section id="and-drum-rolls-pelase" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="and-drum-rolls-pelase">And Drum Rolls pelase!!!</h3>
 <p>Using just top 5 varaibles we are getting almost similar or better overall accuracy. This amounts to greatly simplifing the models and clearly explain why some variable are not useful for modeling.</p>
-<div id="f748dd52" class="cell" data-execution_count="10">
+<div id="1c45a005" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>And finally training and evaluating with drum rolls</summary>
-<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1">logit_model_rev <span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1">logit_model_rev <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> sm.MNLogit.from_formula(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -2514,13 +2601,13 @@ Summary of retrained model
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="06db05ee" class="cell" data-execution_count="11">
+<div id="e437017c" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">display(logit_model_rev.summary())</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1">display(logit_model_rev.summary())</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>MNLogit Regression Results</caption>
 <tbody>
 <tr class="odd">
@@ -2543,13 +2630,13 @@ Summary of retrained model
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Fri, 07 Feb 2025</td>
+<td>Sat, 08 Feb 2025</td>
 <td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
 <td>0.9103</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>18:42:18</td>
+<td>14:09:43</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-331.32</td>
 </tr>
@@ -2569,7 +2656,7 @@ Summary of retrained model
 </table>
 
 
-<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">NObeyesdad=1</td>
@@ -3019,10 +3106,10 @@ Summary of retrained model
 <h3 class="anchored" data-anchor-id="results-and-discussion-unveiling-insights">Results and Discussion: Unveiling Insights</h3>
 <p><strong>Model Comparison Table</strong></p>
 <p>After implementing CrossTab Sparsity in our feature selection process, let’s take a look at the results:</p>
-<div id="17d3703a" class="cell" data-execution_count="12">
+<div id="97acf2fe" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Comparision Code</summary>
-<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1">metrics <span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1">metrics <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> {</span>
 <span id="cb15-2">    <span class="st" style="color: #20794D;
@@ -3089,7 +3176,7 @@ font-style: inherit;">'Metric'</span>).T)</span></code></pre></div>
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">Metric</th>
@@ -3122,7 +3209,7 @@ font-style: inherit;">'Metric'</span>).T)</span></code></pre></div>
 </div>
 <p><strong>Insights Gained</strong></p>
 <p>Through this analysis, several key insights emerge:</p>
-<div id="0948a996" class="cell" data-execution_count="13">
+<div id="7be34d1d" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-stdout">
 <pre><code>Reduction of similar accuracy from 16 to 5 i.e 68.75% reduction</code></pre>
 </div>
@@ -3149,23 +3236,18 @@ font-style: inherit;">'Metric'</span>).T)</span></code></pre></div>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>This is based on work in Unique Metric for Health Analysis with Optimization of Clustering Activity and Cross Comparison of Results from Different Approach. <a href="https://arxiv.org/abs/1810.03419">Paper Link</a>↩︎</p></li>
-</ol>
-</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
   <category>classification</category>
   <category>metric</category>
   <category>feature selection</category>
-  <guid>https://www.percieveit.com/posts/04_crosstab_sparsity_classification/</guid>
+  <guid>https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/</guid>
   <pubDate>Mon, 02 Jan 2023 18:30:00 GMT</pubDate>
-  <media:content url="https://www.percieveit.com/posts/04_crosstab_sparsity_classification/crossroad-unsplash.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/crossroad-unsplash.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>CrossTab Sparsity</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.percieveit.com/posts/03_crosstab_sparsity/</link>
+  <link>https://www.jkapila.github.io/posts/03_crosstab_sparsity/</link>
   <description><![CDATA[ 
 
 
@@ -3204,7 +3286,7 @@ Noisy variables often contaminated clusters, but traditional methods required ma
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="Picture 1.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Best Cluster for K-means Using Crosstab sparsity"><img src="https://www.percieveit.com/posts/03_crosstab_sparsity/Picture 1.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for K-means Using Crosstab sparsity"></a></p>
+<p class="page-columns page-full"><a href="img/Picture 1.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Best Cluster for K-means Using Crosstab sparsity"><img src="https://www.jkapila.github.io/posts/03_crosstab_sparsity/img/Picture 1.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for K-means Using Crosstab sparsity"></a></p>
 <figcaption>Best Cluster for K-means Using Crosstab sparsity</figcaption>
 </figure>
 </div>
@@ -3214,7 +3296,7 @@ Noisy variables often contaminated clusters, but traditional methods required ma
 <div class="no-row-height column-margin column-container"><div class="">
 <ol type="1">
 <li><p><strong>Segregation Factor</strong>:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Simplified calculation from our codebase  </span></span>
 <span id="cb1-2">median <span class="op" style="color: #5E5E5E;
@@ -3230,7 +3312,7 @@ font-style: inherit;">&gt;</span> median)  <span class="co" style="color: #5E5E5
 background-color: null;
 font-style: inherit;"># Count "well-segregated" instances  </span></span></code></pre></div></li>
 <li><p><strong>Explanation Factor</strong>:</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">explanation <span class="op" style="color: #5E5E5E;
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1">explanation <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> np.log(<span class="bu" style="color: null;
 background-color: null;
@@ -3277,7 +3359,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="Kmeans on Vehicle.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Best Cluster for PAM method Using Crosstab sparsity"><img src="https://www.percieveit.com/posts/03_crosstab_sparsity/Kmeans on Vehicle.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for PAM method Using Crosstab sparsity"></a></p>
+<p class="page-columns page-full"><a href="img/Kmeans on Vehicle.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Best Cluster for PAM method Using Crosstab sparsity"><img src="https://www.jkapila.github.io/posts/03_crosstab_sparsity/img/Kmeans on Vehicle.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for PAM method Using Crosstab sparsity"></a></p>
 <figcaption>Best Cluster for PAM method Using Crosstab sparsity</figcaption>
 </figure>
 </div>
@@ -3286,7 +3368,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="Comparision across many methods.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Optimal Cluster for many methods"><img src="https://www.percieveit.com/posts/03_crosstab_sparsity/Comparision across many methods.png" class="img-fluid figure-img column-page-right" alt="Optimal Cluster for many methods"></a></p>
+<p class="page-columns page-full"><a href="img/Comparision across many methods.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Optimal Cluster for many methods"><img src="https://www.jkapila.github.io/posts/03_crosstab_sparsity/img/Comparision across many methods.png" class="img-fluid figure-img column-page-right" alt="Optimal Cluster for many methods"></a></p>
 <figcaption>Optimal Cluster for many methods</figcaption>
 </figure>
 </div>
@@ -3295,7 +3377,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="Variable segregation.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="All kind of variable scored against Metrics"><img src="https://www.percieveit.com/posts/03_crosstab_sparsity/Variable segregation.png" class="img-fluid figure-img column-page-right" alt="All kind of variable scored against Metrics"></a></p>
+<p class="page-columns page-full"><a href="img/Variable segregation.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="All kind of variable scored against Metrics"><img src="https://www.jkapila.github.io/posts/03_crosstab_sparsity/img/Variable segregation.png" class="img-fluid figure-img column-page-right" alt="All kind of variable scored against Metrics"></a></p>
 <figcaption>All kind of variable scored against Metrics</figcaption>
 </figure>
 </div>
@@ -3400,19 +3482,26 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
   <category>clustering</category>
   <category>analysis</category>
-  <guid>https://www.percieveit.com/posts/03_crosstab_sparsity/</guid>
+  <guid>https://www.jkapila.github.io/posts/03_crosstab_sparsity/</guid>
   <pubDate>Mon, 02 May 2022 18:30:00 GMT</pubDate>
+  <media:content url="https://www.jkapila.github.io/posts/03_crosstab_sparsity/img/pexels-n-voitkevich-5712829.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>A flow to Test Your Hypothesis in Python</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.percieveit.com/posts/02_hypothesis_test/</link>
+  <link>https://www.jkapila.github.io/posts/02_hypothesis_test/</link>
   <description><![CDATA[ 
 
 
 
 
 
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><a href="pexels-tara-winstead-7722866-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Hypothesis testing Photo by Tara Winstead"><img src="https://www.jkapila.github.io/posts/02_hypothesis_test/pexels-tara-winstead-7722866-thumb.jpg" class="img-fluid figure-img" alt="Hypothesis testing Photo by Tara Winstead"></a></p>
+<figcaption class="margin-caption">Hypothesis testing <a href="https://www.pexels.com/photo/text-7722866/">Photo by Tara Winstead</a></figcaption>
+</figure>
+</div>
 <section id="overview" class="level1 page-columns page-full">
 <h1>Overview</h1>
 <p>All the practitioners of data science always hit one giant thing to do with data and you know it well its <em>EDA -Exploratory Data Analysis</em>. This word <em>EDA</em><sup>1</sup> was coined by Tukey himself in his seminal book published in 1983. But do you think that before that <em>EDA</em> doesn’t existed ?</p>
@@ -3437,11 +3526,13 @@ More on RCTs and ODs
 <p>Lets move on. The big question is, for whatever reason you are doing <em>HT</em> , you are doing it for finding <em>something intreating</em>. And that something interesting is usually found by using <em><em>Post-Hoc Tests</em></em>. Now there are variety of <em>Post-Hocs</em> available but what is more know and hence easily found to be implemented in <em>Tukey’s HSD</em>.</p>
 <p>So lets directly jump to how to follow this procedure. We’ll be using <code>bioinfokit</code> for this, as it is much simpler wrapper around whats implemented in <code>statsmodels</code>.</p>
 </section>
-<section id="what-are-the-results" class="level1">
+<section id="what-are-the-results" class="level1 page-columns page-full">
 <h1>What are the results</h1>
 <p>Pheww… Thats too much code right. But that would save a lot of your time in real life. So in real life you would write code as 3 steps below:</p>
-<div id="e501207e" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div id="28200618" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># import libraries</span></span>
 <span id="cb1-2"><span class="im" style="color: #00769E;
@@ -3521,45 +3612,48 @@ background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">True</span>)</span></code></pre></div>
+</details>
 </div>
 <p>Results form the <code>do_anova_test</code></p>
-<pre class="{markdown}"><code>Levens Test Result:
-                 Parameter    Value
-0      Test statistics (W)  14.5856
-1  Degrees of freedom (Df)   4.0000
-2                  p value   0.0000
-
-Bartletts Test Result:
-                 Parameter    Value
-0      Test statistics (T)  61.2143
-1  Degrees of freedom (Df)   4.0000
-2                  p value   0.0000
-
-ANOVA\ANCOVA Test Result:
-                           df     sum_sq    mean_sq         F  PR(&gt;F)      n2
-Intercept                 1.0  6195.1701  6195.1701  296.3452  0.0000  0.2727
-C(cylinders)              4.0  7574.5864  1893.6466   90.5824  0.0000  0.3334
-C(origin)                 2.0   241.0703   120.5351    5.7658  0.0034  0.0106
-C(cylinders):C(origin)    8.0   577.4821    72.1853    3.4530  0.0046  0.0254
-Residual                389.0  8132.1404    20.9052       NaN     NaN     NaN
-
-Tukey HSD Result:
-   group1  group2     Diff    Lower    Upper  q-value  p-value
-0       8       4  14.3237  12.8090  15.8383  36.6527   0.0010
-1       8       6   5.0226   3.1804   6.8648  10.5671   0.0010
-2       8       3   5.5869  -0.7990  11.9728   3.3909   0.1183
-3       8       5  12.4036   5.0643  19.7428   6.5503   0.0010
-4       4       6   9.3011   7.6765  10.9256  22.1910   0.0010
-5       4       3   8.7368   2.4102  15.0633   5.3524   0.0017
-6       4       5   1.9201  -5.3676   9.2078   1.0212   0.9000
-7       6       3   0.5643  -5.8486   6.9772   0.3410   0.9000
-8       6       5   7.3810   0.0182  14.7437   3.8854   0.0491
-9       3       5   6.8167  -2.7539  16.3873   2.7606   0.2919</code></pre>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource {markdown} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1">Levens Test Result:</span>
+<span id="cb2-2">                 Parameter    Value</span>
+<span id="cb2-3">0      Test statistics (W)  14.5856</span>
+<span id="cb2-4">1  Degrees of freedom (Df)   4.0000</span>
+<span id="cb2-5">2                  p value   0.0000</span>
+<span id="cb2-6"></span>
+<span id="cb2-7">Bartletts Test Result:</span>
+<span id="cb2-8">                 Parameter    Value</span>
+<span id="cb2-9">0      Test statistics (T)  61.2143</span>
+<span id="cb2-10">1  Degrees of freedom (Df)   4.0000</span>
+<span id="cb2-11">2                  p value   0.0000</span>
+<span id="cb2-12"></span>
+<span id="cb2-13">ANOVA\ANCOVA Test Result:</span>
+<span id="cb2-14">                           df     sum_sq    mean_sq         F  PR(&gt;F)      n2</span>
+<span id="cb2-15">Intercept                 1.0  6195.1701  6195.1701  296.3452  0.0000  0.2727</span>
+<span id="cb2-16">C(cylinders)              4.0  7574.5864  1893.6466   90.5824  0.0000  0.3334</span>
+<span id="cb2-17">C(origin)                 2.0   241.0703   120.5351    5.7658  0.0034  0.0106</span>
+<span id="cb2-18">C(cylinders):C(origin)    8.0   577.4821    72.1853    3.4530  0.0046  0.0254</span>
+<span id="cb2-19">Residual                389.0  8132.1404    20.9052       NaN     NaN     NaN</span>
+<span id="cb2-20"></span>
+<span id="cb2-21">Tukey HSD Result:</span>
+<span id="cb2-22">   group1  group2     Diff    Lower    Upper  q-value  p-value</span>
+<span id="cb2-23">0       8       4  14.3237  12.8090  15.8383  36.6527   0.0010</span>
+<span id="cb2-24">1       8       6   5.0226   3.1804   6.8648  10.5671   0.0010</span>
+<span id="cb2-25">2       8       3   5.5869  -0.7990  11.9728   3.3909   0.1183</span>
+<span id="cb2-26">3       8       5  12.4036   5.0643  19.7428   6.5503   0.0010</span>
+<span id="cb2-27">4       4       6   9.3011   7.6765  10.9256  22.1910   0.0010</span>
+<span id="cb2-28">5       4       3   8.7368   2.4102  15.0633   5.3524   0.0017</span>
+<span id="cb2-29">6       4       5   1.9201  -5.3676   9.2078   1.0212   0.9000</span>
+<span id="cb2-30">7       6       3   0.5643  -5.8486   6.9772   0.3410   0.9000</span>
+<span id="cb2-31">8       6       5   7.3810   0.0182  14.7437   3.8854   0.0491</span>
+<span id="cb2-32">9       3       5   6.8167  -2.7539  16.3873   2.7606   0.2919</span></code></pre></div>
 <p>Nice!!!</p>
 <p><br></p>
 <p>And plotting is even easier</p>
-<div id="bbf566c0" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+<div id="dc6c7d25" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Numbers are clumsy for most. Making more interpretable plot on above results.</span></span>
 <span id="cb3-2">plot_hsd(results.tukeyhsd.sort_values(<span class="st" style="color: #20794D;
@@ -3569,12 +3663,13 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Tukey HSD resutls Anova of MPG ~ Cylinder"</span>)</span></code></pre></div>
+</details>
 </div>
 <p>Results form the <code>plot_hsd</code></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.percieveit.com/posts/02_hypothesis_test/TukeyHSD.png" class="img-fluid figure-img"></p>
-<figcaption><strong>Tukey’s HSD comparison based on Anova Results</strong></figcaption>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><a href="TukeyHSD.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Tukey’s HSD comparison based on Anova Results"><img src="https://www.jkapila.github.io/posts/02_hypothesis_test/TukeyHSD.png" class="img-fluid figure-img" alt="Tukey’s HSD comparison based on Anova Results"></a></p>
+<figcaption class="margin-caption"><strong>Tukey’s HSD comparison based on Anova Results</strong></figcaption>
 </figure>
 </div>
 <p>Plots look good with ‘p-values’.</p>
@@ -3589,10 +3684,10 @@ font-style: inherit;">"Tukey HSD resutls Anova of MPG ~ Cylinder"</span>)</span>
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Performing Anova</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Plotting Results</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<div id="7af19fa1" class="cell" data-execution_count="3">
+<div id="c9f4fdca" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Anova Test <code>anova_test.py</code></summary>
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> bioinfokit <span class="im" style="color: #00769E;
 background-color: null;
@@ -3994,10 +4089,10 @@ font-style: inherit;">return</span> results</span></code></pre></div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
-<div id="c1848271" class="cell" data-execution_count="4">
+<div id="13c02dd3" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Plotting results <code>plot_hsd.py</code></summary>
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> seaborn <span class="im" style="color: #00769E;
 background-color: null;
@@ -4390,19 +4485,26 @@ font-style: inherit;">return</span> axp</span></code></pre></div>
   <category>hypothesis</category>
   <category>analysis</category>
   <category>python</category>
-  <guid>https://www.percieveit.com/posts/02_hypothesis_test/</guid>
+  <guid>https://www.jkapila.github.io/posts/02_hypothesis_test/</guid>
   <pubDate>Mon, 09 Aug 2021 18:30:00 GMT</pubDate>
+  <media:content url="https://www.jkapila.github.io/posts/02_hypothesis_test/pexels-tara-winstead-7722866.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Adaptive Regression</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.percieveit.com/posts/01_adaptive_regression/</link>
+  <link>https://www.jkapila.github.io/posts/01_adaptive_regression/</link>
   <description><![CDATA[ 
 
 
 
 
 
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><a href="img/pexels-zlfdmr23-20692065-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Adapting path through mountains! Photo by Zülfü Demir📸"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/pexels-zlfdmr23-20692065-thumb.jpg" class="img-fluid figure-img" alt="Adapting path through mountains! Photo by Zülfü Demir📸"></a></p>
+<figcaption class="margin-caption">Adapting path through mountains! <a href="https://www.pexels.com/photo/view-of-empty-railway-and-a-hill-in-distance-20692065/">Photo by Zülfü Demir📸</a></figcaption>
+</figure>
+</div>
 <!-- 
 <div class="parallax-container"><div class="parallax-image-container"></div></div>
 <style>
@@ -4433,13 +4535,13 @@ font-style: inherit;">return</span> axp</span></code></pre></div>
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Anscombe_Data.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Plot of Anscombe’s Quartet"><img src="https://www.percieveit.com/posts/01_adaptive_regression/Anscombe_Data.png" class="img-fluid figure-img" alt="Plot of Anscombe’s Quartet"></a></p>
+<p><a href="img/Anscombe_Data.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Plot of Anscombe’s Quartet"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/Anscombe_Data.png" class="img-fluid figure-img" alt="Plot of Anscombe’s Quartet"></a></p>
 <figcaption>Plot of Anscombe’s Quartet</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Anscombe_Stats.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Some Descriptive Stats for Anscombe’s Quartet"><img src="https://www.percieveit.com/posts/01_adaptive_regression/Anscombe_Stats.png" class="img-fluid figure-img" alt="Some Descriptive Stats for Anscombe’s Quartet"></a></p>
+<p><a href="img/Anscombe_Stats.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Some Descriptive Stats for Anscombe’s Quartet"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/Anscombe_Stats.png" class="img-fluid figure-img" alt="Some Descriptive Stats for Anscombe’s Quartet"></a></p>
 <figcaption>Some Descriptive Stats for Anscombe’s Quartet</figcaption>
 </figure>
 </div>
@@ -4450,7 +4552,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div>
 <h1>So what we do Now!</h1>
 <p>Astonished !!! Don’t be. This is what has been hiding behind those numbers. And this is why we really won’t be able to cross certain performance level. Unless you change some features or even do a lot of hyper parameter tuning, your results won’t vary much.</p>
 <p>If you look at the average value of MAPE in each decile you would see an interesting pattern. Let us show you what we see that pattern. One day while working on a business problem where I was using regression on a discussion with Kumarjit, we deviced a different way of model diagnosis. We worked together to give this a shape and build on it.</p>
-<p><a href="Pre_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="https://www.percieveit.com/posts/01_adaptive_regression/Pre_Mape_Plot.png" class="img-fluid"></a></p>
+<p><a href="img/Pre_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/Pre_Mape_Plot.png" class="img-fluid"></a></p>
 <p>As you can see it is absolutely evident that either of the side in the distribution of MAPE values is going wild!!!!!!! <strong><em>Still overall MAPE is good (18%).</em></strong></p>
 <!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
 </section>
@@ -4463,17 +4565,17 @@ font-style: inherit;">return</span> axp</span></code></pre></div>
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Image_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Plot for Classical Bath Tub Curve using a Hazard Function"><img src="https://www.percieveit.com/posts/01_adaptive_regression/Image_2.png" class="img-fluid figure-img" alt="Plot for Classical Bath Tub Curve using a Hazard Function"></a></p>
+<p><a href="img/Image_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Plot for Classical Bath Tub Curve using a Hazard Function"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/Image_2.png" class="img-fluid figure-img" alt="Plot for Classical Bath Tub Curve using a Hazard Function"></a></p>
 <figcaption>Plot for Classical Bath Tub Curve using a Hazard Function</figcaption>
 </figure>
 </div>
 </div></div><p>The Specialty of this curve is that it gives you the likelihood which areas one tends to have high failure rates. In our experiments when we replace failure with MAPE value and the Time with sorted (ascending) value of target / dependent variable, we observe the same phenomenon. This is likely to happen because most of regression techniques assumes Normal (Gaussian) Distribution of data and fits itself towards the central tendency of this distribution.</p>
 <p>Because of this tendency, any regression methods tends to learn less about data which are away from the central tendency of the target.</p>
 <p>Lets look at BostonHousing data from “mlbench” package in R.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="Plot_Bathtub.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"><img src="https://www.percieveit.com/posts/01_adaptive_regression/Plot_Bathtub.png" class="img-fluid figure-img" alt="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"></a></p>
-<figcaption>Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data</figcaption>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><a href="img/Plot_Bathtub.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/Plot_Bathtub.png" class="img-fluid figure-img" alt="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"></a></p>
+<figcaption class="margin-caption">Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data</figcaption>
 </figure>
 </div>
 <p>Here the MAPE is calculated for each decile split of ordered target variable. As you can observe it is following the bath tub curve. Hence the validates our hypothesis that the regression method is not able to understand much about the data at the either ends of the distribution.</p>
@@ -4482,7 +4584,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div>
 <h1>Final Analysis</h1>
 <p>Now the DAR framework essentially fixes this weakness of regression method and understands the behavior of data which is stable and can be tweak in a fashion that can be use in general practice.</p>
 <p>Plot of MAPE Bath Tub Curve after applying DAR Framework for Decile Split “mdev” from Data</p>
-<p><a href="Post_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="https://www.percieveit.com/posts/01_adaptive_regression/Post_Mape_Plot.png" class="img-fluid"></a></p>
+<p><a href="img/Post_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/Post_Mape_Plot.png" class="img-fluid"></a></p>
 <p>How this framework with same method reduced MAPEs so much and made model much more stable…?? Well here it is:</p>
 <p>The DAR framework splits the data at either ends of the order target variable and performs regression on these “split” data individually. This inherently reduces the so called “noise” part of the data and treat it as an individual data.</p>
 <!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
@@ -4594,8 +4696,9 @@ Click to Expand
   <category>regression</category>
   <category>research</category>
   <category>analysis</category>
-  <guid>https://www.percieveit.com/posts/01_adaptive_regression/</guid>
+  <guid>https://www.jkapila.github.io/posts/01_adaptive_regression/</guid>
   <pubDate>Mon, 30 Apr 2018 18:30:00 GMT</pubDate>
+  <media:content url="https://www.jkapila.github.io/posts/01_adaptive_regression/img/pexels-zlfdmr23-20692065.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

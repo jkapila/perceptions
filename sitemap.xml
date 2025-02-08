@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.percieveit.com/index.html</loc>
+    <loc>https://www.jkapila.github.io/index.html</loc>
     <lastmod>2025-02-07T13:39:17.073Z</lastmod>
   </url>
   <url>
-    <loc>https://www.percieveit.com/posts/03_crosstab_sparsity/index.html</loc>
-    <lastmod>2025-02-07T13:39:17.080Z</lastmod>
+    <loc>https://www.jkapila.github.io/resume.html</loc>
+    <lastmod>2025-02-08T07:01:52.558Z</lastmod>
   </url>
   <url>
-    <loc>https://www.percieveit.com/posts/01_adaptive_regression/index.html</loc>
-    <lastmod>2025-02-07T13:39:17.077Z</lastmod>
+    <loc>https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index.html</loc>
+    <lastmod>2025-02-08T09:41:35.472Z</lastmod>
   </url>
   <url>
-    <loc>https://www.percieveit.com/research.html</loc>
-    <lastmod>2025-02-07T13:39:17.083Z</lastmod>
+    <loc>https://www.jkapila.github.io/posts/02_hypothesis_test/index.html</loc>
+    <lastmod>2025-02-08T09:34:39.527Z</lastmod>
   </url>
   <url>
-    <loc>https://www.percieveit.com/posts/02_hypothesis_test/index.html</loc>
-    <lastmod>2025-02-07T13:39:17.077Z</lastmod>
+    <loc>https://www.jkapila.github.io/research.html</loc>
+    <lastmod>2025-02-08T10:58:49.584Z</lastmod>
   </url>
   <url>
-    <loc>https://www.percieveit.com/posts/04_crosstab_sparsity_classification/index.html</loc>
-    <lastmod>2025-02-07T13:39:17.083Z</lastmod>
+    <loc>https://www.jkapila.github.io/posts/01_adaptive_regression/index.html</loc>
+    <lastmod>2025-02-08T09:26:53.257Z</lastmod>
   </url>
   <url>
-    <loc>https://www.percieveit.com/about.html</loc>
+    <loc>https://www.jkapila.github.io/posts/06_saving_my_blog/index.html</loc>
+    <lastmod>2025-02-08T10:59:28.631Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jkapila.github.io/posts/03_crosstab_sparsity/index.html</loc>
+    <lastmod>2025-02-08T09:35:33.165Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jkapila.github.io/about.html</loc>
     <lastmod>2025-02-07T13:39:17.073Z</lastmod>
   </url>
 </urlset>

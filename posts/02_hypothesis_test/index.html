@@ -75,7 +75,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-fd4efb276d373fbde0289c4466a15eeb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8052810363b268c884dae7594fd94c39.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-5831d06d173b363171133d210e9d63db.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -117,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
       .quarto-title-block .quarto-title-banner {
         color: black;
-background: #f0f3f5;
+background: white;
       }
 </style>
 <script defer="" src="https://cloud.umami.is/script.js" data-website-id="f255d40e-5114-4445-8d5b-9b356f5be573"></script>
@@ -233,6 +236,12 @@ background: #f0f3f5;
 
 
 
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><a href="pexels-tara-winstead-7722866-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Hypothesis testing Photo by Tara Winstead"><img src="pexels-tara-winstead-7722866-thumb.jpg" class="img-fluid figure-img" alt="Hypothesis testing Photo by Tara Winstead"></a></p>
+<figcaption class="margin-caption">Hypothesis testing <a href="https://www.pexels.com/photo/text-7722866/">Photo by Tara Winstead</a></figcaption>
+</figure>
+</div>
 <section id="overview" class="level1 page-columns page-full">
 <h1>Overview</h1>
 <p>All the practitioners of data science always hit one giant thing to do with data and you know it well its <em>EDA -Exploratory Data Analysis</em>. This word <em>EDA</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> was coined by Tukey himself in his seminal book published in 1983. But do you think that before that <em>EDA</em> doesn’t existed ?</p>
@@ -257,70 +266,76 @@ More on RCTs and ODs
 <p>Lets move on. The big question is, for whatever reason you are doing <em>HT</em> , you are doing it for finding <em>something intreating</em>. And that something interesting is usually found by using <em><em>Post-Hoc Tests</em></em>. Now there are variety of <em>Post-Hocs</em> available but what is more know and hence easily found to be implemented in <em>Tukey’s HSD</em>.</p>
 <p>So lets directly jump to how to follow this procedure. We’ll be using <code>bioinfokit</code> for this, as it is much simpler wrapper around whats implemented in <code>statsmodels</code>.</p>
 </section>
-<section id="what-are-the-results" class="level1">
+<section id="what-are-the-results" class="level1 page-columns page-full">
 <h1>What are the results</h1>
 <p>Pheww… Thats too much code right. But that would save a lot of your time in real life. So in real life you would write code as 3 steps below:</p>
-<div id="e501207e" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import libraries</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting car data from UCI</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data'</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                 sep<span class="op">=</span><span class="st">'\s+'</span>,header<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                 names<span class="op">=</span>[<span class="st">'mpg'</span>,<span class="st">'cylinders'</span>,<span class="st">'displacement'</span>,<span class="st">'horsepower'</span>,<span class="st">'weight'</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'acceleration'</span>,<span class="st">'model_year'</span>,<span class="st">'origin'</span>,<span class="st">'car_name'</span>])</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df.head()</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Syntax to do anove with validating the assumption, doing test and a post-hoc</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> do_anova_test(df<span class="op">=</span>df, res_var<span class="op">=</span><span class="st">'mpg'</span>,xfac_var<span class="op">=</span><span class="st">'cylinders'</span>, </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                        anova_model<span class="op">=</span><span class="st">'mpg ~ C(cylinders)+C(origin)+C(cylinders):C(origin)'</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                        ss_typ<span class="op">=</span><span class="dv">3</span>, result_full<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="28200618" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># import libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Getting car data from UCI</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data'</span>,</span>
+<span id="cb1-6"><a href="#cb1-6"></a>                 sep<span class="op">=</span><span class="st">'\s+'</span>,header<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb1-7"><a href="#cb1-7"></a>                 names<span class="op">=</span>[<span class="st">'mpg'</span>,<span class="st">'cylinders'</span>,<span class="st">'displacement'</span>,<span class="st">'horsepower'</span>,<span class="st">'weight'</span>,</span>
+<span id="cb1-8"><a href="#cb1-8"></a>                 <span class="st">'acceleration'</span>,<span class="st">'model_year'</span>,<span class="st">'origin'</span>,<span class="st">'car_name'</span>])</span>
+<span id="cb1-9"><a href="#cb1-9"></a>df.head()</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co"># Syntax to do anove with validating the assumption, doing test and a post-hoc</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>results <span class="op">=</span> do_anova_test(df<span class="op">=</span>df, res_var<span class="op">=</span><span class="st">'mpg'</span>,xfac_var<span class="op">=</span><span class="st">'cylinders'</span>, </span>
+<span id="cb1-13"><a href="#cb1-13"></a>                        anova_model<span class="op">=</span><span class="st">'mpg ~ C(cylinders)+C(origin)+C(cylinders):C(origin)'</span>,</span>
+<span id="cb1-14"><a href="#cb1-14"></a>                        ss_typ<span class="op">=</span><span class="dv">3</span>, result_full<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Results form the <code>do_anova_test</code></p>
-<pre class="{markdown}"><code>Levens Test Result:
-                 Parameter    Value
-0      Test statistics (W)  14.5856
-1  Degrees of freedom (Df)   4.0000
-2                  p value   0.0000
-
-Bartletts Test Result:
-                 Parameter    Value
-0      Test statistics (T)  61.2143
-1  Degrees of freedom (Df)   4.0000
-2                  p value   0.0000
-
-ANOVA\ANCOVA Test Result:
-                           df     sum_sq    mean_sq         F  PR(&gt;F)      n2
-Intercept                 1.0  6195.1701  6195.1701  296.3452  0.0000  0.2727
-C(cylinders)              4.0  7574.5864  1893.6466   90.5824  0.0000  0.3334
-C(origin)                 2.0   241.0703   120.5351    5.7658  0.0034  0.0106
-C(cylinders):C(origin)    8.0   577.4821    72.1853    3.4530  0.0046  0.0254
-Residual                389.0  8132.1404    20.9052       NaN     NaN     NaN
-
-Tukey HSD Result:
-   group1  group2     Diff    Lower    Upper  q-value  p-value
-0       8       4  14.3237  12.8090  15.8383  36.6527   0.0010
-1       8       6   5.0226   3.1804   6.8648  10.5671   0.0010
-2       8       3   5.5869  -0.7990  11.9728   3.3909   0.1183
-3       8       5  12.4036   5.0643  19.7428   6.5503   0.0010
-4       4       6   9.3011   7.6765  10.9256  22.1910   0.0010
-5       4       3   8.7368   2.4102  15.0633   5.3524   0.0017
-6       4       5   1.9201  -5.3676   9.2078   1.0212   0.9000
-7       6       3   0.5643  -5.8486   6.9772   0.3410   0.9000
-8       6       5   7.3810   0.0182  14.7437   3.8854   0.0491
-9       3       5   6.8167  -2.7539  16.3873   2.7606   0.2919</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {markdown} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>Levens Test Result:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>                 Parameter    Value</span>
+<span id="cb2-3"><a href="#cb2-3"></a>0      Test statistics (W)  14.5856</span>
+<span id="cb2-4"><a href="#cb2-4"></a>1  Degrees of freedom (Df)   4.0000</span>
+<span id="cb2-5"><a href="#cb2-5"></a>2                  p value   0.0000</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a>Bartletts Test Result:</span>
+<span id="cb2-8"><a href="#cb2-8"></a>                 Parameter    Value</span>
+<span id="cb2-9"><a href="#cb2-9"></a>0      Test statistics (T)  61.2143</span>
+<span id="cb2-10"><a href="#cb2-10"></a>1  Degrees of freedom (Df)   4.0000</span>
+<span id="cb2-11"><a href="#cb2-11"></a>2                  p value   0.0000</span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a>ANOVA\ANCOVA Test Result:</span>
+<span id="cb2-14"><a href="#cb2-14"></a>                           df     sum_sq    mean_sq         F  PR(&gt;F)      n2</span>
+<span id="cb2-15"><a href="#cb2-15"></a>Intercept                 1.0  6195.1701  6195.1701  296.3452  0.0000  0.2727</span>
+<span id="cb2-16"><a href="#cb2-16"></a>C(cylinders)              4.0  7574.5864  1893.6466   90.5824  0.0000  0.3334</span>
+<span id="cb2-17"><a href="#cb2-17"></a>C(origin)                 2.0   241.0703   120.5351    5.7658  0.0034  0.0106</span>
+<span id="cb2-18"><a href="#cb2-18"></a>C(cylinders):C(origin)    8.0   577.4821    72.1853    3.4530  0.0046  0.0254</span>
+<span id="cb2-19"><a href="#cb2-19"></a>Residual                389.0  8132.1404    20.9052       NaN     NaN     NaN</span>
+<span id="cb2-20"><a href="#cb2-20"></a></span>
+<span id="cb2-21"><a href="#cb2-21"></a>Tukey HSD Result:</span>
+<span id="cb2-22"><a href="#cb2-22"></a>   group1  group2     Diff    Lower    Upper  q-value  p-value</span>
+<span id="cb2-23"><a href="#cb2-23"></a>0       8       4  14.3237  12.8090  15.8383  36.6527   0.0010</span>
+<span id="cb2-24"><a href="#cb2-24"></a>1       8       6   5.0226   3.1804   6.8648  10.5671   0.0010</span>
+<span id="cb2-25"><a href="#cb2-25"></a>2       8       3   5.5869  -0.7990  11.9728   3.3909   0.1183</span>
+<span id="cb2-26"><a href="#cb2-26"></a>3       8       5  12.4036   5.0643  19.7428   6.5503   0.0010</span>
+<span id="cb2-27"><a href="#cb2-27"></a>4       4       6   9.3011   7.6765  10.9256  22.1910   0.0010</span>
+<span id="cb2-28"><a href="#cb2-28"></a>5       4       3   8.7368   2.4102  15.0633   5.3524   0.0017</span>
+<span id="cb2-29"><a href="#cb2-29"></a>6       4       5   1.9201  -5.3676   9.2078   1.0212   0.9000</span>
+<span id="cb2-30"><a href="#cb2-30"></a>7       6       3   0.5643  -5.8486   6.9772   0.3410   0.9000</span>
+<span id="cb2-31"><a href="#cb2-31"></a>8       6       5   7.3810   0.0182  14.7437   3.8854   0.0491</span>
+<span id="cb2-32"><a href="#cb2-32"></a>9       3       5   6.8167  -2.7539  16.3873   2.7606   0.2919</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Nice!!!</p>
 <p><br></p>
 <p>And plotting is even easier</p>
-<div id="bbf566c0" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Numbers are clumsy for most. Making more interpretable plot on above results.</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plot_hsd(results.tukeyhsd.sort_values(<span class="st">'Diff'</span>), title<span class="op">=</span><span class="st">"Tukey HSD resutls Anova of MPG ~ Cylinder"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="dc6c7d25" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Numbers are clumsy for most. Making more interpretable plot on above results.</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>plot_hsd(results.tukeyhsd.sort_values(<span class="st">'Diff'</span>), title<span class="op">=</span><span class="st">"Tukey HSD resutls Anova of MPG ~ Cylinder"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Results form the <code>plot_hsd</code></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="TukeyHSD.png" class="img-fluid figure-img"></p>
-<figcaption><strong>Tukey’s HSD comparison based on Anova Results</strong></figcaption>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><a href="TukeyHSD.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Tukey’s HSD comparison based on Anova Results"><img src="TukeyHSD.png" class="img-fluid figure-img" alt="Tukey’s HSD comparison based on Anova Results"></a></p>
+<figcaption class="margin-caption"><strong>Tukey’s HSD comparison based on Anova Results</strong></figcaption>
 </figure>
 </div>
 <p>Plots look good with ‘p-values’.</p>
@@ -335,159 +350,159 @@ Tukey HSD Result:
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Performing Anova</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Plotting Results</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div id="7af19fa1" class="cell" data-execution_count="3">
+<div id="c9f4fdca" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Anova Test <code>anova_test.py</code></summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bioinfokit <span class="im">import</span> analys</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> KeyResults:</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    A basic class to hold all the results</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,result_full):</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.keys <span class="op">=</span> []</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.result_full <span class="op">=</span> result_full</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add_result(<span class="va">self</span>,name,result):</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> name <span class="op">==</span> <span class="st">'tukeyhsd'</span>:</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.keys.append(name)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            <span class="bu">setattr</span>(<span class="va">self</span>, name, result)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="va">self</span>.result_full:</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.keys.append(name)</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>            <span class="bu">setattr</span>(<span class="va">self</span>, name, result)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Anova test code</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> do_anova_test(df, res_var, xfac_var, anova_model,ss_typ<span class="op">=</span><span class="dv">3</span>,</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                  effectsize<span class="op">=</span><span class="st">'n2'</span>,result_full<span class="op">=</span><span class="va">False</span>,add_res<span class="op">=</span><span class="va">False</span>):</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co">    Do all sequential anova tests</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co">    Step 1) Leven's/ bartellet test for checking weather variance is homogenous or not</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co">    Step 2) Main ANOVA/ANCOVA test</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co">    Step 3) Tukey's HSD for individual combinations</span></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co">    :param df: Pandas DataFrame holding all the columns</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co">    :param res_var: Variable for which we are checking ANOVA</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co">    :param xfac_var: Grouping Variables for which we want to do the comparisons</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co">    :param anova_model: SM formula for the model. This is life savour to make all things work</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co">    :param result_full: To provide all the results of intermediate steps</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> KeyResults(result_full)</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># initialize stat method</span></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> analys.stat()</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># doing levens test</span></span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    res.levene(df<span class="op">=</span>df, res_var<span class="op">=</span>res_var,xfac_var<span class="op">=</span>xfac_var)</span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Leven</span><span class="ch">\'</span><span class="st">s Test Result:'</span>)</span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(res.levene_summary)</span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    results.add_result(<span class="st">'levene'</span>,res.levene_summary)</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># doing bartlett test</span></span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    res.bartlett(df<span class="op">=</span>df, res_var<span class="op">=</span>res_var,xfac_var<span class="op">=</span>xfac_var)</span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Bartlett</span><span class="ch">\'</span><span class="st">s Test Result:'</span>)</span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(res.bartlett_summary)</span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    results.add_result(<span class="st">'bartlett'</span>,res.bartlett_summary)</span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    <span class="co"># doing anova / ancova</span></span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>    res.anova_stat(df<span class="op">=</span>df, res_var<span class="op">=</span>res_var, anova_model<span class="op">=</span>anova_model,ss_typ<span class="op">=</span>ss_typ)</span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    aov_res <span class="op">=</span> res.anova_summary</span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add effect sizes</span></span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> effectsize <span class="op">==</span> <span class="st">"n2"</span>:</span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>        all_effsize <span class="op">=</span> (aov_res[<span class="st">'sum_sq'</span>] <span class="op">/</span> aov_res[<span class="st">'sum_sq'</span>].<span class="bu">sum</span>()).to_numpy()</span>
-<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>        all_effsize[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> np.nan</span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>        ss_resid <span class="op">=</span> aov_res[<span class="st">'sum_sq'</span>].iloc[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>        all_effsize <span class="op">=</span> aov_res[<span class="st">'sum_sq'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x <span class="op">/</span> (x <span class="op">+</span> ss_resid)).to_numpy()</span>
-<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>        all_effsize[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> np.nan</span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>    aov_res[effectsize] <span class="op">=</span> all_effsize</span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>    <span class="co">#aov_res['bw_'] = res.anova_model_out.params.iloc[-1]</span></span>
-<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>    aov_res <span class="op">=</span> aov_res.<span class="bu">round</span>(<span class="dv">4</span>)</span>
-<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># printing results</span></span>
-<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">ANOVA\ANCOVA Test Result:'</span>)</span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(aov_res)</span>
-<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>    results.add_result(<span class="st">'anova'</span>,res.anova_summary.<span class="bu">round</span>(<span class="dv">4</span>))</span>
-<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>    results.add_result(<span class="st">'anova_model'</span>,res.anova_model_out)</span>
-<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>    <span class="co"># doing tukey's hsd top compare the groups</span></span>
-<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>    res.tukey_hsd(df<span class="op">=</span>df, res_var<span class="op">=</span>res_var,xfac_var<span class="op">=</span>xfac_var, anova_model<span class="op">=</span>anova_model,ss_typ<span class="op">=</span>ss_typ)</span>
-<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Tukey HSD Result:'</span>)</span>
-<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(res.tukey_summary.<span class="bu">round</span>(<span class="dv">4</span>))</span>
-<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>    results.add_result(<span class="st">'tukeyhsd'</span>,res.tukey_summary.<span class="bu">round</span>(<span class="dv">4</span>))</span>
-<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>    <span class="co"># add all result componets again if needed </span></span>
-<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> add_res:</span>
-<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>        results.add_result(<span class="st">'allresult'</span>,res)</span>
-<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">from</span> bioinfokit <span class="im">import</span> analys</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="kw">class</span> KeyResults:</span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="co">"""</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">    A basic class to hold all the results</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">    """</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>    </span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,result_full):</span>
+<span id="cb4-12"><a href="#cb4-12"></a>        <span class="va">self</span>.keys <span class="op">=</span> []</span>
+<span id="cb4-13"><a href="#cb4-13"></a>        <span class="va">self</span>.result_full <span class="op">=</span> result_full</span>
+<span id="cb4-14"><a href="#cb4-14"></a>    </span>
+<span id="cb4-15"><a href="#cb4-15"></a>    <span class="kw">def</span> add_result(<span class="va">self</span>,name,result):</span>
+<span id="cb4-16"><a href="#cb4-16"></a>        <span class="cf">if</span> name <span class="op">==</span> <span class="st">'tukeyhsd'</span>:</span>
+<span id="cb4-17"><a href="#cb4-17"></a>            <span class="va">self</span>.keys.append(name)</span>
+<span id="cb4-18"><a href="#cb4-18"></a>            <span class="bu">setattr</span>(<span class="va">self</span>, name, result)</span>
+<span id="cb4-19"><a href="#cb4-19"></a>        <span class="cf">elif</span> <span class="va">self</span>.result_full:</span>
+<span id="cb4-20"><a href="#cb4-20"></a>            <span class="va">self</span>.keys.append(name)</span>
+<span id="cb4-21"><a href="#cb4-21"></a>            <span class="bu">setattr</span>(<span class="va">self</span>, name, result)</span>
+<span id="cb4-22"><a href="#cb4-22"></a></span>
+<span id="cb4-23"><a href="#cb4-23"></a></span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="co"># Anova test code</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="kw">def</span> do_anova_test(df, res_var, xfac_var, anova_model,ss_typ<span class="op">=</span><span class="dv">3</span>,</span>
+<span id="cb4-26"><a href="#cb4-26"></a>                  effectsize<span class="op">=</span><span class="st">'n2'</span>,result_full<span class="op">=</span><span class="va">False</span>,add_res<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb4-27"><a href="#cb4-27"></a>    <span class="co">"""</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="co">    Do all sequential anova tests</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a><span class="co">    </span></span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="co">    Step 1) Leven's/ bartellet test for checking weather variance is homogenous or not</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="co">    Step 2) Main ANOVA/ANCOVA test</span></span>
+<span id="cb4-32"><a href="#cb4-32"></a><span class="co">    Step 3) Tukey's HSD for individual combinations</span></span>
+<span id="cb4-33"><a href="#cb4-33"></a><span class="co">    </span></span>
+<span id="cb4-34"><a href="#cb4-34"></a><span class="co">    :param df: Pandas DataFrame holding all the columns</span></span>
+<span id="cb4-35"><a href="#cb4-35"></a><span class="co">    :param res_var: Variable for which we are checking ANOVA</span></span>
+<span id="cb4-36"><a href="#cb4-36"></a><span class="co">    :param xfac_var: Grouping Variables for which we want to do the comparisons</span></span>
+<span id="cb4-37"><a href="#cb4-37"></a><span class="co">    :param anova_model: SM formula for the model. This is life savour to make all things work</span></span>
+<span id="cb4-38"><a href="#cb4-38"></a><span class="co">    :param result_full: To provide all the results of intermediate steps</span></span>
+<span id="cb4-39"><a href="#cb4-39"></a><span class="co">    </span></span>
+<span id="cb4-40"><a href="#cb4-40"></a><span class="co">    """</span></span>
+<span id="cb4-41"><a href="#cb4-41"></a></span>
+<span id="cb4-42"><a href="#cb4-42"></a>    results <span class="op">=</span> KeyResults(result_full)</span>
+<span id="cb4-43"><a href="#cb4-43"></a>    </span>
+<span id="cb4-44"><a href="#cb4-44"></a>    <span class="co"># initialize stat method</span></span>
+<span id="cb4-45"><a href="#cb4-45"></a>    res <span class="op">=</span> analys.stat()</span>
+<span id="cb4-46"><a href="#cb4-46"></a>    </span>
+<span id="cb4-47"><a href="#cb4-47"></a>    <span class="co"># doing levens test</span></span>
+<span id="cb4-48"><a href="#cb4-48"></a>    res.levene(df<span class="op">=</span>df, res_var<span class="op">=</span>res_var,xfac_var<span class="op">=</span>xfac_var)</span>
+<span id="cb4-49"><a href="#cb4-49"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Leven</span><span class="ch">\'</span><span class="st">s Test Result:'</span>)</span>
+<span id="cb4-50"><a href="#cb4-50"></a>    <span class="bu">print</span>(res.levene_summary)</span>
+<span id="cb4-51"><a href="#cb4-51"></a>    results.add_result(<span class="st">'levene'</span>,res.levene_summary)</span>
+<span id="cb4-52"><a href="#cb4-52"></a></span>
+<span id="cb4-53"><a href="#cb4-53"></a>    <span class="co"># doing bartlett test</span></span>
+<span id="cb4-54"><a href="#cb4-54"></a>    res.bartlett(df<span class="op">=</span>df, res_var<span class="op">=</span>res_var,xfac_var<span class="op">=</span>xfac_var)</span>
+<span id="cb4-55"><a href="#cb4-55"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Bartlett</span><span class="ch">\'</span><span class="st">s Test Result:'</span>)</span>
+<span id="cb4-56"><a href="#cb4-56"></a>    <span class="bu">print</span>(res.bartlett_summary)</span>
+<span id="cb4-57"><a href="#cb4-57"></a>    results.add_result(<span class="st">'bartlett'</span>,res.bartlett_summary)</span>
+<span id="cb4-58"><a href="#cb4-58"></a>    </span>
+<span id="cb4-59"><a href="#cb4-59"></a>    <span class="co"># doing anova / ancova</span></span>
+<span id="cb4-60"><a href="#cb4-60"></a>    res.anova_stat(df<span class="op">=</span>df, res_var<span class="op">=</span>res_var, anova_model<span class="op">=</span>anova_model,ss_typ<span class="op">=</span>ss_typ)</span>
+<span id="cb4-61"><a href="#cb4-61"></a>    aov_res <span class="op">=</span> res.anova_summary</span>
+<span id="cb4-62"><a href="#cb4-62"></a>    </span>
+<span id="cb4-63"><a href="#cb4-63"></a>    <span class="co"># Add effect sizes</span></span>
+<span id="cb4-64"><a href="#cb4-64"></a>    <span class="cf">if</span> effectsize <span class="op">==</span> <span class="st">"n2"</span>:</span>
+<span id="cb4-65"><a href="#cb4-65"></a>        all_effsize <span class="op">=</span> (aov_res[<span class="st">'sum_sq'</span>] <span class="op">/</span> aov_res[<span class="st">'sum_sq'</span>].<span class="bu">sum</span>()).to_numpy()</span>
+<span id="cb4-66"><a href="#cb4-66"></a>        all_effsize[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> np.nan</span>
+<span id="cb4-67"><a href="#cb4-67"></a>    <span class="cf">else</span>:</span>
+<span id="cb4-68"><a href="#cb4-68"></a>        ss_resid <span class="op">=</span> aov_res[<span class="st">'sum_sq'</span>].iloc[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb4-69"><a href="#cb4-69"></a>        all_effsize <span class="op">=</span> aov_res[<span class="st">'sum_sq'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x <span class="op">/</span> (x <span class="op">+</span> ss_resid)).to_numpy()</span>
+<span id="cb4-70"><a href="#cb4-70"></a>        all_effsize[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> np.nan</span>
+<span id="cb4-71"><a href="#cb4-71"></a>    aov_res[effectsize] <span class="op">=</span> all_effsize</span>
+<span id="cb4-72"><a href="#cb4-72"></a>    <span class="co">#aov_res['bw_'] = res.anova_model_out.params.iloc[-1]</span></span>
+<span id="cb4-73"><a href="#cb4-73"></a>    aov_res <span class="op">=</span> aov_res.<span class="bu">round</span>(<span class="dv">4</span>)</span>
+<span id="cb4-74"><a href="#cb4-74"></a>    </span>
+<span id="cb4-75"><a href="#cb4-75"></a>    <span class="co"># printing results</span></span>
+<span id="cb4-76"><a href="#cb4-76"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">ANOVA\ANCOVA Test Result:'</span>)</span>
+<span id="cb4-77"><a href="#cb4-77"></a>    <span class="bu">print</span>(aov_res)</span>
+<span id="cb4-78"><a href="#cb4-78"></a>    results.add_result(<span class="st">'anova'</span>,res.anova_summary.<span class="bu">round</span>(<span class="dv">4</span>))</span>
+<span id="cb4-79"><a href="#cb4-79"></a>    results.add_result(<span class="st">'anova_model'</span>,res.anova_model_out)</span>
+<span id="cb4-80"><a href="#cb4-80"></a>    </span>
+<span id="cb4-81"><a href="#cb4-81"></a>    <span class="co"># doing tukey's hsd top compare the groups</span></span>
+<span id="cb4-82"><a href="#cb4-82"></a>    res.tukey_hsd(df<span class="op">=</span>df, res_var<span class="op">=</span>res_var,xfac_var<span class="op">=</span>xfac_var, anova_model<span class="op">=</span>anova_model,ss_typ<span class="op">=</span>ss_typ)</span>
+<span id="cb4-83"><a href="#cb4-83"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Tukey HSD Result:'</span>)</span>
+<span id="cb4-84"><a href="#cb4-84"></a>    <span class="bu">print</span>(res.tukey_summary.<span class="bu">round</span>(<span class="dv">4</span>))</span>
+<span id="cb4-85"><a href="#cb4-85"></a>    results.add_result(<span class="st">'tukeyhsd'</span>,res.tukey_summary.<span class="bu">round</span>(<span class="dv">4</span>))</span>
+<span id="cb4-86"><a href="#cb4-86"></a>    </span>
+<span id="cb4-87"><a href="#cb4-87"></a>    <span class="co"># add all result componets again if needed </span></span>
+<span id="cb4-88"><a href="#cb4-88"></a>    <span class="cf">if</span> add_res:</span>
+<span id="cb4-89"><a href="#cb4-89"></a>        results.add_result(<span class="st">'allresult'</span>,res)</span>
+<span id="cb4-90"><a href="#cb4-90"></a>    </span>
+<span id="cb4-91"><a href="#cb4-91"></a>    <span class="cf">return</span> results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div id="c1848271" class="cell" data-execution_count="4">
+<div id="13c02dd3" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Plotting results <code>plot_hsd.py</code></summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-bright'</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_hsd(hsdres,p_cutoff<span class="op">=</span><span class="fl">0.05</span>,title<span class="op">=</span><span class="va">None</span>,ax<span class="op">=</span><span class="va">None</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>)):</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>     <span class="co">"""</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">     Do plotting of tukeyhsd results</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">    :param hsdres: 'tukeyhsd' result form the do_anova_test function</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">    :param p_cutoff: Cutoff at which we get say a combination is significant</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">    :param title: Title of the plot</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">    :param ax: Define or get the matplotlib axes</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">    :param figsize: Mention Figure size to draw</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ax <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        fig,axp <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>figsize)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        axp <span class="op">=</span> ax</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># helper func</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    p_ind <span class="op">=</span> <span class="kw">lambda</span> x : <span class="st">''</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="fl">0.1</span> <span class="cf">else</span> (<span class="st">'+'</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="fl">0.05</span> <span class="cf">else</span> (<span class="st">'*'</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="fl">0.01</span> <span class="cf">else</span> (<span class="st">'**'</span> <span class="cf">if</span> x <span class="op">&gt;</span><span class="fl">0.001</span> <span class="cf">else</span> <span class="st">'***'</span>)))</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    label_gen  <span class="op">=</span> <span class="kw">lambda</span> x: <span class="ss">f"$</span><span class="sc">{</span>x[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>x[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">\ |\ p:</span><span class="sc">{</span>x[<span class="dv">2</span>]<span class="sc">:0.2f}{</span>p_ind(x[<span class="dv">2</span>])<span class="sc">:5s}</span><span class="ss">$"</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">#setting values</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> hsdres[<span class="st">'p-value'</span>] <span class="op">&lt;=</span> p_cutoff</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    yticklabs <span class="op">=</span> hsdres[[<span class="st">'group1'</span>,<span class="st">'group2'</span>,<span class="st">'p-value'</span>]].<span class="bu">apply</span>(label_gen,axis<span class="op">=</span><span class="dv">1</span>).values</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    ys <span class="op">=</span> np.arange(<span class="bu">len</span>(hsdres))</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># adding plot to axes</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    axp.errorbar(hsdres[<span class="op">~</span>mask][<span class="st">'Diff'</span>],ys[<span class="op">~</span>mask],xerr<span class="op">=</span>np.<span class="bu">abs</span>(hsdres[<span class="op">~</span>mask][[<span class="st">'Lower'</span>,<span class="st">"Upper"</span>]]).values.T,</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>                fmt<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'black'</span>, ecolor<span class="op">=</span><span class="st">'lightgray'</span>, elinewidth<span class="op">=</span><span class="dv">2</span>, capsize<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    axp.errorbar(hsdres[mask][<span class="st">'Diff'</span>],ys[mask],xerr<span class="op">=</span>np.<span class="bu">abs</span>(hsdres[mask][[<span class="st">'Lower'</span>,<span class="st">"Upper"</span>]]).values.T,</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>                fmt<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'red'</span>, ecolor<span class="op">=</span><span class="st">'pink'</span>, elinewidth<span class="op">=</span><span class="dv">2</span>, capsize<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    axp.axvline(x<span class="op">=</span><span class="dv">0</span>,linestyle<span class="op">=</span><span class="st">'--'</span>,c<span class="op">=</span><span class="st">'skyblue'</span>)</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    axp.set_yticks([])</span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    (l,u) <span class="op">=</span> axp.get_xlim()</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    axp.set_xlim(l<span class="op">+</span><span class="fl">1.5</span><span class="op">*</span>l,u)</span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    (l,u) <span class="op">=</span> axp.get_xlim()</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> idx,labs <span class="kw">in</span> <span class="bu">enumerate</span>(yticklabs):</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>        axp.text(l<span class="op">-</span><span class="fl">0.1</span><span class="op">*</span>l,ys[idx],labs)</span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    axp.set_yticklabels([])</span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># finally doing what is needed</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ax <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>        plt.title(<span class="st">''</span> <span class="cf">if</span> title <span class="kw">is</span> <span class="va">None</span> <span class="cf">else</span> title,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>        plt.show()</span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> axp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a>plt.style.use(<span class="st">'seaborn-bright'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="kw">def</span> plot_hsd(hsdres,p_cutoff<span class="op">=</span><span class="fl">0.05</span>,title<span class="op">=</span><span class="va">None</span>,ax<span class="op">=</span><span class="va">None</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>)):</span>
+<span id="cb5-7"><a href="#cb5-7"></a>     <span class="co">"""</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">     Do plotting of tukeyhsd results</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">    </span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">  </span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="co">    :param hsdres: 'tukeyhsd' result form the do_anova_test function</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="co">    :param p_cutoff: Cutoff at which we get say a combination is significant</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co">    :param title: Title of the plot</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="co">    :param ax: Define or get the matplotlib axes</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="co">    :param figsize: Mention Figure size to draw</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co">    </span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="co">    """</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a></span>
+<span id="cb5-19"><a href="#cb5-19"></a>    <span class="cf">if</span> ax <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb5-20"><a href="#cb5-20"></a>        fig,axp <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>figsize)</span>
+<span id="cb5-21"><a href="#cb5-21"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-22"><a href="#cb5-22"></a>        axp <span class="op">=</span> ax</span>
+<span id="cb5-23"><a href="#cb5-23"></a>    </span>
+<span id="cb5-24"><a href="#cb5-24"></a>    <span class="co"># helper func</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a>    p_ind <span class="op">=</span> <span class="kw">lambda</span> x : <span class="st">''</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="fl">0.1</span> <span class="cf">else</span> (<span class="st">'+'</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="fl">0.05</span> <span class="cf">else</span> (<span class="st">'*'</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="fl">0.01</span> <span class="cf">else</span> (<span class="st">'**'</span> <span class="cf">if</span> x <span class="op">&gt;</span><span class="fl">0.001</span> <span class="cf">else</span> <span class="st">'***'</span>)))</span>
+<span id="cb5-26"><a href="#cb5-26"></a>    label_gen  <span class="op">=</span> <span class="kw">lambda</span> x: <span class="ss">f"$</span><span class="sc">{</span>x[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>x[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">\ |\ p:</span><span class="sc">{</span>x[<span class="dv">2</span>]<span class="sc">:0.2f}{</span>p_ind(x[<span class="dv">2</span>])<span class="sc">:5s}</span><span class="ss">$"</span></span>
+<span id="cb5-27"><a href="#cb5-27"></a>    </span>
+<span id="cb5-28"><a href="#cb5-28"></a>    <span class="co">#setting values</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a>    mask <span class="op">=</span> hsdres[<span class="st">'p-value'</span>] <span class="op">&lt;=</span> p_cutoff</span>
+<span id="cb5-30"><a href="#cb5-30"></a>    yticklabs <span class="op">=</span> hsdres[[<span class="st">'group1'</span>,<span class="st">'group2'</span>,<span class="st">'p-value'</span>]].<span class="bu">apply</span>(label_gen,axis<span class="op">=</span><span class="dv">1</span>).values</span>
+<span id="cb5-31"><a href="#cb5-31"></a>    ys <span class="op">=</span> np.arange(<span class="bu">len</span>(hsdres))</span>
+<span id="cb5-32"><a href="#cb5-32"></a>    </span>
+<span id="cb5-33"><a href="#cb5-33"></a>    <span class="co"># adding plot to axes</span></span>
+<span id="cb5-34"><a href="#cb5-34"></a>    axp.errorbar(hsdres[<span class="op">~</span>mask][<span class="st">'Diff'</span>],ys[<span class="op">~</span>mask],xerr<span class="op">=</span>np.<span class="bu">abs</span>(hsdres[<span class="op">~</span>mask][[<span class="st">'Lower'</span>,<span class="st">"Upper"</span>]]).values.T,</span>
+<span id="cb5-35"><a href="#cb5-35"></a>                fmt<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'black'</span>, ecolor<span class="op">=</span><span class="st">'lightgray'</span>, elinewidth<span class="op">=</span><span class="dv">2</span>, capsize<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb5-36"><a href="#cb5-36"></a>    axp.errorbar(hsdres[mask][<span class="st">'Diff'</span>],ys[mask],xerr<span class="op">=</span>np.<span class="bu">abs</span>(hsdres[mask][[<span class="st">'Lower'</span>,<span class="st">"Upper"</span>]]).values.T,</span>
+<span id="cb5-37"><a href="#cb5-37"></a>                fmt<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'red'</span>, ecolor<span class="op">=</span><span class="st">'pink'</span>, elinewidth<span class="op">=</span><span class="dv">2</span>, capsize<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb5-38"><a href="#cb5-38"></a>    axp.axvline(x<span class="op">=</span><span class="dv">0</span>,linestyle<span class="op">=</span><span class="st">'--'</span>,c<span class="op">=</span><span class="st">'skyblue'</span>)</span>
+<span id="cb5-39"><a href="#cb5-39"></a>    axp.set_yticks([])</span>
+<span id="cb5-40"><a href="#cb5-40"></a>    (l,u) <span class="op">=</span> axp.get_xlim()</span>
+<span id="cb5-41"><a href="#cb5-41"></a>    axp.set_xlim(l<span class="op">+</span><span class="fl">1.5</span><span class="op">*</span>l,u)</span>
+<span id="cb5-42"><a href="#cb5-42"></a>    (l,u) <span class="op">=</span> axp.get_xlim()</span>
+<span id="cb5-43"><a href="#cb5-43"></a>    <span class="cf">for</span> idx,labs <span class="kw">in</span> <span class="bu">enumerate</span>(yticklabs):</span>
+<span id="cb5-44"><a href="#cb5-44"></a>        axp.text(l<span class="op">-</span><span class="fl">0.1</span><span class="op">*</span>l,ys[idx],labs)</span>
+<span id="cb5-45"><a href="#cb5-45"></a>    axp.set_yticklabels([])</span>
+<span id="cb5-46"><a href="#cb5-46"></a>    </span>
+<span id="cb5-47"><a href="#cb5-47"></a>    <span class="co"># finally doing what is needed</span></span>
+<span id="cb5-48"><a href="#cb5-48"></a>    <span class="cf">if</span> ax <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb5-49"><a href="#cb5-49"></a>        plt.title(<span class="st">''</span> <span class="cf">if</span> title <span class="kw">is</span> <span class="va">None</span> <span class="cf">else</span> title,fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb5-50"><a href="#cb5-50"></a>        plt.show()</span>
+<span id="cb5-51"><a href="#cb5-51"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-52"><a href="#cb5-52"></a>        <span class="cf">return</span> axp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -590,7 +605,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/www\.percieveit\.com");
+      var filterRegex = new RegExp("https:\/\/www\.jkapila\.github\.io");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -962,6 +977,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
