@@ -1,29 +1,17 @@
 ---
 title: "CrossTab Sparsity"
-description: "A label and data type agnostic metric for evaluating clustering performance!"
-
-# Enable CC licence appendix
-license: "CC BY"
-
+description: A label and data type agnostic metric for evaluating clustering performance!   
 date: "2022-05-03"
 categories: [clustering, analysis]
 # keywords: [Metric, clustering]
-lightbox: true
-format:
-  html:
-    grid:
-      margin-width: 400px 
-reference-location: margin
-citation-location: margin
-toc-location: left
-title-block-banner: "#f0f3f5"
-title-block-banner-color: "black"
-cap-location: margin
+image: "img/pexels-n-voitkevich-5712829.jpg"
+image-alt: Photo by Nataliya Vaitkevich - https://www.pexels.com/photo/empty-crossroads-in-hills-5712829/
+title-block-banner: "img/pexels-n-voitkevich-5712829-thumb.jpg"
 draft: false
 ---
 
 
-# Introduction  
+# Introduction
 Cluster analysis has always fascinated me as a window into the hidden structures of data. During my collaboration with Kumarjit Pathak, we grappled with a persistent challenge in unsupervised learning: **how to objectively evaluate clustering quality across different algorithms**. Traditional metrics like the Silhouette Index or Bayesian Information Criterion felt restrictive—they were siloed within specific methodologies, making cross-algorithm comparisons unreliable.  
 
 This frustration led us to develop a **universal cluster evaluation metric**, detailed in our paper *"Cross Comparison of Results from Different Clustering Approaches"*. Our goal was to create a framework that transcends algorithmic biases, enabling:  
@@ -32,7 +20,6 @@ This frustration led us to develop a **universal cluster evaluation metric**, de
 - Automated determination of optimal cluster counts  
 
 In this blog, I’ll walk you through our journey—from conceptualization to real-world validation—and share insights that didn’t make it into the final paper.  
-
 
 # The Birth of the Metric: A First-Person Perspective  
 
@@ -53,7 +40,7 @@ Elbow plots and dendrograms left too much room for human interpretation.
 
 ::: {.column-page-right}
 
-![Best Cluster for K-means Using Crosstab sparsity](Picture 1.png)
+![Best Cluster for K-means Using Crosstab sparsity](img/Picture 1.png)
 
 :::
 
@@ -119,7 +106,7 @@ Finding best cluster for K-Means alone:
 
 ::: {.column-page-right}
 
-![Best Cluster for PAM method Using Crosstab sparsity](Kmeans on Vehicle.png)
+![Best Cluster for PAM method Using Crosstab sparsity](img/Kmeans on Vehicle.png)
 
 :::
 
@@ -128,7 +115,7 @@ Comparing all cluster methods and find the optimal one:
 
 ::: {.column-page-right}
 
-![Optimal Cluster for many methods](Comparision across many methods.png)
+![Optimal Cluster for many methods](img/Comparision across many methods.png)
 
 :::
 
@@ -137,7 +124,7 @@ Comparing all cluster methods and find the optimal one:
 
 ::: {.column-page-right}
 
- ![All kind of variable scored against Metrics](Variable segregation.png)
+ ![All kind of variable scored against Metrics](img/Variable segregation.png)
 
 :::
 

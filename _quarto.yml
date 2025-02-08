@@ -7,7 +7,7 @@ project:
 
 website:
   title: "Preceptions"
-  site-url: https://www.percieveit.com
+  site-url: https://www.jkapila.github.io
   description: "A blog about data science, statistics, machine learning, and the scientific method"
   favicon: "favicon-32x32.png"
   # margin-header: includes/subscriber.html
@@ -39,12 +39,7 @@ website:
         href: https://twitter.com/jitinkapila
       - icon: linkedin
         href: https://linkedin.com/jitinkapila
-  comments: 
-    utterances:
-      repo: jkapila/perceptions
-      label: Comments
-      theme: github-light
-      issue-term: url
+  
 format:
   html:
     theme:
@@ -53,7 +48,10 @@ format:
     include-in-header:
       - includes/umami.html
     highlight-style: printing
-    
+
+execute:
+  freeze: auto
+  cache: true
 
 
 

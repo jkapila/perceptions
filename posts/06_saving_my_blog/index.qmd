@@ -20,7 +20,7 @@ format:
       margin-width: 500px 
 
 code-fold: true
-code-tools: true
+
 
 
 draft: true

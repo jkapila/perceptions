@@ -1,34 +1,14 @@
 ---
 title: "CrossTab Sparsity for Classification"
 description: "Can our metric help us in making a classification problem work better ?"
-
-# Enable CC license appendix
-license: "CC BY"
-
-# # Default author
-# author:
-#   - name: Jitin Kapila
-#     url: www.percieveit.com/about
-
 date: "2023-01-03"
 categories: [classification, metric, feature selection]
-# keywords: [metric, classification, python, modelling]
-lightbox: true
-format:
-  html:
-    grid:
-      margin-width: 400px 
+tags: [metric, classification, python, modelling]
 image: crossroad-unsplash.jpg
-image-height: 100px
-code-fold: true
-toc-location: left
-title-block-banner: "#f0f3f5"
-title-block-banner-color: "black"
-# title-block-banner: Cross Road image.jpg
-
-
 draft: false
 ---
+
+![Cross Roads where everyone meets!](crossroad-unsplash-thumb.jpg)
 
 # Introduction: A Journey into Data
 
@@ -79,13 +59,11 @@ Here’s a brief code snippet to perform essential EDA on the Obesity dataset:
 
 import warnings
 warnings.filterwarnings("ignore")
-
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 from IPython.display import display
-
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, classification_report
 from sklearn.model_selection import train_test_split
 import statsmodels.api as sm

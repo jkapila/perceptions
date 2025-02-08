@@ -4,17 +4,49 @@
 # (see https://quarto.org/docs/projects/code-execution.html#freeze)
 freeze: true
 
-# Enable banner style title blocks
-title-block-banner: true
-
 # Author name of all blog posts
 author: 'Jitin Kapila'
 
 # Table of content settings
 toc: true
 toc-depth: 3
+toc-location: left
 
+# page format and enablign tufte style
 page-layout: article
+format:
+  html:
+    grid:
+      sidebar-width: 300px
+      # body-width: 900px
+      margin-width: 400px 
+reference-location: margin
+citation-location: margin
+cap-location: margin
+
+# title settings
+title-block-banner: "white"
+title-block-banner-color: "black"
+title-block-style: default
+
+# defaulting lightbox 
+lightbox: true
+
+# Enable CC licence appendix
+license: "CC BY"
+
+#code settings
+code-line-numbers: true
+code-fold: true
+code-overflow: wrap
+
+#comments:
+comments: 
+    utterances:
+      repo: jkapila/perceptions
+      label: Comments
+      theme: github-light
+      issue-term: url
 
 # #########################
 # # You can skip this part in the first step

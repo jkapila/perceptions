@@ -61,5 +61,10 @@
   },
   "research.qmd": {
     "research.html": "3d44b20e"
+  },
+  "resume.qmd": {
+    "resume.html": "0c8221f7",
+    "resume.pdf": "1cdb51ec",
+    "resume.tex": "775450d8"
   }
 }

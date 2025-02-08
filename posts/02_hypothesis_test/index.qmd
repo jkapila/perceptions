@@ -1,26 +1,14 @@
 ---
 title: "A flow to Test Your Hypothesis in Python"
 description: Making life easy to do some serious hypothesis testing in python. 
-
-# Enable CC licence appendix
-license: "CC BY"
-
 date: "2021-08-10"
 categories: [eda, hypothesis, analysis, python]
 tags: [hypothesis, python, eda]
-format:
-  html:
-    grid:
-      margin-width: 350px 
-reference-location: margin
-citation-location: margin
-toc-location: left
-title-block-banner: "#f0f3f5"
-title-block-banner-color: "black"
-
+image: pexels-tara-winstead-7722866.jpg
 draft: false
 ---
 
+![ Hypothesis testing [Photo by Tara Winstead](https://www.pexels.com/photo/text-7722866/)](pexels-tara-winstead-7722866-thumb.jpg)
 
 # Overview
 
