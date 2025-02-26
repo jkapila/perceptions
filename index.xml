@@ -10,7 +10,1075 @@
 <atom:link href="https://www.jkapila.github.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog about data science, statistics, machine learning, and the scientific method</description>
 <generator>quarto-1.7.6</generator>
-<lastBuildDate>Mon, 22 Jan 2024 18:30:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 25 Feb 2025 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>TrieKNN: Unleashing KNN’s Power on Mixed Data Types</title>
+  <dc:creator>Jitin Kapila</dc:creator>
+  <link>https://www.jkapila.github.io/posts/10_treeknn/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><a href="pexels-gelgas-401213.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by Gelgas Airlangga"><img src="https://www.jkapila.github.io/posts/10_treeknn/pexels-gelgas-401213.jpg" class="img-fluid figure-img" alt="Photo by Gelgas Airlangga"></a></p>
+<figcaption class="margin-caption"><a href="https://www.pexels.com/photo/shallow-focus-of-sprout-401213/">Photo by Gelgas Airlangga</a></figcaption>
+</figure>
+</div>
+<!-- [Photo by Anna Tarazevich](https://www.pexels.com/photo/strawberry-plant-on-a-black-container-7299985/)
+
+[Photo by Eva Bronzini](https://www.pexels.com/photo/succulent-plants-in-pot-shaped-soil-7127801/) -->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+In This Post
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>We’ll dissect the limitations of traditional KNN when faced with mixed data types.</li>
+<li>Introduce TrieKNN, a Trie-based approach that elegantly handles mixed data.</li>
+<li>Walk through the implementation and training of a TrieKNN model.</li>
+<li>Evaluate its performance and discuss its potential impact.</li>
+</ul>
+</div>
+</div>
+<section id="the-allure-and-limitation-of-knn" class="level2">
+<h2 class="anchored" data-anchor-id="the-allure-and-limitation-of-knn">The Allure and Limitation of KNN</h2>
+<p>In the realm of machine learning, the K-Nearest Neighbors (KNN) algorithm stands out for its intuitive nature and ease of implementation. Its principle is simple: classify a data point based on the majority class among its ‘k’ nearest neighbors in the feature space. This non-parametric approach makes no assumptions about the underlying data distribution, rendering it versatile for various applications. <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">KNN</a> is very popular, but it comes with some limitations.</p>
+<p>However, KNN’s Achilles’ heel lies in its reliance on distance metrics, which are inherently designed for numerical data. Real-world datasets often contain a mix of numerical and categorical features, posing a significant challenge for KNN. How do you measure the distance between ‘red’ and ‘blue,’ or ‘large’ and ‘small’?</p>
+<section id="prior-art" class="level3">
+<h3 class="anchored" data-anchor-id="prior-art">Prior Art</h3>
+<p>Several strategies have been proposed to adapt KNN for mixed data:</p>
+<ul>
+<li><strong>One-Hot Encoding:</strong> Converts categorical features into numerical vectors, but can lead to high dimensionality.</li>
+<li><strong>Distance Functions for Mixed Data:</strong> Develops and apply custom distance metrics that can handle both numerical and categorical features such as <a href="https://conservancy.umn.edu/server/api/core/bitstreams/845f587d-079a-469b-97e9-411533fa666d/content">HEOM and many others</a>.</li>
+<li><strong>Using mean/mode values</strong>: Replace the missing values with mean/mode.</li>
+</ul>
+<p>These methods often involve compromises, either distorting the data’s inherent structure or adding computational overhead.</p>
+</section>
+</section>
+<section id="enter-trieknn-a-novel-approach" class="level2">
+<h2 class="anchored" data-anchor-id="enter-trieknn-a-novel-approach">Enter TrieKNN: A Novel Approach</h2>
+<p>What if we could cleverly sidestep the distance calculation problem for categorical features, while still leveraging KNN’s power? TrieKNN offers just that—a way to perform KNN on any mixed data!</p>
+<p>TrieKNN combines the strengths of Trie data structures and KNN to handle mixed data types gracefully. Here’s the core idea:</p>
+<ol type="1">
+<li><strong>Trie-Based Categorical Encoding:</strong> A Trie is used to store the categorical features of the data. Each node in the Trie represents a category.</li>
+<li><strong>Leaf-Node KNN Models:</strong> At the leaf nodes of the Trie, where specific combinations of categorical features are found, we fit individual KNN models using only the numerical features.</li>
+<li><strong>Weighted Prediction:</strong> To classify a new data point, we traverse the Trie based on its categorical features. At each level, we calculate a weighted distance based on available data, ending in a probability score in each leaf node.</li>
+</ol>
+<section id="why-this-works" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-works">Why This Works</h3>
+<ul>
+<li><strong>No Direct Distance Calculation for Categorical Features:</strong> The Trie structure implicitly captures the relationships between categorical values.</li>
+<li><strong>Localized KNN Models:</strong> By fitting KNN models at the leaf nodes, we ensure that distance calculations are performed only on relevant numerical features.</li>
+<li><strong>Scalability:</strong> The Trie structure efficiently handles a large number of categorical features and values.</li>
+</ul>
+</section>
+</section>
+<section id="building-a-trieknn-model" class="level2">
+<h2 class="anchored" data-anchor-id="building-a-trieknn-model">Building a TrieKNN Model</h2>
+<p>Let’s dive into the implementation. We’ll start with the <code>TrieNode</code> and <code>Trie</code> classes, then move on to the KNN model and the training/prediction process.</p>
+<section id="trie-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="trie-implementation">Trie Implementation</h3>
+<div id="f64ed864" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> collections <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Counter</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">class</span> TrieNode:</span>
+<span id="cb1-5">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">__init__</span>(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>):</span>
+<span id="cb1-6">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.children <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {}  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Dictionary to store child nodes</span></span>
+<span id="cb1-7">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.is_end_of_word <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># True if the node is the end of a word</span></span>
+<span id="cb1-8">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Count of how many times a word has been inserted</span></span>
+<span id="cb1-9">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.class_counts <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {}  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Class counts</span></span>
+<span id="cb1-10">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.class_weights <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {}</span>
+<span id="cb1-11">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.model <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Model at leaf nodes</span></span>
+<span id="cb1-12">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.indexes <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Store data indexes belonging to this leaf</span></span>
+<span id="cb1-13">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.labels <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Store data indexes belonging to this leaf</span></span>
+<span id="cb1-14">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.node_weight <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span></span>
+<span id="cb1-15"></span>
+<span id="cb1-16"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">class</span> Trie:</span>
+<span id="cb1-17">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">__init__</span>(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>):</span>
+<span id="cb1-18">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.root <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> TrieNode()  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Root node of the Trie</span></span>
+<span id="cb1-19">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.data_index <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Initialize data index</span></span>
+<span id="cb1-20"></span>
+<span id="cb1-21">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> insert(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, word_val, model):</span>
+<span id="cb1-22">        current_node <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.root</span>
+<span id="cb1-23">        word, val <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> word_val</span>
+<span id="cb1-24">        current_node.count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb1-25"></span>
+<span id="cb1-26">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Adding class counts</span></span>
+<span id="cb1-27">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> val <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> current_node.class_counts:</span>
+<span id="cb1-28">            current_node.class_counts[val] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb1-29">        current_node.class_counts[val] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb1-30"></span>
+<span id="cb1-31">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> char <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> word:</span>
+<span id="cb1-32">            <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># If the character is not in children, add a new TrieNode</span></span>
+<span id="cb1-33">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> char <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> current_node.children:</span>
+<span id="cb1-34">                current_node.children[char] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> TrieNode()</span>
+<span id="cb1-35">            current_node <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> current_node.children[char]</span>
+<span id="cb1-36"></span>
+<span id="cb1-37">            <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Adding count of instances</span></span>
+<span id="cb1-38">            current_node.count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb1-39"></span>
+<span id="cb1-40">            <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># adding class counts</span></span>
+<span id="cb1-41">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> val <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> current_node.class_counts:</span>
+<span id="cb1-42">                current_node.class_counts[val] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb1-43">            current_node.class_counts[val] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb1-44"></span>
+<span id="cb1-45">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Mark the end of the word and increment count</span></span>
+<span id="cb1-46">        current_node.is_end_of_word <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span></span>
+<span id="cb1-47">        current_node.indexes.append(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.data_index)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Store the data index</span></span>
+<span id="cb1-48">        current_node.labels.append(val)</span>
+<span id="cb1-49">        current_node.model <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> model</span>
+<span id="cb1-50">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.data_index <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Increment data index</span></span>
+<span id="cb1-51"></span>
+<span id="cb1-52">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> search(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, word):</span>
+<span id="cb1-53">        current_node <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.root</span>
+<span id="cb1-54">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> char <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> word:</span>
+<span id="cb1-55">            <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># If the character doesn't exist in the children, the word doesn't exist</span></span>
+<span id="cb1-56">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> char <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> current_node.children:</span>
+<span id="cb1-57">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span>
+<span id="cb1-58">            current_node <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> current_node.children[char]</span>
+<span id="cb1-59"></span>
+<span id="cb1-60">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Return True if it's the end of a word and the word exists</span></span>
+<span id="cb1-61">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> current_node.is_end_of_word</span>
+<span id="cb1-62"></span>
+<span id="cb1-63">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> count_word(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, word):</span>
+<span id="cb1-64">        current_node <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.root</span>
+<span id="cb1-65">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> char <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> word:</span>
+<span id="cb1-66">            <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># If the character doesn't exist, the word doesn't exist</span></span>
+<span id="cb1-67">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> char <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> current_node.children:</span>
+<span id="cb1-68">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, current_node.class_counts  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Correctly return class_counts</span></span>
+<span id="cb1-69">            current_node <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> current_node.children[char]</span>
+<span id="cb1-70"></span>
+<span id="cb1-71">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Return the count of the word</span></span>
+<span id="cb1-72">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> current_node.count, current_node.class_counts</span>
+<span id="cb1-73"></span>
+<span id="cb1-74">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> display(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>):</span>
+<span id="cb1-75">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Recursively display the tree</span></span>
+<span id="cb1-76">        <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> _display(node, word):</span>
+<span id="cb1-77">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> node.is_end_of_word:</span>
+<span id="cb1-78">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Data: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>word<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, Count: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>node<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>count<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, Indexes: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(node.indexes)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> Classes :</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>node<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>class_counts<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> weights:</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(node.class_weights)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Display indexes too</span></span>
+<span id="cb1-79">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> char, child <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> node.children.items():</span>
+<span id="cb1-80">                _display(child, word <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> char)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># corrected the display</span></span>
+<span id="cb1-81"></span>
+<span id="cb1-82">        _display(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.root, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>)</span>
+<span id="cb1-83"></span>
+<span id="cb1-84">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">apply</span>(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, func):</span>
+<span id="cb1-85">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb1-86"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Applies a function to all models in the leaf nodes.</span></span>
+<span id="cb1-87"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        """</span></span>
+<span id="cb1-88">        <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> _apply(node):</span>
+<span id="cb1-89">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> node.is_end_of_word <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">and</span> node.model <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">is</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>:</span>
+<span id="cb1-90">                func(node)</span>
+<span id="cb1-91">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> child <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> node.children.values():</span>
+<span id="cb1-92">                _apply(child)</span>
+<span id="cb1-93"></span>
+<span id="cb1-94">        _apply(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.root)</span>
+<span id="cb1-95"></span>
+<span id="cb1-96">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> apply_weight_to_indexes(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, weight):</span>
+<span id="cb1-97">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb1-98"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Applies a weight to the indexes based on the percentage of data available.</span></span>
+<span id="cb1-99"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        """</span></span>
+<span id="cb1-100">        <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> _apply_weight_to_indexes(node):</span>
+<span id="cb1-101">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> node.is_end_of_word:</span>
+<span id="cb1-102">                total_count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.root.children[child].count <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> child <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.root.children)</span>
+<span id="cb1-103">                percentage <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> node.count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> total_count <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> total_count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb1-104">                weighted_indexes <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [(index, weight <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> percentage) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> index <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> node.indexes]</span>
+<span id="cb1-105">                node.class_weights <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> weighted_indexes  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Corrected this line</span></span>
+<span id="cb1-106">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> child <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> node.children.values():</span>
+<span id="cb1-107">                _apply_weight_to_indexes(child)</span>
+<span id="cb1-108"></span>
+<span id="cb1-109">        _apply_weight_to_indexes(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.root)</span></code></pre></div>
+</details>
+</div>
+</section>
+<section id="knn-model" class="level3">
+<h3 class="anchored" data-anchor-id="knn-model">KNN Model</h3>
+<div id="77d420dd" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">class</span> KNNModel:</span>
+<span id="cb2-2">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">__init__</span>(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>):</span>
+<span id="cb2-3">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span></span>
+<span id="cb2-4">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.labels <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []</span>
+<span id="cb2-5">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.k <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> k</span>
+<span id="cb2-6"></span>
+<span id="cb2-7">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> fit(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, data, indexes, labels):</span>
+<span id="cb2-8">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># print("Fitting model with indexes:", len(indexes), "labels:", len(labels))</span></span>
+<span id="cb2-9">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> data[indexes].astype(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">float</span>)</span>
+<span id="cb2-10">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.labels <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.array(labels).astype(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">float</span>)</span>
+<span id="cb2-11"></span>
+<span id="cb2-12">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> predict(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, data):</span>
+<span id="cb2-13">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># print("Predicting with data:", data)</span></span>
+<span id="cb2-14">        dist_ind <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.sqrt(np.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>((<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> data) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># euclidean distance</span></span>
+<span id="cb2-15">        main_arr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.column_stack((<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.labels, dist_ind))  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># labels with distance</span></span>
+<span id="cb2-16">        main <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> main_arr[main_arr[:, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].argsort()]  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># sorting based on distance</span></span>
+<span id="cb2-17">        count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Counter(main[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>:<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.k, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>])  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># counting labels</span></span>
+<span id="cb2-18">        sums <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.array(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>(count.values()))  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># getting counts</span></span>
+<span id="cb2-19">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> sums <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> np.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>(sums)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># prediction as probability</span></span></code></pre></div>
+</details>
+</div>
+</section>
+<section id="training-and-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="training-and-evaluation">Training and Evaluation</h3>
+<p>Here’s how we train and evaluate the TrieKNN model:</p>
+<div id="cdc54cad" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Sample data</span></span>
+<span id="cb3-2">n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10000</span></span>
+<span id="cb3-3">data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.array((np.random.choice([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Anything '</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'By '</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Chance '</span>], p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.6</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>],size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>n),</span>
+<span id="cb3-4">                 np.random.choice([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'can'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'go'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'here'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'lets'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'see'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"it"</span>], p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>], size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>n),</span>
+<span id="cb3-5">                 np.random.normal(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>n),</span>
+<span id="cb3-6">                 np.random.normal(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>n))).T</span>
+<span id="cb3-7">y_label <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.random.choice([<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>], size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>n)</span>
+<span id="cb3-8"></span>
+<span id="cb3-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Trie training</span></span>
+<span id="cb3-10">trie <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Trie()</span>
+<span id="cb3-11"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> X, y <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">zip</span>(data, y_label):</span>
+<span id="cb3-12">    trie.insert((X[:<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>], y),<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>)</span>
+<span id="cb3-13"></span>
+<span id="cb3-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Apply weights to indexes</span></span>
+<span id="cb3-15">trie.apply_weight_to_indexes(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>)</span>
+<span id="cb3-16"></span>
+<span id="cb3-17"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Fit models of leaf nodes</span></span>
+<span id="cb3-18"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> add_model(node, data):</span>
+<span id="cb3-19">    node.model <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> KNNModel()</span>
+<span id="cb3-20">    node.model.fit(data, node.indexes, node.labels)</span>
+<span id="cb3-21"></span>
+<span id="cb3-22"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> traverse_and_add_model(node, data):</span>
+<span id="cb3-23">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> node.is_end_of_word:</span>
+<span id="cb3-24">        add_model(node, data)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Add model to leaf node</span></span>
+<span id="cb3-25">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> child <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> node.children.values():</span>
+<span id="cb3-26">        traverse_and_add_model(child, data)</span>
+<span id="cb3-27"></span>
+<span id="cb3-28">traverse_and_add_model(trie.root, data[:, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>:])</span></code></pre></div>
+</details>
+</div>
+</section>
+<section id="explanation" class="level3">
+<h3 class="anchored" data-anchor-id="explanation">Explanation</h3>
+<ul>
+<li>We create sample data with mixed categorical and numerical features.</li>
+<li>We insert each data point into the Trie, using the categorical features as the path.</li>
+<li>After the Trie is built, we traverse it and fit a KNN model to the data points stored at each leaf node.</li>
+<li>Finally, we can predict the class of new data points by traversing the Trie and using the KNN model at the corresponding leaf node.</li>
+</ul>
+</section>
+</section>
+<section id="results-and-discussion" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="results-and-discussion">Results and Discussion</h2>
+<p>Let us display the trie.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="88dd6e09" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1">trie.display()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Data: Anything see, Count: 2383, Indexes: 2383 Classes :{1: 698, 0: 1685} weights:2383
+Data: Anything go, Count: 618, Indexes: 618 Classes :{0: 427, 1: 191} weights:618
+Data: Anything lets, Count: 1259, Indexes: 1259 Classes :{1: 365, 0: 894} weights:1259
+Data: Anything it, Count: 574, Indexes: 574 Classes :{1: 182, 0: 392} weights:574
+Data: Anything can, Count: 592, Indexes: 592 Classes :{0: 411, 1: 181} weights:592
+Data: Anything here, Count: 617, Indexes: 617 Classes :{0: 438, 1: 179} weights:617
+Data: Chance see, Count: 1217, Indexes: 1217 Classes :{1: 358, 0: 859} weights:1217
+Data: Chance it, Count: 300, Indexes: 300 Classes :{0: 214, 1: 86} weights:300
+Data: Chance go, Count: 302, Indexes: 302 Classes :{0: 227, 1: 75} weights:302
+Data: Chance lets, Count: 549, Indexes: 549 Classes :{1: 165, 0: 384} weights:549
+Data: Chance here, Count: 284, Indexes: 284 Classes :{0: 188, 1: 96} weights:284
+Data: Chance can, Count: 280, Indexes: 280 Classes :{0: 185, 1: 95} weights:280
+Data: By see, Count: 421, Indexes: 421 Classes :{1: 112, 0: 309} weights:421
+Data: By go, Count: 81, Indexes: 81 Classes :{0: 64, 1: 17} weights:81
+Data: By can, Count: 107, Indexes: 107 Classes :{0: 80, 1: 27} weights:107
+Data: By it, Count: 90, Indexes: 90 Classes :{0: 64, 1: 26} weights:90
+Data: By here, Count: 107, Indexes: 107 Classes :{0: 75, 1: 32} weights:107
+Data: By lets, Count: 219, Indexes: 219 Classes :{0: 149, 1: 70} weights:219</code></pre>
+</div>
+</div>
+</div></div><p>The model predicted the following values:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="a8477afe" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Prediction example</span></span>
+<span id="cb6-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> predict_with_model(node):</span>
+<span id="cb6-3">    predictions <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> node.model.predict(np.array([<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>]))</span>
+<span id="cb6-4">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Predictions:"</span>, predictions)</span>
+<span id="cb6-5"></span>
+<span id="cb6-6">trie.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">apply</span>(predict_with_model)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Predictions: [0.8 0.2]
+Predictions: [0.6 0.4]
+Predictions: [0.6 0.4]
+Predictions: [0.6 0.4]
+Predictions: [0.4 0.6]
+Predictions: [0.6 0.4]
+Predictions: [0.8 0.2]
+Predictions: [0.4 0.6]
+Predictions: [1.]
+Predictions: [0.4 0.6]
+Predictions: [0.4 0.6]
+Predictions: [1.]
+Predictions: [0.6 0.4]
+Predictions: [0.6 0.4]
+Predictions: [0.4 0.6]
+Predictions: [0.2 0.8]
+Predictions: [0.4 0.6]
+Predictions: [0.4 0.6]</code></pre>
+</div>
+</div>
+</div></div><p>The predictions will vary on each run. From this we can see that we can use KNN on mixed data types.</p>
+</section>
+<section id="conclusion-a-promising-path-forward" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-a-promising-path-forward">Conclusion: A Promising Path Forward</h2>
+<p>TrieKNN presents a compelling solution for extending the applicability of KNN to mixed data types. By leveraging the Trie data structure, it avoids direct distance calculations on categorical features, enabling the use of localized KNN models for numerical data.</p>
+<p>Further research could explore:</p>
+<ul>
+<li>Optimizing the weighting scheme for combining predictions from different Trie levels.</li>
+<li>Comparing TrieKNN’s performance against other mixed-data KNN approaches on benchmark datasets.</li>
+<li>Extending TrieKNN to handle missing data and noisy categorical features.</li>
+</ul>
+<p>TrieKNN opens up new possibilities for applying KNN in domains where mixed data types are prevalent, such as healthcare, e-commerce, and social science.</p>
+<p>Resources and further reads:<br>
+1. <a href="https://cran.r-project.org/web/packages/nomclust/nomclust.pdf">Nomclust R package</a><br>
+2. <a href="https://ieeexplore.ieee.org/abstract/document/8337394">An Improved kNN Based on Class Contribution and Feature Weighting</a><br>
+3. <a href="https://ieeexplore.ieee.org/abstract/document/8780580">An Improved Weighted KNN Algorithm for Imbalanced Data Classification</a><br>
+4. <a href="https://ieeexplore.ieee.org/abstract/document/6718270">A weighting approach for KNN classifier</a><br>
+5. <a href="https://ieeexplore.ieee.org/abstract/document/9739702">Unsupervised Outlier Detection for Mixed-Valued Dataset Based on the Adaptive k-Nearest Neighbor Global Network</a><br>
+6. <a href="https://journalskuwait.org/kjs/index.php/KJS/article/download/18331/1253">A hybrid approach based on k-nearest neighbors and decision tree for software fault prediction</a><br>
+7. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7173366/">Analysis of Decision Tree and K-Nearest Neighbor Algorithm in the Classification of Breast Cancer</a></p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
+  <category>knn</category>
+  <category>ml</category>
+  <category>mixed-data</category>
+  <guid>https://www.jkapila.github.io/posts/10_treeknn/</guid>
+  <pubDate>Tue, 25 Feb 2025 18:30:00 GMT</pubDate>
+  <media:content url="https://www.jkapila.github.io/posts/10_treeknn/pexels-anntarazevich-7299985.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Journey back to Bloggin’ with Quarto</title>
   <dc:creator>Jitin Kapila</dc:creator>
@@ -89,7 +1157,7 @@
   <category>blog</category>
   <category>quarto</category>
   <guid>https://www.jkapila.github.io/posts/06_saving_my_blog/</guid>
-  <pubDate>Mon, 22 Jan 2024 18:30:00 GMT</pubDate>
+  <pubDate>Wed, 22 Jan 2025 18:30:00 GMT</pubDate>
   <media:content url="https://www.jkapila.github.io/posts/06_saving_my_blog/mount-everest-6395759_640.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -148,7 +1216,7 @@
 <section id="eda-for-obesity-data" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="eda-for-obesity-data">EDA for Obesity Data</h3>
 <p>Here’s a brief code snippet to perform essential EDA on the Obesity dataset:</p>
-<div id="3fa273b8" class="cell" data-execution_count="3">
+<div id="a7e3b5f5" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Loading data and generating basic descriptive</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
@@ -483,7 +1551,7 @@ font-style: inherit;"># Summary statistics</span></span>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><em>Target distribution</em></p>
-<div id="3852b638" class="cell" data-execution_count="4">
+<div id="7a9949ad" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Target and Correlation</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
@@ -576,7 +1644,7 @@ Some Mode EDA for the data
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="617c3760" class="cell" data-execution_count="5">
+<div id="b1065f39" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>EDA code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
@@ -718,7 +1786,7 @@ font-style: inherit;">"</span>)</span>
 <section id="model-creation-establishing-a-baseline" class="level1 page-columns page-full">
 <h1>Model Creation: Establishing a Baseline</h1>
 <p>With our exploratory analysis complete, we’re ready to create our baseline model using logistic regression with Statsmodels. This initial model will serve as our reference point—like setting up a benchmark for your favorite video game.</p>
-<div id="fd9abf3c" class="cell" data-execution_count="6">
+<div id="5fa93e38" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Splitting data and training a default Multinomila Logit model on our data</summary>
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1">data_df <span class="op" style="color: #5E5E5E;
@@ -816,7 +1884,7 @@ Base model summary for geeks
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="227c65ea" class="cell" data-execution_count="7">
+<div id="57ec3990" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Display summary</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1">display(logit_model.summary())</span></code></pre></div>
@@ -845,13 +1913,13 @@ Base model summary for geeks
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Sat, 08 Feb 2025</td>
+<td>Thu, 27 Feb 2025</td>
 <td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
 <td>0.9119</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>14:09:42</td>
+<td>03:18:53</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-325.15</td>
 </tr>
@@ -2233,7 +3301,7 @@ Base model summary for geeks
 </div></div><section id="evaluating-model-performance" class="level3">
 <h3 class="anchored" data-anchor-id="evaluating-model-performance">Evaluating Model Performance</h3>
 <p>To gauge our models’ effectiveness, we’ll employ various metrics such as accuracy, precision, recall, and F1-score. A confusion matrix will help visualize how well our models perform in classifying outcomes—think of it as a report card for your model!</p>
-<div id="8b3ded62" class="cell" data-execution_count="8">
+<div id="df25174c" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Evaluating the Logit model</summary>
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
@@ -2311,7 +3379,7 @@ weighted avg       0.91      0.91      0.91       211
 </ol>
 <p>Here we go!!!</p>
 <div class="page-columns page-full">
-<div id="17ddb2ed" class="cell page-columns page-full" data-execution_count="10">
+<div id="f3f5f129" class="cell page-columns page-full" data-execution_count="9">
 <details class="code-fold">
 <summary>Doing what needs to Done Code ;)</summary>
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1">sns.set_style(<span class="st" style="color: #20794D;
@@ -2490,7 +3558,7 @@ Scores for 7 groups(s) is : 140.96057955229762</code></pre>
 <section id="and-drum-rolls-pelase" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="and-drum-rolls-pelase">And Drum Rolls pelase!!!</h3>
 <p>Using just top 5 varaibles we are getting almost similar or better overall accuracy. This amounts to greatly simplifing the models and clearly explain why some variable are not useful for modeling.</p>
-<div id="1c45a005" class="cell" data-execution_count="11">
+<div id="da59ff04" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>And finally training and evaluating with drum rolls</summary>
 <div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1">logit_model_rev <span class="op" style="color: #5E5E5E;
@@ -2601,7 +3669,7 @@ Summary of retrained model
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="e437017c" class="cell" data-execution_count="12">
+<div id="6351cfde" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1">display(logit_model_rev.summary())</span></code></pre></div>
@@ -2630,13 +3698,13 @@ Summary of retrained model
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Sat, 08 Feb 2025</td>
+<td>Thu, 27 Feb 2025</td>
 <td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
 <td>0.9103</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>14:09:43</td>
+<td>03:18:54</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-331.32</td>
 </tr>
@@ -3106,7 +4174,7 @@ Summary of retrained model
 <h3 class="anchored" data-anchor-id="results-and-discussion-unveiling-insights">Results and Discussion: Unveiling Insights</h3>
 <p><strong>Model Comparison Table</strong></p>
 <p>After implementing CrossTab Sparsity in our feature selection process, let’s take a look at the results:</p>
-<div id="97acf2fe" class="cell" data-execution_count="13">
+<div id="c5b80684" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Comparision Code</summary>
 <div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1">metrics <span class="op" style="color: #5E5E5E;
@@ -3209,7 +4277,7 @@ font-style: inherit;">'Metric'</span>).T)</span></code></pre></div>
 </div>
 <p><strong>Insights Gained</strong></p>
 <p>Through this analysis, several key insights emerge:</p>
-<div id="7be34d1d" class="cell" data-execution_count="14">
+<div id="17681086" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-stdout">
 <pre><code>Reduction of similar accuracy from 16 to 5 i.e 68.75% reduction</code></pre>
 </div>

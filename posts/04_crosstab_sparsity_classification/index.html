@@ -308,7 +308,7 @@ background: white;
 <section id="eda-for-obesity-data" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="eda-for-obesity-data">EDA for Obesity Data</h3>
 <p>Here’s a brief code snippet to perform essential EDA on the Obesity dataset:</p>
-<div id="3fa273b8" class="cell" data-execution_count="3">
+<div id="a7e3b5f5" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Loading data and generating basic descriptive</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load the Obesity data</span></span>
@@ -595,7 +595,7 @@ background: white;
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><em>Target distribution</em></p>
-<div id="3852b638" class="cell" data-execution_count="4">
+<div id="7a9949ad" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Target and Correlation</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Visualize target data distribution</span></span>
@@ -638,7 +638,7 @@ Some Mode EDA for the data
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="617c3760" class="cell" data-execution_count="5">
+<div id="b1065f39" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>EDA code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Visualize the distribution of numerical variables</span></span>
@@ -730,7 +730,7 @@ Some Mode EDA for the data
 <section id="model-creation-establishing-a-baseline" class="level1 page-columns page-full">
 <h1>Model Creation: Establishing a Baseline</h1>
 <p>With our exploratory analysis complete, we’re ready to create our baseline model using logistic regression with Statsmodels. This initial model will serve as our reference point—like setting up a benchmark for your favorite video game.</p>
-<div id="fd9abf3c" class="cell" data-execution_count="6">
+<div id="5fa93e38" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Splitting data and training a default Multinomila Logit model on our data</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>data_df <span class="op">=</span> raw_df.dropna().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
@@ -769,7 +769,7 @@ Base model summary for geeks
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="227c65ea" class="cell" data-execution_count="7">
+<div id="57ec3990" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Display summary</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>display(logit_model.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -798,13 +798,13 @@ Base model summary for geeks
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Sat, 08 Feb 2025</td>
+<td>Thu, 27 Feb 2025</td>
 <td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
 <td>0.9119</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>14:09:42</td>
+<td>03:18:53</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-325.15</td>
 </tr>
@@ -2186,7 +2186,7 @@ Base model summary for geeks
 </div></div><section id="evaluating-model-performance" class="level3">
 <h3 class="anchored" data-anchor-id="evaluating-model-performance">Evaluating Model Performance</h3>
 <p>To gauge our models’ effectiveness, we’ll employ various metrics such as accuracy, precision, recall, and F1-score. A confusion matrix will help visualize how well our models perform in classifying outcomes—think of it as a report card for your model!</p>
-<div id="8b3ded62" class="cell" data-execution_count="8">
+<div id="df25174c" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Evaluating the Logit model</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Predict on test data</span></span>
@@ -2238,7 +2238,7 @@ weighted avg       0.91      0.91      0.91       211
 </ol>
 <p>Here we go!!!</p>
 <div class="page-columns page-full">
-<div id="17ddb2ed" class="cell page-columns page-full" data-execution_count="10">
+<div id="f3f5f129" class="cell page-columns page-full" data-execution_count="9">
 <details class="code-fold">
 <summary>Doing what needs to Done Code ;)</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>sns.set_style(<span class="st">"white"</span>)</span>
@@ -2289,7 +2289,7 @@ Scores for 7 groups(s) is : 140.96057955229762</code></pre>
 <section id="and-drum-rolls-pelase" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="and-drum-rolls-pelase">And Drum Rolls pelase!!!</h3>
 <p>Using just top 5 varaibles we are getting almost similar or better overall accuracy. This amounts to greatly simplifing the models and clearly explain why some variable are not useful for modeling.</p>
-<div id="1c45a005" class="cell" data-execution_count="11">
+<div id="da59ff04" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>And finally training and evaluating with drum rolls</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>logit_model_rev <span class="op">=</span> sm.MNLogit.from_formula(<span class="ss">f"</span><span class="sc">{</span>target<span class="sc">}</span><span class="ss"> ~ </span><span class="sc">{</span><span class="st">' + '</span><span class="sc">.</span>join(results[<span class="st">'scores'</span>].loc[:<span class="dv">5</span>,<span class="st">'Columns'</span>].values)<span class="sc">}</span><span class="ss">"</span>, </span>
@@ -2346,7 +2346,7 @@ Summary of retrained model
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="e437017c" class="cell" data-execution_count="12">
+<div id="6351cfde" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>display(logit_model_rev.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2375,13 +2375,13 @@ Summary of retrained model
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Sat, 08 Feb 2025</td>
+<td>Thu, 27 Feb 2025</td>
 <td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
 <td>0.9103</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>14:09:43</td>
+<td>03:18:54</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-331.32</td>
 </tr>
@@ -2851,7 +2851,7 @@ Summary of retrained model
 <h3 class="anchored" data-anchor-id="results-and-discussion-unveiling-insights">Results and Discussion: Unveiling Insights</h3>
 <p><strong>Model Comparison Table</strong></p>
 <p>After implementing CrossTab Sparsity in our feature selection process, let’s take a look at the results:</p>
-<div id="97acf2fe" class="cell" data-execution_count="13">
+<div id="c5b80684" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Comparision Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>metrics <span class="op">=</span> {</span>
@@ -2908,7 +2908,7 @@ Summary of retrained model
 </div>
 <p><strong>Insights Gained</strong></p>
 <p>Through this analysis, several key insights emerge:</p>
-<div id="7be34d1d" class="cell" data-execution_count="14">
+<div id="17681086" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-stdout">
 <pre><code>Reduction of similar accuracy from 16 to 5 i.e 68.75% reduction</code></pre>
 </div>
@@ -3361,7 +3361,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- Made with Quarto
+    <a class="nav-link" href="https://quarto.org/docs/blog/">
+<p>Made with Quarto 😎</p>
+</a>
   </li>  
 </ul>
     </div>   
@@ -3389,7 +3391,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://linkedin.com/jitinkapila">
+    <a class="nav-link" href="https://linkedin.com/in/jitinkapila">
       <i class="bi bi-linkedin" role="img">
 </i> 
     </a>
