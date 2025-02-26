@@ -1,7 +1,7 @@
 ---
 title: "Journey back to Bloggin' with Quarto"
 description: Sometime all you can do is wait for things to happen!
-date: "2024-01-23"
+date: "2025-01-23"
 categories: [blog, quarto]
 tags: [blogging, quarto, hugo, journey]
 image: mount-everest-6395759_640.jpg

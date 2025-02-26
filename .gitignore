@@ -1,2 +1,6 @@
 /.quarto/
+/env/
+*.pyc
+*.ipynb_checkpoints
 /_site/
+.jupyter_cache

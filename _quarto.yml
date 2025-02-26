@@ -29,7 +29,8 @@ website:
     
   page-footer:
     left:
-      - text: Made with Quarto 
+      - text: Made with Quarto 😎
+        href: https://quarto.org/docs/blog/
     right:
       - icon: rss
         href: index.xml
@@ -38,7 +39,7 @@ website:
       - icon: twitter
         href: https://twitter.com/jitinkapila
       - icon: linkedin
-        href: https://linkedin.com/jitinkapila
+        href: https://linkedin.com/in/jitinkapila
   
 format:
   html:

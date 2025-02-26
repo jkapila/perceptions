@@ -66,5 +66,14 @@
     "resume.html": "0c8221f7",
     "resume.pdf": "1cdb51ec",
     "resume.tex": "775450d8"
+  },
+  "posts/08_efb_and_more/index.qmd": {
+    "index.html": "cb625ff0"
+  },
+  "posts/09_linear_regression_the_right_way/index.qmd": {
+    "index.html": "81d7610d"
+  },
+  "posts/10_treeknn/index.qmd": {
+    "index.html": "c003fe8b"
   }
 }

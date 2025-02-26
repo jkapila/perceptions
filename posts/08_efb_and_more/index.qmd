@@ -1,0 +1,177 @@
+---
+title: "Exclusive Feature Bundling and More"
+description: "Can this LightGBM master piece help us uncover more things?"
+date: "2025-01-05"
+tags: [metric, classification, python, modelling]
+image: crossroad-unsplash.jpg
+draft: true
+---
+
+
+```{python}
+import numpy as np
+import random
+
+class ExclusiveFeatureBundling:
+    """
+    Implementation of Exclusive Feature Bundling (EFB) similar to LightGBM.
+
+    This is a simplified implementation for demonstration purposes and
+    doesn't include all optimizations or features of the original LightGBM
+    implementation.
+
+    Attributes:
+        max_conflict_rate (float): Maximum conflict rate allowed for bundling.
+        max_features_per_bundle (int): Maximum number of features allowed in a bundle.
+
+    """
+
+    def __init__(self, max_conflict_rate=0.05, max_features_per_bundle=10):
+        """
+        Initializes the ExclusiveFeatureBundling class.
+
+        Args:
+            max_conflict_rate (float): Maximum allowed conflict rate between features in a bundle.
+            max_features_per_bundle (int): Maximum number of features allowed in a single bundle.
+        """
+        self.max_conflict_rate = max_conflict_rate
+        self.max_features_per_bundle = max_features_per_bundle
+
+
+    def _calculate_conflict(self, feature1, feature2):
+        """
+        Calculates the conflict between two features.
+
+        Conflict is defined as the proportion of data points where both features
+        have non-zero values.  Features are considered conflicting if they frequently
+        have nonzero values simultaneously.
+
+        Args:
+            feature1 (np.array): First feature vector.
+            feature2 (np.array): Second feature vector.
+
+        Returns:
+            float: Conflict rate between the two features.
+        """
+        non_zero_indices1 = np.nonzero(feature1)[0]
+        non_zero_indices2 = np.nonzero(feature2)[0]
+        intersection = np.intersect1d(non_zero_indices1, non_zero_indices2)
+        conflict = len(intersection) / len(feature1)  # Proportion of conflicts.
+
+        return conflict
+
+    def find_bundles(self, data):
+        """
+        Finds exclusive feature bundles in the given data.
+
+        Args:
+            data (np.ndarray): Input data matrix (num_samples x num_features).
+
+        Returns:
+            list: A list of bundles, where each bundle is a list of feature indices.
+        """
+        num_features = data.shape[1]
+        features_available = list(range(num_features))
+        bundles = []
+
+        # Sort features by sparsity (number of non-zero values).
+        sparsity = [np.count_nonzero(data[:, i]) / data.shape[0] for i in range(num_features)]
+        sorted_features = sorted(features_available, key=lambda x: sparsity[x])
+
+        while sorted_features:
+            # Start a new bundle
+            bundle = [sorted_features.pop(0)]
+            bundled_features = set(bundle) #Use a set for faster checking if a feature is bundled
+            # Try to add more features to the bundle
+            for feature_idx in list(sorted_features):
+                add_to_bundle = True
+                for bundled_feature_idx in bundle:
+                    conflict = self._calculate_conflict(data[:, bundled_feature_idx], data[:, feature_idx])
+                    if conflict > self.max_conflict_rate:
+                        add_to_bundle = False
+                        break
+                if add_to_bundle and len(bundle) < self.max_features_per_bundle:
+                    bundle.append(feature_idx)
+                    sorted_features.remove(feature_idx)  # Remove from available features
+            bundles.append(bundle)
+
+        return bundles
+
+    def apply_bundles(self, data, bundles):
+        """
+        Applies the feature bundles to the data.
+
+        Args:
+            data (np.ndarray): Input data matrix (num_samples x num_features).
+            bundles (list): A list of bundles (lists of feature indices).
+
+        Returns:
+            np.ndarray: A new data matrix with bundled features.
+        """
+
+        bundled_data = []
+        for bundle in bundles:
+            if len(bundle) == 1:
+                bundled_data.append(data[:, bundle[0]])  # Keep single features
+            else:
+                # Combine features within the bundle using a simple method (sum)
+                # In practice, more sophisticated combination methods can be used
+                bundled_feature = np.nansum(data[:, bundle], axis=1)
+                bundled_data.append(bundled_feature)
+
+        return np.column_stack(bundled_data) #Concatenate horizontally
+
+
+```
+
+```{python}
+# Create a sample dataset (replace with your actual data)
+np.random.seed(42)
+num_samples = 10000
+num_features = 5
+data1 = np.random.randint(0, 50, size=(num_samples, num_features)).astype(float)
+data1[data1 < 5] = np.nan  # Simulate sparsity in lower bounds
+data1[data1 > 45] = 0  # Simulate sparsity in  upper bounds
+
+
+data2 = np.random.poisson(lam=3, size=(num_samples, num_features)).astype(float)
+data2[data2 < 0.5] = 0  # Simulate sparsity in lower bounds
+data2[data2 > 10] = np.nan  # Simulate sparsity in  upper bounds
+
+data3 = np.random.noncentral_f(dfnum=3, dfden=20, nonc=3, size=(num_samples, num_features))
+data3[data3 < 0.5] = np.nan  # Simulate sparsity in lower bounds
+data3[data3 > 3.8] = np.nan  # Simulate sparsity in  upper bounds
+
+data = np.column_stack([data1,data2,data3])
+
+
+probability_of_conflict = num_features*100/num_samples
+
+print(data[:5,:])
+
+sparsity = [np.count_nonzero(data[:, i]) / data.shape[0] for i in range(num_features*3)]
+
+print('\nConflict probability based on size',probability_of_conflict)
+print('Original Sparsity',sparsity)
+
+# Initialize the EFB class
+efb = ExclusiveFeatureBundling(max_conflict_rate=0.9, max_features_per_bundle=7)
+
+# Find feature bundles
+bundles = efb.find_bundles(data)
+print("Found bundles:", bundles)
+
+# Apply the bundles to the data
+bundled_data = efb.apply_bundles(data, bundles)
+print("Original number of features:", num_features)
+print("Number of bundled features:", bundled_data.shape[1])
+print("Bundled data shape:", bundled_data.shape)
+print(bundled_data[:5,:])
+
+sparsity = [np.count_nonzero(bundled_data[:, i]) / bundled_data.shape[0] for i in range(bundled_data.shape[1])]
+print('Bundle Sparsity',sparsity)
+
+    
+
+
+```

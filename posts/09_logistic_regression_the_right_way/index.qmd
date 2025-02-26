@@ -1,8 +1,0 @@
----
-title: "CorssTab Sparsity for Classification"
-description: "Can our metric help us in making a classification problem work better ?"
-date: "2023-01-03"
-categories: [classification, metric, feature selection]
-keywords: [metric, classification, python, modelling]
-draft: true
----
