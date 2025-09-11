@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="During my course for learning Data Science over time, I have collected and referred my perspectives in following papers.">
 
-<title>Research Work – Jitin Kapila</title>
+<title>Insights – Jitin Kapila</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./favicon-32x32.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -69,36 +70,78 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<style>
+<script>
 
-      .quarto-title-block .quarto-title-banner h1,
-      .quarto-title-block .quarto-title-banner h2,
-      .quarto-title-block .quarto-title-banner h3,
-      .quarto-title-block .quarto-title-banner h4,
-      .quarto-title-block .quarto-title-banner h5,
-      .quarto-title-block .quarto-title-banner h6
-      {
-        color: black;
-      }
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-      .quarto-title-block .quarto-title-banner {
-        color: black;
-background: #f0f3f5;
-      }
-</style>
+    const options = {
+      valueNames: ['listing-image','listing-date','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script defer="" src="https://cloud.umami.is/script.js" data-website-id="f255d40e-5114-4445-8d5b-9b356f5be573"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Research Work – Jitin Kapila">
-<meta property="og:description" content="During my course for learning Data Science over time, I have collected and referred my perspectives in following papers.">
+<link rel="alternate" type="application/rss+xml" title="Jitin Kapila" href="insights.xml" data-external="1"><meta property="og:title" content="Insights – Jitin Kapila">
+<meta property="og:description" content="Pattern recognition in action">
+<meta property="og:image" content="https://www.jitinkapila.com/posts/10_treeknn/pexels-anntarazevich-7299985.jpg">
 <meta property="og:site_name" content="Jitin Kapila">
 </head>
 
-<body class="floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -132,7 +175,7 @@ background: #f0f3f5;
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./insights.html"> 
+    <a class="nav-link active" href="./insights.html" aria-current="page"> 
 <span class="menu-text">Strategic Insights</span></a>
   </li>  
   <li class="nav-item">
@@ -151,92 +194,233 @@ background: #f0f3f5;
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Research Work</h1>
-                  <div>
-        <div class="description">
-          During my course for learning Data Science over time, I have collected and referred my perspectives in following papers.
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">research</div>
-                <div class="quarto-category">portfolio</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YmxvZw==">blog <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2xhc3NpZmljYXRpb24=">classification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2x1c3RlcmluZw==">clustering <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWRh">eda <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmVhdHVyZSUyMHNlbGVjdGlvbg==">feature selection <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHlwb3RoZXNpcw==">hypothesis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="a25u">knn <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWV0cmlj">metric <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWl4ZWQtZGF0YQ==">mixed-data <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWw=">ml <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cXVhcnRv">quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVncmVzc2lvbg==">regression <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVzZWFyY2g=">research <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Insights</h1>
+<p class="subtitle lead">Pattern recognition in action</p>
+</div>
 
 
 
+<div class="quarto-title-meta column-page-left">
+
+    
+  
+    
+  </div>
+  
 
 
-<blockquote class="blockquote">
-<p>Unique Metric for Health Analysis with Optimization of Clustering Activity and Cross Comparison of Results from Different Approach. <a href="https://arxiv.org/abs/1810.03419">Paper Link</a></p>
-</blockquote>
-<!-- {{< ai arxiv >}} 
-{{< fa thumbs-up >}}
+</header>
 
-{{< fa <group> <icon-name> <size=...> <title=...> >}}
 
- -->
-<ul>
-<li>A method for estimating clusters <strong>holistically</strong>. The <em>metric</em> dose not depend on any assumptions about the <em>Approach to Cluster</em> the <strong><em>Data</em></strong>. All that matters is the <strong>Data</strong> what it fits on and what are the <strong>Cluster Segments</strong> observed.</li>
-</ul>
-<!-- ![Cross-tab Sparsity](/assets/images/crosstab_sparsity.png){height=40px width=50px}
- -->
-<!-- {:class="img-responsive"} -->
-<!-- 
-{% include figure image_path="/assets/images/crosstab_sparsity.png" alt="Cross-tab Sparsity"  width="50" %} -->
-<blockquote class="blockquote">
-<p>Reinforcement Evolutionary Learning Method for Self-Learning (RELM).<a href="https://www.researchgate.net/publication/328160390_Reinforcement_Evolutionary_Learning_Method_for_self-learning">Paper Link</a></p>
-</blockquote>
-<ul>
-<li><strong><em>RELM</em></strong> is a take on using <strong>Reinforcement Learning</strong> on <strong>Quantitative Data</strong> where learning happens via Evolutionary Algorithms (GA, ES, NES, NSGA-II, etc). This method takes on the challenge age old problem of Concept Drift.</li>
-</ul>
-<blockquote class="blockquote">
-<p>Futuristic Classification with Dynamic Reference Frame Strategy.<a href="https://arxiv.org/abs/1805.10168">Paper Link</a></p>
-</blockquote>
-<ul>
-<li>As a Data science practitioner, one of the classical problem is to understand The <strong><em>Churn</em></strong>. This paper takes a perspective on data that enables to identify what actually distinguishes <strong>Churn from Other</strong>.</li>
-</ul>
-<blockquote class="blockquote">
-<p>Personalized Influence Estimation Technique(PIE). <a href="https://arxiv.org/abs/1805.10940">Paper Link</a></p>
-</blockquote>
-<ul>
-<li>We have lot of methods to access the <em>global influence</em> of a variable in data for most of <em>ML Algorithms</em>. But to make a <strong><em>justifiable point estimate</em></strong> about a datum might be a key source of information in many cases of <em>Anomaly detection, Churn Analysis or Employee Attrition Reduction, etc..</em> Individual PIE values (point estimates) can be used to trigger a certain action. In this paper we estimate PIE values for <strong>Linear and Non Linear models</strong>.</li>
-</ul>
-<blockquote class="blockquote">
-<p>Distribution Assertive Regression (DAR). <a href="https://arxiv.org/abs/1805.01618">Paper Link</a> and <a href="[ref []{.quarto-shortcode__-param data-is-shortcode=&quot;1&quot; data-value=&quot;/posts/20180501-adaptive-regression&quot; data-raw=&quot;&quot;/posts/20180501-adaptive-regression&quot;&quot;} ]{.quarto-shortcode__ data-is-shortcode=&quot;1&quot; data-raw=&quot;{{< ref &quot;/posts/20180501-adaptive-regression&quot; >}}&quot;}">Blog Post</a></p>
-</blockquote>
-<ul>
-<li><strong><em>DAR</em></strong> is regression analysis in which we understand how a <em>fit</em> of regression varies over it’s value. In this paper we resolve the <strong>Regression by Parts</strong> and estimate the new data based on <em>heuristic</em> methods like K-nearest Neighbor and Regression Equation.</li>
-</ul>
+<section id="mathematical-thinking-applied-to-business-problems" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-thinking-applied-to-business-problems">Mathematical Thinking Applied to Business Problems</h2>
+<p>Examples of how cross-industry pattern recognition transforms complex challenges into elegant solutions.</p>
+<hr>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list grid quarto-listing-cols-2">
+<div class="g-col-1" data-index="0" data-categories="a25uJTJDbWwlMkNtaXhlZC1kYXRh" data-listing-date-sort="1740508200000" data-listing-file-modified-sort="1757596448037" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2417">
+<a href="./posts/10_treeknn/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/10_treeknn/pexels-anntarazevich-7299985.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+TrieKNN: Unleashing KNN’s Power on Mixed Data Types
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('a25u'); return false;">knn</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWw='); return false;">ml</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWl4ZWQtZGF0YQ=='); return false;">mixed-data</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Discover TrieKNN, a novel approach to extend the K-Nearest Neighbors algorithm to datasets with both categorical and numerical features. Learn how it works, see it in…</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Feb 26, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="YmxvZyUyQ3F1YXJ0bw==" data-listing-date-sort="1737570600000" data-listing-file-modified-sort="1757596448033" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="648">
+<a href="./posts/06_saving_my_blog/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/06_saving_my_blog/mount-everest-6395759_640.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Journey back to Bloggin’ with Quarto
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('YmxvZw=='); return false;">blog</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">quarto</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Sometime all you can do is wait for things to happen!</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 23, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="Y2xhc3NpZmljYXRpb24lMkNtZXRyaWMlMkNmZWF0dXJlJTIwc2VsZWN0aW9u" data-listing-date-sort="1672684200000" data-listing-file-modified-sort="1757596448032" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2738">
+<a href="./posts/04_crosstab_sparsity_classification/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/04_crosstab_sparsity_classification/crossroad-unsplash.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+CrossTab Sparsity for Classification
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y2xhc3NpZmljYXRpb24='); return false;">classification</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWV0cmlj'); return false;">metric</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZSUyMHNlbGVjdGlvbg=='); return false;">feature selection</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Can our metric help us in making a classification problem work better ?</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 3, 2023
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="Y2x1c3RlcmluZyUyQ2FuYWx5c2lz" data-listing-date-sort="1651516200000" data-listing-file-modified-sort="1757596448029" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1471">
+<a href="./posts/03_crosstab_sparsity/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/03_crosstab_sparsity/img/pexels-n-voitkevich-5712829.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo by Nataliya Vaitkevich - https://www.pexels.com/photo/empty-crossroads-in-hills-5712829/">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+CrossTab Sparsity
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y2x1c3RlcmluZw=='); return false;">clustering</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>A label and data type agnostic metric for evaluating clustering performance!</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+May 3, 2022
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="ZWRhJTJDaHlwb3RoZXNpcyUyQ2FuYWx5c2lzJTJDcHl0aG9u" data-listing-date-sort="1628533800000" data-listing-file-modified-sort="1757603557008" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2181">
+<a href="./posts/02_hypothesis_test/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/02_hypothesis_test/pexels-tara-winstead-7722866.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+A flow to Test Your Hypothesis in Python
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZWRh'); return false;">eda</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aHlwb3RoZXNpcw=='); return false;">hypothesis</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Making life easy to do some serious hypothesis testing in python.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 10, 2021
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="cmVncmVzc2lvbiUyQ3Jlc2VhcmNoJTJDYW5hbHlzaXM=" data-listing-date-sort="1525113000000" data-listing-file-modified-sort="1757596448022" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1153">
+<a href="./posts/01_adaptive_regression/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/01_adaptive_regression/img/pexels-zlfdmr23-20692065.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Adapting path through mountains! Photo by Zülfü Demir📸">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Adaptive Regression
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVncmVzc2lvbg=='); return false;">regression</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVzZWFyY2g='); return false;">research</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>We recently put through our observation on Regression Problem in our research. This post is a nonformal attempt to explain it.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+May 1, 2018
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

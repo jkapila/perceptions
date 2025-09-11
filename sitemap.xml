@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.jkapila.github.io/index.html</loc>
-    <lastmod>2025-02-07T13:39:17.073Z</lastmod>
+    <loc>https://www.jitinkapila.com/resume.html</loc>
+    <lastmod>2025-09-11T15:06:03.912Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jkapila.github.io/resume.html</loc>
-    <lastmod>2025-02-26T17:53:45.356Z</lastmod>
+    <loc>https://www.jitinkapila.com/posts/10_treeknn/index.html</loc>
+    <lastmod>2025-09-11T13:14:08.037Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jkapila.github.io/posts/06_saving_my_blog/index.html</loc>
-    <lastmod>2025-02-10T12:06:08.968Z</lastmod>
+    <loc>https://www.jitinkapila.com/posts/03_crosstab_sparsity/index.html</loc>
+    <lastmod>2025-09-11T13:14:08.029Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jkapila.github.io/posts/01_adaptive_regression/index.html</loc>
-    <lastmod>2025-02-08T09:26:53.257Z</lastmod>
+    <loc>https://www.jitinkapila.com/posts/01_adaptive_regression/index.html</loc>
+    <lastmod>2025-09-11T13:14:08.022Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jkapila.github.io/posts/10_treeknn/index.html</loc>
-    <lastmod>2025-02-26T22:08:47.083Z</lastmod>
+    <loc>https://www.jitinkapila.com/index.html</loc>
+    <lastmod>2025-09-11T14:12:58.702Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jkapila.github.io/research.html</loc>
-    <lastmod>2025-02-08T10:58:49.584Z</lastmod>
+    <loc>https://www.jitinkapila.com/about.html</loc>
+    <lastmod>2025-09-11T14:42:48.140Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jkapila.github.io/posts/02_hypothesis_test/index.html</loc>
-    <lastmod>2025-02-08T09:34:39.527Z</lastmod>
+    <loc>https://www.jitinkapila.com/insights.html</loc>
+    <lastmod>2025-09-11T14:22:43.763Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index.html</loc>
-    <lastmod>2025-02-26T21:48:30.294Z</lastmod>
+    <loc>https://www.jitinkapila.com/posts/02_hypothesis_test/index.html</loc>
+    <lastmod>2025-09-11T15:12:37.008Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jkapila.github.io/posts/03_crosstab_sparsity/index.html</loc>
-    <lastmod>2025-02-08T09:35:33.165Z</lastmod>
+    <loc>https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index.html</loc>
+    <lastmod>2025-09-11T13:14:08.032Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jkapila.github.io/about.html</loc>
-    <lastmod>2025-02-07T13:39:17.073Z</lastmod>
+    <loc>https://www.jitinkapila.com/posts/06_saving_my_blog/index.html</loc>
+    <lastmod>2025-09-11T13:14:08.033Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jitinkapila.com/research.html</loc>
+    <lastmod>2025-09-11T13:14:08.040Z</lastmod>
   </url>
 </urlset>

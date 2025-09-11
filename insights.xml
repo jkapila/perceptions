@@ -5,16 +5,16 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Preceptions</title>
-<link>https://www.jkapila.github.io/</link>
-<atom:link href="https://www.jkapila.github.io/index.xml" rel="self" type="application/rss+xml"/>
-<description>A blog about data science, statistics, machine learning, and the scientific method</description>
-<generator>quarto-1.7.6</generator>
+<title>Jitin Kapila</title>
+<link>https://www.jitinkapila.com/insights.html</link>
+<atom:link href="https://www.jitinkapila.com/insights.xml" rel="self" type="application/rss+xml"/>
+<description>Problem solver finding patterns across industries. Mathematical thinking applied to business challenges.</description>
+<generator>quarto-1.8.24</generator>
 <lastBuildDate>Tue, 25 Feb 2025 18:30:00 GMT</lastBuildDate>
 <item>
   <title>TrieKNN: Unleashing KNN’s Power on Mixed Data Types</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.jkapila.github.io/posts/10_treeknn/</link>
+  <link>https://www.jitinkapila.com/posts/10_treeknn/</link>
   <description><![CDATA[ 
 
 
@@ -23,7 +23,7 @@
 
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="pexels-gelgas-401213.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by Gelgas Airlangga"><img src="https://www.jkapila.github.io/posts/10_treeknn/pexels-gelgas-401213.jpg" class="img-fluid figure-img" alt="Photo by Gelgas Airlangga"></a></p>
+<p><a href="pexels-gelgas-401213.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by Gelgas Airlangga"><img src="https://www.jitinkapila.com/posts/10_treeknn/pexels-gelgas-401213.jpg" class="img-fluid figure-img" alt="Photo by Gelgas Airlangga"></a></p>
 <figcaption class="margin-caption"><a href="https://www.pexels.com/photo/shallow-focus-of-sprout-401213/">Photo by Gelgas Airlangga</a></figcaption>
 </figure>
 </div>
@@ -36,7 +36,7 @@
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-In This Post
+<span class="screen-reader-only">Note</span>In This Post
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -89,7 +89,7 @@ In This Post
 <div id="f64ed864" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
 background-color: null;
@@ -653,7 +653,7 @@ font-style: inherit;">in</span> node.children.values():</span>
 <span id="cb1-108"></span>
 <span id="cb1-109">        _apply_weight_to_indexes(<span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">self</span>.root)</span></code></pre></div>
+font-style: inherit;">self</span>.root)</span></code></pre></div></div>
 </details>
 </div>
 </section>
@@ -662,7 +662,7 @@ font-style: inherit;">self</span>.root)</span></code></pre></div>
 <div id="77d420dd" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> KNNModel:</span>
@@ -793,7 +793,7 @@ font-style: inherit;">/</span> np.<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">sum</span>(sums)  <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># prediction as probability</span></span></code></pre></div>
+font-style: inherit;"># prediction as probability</span></span></code></pre></div></div>
 </details>
 </div>
 </section>
@@ -803,7 +803,7 @@ font-style: inherit;"># prediction as probability</span></span></code></pre></di
 <div id="cdc54cad" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Sample data</span></span>
 <span id="cb3-2">n <span class="op" style="color: #5E5E5E;
@@ -951,7 +951,7 @@ font-style: inherit;">in</span> node.children.values():</span>
 <span id="cb3-27"></span>
 <span id="cb3-28">traverse_and_add_model(trie.root, data[:, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2</span>:])</span></code></pre></div>
+font-style: inherit;">2</span>:])</span></code></pre></div></div>
 </details>
 </div>
 </section>
@@ -973,7 +973,7 @@ font-style: inherit;">2</span>:])</span></code></pre></div>
 <div id="88dd6e09" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1">trie.display()</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1">trie.display()</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Data: Anything see, Count: 2383, Indexes: 2383 Classes :{1: 698, 0: 1685} weights:2383
@@ -1002,7 +1002,7 @@ Data: By lets, Count: 219, Indexes: 219 Classes :{0: 149, 1: 70} weights:219</co
 <div id="a8477afe" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Prediction example</span></span>
 <span id="cb6-2"><span class="kw" style="color: #003B4F;
@@ -1024,7 +1024,7 @@ font-style: inherit;">"Predictions:"</span>, predictions)</span>
 <span id="cb6-5"></span>
 <span id="cb6-6">trie.<span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">apply</span>(predict_with_model)</span></code></pre></div>
+font-style: inherit;">apply</span>(predict_with_model)</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Predictions: [0.8 0.2]
@@ -1075,14 +1075,14 @@ Predictions: [0.4 0.6]</code></pre>
   <category>knn</category>
   <category>ml</category>
   <category>mixed-data</category>
-  <guid>https://www.jkapila.github.io/posts/10_treeknn/</guid>
+  <guid>https://www.jitinkapila.com/posts/10_treeknn/</guid>
   <pubDate>Tue, 25 Feb 2025 18:30:00 GMT</pubDate>
-  <media:content url="https://www.jkapila.github.io/posts/10_treeknn/pexels-anntarazevich-7299985.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.jitinkapila.com/posts/10_treeknn/pexels-anntarazevich-7299985.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Journey back to Bloggin’ with Quarto</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.jkapila.github.io/posts/06_saving_my_blog/</link>
+  <link>https://www.jitinkapila.com/posts/06_saving_my_blog/</link>
   <description><![CDATA[ 
 
 
@@ -1092,7 +1092,7 @@ Predictions: [0.4 0.6]</code></pre>
 
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="mount-everest-6395759_640.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Journey that challenges you are the best! Image by Devraj Bajgain"><img src="https://www.jkapila.github.io/posts/06_saving_my_blog/mount-everest-6395759_640.jpg" class="img-fluid figure-img" alt="Journey that challenges you are the best! Image by Devraj Bajgain"></a></p>
+<p><a href="mount-everest-6395759_640.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Journey that challenges you are the best! Image by Devraj Bajgain"><img src="https://www.jitinkapila.com/posts/06_saving_my_blog/mount-everest-6395759_640.jpg" class="img-fluid figure-img" alt="Journey that challenges you are the best! Image by Devraj Bajgain"></a></p>
 <figcaption class="margin-caption">Journey that challenges you are the best! Image by <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6395759">Devraj Bajgain</a></figcaption>
 </figure>
 </div>
@@ -1156,14 +1156,14 @@ Predictions: [0.4 0.6]</code></pre>
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
   <category>blog</category>
   <category>quarto</category>
-  <guid>https://www.jkapila.github.io/posts/06_saving_my_blog/</guid>
+  <guid>https://www.jitinkapila.com/posts/06_saving_my_blog/</guid>
   <pubDate>Wed, 22 Jan 2025 18:30:00 GMT</pubDate>
-  <media:content url="https://www.jkapila.github.io/posts/06_saving_my_blog/mount-everest-6395759_640.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.jitinkapila.com/posts/06_saving_my_blog/mount-everest-6395759_640.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>CrossTab Sparsity for Classification</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/</link>
+  <link>https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/</link>
   <description><![CDATA[ 
 
 
@@ -1172,7 +1172,7 @@ Predictions: [0.4 0.6]</code></pre>
 
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="crossroad-unsplash-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Cross Roads where everyone meets!"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/crossroad-unsplash-thumb.jpg" class="img-fluid figure-img" alt="Cross Roads where everyone meets!"></a></p>
+<p><a href="crossroad-unsplash-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Cross Roads where everyone meets!"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/crossroad-unsplash-thumb.jpg" class="img-fluid figure-img" alt="Cross Roads where everyone meets!"></a></p>
 <figcaption class="margin-caption">Cross Roads where everyone meets!</figcaption>
 </figure>
 </div>
@@ -1219,7 +1219,7 @@ Predictions: [0.4 0.6]</code></pre>
 <div id="a7e3b5f5" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Loading data and generating basic descriptive</summary>
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Load the Obesity data</span></span>
 <span id="cb1-2">raw_df <span class="op" style="color: #5E5E5E;
@@ -1297,7 +1297,7 @@ font-style: inherit;">'No of data points available to work:'</span>,raw_df.shape
 <span id="cb1-30"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Summary statistics</span></span>
-<span id="cb1-31">display(raw_df.describe())</span></code></pre></div>
+<span id="cb1-31">display(raw_df.describe())</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>No of data points available to work: (2111, 17)</code></pre>
@@ -1306,7 +1306,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1331,7 +1331,7 @@ font-style: inherit;"># Summary statistics</span></span>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>Female</td>
 <td>21.0</td>
 <td>1.62</td>
@@ -1351,7 +1351,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <td>Normal_Weight</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
+<th data-quarto-table-cell-role="th">1</th>
 <td>Female</td>
 <td>21.0</td>
 <td>1.52</td>
@@ -1371,7 +1371,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <td>Normal_Weight</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
+<th data-quarto-table-cell-role="th">2</th>
 <td>Male</td>
 <td>23.0</td>
 <td>1.80</td>
@@ -1391,7 +1391,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <td>Normal_Weight</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
+<th data-quarto-table-cell-role="th">3</th>
 <td>Male</td>
 <td>27.0</td>
 <td>1.80</td>
@@ -1411,7 +1411,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <td>Overweight_Level_I</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
+<th data-quarto-table-cell-role="th">4</th>
 <td>Male</td>
 <td>22.0</td>
 <td>1.78</td>
@@ -1439,7 +1439,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1455,7 +1455,7 @@ font-style: inherit;"># Summary statistics</span></span>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">count</td>
+<th data-quarto-table-cell-role="th">count</th>
 <td>2111.000000</td>
 <td>2111.000000</td>
 <td>2111.000000</td>
@@ -1466,7 +1466,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <td>2111.000000</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">mean</td>
+<th data-quarto-table-cell-role="th">mean</th>
 <td>24.312600</td>
 <td>1.701677</td>
 <td>86.586058</td>
@@ -1477,7 +1477,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <td>0.657866</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">std</td>
+<th data-quarto-table-cell-role="th">std</th>
 <td>6.345968</td>
 <td>0.093305</td>
 <td>26.191172</td>
@@ -1488,7 +1488,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <td>0.608927</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">min</td>
+<th data-quarto-table-cell-role="th">min</th>
 <td>14.000000</td>
 <td>1.450000</td>
 <td>39.000000</td>
@@ -1499,7 +1499,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <td>0.000000</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">25%</td>
+<th data-quarto-table-cell-role="th">25%</th>
 <td>19.947192</td>
 <td>1.630000</td>
 <td>65.473343</td>
@@ -1510,7 +1510,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <td>0.000000</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">50%</td>
+<th data-quarto-table-cell-role="th">50%</th>
 <td>22.777890</td>
 <td>1.700499</td>
 <td>83.000000</td>
@@ -1521,7 +1521,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <td>0.625350</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">75%</td>
+<th data-quarto-table-cell-role="th">75%</th>
 <td>26.000000</td>
 <td>1.768464</td>
 <td>107.430682</td>
@@ -1532,7 +1532,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <td>1.000000</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">max</td>
+<th data-quarto-table-cell-role="th">max</th>
 <td>61.000000</td>
 <td>1.980000</td>
 <td>173.000000</td>
@@ -1554,7 +1554,7 @@ font-style: inherit;"># Summary statistics</span></span>
 <div id="7a9949ad" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Target and Correlation</summary>
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Visualize target data distribution</span></span>
 <span id="cb3-2">plt.figure(figsize<span class="op" style="color: #5E5E5E;
@@ -1615,30 +1615,30 @@ font-style: inherit;">'coolwarm'</span>)</span>
 <span id="cb3-11">plt.title(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Kendall Correlation Heatmap'</span>)</span>
-<span id="cb3-12">plt.show()</span></code></pre></div>
+<span id="cb3-12">plt.show()</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-4-output-1.png" width="400" height="392" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-4-output-1.png" width="400" height="392" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-4-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-4-output-2.png" width="544" height="431" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-4-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-4-output-2.png" width="544" height="431" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Some Mode EDA for the data
+<span class="screen-reader-only">None</span>Some Mode EDA for the data
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1647,7 +1647,7 @@ Some Mode EDA for the data
 <div id="b1065f39" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>EDA code</summary>
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Visualize the distribution of numerical variables</span></span>
 <span id="cb4-2">sns.pairplot(raw_df, hue<span class="op" style="color: #5E5E5E;
@@ -1712,68 +1712,68 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb4-16">    plt.show()</span></code></pre></div>
+<span id="cb4-16">    plt.show()</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-1.png" width="2085" height="1885" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-1.png" width="2085" height="1885" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-2.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-2.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-3.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-3.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-4.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-4.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-5.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-5.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-6.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-6.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-7.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-7.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-8.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-8.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-9.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-9.png" width="965" height="449" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
@@ -1789,7 +1789,7 @@ font-style: inherit;">"</span>)</span>
 <div id="5fa93e38" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Splitting data and training a default Multinomila Logit model on our data</summary>
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1">data_df <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1">data_df <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> raw_df.dropna().reset_index(drop<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1860,7 +1860,7 @@ font-style: inherit;">"</span>, </span>
 <span id="cb5-12">    data<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>data_df_train</span>
-<span id="cb5-13">).fit_regularized()</span></code></pre></div>
+<span id="cb5-13">).fit_regularized()</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimization terminated successfully    (Exit mode 0)
@@ -1873,12 +1873,12 @@ font-style: inherit;">=</span>data_df_train</span>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Base model summary for geeks
+<span class="screen-reader-only">None</span>Base model summary for geeks
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1887,71 +1887,71 @@ Base model summary for geeks
 <div id="57ec3990" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Display summary</summary>
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1">display(logit_model.summary())</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1">display(logit_model.summary())</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display">
-<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable table table-sm table-striped small">
 <caption>MNLogit Regression Results</caption>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Dep. Variable:</td>
+<th data-quarto-table-cell-role="th">Dep. Variable:</th>
 <td>NObeyesdad</td>
-<td data-quarto-table-cell-role="th">No. Observations:</td>
+<th data-quarto-table-cell-role="th">No. Observations:</th>
 <td>1900</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Model:</td>
+<th data-quarto-table-cell-role="th">Model:</th>
 <td>MNLogit</td>
-<td data-quarto-table-cell-role="th">Df Residuals:</td>
+<th data-quarto-table-cell-role="th">Df Residuals:</th>
 <td>1756</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Method:</td>
+<th data-quarto-table-cell-role="th">Method:</th>
 <td>MLE</td>
-<td data-quarto-table-cell-role="th">Df Model:</td>
+<th data-quarto-table-cell-role="th">Df Model:</th>
 <td>138</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Date:</td>
+<th data-quarto-table-cell-role="th">Date:</th>
 <td>Thu, 27 Feb 2025</td>
-<td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
+<th data-quarto-table-cell-role="th">Pseudo R-squ.:</th>
 <td>0.9119</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Time:</td>
+<th data-quarto-table-cell-role="th">Time:</th>
 <td>03:18:53</td>
-<td data-quarto-table-cell-role="th">Log-Likelihood:</td>
+<th data-quarto-table-cell-role="th">Log-Likelihood:</th>
 <td>-325.15</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">converged:</td>
+<th data-quarto-table-cell-role="th">converged:</th>
 <td>True</td>
-<td data-quarto-table-cell-role="th">LL-Null:</td>
+<th data-quarto-table-cell-role="th">LL-Null:</th>
 <td>-3691.8</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Covariance Type:</td>
+<th data-quarto-table-cell-role="th">Covariance Type:</th>
 <td>nonrobust</td>
-<td data-quarto-table-cell-role="th">LLR p-value:</td>
+<th data-quarto-table-cell-role="th">LLR p-value:</th>
 <td>0.000</td>
 </tr>
 </tbody>
 </table>
 
 
-<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable table table-sm table-striped small">
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NObeyesdad=1</td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">NObeyesdad=1</th>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>-11.3439</td>
 <td>3.45e+05</td>
 <td>-3.29e-05</td>
@@ -1960,7 +1960,7 @@ Base model summary for geeks
 <td>6.76e+05</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Gender[T.Male]</td>
+<th data-quarto-table-cell-role="th">Gender[T.Male]</th>
 <td>-3.4606</td>
 <td>0.819</td>
 <td>-4.224</td>
@@ -1969,7 +1969,7 @@ Base model summary for geeks
 <td>-1.855</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</td>
+<th data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</th>
 <td>-0.8874</td>
 <td>0.658</td>
 <td>-1.349</td>
@@ -1978,7 +1978,7 @@ Base model summary for geeks
 <td>0.402</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FAVC[T.yes]</td>
+<th data-quarto-table-cell-role="th">FAVC[T.yes]</th>
 <td>0.2631</td>
 <td>0.782</td>
 <td>0.337</td>
@@ -1987,7 +1987,7 @@ Base model summary for geeks
 <td>1.795</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CAEC[T.Frequently]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.Frequently]</th>
 <td>-8.2219</td>
 <td>2.342</td>
 <td>-3.511</td>
@@ -1996,7 +1996,7 @@ Base model summary for geeks
 <td>-3.632</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CAEC[T.Sometimes]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.Sometimes]</th>
 <td>-6.2475</td>
 <td>2.265</td>
 <td>-2.758</td>
@@ -2005,7 +2005,7 @@ Base model summary for geeks
 <td>-1.808</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CAEC[T.no]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.no]</th>
 <td>-8.6341</td>
 <td>2.916</td>
 <td>-2.961</td>
@@ -2014,7 +2014,7 @@ Base model summary for geeks
 <td>-2.919</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">SMOKE[T.yes]</td>
+<th data-quarto-table-cell-role="th">SMOKE[T.yes]</th>
 <td>4.5048</td>
 <td>3.105</td>
 <td>1.451</td>
@@ -2023,7 +2023,7 @@ Base model summary for geeks
 <td>10.591</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">SCC[T.yes]</td>
+<th data-quarto-table-cell-role="th">SCC[T.yes]</th>
 <td>-0.7063</td>
 <td>1.458</td>
 <td>-0.484</td>
@@ -2032,7 +2032,7 @@ Base model summary for geeks
 <td>2.152</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CALC[T.Frequently]</td>
+<th data-quarto-table-cell-role="th">CALC[T.Frequently]</th>
 <td>-12.6173</td>
 <td>3.45e+05</td>
 <td>-3.66e-05</td>
@@ -2041,7 +2041,7 @@ Base model summary for geeks
 <td>6.76e+05</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CALC[T.Sometimes]</td>
+<th data-quarto-table-cell-role="th">CALC[T.Sometimes]</th>
 <td>-13.3244</td>
 <td>3.45e+05</td>
 <td>-3.86e-05</td>
@@ -2050,7 +2050,7 @@ Base model summary for geeks
 <td>6.76e+05</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CALC[T.no]</td>
+<th data-quarto-table-cell-role="th">CALC[T.no]</th>
 <td>-14.1980</td>
 <td>3.45e+05</td>
 <td>-4.12e-05</td>
@@ -2059,7 +2059,7 @@ Base model summary for geeks
 <td>6.76e+05</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">MTRANS[T.Bike]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Bike]</th>
 <td>15.8821</td>
 <td>2529.381</td>
 <td>0.006</td>
@@ -2068,7 +2068,7 @@ Base model summary for geeks
 <td>4973.378</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</th>
 <td>4.0050</td>
 <td>47.345</td>
 <td>0.085</td>
@@ -2077,7 +2077,7 @@ Base model summary for geeks
 <td>96.800</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</th>
 <td>4.5116</td>
 <td>1.001</td>
 <td>4.505</td>
@@ -2086,7 +2086,7 @@ Base model summary for geeks
 <td>6.474</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MTRANS[T.Walking]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Walking]</th>
 <td>4.3989</td>
 <td>1.507</td>
 <td>2.918</td>
@@ -2095,7 +2095,7 @@ Base model summary for geeks
 <td>7.353</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Age</td>
+<th data-quarto-table-cell-role="th">Age</th>
 <td>0.3779</td>
 <td>0.098</td>
 <td>3.858</td>
@@ -2104,7 +2104,7 @@ Base model summary for geeks
 <td>0.570</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Height</td>
+<th data-quarto-table-cell-role="th">Height</th>
 <td>-14.4182</td>
 <td>4.123</td>
 <td>-3.497</td>
@@ -2113,7 +2113,7 @@ Base model summary for geeks
 <td>-6.338</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Weight</td>
+<th data-quarto-table-cell-role="th">Weight</th>
 <td>1.0784</td>
 <td>0.146</td>
 <td>7.384</td>
@@ -2122,7 +2122,7 @@ Base model summary for geeks
 <td>1.365</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FCVC</td>
+<th data-quarto-table-cell-role="th">FCVC</th>
 <td>-0.7676</td>
 <td>0.428</td>
 <td>-1.793</td>
@@ -2131,7 +2131,7 @@ Base model summary for geeks
 <td>0.072</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">NCP</td>
+<th data-quarto-table-cell-role="th">NCP</th>
 <td>-1.7199</td>
 <td>0.489</td>
 <td>-3.516</td>
@@ -2140,7 +2140,7 @@ Base model summary for geeks
 <td>-0.761</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CH2O</td>
+<th data-quarto-table-cell-role="th">CH2O</th>
 <td>-1.7255</td>
 <td>0.578</td>
 <td>-2.985</td>
@@ -2149,7 +2149,7 @@ Base model summary for geeks
 <td>-0.592</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">FAF</td>
+<th data-quarto-table-cell-role="th">FAF</th>
 <td>-0.1753</td>
 <td>0.281</td>
 <td>-0.624</td>
@@ -2158,7 +2158,7 @@ Base model summary for geeks
 <td>0.375</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">TUE</td>
+<th data-quarto-table-cell-role="th">TUE</th>
 <td>-0.9735</td>
 <td>0.458</td>
 <td>-2.124</td>
@@ -2167,16 +2167,16 @@ Base model summary for geeks
 <td>-0.075</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">NObeyesdad=2</td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">NObeyesdad=2</th>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>17.3832</td>
 <td>nan</td>
 <td>nan</td>
@@ -2185,7 +2185,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Gender[T.Male]</td>
+<th data-quarto-table-cell-role="th">Gender[T.Male]</th>
 <td>-13.9964</td>
 <td>1.976</td>
 <td>-7.083</td>
@@ -2194,7 +2194,7 @@ Base model summary for geeks
 <td>-10.123</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</td>
+<th data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</th>
 <td>2.0850</td>
 <td>1.721</td>
 <td>1.212</td>
@@ -2203,7 +2203,7 @@ Base model summary for geeks
 <td>5.458</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">FAVC[T.yes]</td>
+<th data-quarto-table-cell-role="th">FAVC[T.yes]</th>
 <td>1.0223</td>
 <td>1.765</td>
 <td>0.579</td>
@@ -2212,7 +2212,7 @@ Base model summary for geeks
 <td>4.482</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CAEC[T.Frequently]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.Frequently]</th>
 <td>-10.0658</td>
 <td>4.392</td>
 <td>-2.292</td>
@@ -2221,7 +2221,7 @@ Base model summary for geeks
 <td>-1.458</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CAEC[T.Sometimes]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.Sometimes]</th>
 <td>-1.0233</td>
 <td>3.443</td>
 <td>-0.297</td>
@@ -2230,7 +2230,7 @@ Base model summary for geeks
 <td>5.724</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CAEC[T.no]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.no]</th>
 <td>-0.4821</td>
 <td>977.119</td>
 <td>-0.000</td>
@@ -2239,7 +2239,7 @@ Base model summary for geeks
 <td>1914.637</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">SMOKE[T.yes]</td>
+<th data-quarto-table-cell-role="th">SMOKE[T.yes]</th>
 <td>8.1449</td>
 <td>4.011</td>
 <td>2.030</td>
@@ -2248,7 +2248,7 @@ Base model summary for geeks
 <td>16.007</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">SCC[T.yes]</td>
+<th data-quarto-table-cell-role="th">SCC[T.yes]</th>
 <td>-7.6939</td>
 <td>155.443</td>
 <td>-0.049</td>
@@ -2257,7 +2257,7 @@ Base model summary for geeks
 <td>296.968</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CALC[T.Frequently]</td>
+<th data-quarto-table-cell-role="th">CALC[T.Frequently]</th>
 <td>-2.4712</td>
 <td>nan</td>
 <td>nan</td>
@@ -2266,7 +2266,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CALC[T.Sometimes]</td>
+<th data-quarto-table-cell-role="th">CALC[T.Sometimes]</th>
 <td>-7.5357</td>
 <td>nan</td>
 <td>nan</td>
@@ -2275,7 +2275,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CALC[T.no]</td>
+<th data-quarto-table-cell-role="th">CALC[T.no]</th>
 <td>-7.2634</td>
 <td>nan</td>
 <td>nan</td>
@@ -2284,7 +2284,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MTRANS[T.Bike]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Bike]</th>
 <td>-11.9360</td>
 <td>1.16e+08</td>
 <td>-1.03e-07</td>
@@ -2293,7 +2293,7 @@ Base model summary for geeks
 <td>2.27e+08</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</th>
 <td>10.9302</td>
 <td>48.258</td>
 <td>0.226</td>
@@ -2302,7 +2302,7 @@ Base model summary for geeks
 <td>105.513</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</th>
 <td>11.2094</td>
 <td>1.756</td>
 <td>6.383</td>
@@ -2311,7 +2311,7 @@ Base model summary for geeks
 <td>14.651</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">MTRANS[T.Walking]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Walking]</th>
 <td>1.7141</td>
 <td>2.758</td>
 <td>0.622</td>
@@ -2320,7 +2320,7 @@ Base model summary for geeks
 <td>7.119</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Age</td>
+<th data-quarto-table-cell-role="th">Age</th>
 <td>0.8105</td>
 <td>0.133</td>
 <td>6.108</td>
@@ -2329,7 +2329,7 @@ Base model summary for geeks
 <td>1.071</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Height</td>
+<th data-quarto-table-cell-role="th">Height</th>
 <td>-184.0655</td>
 <td>14.785</td>
 <td>-12.450</td>
@@ -2338,7 +2338,7 @@ Base model summary for geeks
 <td>-155.088</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Weight</td>
+<th data-quarto-table-cell-role="th">Weight</th>
 <td>3.9430</td>
 <td>0.288</td>
 <td>13.681</td>
@@ -2347,7 +2347,7 @@ Base model summary for geeks
 <td>4.508</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">FCVC</td>
+<th data-quarto-table-cell-role="th">FCVC</th>
 <td>0.8899</td>
 <td>1.009</td>
 <td>0.882</td>
@@ -2356,7 +2356,7 @@ Base model summary for geeks
 <td>2.867</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NCP</td>
+<th data-quarto-table-cell-role="th">NCP</th>
 <td>-1.1103</td>
 <td>0.710</td>
 <td>-1.564</td>
@@ -2365,7 +2365,7 @@ Base model summary for geeks
 <td>0.281</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CH2O</td>
+<th data-quarto-table-cell-role="th">CH2O</th>
 <td>-1.5409</td>
 <td>0.877</td>
 <td>-1.757</td>
@@ -2374,7 +2374,7 @@ Base model summary for geeks
 <td>0.178</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FAF</td>
+<th data-quarto-table-cell-role="th">FAF</th>
 <td>-1.4599</td>
 <td>0.593</td>
 <td>-2.461</td>
@@ -2383,7 +2383,7 @@ Base model summary for geeks
 <td>-0.297</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">TUE</td>
+<th data-quarto-table-cell-role="th">TUE</th>
 <td>-0.5909</td>
 <td>0.840</td>
 <td>-0.704</td>
@@ -2392,16 +2392,16 @@ Base model summary for geeks
 <td>1.055</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NObeyesdad=3</td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">NObeyesdad=3</th>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>-138.5283</td>
 <td>nan</td>
 <td>nan</td>
@@ -2410,7 +2410,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Gender[T.Male]</td>
+<th data-quarto-table-cell-role="th">Gender[T.Male]</th>
 <td>-16.6646</td>
 <td>8.382</td>
 <td>-1.988</td>
@@ -2419,7 +2419,7 @@ Base model summary for geeks
 <td>-0.235</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</td>
+<th data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</th>
 <td>2.3697</td>
 <td>11.592</td>
 <td>0.204</td>
@@ -2428,7 +2428,7 @@ Base model summary for geeks
 <td>25.090</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FAVC[T.yes]</td>
+<th data-quarto-table-cell-role="th">FAVC[T.yes]</th>
 <td>-8.7847</td>
 <td>5.440</td>
 <td>-1.615</td>
@@ -2437,7 +2437,7 @@ Base model summary for geeks
 <td>1.878</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CAEC[T.Frequently]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.Frequently]</th>
 <td>-71.7139</td>
 <td>2.13e+08</td>
 <td>-3.37e-07</td>
@@ -2446,7 +2446,7 @@ Base model summary for geeks
 <td>4.17e+08</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CAEC[T.Sometimes]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.Sometimes]</th>
 <td>-3.9355</td>
 <td>4.749</td>
 <td>-0.829</td>
@@ -2455,7 +2455,7 @@ Base model summary for geeks
 <td>5.373</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CAEC[T.no]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.no]</th>
 <td>7.7274</td>
 <td>977.625</td>
 <td>0.008</td>
@@ -2464,7 +2464,7 @@ Base model summary for geeks
 <td>1923.836</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">SMOKE[T.yes]</td>
+<th data-quarto-table-cell-role="th">SMOKE[T.yes]</th>
 <td>3.5336</td>
 <td>19.117</td>
 <td>0.185</td>
@@ -2473,7 +2473,7 @@ Base model summary for geeks
 <td>41.002</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">SCC[T.yes]</td>
+<th data-quarto-table-cell-role="th">SCC[T.yes]</th>
 <td>-19.4881</td>
 <td>156.920</td>
 <td>-0.124</td>
@@ -2482,7 +2482,7 @@ Base model summary for geeks
 <td>288.070</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CALC[T.Frequently]</td>
+<th data-quarto-table-cell-role="th">CALC[T.Frequently]</th>
 <td>-43.6047</td>
 <td>nan</td>
 <td>nan</td>
@@ -2491,7 +2491,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CALC[T.Sometimes]</td>
+<th data-quarto-table-cell-role="th">CALC[T.Sometimes]</th>
 <td>-45.7392</td>
 <td>nan</td>
 <td>nan</td>
@@ -2500,7 +2500,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CALC[T.no]</td>
+<th data-quarto-table-cell-role="th">CALC[T.no]</th>
 <td>-28.2608</td>
 <td>nan</td>
 <td>nan</td>
@@ -2509,7 +2509,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">MTRANS[T.Bike]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Bike]</th>
 <td>0.0374</td>
 <td>nan</td>
 <td>nan</td>
@@ -2518,7 +2518,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</th>
 <td>-2.3922</td>
 <td>1.05e+11</td>
 <td>-2.28e-11</td>
@@ -2527,7 +2527,7 @@ Base model summary for geeks
 <td>2.05e+11</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</th>
 <td>22.6192</td>
 <td>6.634</td>
 <td>3.410</td>
@@ -2536,7 +2536,7 @@ Base model summary for geeks
 <td>35.621</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MTRANS[T.Walking]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Walking]</th>
 <td>-5.3362</td>
 <td>34.114</td>
 <td>-0.156</td>
@@ -2545,7 +2545,7 @@ Base model summary for geeks
 <td>61.526</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Age</td>
+<th data-quarto-table-cell-role="th">Age</th>
 <td>2.5098</td>
 <td>0.960</td>
 <td>2.615</td>
@@ -2554,7 +2554,7 @@ Base model summary for geeks
 <td>4.391</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Height</td>
+<th data-quarto-table-cell-role="th">Height</th>
 <td>-278.8861</td>
 <td>44.172</td>
 <td>-6.314</td>
@@ -2563,7 +2563,7 @@ Base model summary for geeks
 <td>-192.311</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Weight</td>
+<th data-quarto-table-cell-role="th">Weight</th>
 <td>7.1526</td>
 <td>1.391</td>
 <td>5.141</td>
@@ -2572,7 +2572,7 @@ Base model summary for geeks
 <td>9.879</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FCVC</td>
+<th data-quarto-table-cell-role="th">FCVC</th>
 <td>4.1479</td>
 <td>3.269</td>
 <td>1.269</td>
@@ -2581,7 +2581,7 @@ Base model summary for geeks
 <td>10.554</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">NCP</td>
+<th data-quarto-table-cell-role="th">NCP</th>
 <td>-1.5833</td>
 <td>2.388</td>
 <td>-0.663</td>
@@ -2590,7 +2590,7 @@ Base model summary for geeks
 <td>3.098</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CH2O</td>
+<th data-quarto-table-cell-role="th">CH2O</th>
 <td>-13.3811</td>
 <td>5.527</td>
 <td>-2.421</td>
@@ -2599,7 +2599,7 @@ Base model summary for geeks
 <td>-2.549</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">FAF</td>
+<th data-quarto-table-cell-role="th">FAF</th>
 <td>-9.8066</td>
 <td>4.355</td>
 <td>-2.252</td>
@@ -2608,7 +2608,7 @@ Base model summary for geeks
 <td>-1.271</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">TUE</td>
+<th data-quarto-table-cell-role="th">TUE</th>
 <td>-5.7061</td>
 <td>3.289</td>
 <td>-1.735</td>
@@ -2617,16 +2617,16 @@ Base model summary for geeks
 <td>0.739</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">NObeyesdad=4</td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">NObeyesdad=4</th>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>-87.3253</td>
 <td>6.43e+07</td>
 <td>-1.36e-06</td>
@@ -2635,7 +2635,7 @@ Base model summary for geeks
 <td>1.26e+08</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Gender[T.Male]</td>
+<th data-quarto-table-cell-role="th">Gender[T.Male]</th>
 <td>-200.2957</td>
 <td>4.25e+07</td>
 <td>-4.71e-06</td>
@@ -2644,7 +2644,7 @@ Base model summary for geeks
 <td>8.33e+07</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</td>
+<th data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</th>
 <td>-30.9113</td>
 <td>nan</td>
 <td>nan</td>
@@ -2653,7 +2653,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">FAVC[T.yes]</td>
+<th data-quarto-table-cell-role="th">FAVC[T.yes]</th>
 <td>-53.1787</td>
 <td>nan</td>
 <td>nan</td>
@@ -2662,7 +2662,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CAEC[T.Frequently]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.Frequently]</th>
 <td>-28.5507</td>
 <td>2.16e+08</td>
 <td>-1.32e-07</td>
@@ -2671,7 +2671,7 @@ Base model summary for geeks
 <td>4.23e+08</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CAEC[T.Sometimes]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.Sometimes]</th>
 <td>-21.5727</td>
 <td>4.19e+07</td>
 <td>-5.15e-07</td>
@@ -2680,7 +2680,7 @@ Base model summary for geeks
 <td>8.21e+07</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CAEC[T.no]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.no]</th>
 <td>-2.1999</td>
 <td>1.31e+29</td>
 <td>-1.69e-29</td>
@@ -2689,7 +2689,7 @@ Base model summary for geeks
 <td>2.56e+29</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">SMOKE[T.yes]</td>
+<th data-quarto-table-cell-role="th">SMOKE[T.yes]</th>
 <td>-6.0935</td>
 <td>9.24e+08</td>
 <td>-6.59e-09</td>
@@ -2698,7 +2698,7 @@ Base model summary for geeks
 <td>1.81e+09</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">SCC[T.yes]</td>
+<th data-quarto-table-cell-role="th">SCC[T.yes]</th>
 <td>-12.3062</td>
 <td>nan</td>
 <td>nan</td>
@@ -2707,7 +2707,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CALC[T.Frequently]</td>
+<th data-quarto-table-cell-role="th">CALC[T.Frequently]</th>
 <td>-6.2458</td>
 <td>1.59e+10</td>
 <td>-3.93e-10</td>
@@ -2716,7 +2716,7 @@ Base model summary for geeks
 <td>3.12e+10</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CALC[T.Sometimes]</td>
+<th data-quarto-table-cell-role="th">CALC[T.Sometimes]</th>
 <td>-37.1969</td>
 <td>nan</td>
 <td>nan</td>
@@ -2725,7 +2725,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CALC[T.no]</td>
+<th data-quarto-table-cell-role="th">CALC[T.no]</th>
 <td>-64.5072</td>
 <td>nan</td>
 <td>nan</td>
@@ -2734,7 +2734,7 @@ Base model summary for geeks
 <td>nan</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MTRANS[T.Bike]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Bike]</th>
 <td>-0.2989</td>
 <td>1.92e+53</td>
 <td>-1.56e-54</td>
@@ -2743,7 +2743,7 @@ Base model summary for geeks
 <td>3.76e+53</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</th>
 <td>-0.2031</td>
 <td>3.86e+35</td>
 <td>-5.26e-37</td>
@@ -2752,7 +2752,7 @@ Base model summary for geeks
 <td>7.57e+35</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</th>
 <td>-57.6929</td>
 <td>5.78e+07</td>
 <td>-9.98e-07</td>
@@ -2761,7 +2761,7 @@ Base model summary for geeks
 <td>1.13e+08</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">MTRANS[T.Walking]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Walking]</th>
 <td>-7.4454</td>
 <td>2.11e+15</td>
 <td>-3.52e-15</td>
@@ -2770,7 +2770,7 @@ Base model summary for geeks
 <td>4.14e+15</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Age</td>
+<th data-quarto-table-cell-role="th">Age</th>
 <td>-9.3711</td>
 <td>100.732</td>
 <td>-0.093</td>
@@ -2779,7 +2779,7 @@ Base model summary for geeks
 <td>188.061</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Height</td>
+<th data-quarto-table-cell-role="th">Height</th>
 <td>-174.4791</td>
 <td>585.777</td>
 <td>-0.298</td>
@@ -2788,7 +2788,7 @@ Base model summary for geeks
 <td>973.623</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Weight</td>
+<th data-quarto-table-cell-role="th">Weight</th>
 <td>8.7401</td>
 <td>34.352</td>
 <td>0.254</td>
@@ -2797,7 +2797,7 @@ Base model summary for geeks
 <td>76.068</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">FCVC</td>
+<th data-quarto-table-cell-role="th">FCVC</th>
 <td>49.0843</td>
 <td>3.05e+04</td>
 <td>0.002</td>
@@ -2806,7 +2806,7 @@ Base model summary for geeks
 <td>5.99e+04</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NCP</td>
+<th data-quarto-table-cell-role="th">NCP</th>
 <td>2.3456</td>
 <td>4587.346</td>
 <td>0.001</td>
@@ -2815,7 +2815,7 @@ Base model summary for geeks
 <td>8993.379</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CH2O</td>
+<th data-quarto-table-cell-role="th">CH2O</th>
 <td>-18.5876</td>
 <td>33.678</td>
 <td>-0.552</td>
@@ -2824,7 +2824,7 @@ Base model summary for geeks
 <td>47.420</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FAF</td>
+<th data-quarto-table-cell-role="th">FAF</th>
 <td>-65.1863</td>
 <td>257.967</td>
 <td>-0.253</td>
@@ -2833,7 +2833,7 @@ Base model summary for geeks
 <td>440.420</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">TUE</td>
+<th data-quarto-table-cell-role="th">TUE</th>
 <td>-44.3687</td>
 <td>279.949</td>
 <td>-0.158</td>
@@ -2842,16 +2842,16 @@ Base model summary for geeks
 <td>504.321</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NObeyesdad=5</td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">NObeyesdad=5</th>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>-12.5582</td>
 <td>3.45e+05</td>
 <td>-3.64e-05</td>
@@ -2860,7 +2860,7 @@ Base model summary for geeks
 <td>6.76e+05</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Gender[T.Male]</td>
+<th data-quarto-table-cell-role="th">Gender[T.Male]</th>
 <td>-6.8927</td>
 <td>1.091</td>
 <td>-6.319</td>
@@ -2869,7 +2869,7 @@ Base model summary for geeks
 <td>-4.755</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</td>
+<th data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</th>
 <td>-0.5826</td>
 <td>0.791</td>
 <td>-0.736</td>
@@ -2878,7 +2878,7 @@ Base model summary for geeks
 <td>0.969</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FAVC[T.yes]</td>
+<th data-quarto-table-cell-role="th">FAVC[T.yes]</th>
 <td>2.6029</td>
 <td>0.975</td>
 <td>2.670</td>
@@ -2887,7 +2887,7 @@ Base model summary for geeks
 <td>4.514</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CAEC[T.Frequently]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.Frequently]</th>
 <td>-7.2782</td>
 <td>2.533</td>
 <td>-2.873</td>
@@ -2896,7 +2896,7 @@ Base model summary for geeks
 <td>-2.314</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CAEC[T.Sometimes]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.Sometimes]</th>
 <td>-2.8841</td>
 <td>2.442</td>
 <td>-1.181</td>
@@ -2905,7 +2905,7 @@ Base model summary for geeks
 <td>1.903</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CAEC[T.no]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.no]</th>
 <td>-3.8084</td>
 <td>3.166</td>
 <td>-1.203</td>
@@ -2914,7 +2914,7 @@ Base model summary for geeks
 <td>2.397</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">SMOKE[T.yes]</td>
+<th data-quarto-table-cell-role="th">SMOKE[T.yes]</th>
 <td>3.1147</td>
 <td>3.291</td>
 <td>0.947</td>
@@ -2923,7 +2923,7 @@ Base model summary for geeks
 <td>9.565</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">SCC[T.yes]</td>
+<th data-quarto-table-cell-role="th">SCC[T.yes]</th>
 <td>2.1332</td>
 <td>1.626</td>
 <td>1.312</td>
@@ -2932,7 +2932,7 @@ Base model summary for geeks
 <td>5.320</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CALC[T.Frequently]</td>
+<th data-quarto-table-cell-role="th">CALC[T.Frequently]</th>
 <td>-9.0218</td>
 <td>3.45e+05</td>
 <td>-2.61e-05</td>
@@ -2941,7 +2941,7 @@ Base model summary for geeks
 <td>6.76e+05</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CALC[T.Sometimes]</td>
+<th data-quarto-table-cell-role="th">CALC[T.Sometimes]</th>
 <td>-9.1622</td>
 <td>3.45e+05</td>
 <td>-2.66e-05</td>
@@ -2950,7 +2950,7 @@ Base model summary for geeks
 <td>6.76e+05</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CALC[T.no]</td>
+<th data-quarto-table-cell-role="th">CALC[T.no]</th>
 <td>-10.7609</td>
 <td>3.45e+05</td>
 <td>-3.12e-05</td>
@@ -2959,7 +2959,7 @@ Base model summary for geeks
 <td>6.76e+05</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">MTRANS[T.Bike]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Bike]</th>
 <td>19.0539</td>
 <td>2529.381</td>
 <td>0.008</td>
@@ -2968,7 +2968,7 @@ Base model summary for geeks
 <td>4976.550</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</th>
 <td>1.6649</td>
 <td>47.401</td>
 <td>0.035</td>
@@ -2977,7 +2977,7 @@ Base model summary for geeks
 <td>94.570</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</th>
 <td>6.0083</td>
 <td>1.212</td>
 <td>4.956</td>
@@ -2986,7 +2986,7 @@ Base model summary for geeks
 <td>8.385</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MTRANS[T.Walking]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Walking]</th>
 <td>4.3751</td>
 <td>1.779</td>
 <td>2.460</td>
@@ -2995,7 +2995,7 @@ Base model summary for geeks
 <td>7.861</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Age</td>
+<th data-quarto-table-cell-role="th">Age</th>
 <td>0.4896</td>
 <td>0.107</td>
 <td>4.589</td>
@@ -3004,7 +3004,7 @@ Base model summary for geeks
 <td>0.699</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Height</td>
+<th data-quarto-table-cell-role="th">Height</th>
 <td>-49.9784</td>
 <td>6.729</td>
 <td>-7.427</td>
@@ -3013,7 +3013,7 @@ Base model summary for geeks
 <td>-36.790</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Weight</td>
+<th data-quarto-table-cell-role="th">Weight</th>
 <td>1.7920</td>
 <td>0.168</td>
 <td>10.650</td>
@@ -3022,7 +3022,7 @@ Base model summary for geeks
 <td>2.122</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FCVC</td>
+<th data-quarto-table-cell-role="th">FCVC</th>
 <td>-0.8144</td>
 <td>0.599</td>
 <td>-1.359</td>
@@ -3031,7 +3031,7 @@ Base model summary for geeks
 <td>0.360</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">NCP</td>
+<th data-quarto-table-cell-role="th">NCP</th>
 <td>-1.4253</td>
 <td>0.552</td>
 <td>-2.580</td>
@@ -3040,7 +3040,7 @@ Base model summary for geeks
 <td>-0.343</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CH2O</td>
+<th data-quarto-table-cell-role="th">CH2O</th>
 <td>-1.8250</td>
 <td>0.678</td>
 <td>-2.690</td>
@@ -3049,7 +3049,7 @@ Base model summary for geeks
 <td>-0.495</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">FAF</td>
+<th data-quarto-table-cell-role="th">FAF</th>
 <td>-0.5296</td>
 <td>0.375</td>
 <td>-1.412</td>
@@ -3058,7 +3058,7 @@ Base model summary for geeks
 <td>0.206</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">TUE</td>
+<th data-quarto-table-cell-role="th">TUE</th>
 <td>-0.8409</td>
 <td>0.557</td>
 <td>-1.510</td>
@@ -3067,16 +3067,16 @@ Base model summary for geeks
 <td>0.250</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">NObeyesdad=6</td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">NObeyesdad=6</th>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>-2.1495</td>
 <td>1.51e+06</td>
 <td>-1.42e-06</td>
@@ -3085,7 +3085,7 @@ Base model summary for geeks
 <td>2.96e+06</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Gender[T.Male]</td>
+<th data-quarto-table-cell-role="th">Gender[T.Male]</th>
 <td>-6.7717</td>
 <td>1.213</td>
 <td>-5.583</td>
@@ -3094,7 +3094,7 @@ Base model summary for geeks
 <td>-4.395</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</td>
+<th data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</th>
 <td>1.9277</td>
 <td>1.078</td>
 <td>1.789</td>
@@ -3103,7 +3103,7 @@ Base model summary for geeks
 <td>4.040</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">FAVC[T.yes]</td>
+<th data-quarto-table-cell-role="th">FAVC[T.yes]</th>
 <td>-0.4390</td>
 <td>1.141</td>
 <td>-0.385</td>
@@ -3112,7 +3112,7 @@ Base model summary for geeks
 <td>1.798</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CAEC[T.Frequently]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.Frequently]</th>
 <td>-5.4475</td>
 <td>3.295</td>
 <td>-1.653</td>
@@ -3121,7 +3121,7 @@ Base model summary for geeks
 <td>1.011</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CAEC[T.Sometimes]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.Sometimes]</th>
 <td>0.8345</td>
 <td>3.075</td>
 <td>0.271</td>
@@ -3130,7 +3130,7 @@ Base model summary for geeks
 <td>6.861</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CAEC[T.no]</td>
+<th data-quarto-table-cell-role="th">CAEC[T.no]</th>
 <td>1.6818</td>
 <td>3.972</td>
 <td>0.423</td>
@@ -3139,7 +3139,7 @@ Base model summary for geeks
 <td>9.466</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">SMOKE[T.yes]</td>
+<th data-quarto-table-cell-role="th">SMOKE[T.yes]</th>
 <td>7.0586</td>
 <td>3.567</td>
 <td>1.979</td>
@@ -3148,7 +3148,7 @@ Base model summary for geeks
 <td>14.049</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">SCC[T.yes]</td>
+<th data-quarto-table-cell-role="th">SCC[T.yes]</th>
 <td>1.3350</td>
 <td>2.021</td>
 <td>0.661</td>
@@ -3157,7 +3157,7 @@ Base model summary for geeks
 <td>5.295</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CALC[T.Frequently]</td>
+<th data-quarto-table-cell-role="th">CALC[T.Frequently]</th>
 <td>-2.1230</td>
 <td>1.51e+06</td>
 <td>-1.41e-06</td>
@@ -3166,7 +3166,7 @@ Base model summary for geeks
 <td>2.96e+06</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">CALC[T.Sometimes]</td>
+<th data-quarto-table-cell-role="th">CALC[T.Sometimes]</th>
 <td>-4.6506</td>
 <td>1.51e+06</td>
 <td>-3.08e-06</td>
@@ -3175,7 +3175,7 @@ Base model summary for geeks
 <td>2.96e+06</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CALC[T.no]</td>
+<th data-quarto-table-cell-role="th">CALC[T.no]</th>
 <td>-4.1703</td>
 <td>1.51e+06</td>
 <td>-2.76e-06</td>
@@ -3184,7 +3184,7 @@ Base model summary for geeks
 <td>2.96e+06</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MTRANS[T.Bike]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Bike]</th>
 <td>-21.8443</td>
 <td>6.4e+09</td>
 <td>-3.41e-09</td>
@@ -3193,7 +3193,7 @@ Base model summary for geeks
 <td>1.26e+10</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</th>
 <td>3.1683</td>
 <td>47.467</td>
 <td>0.067</td>
@@ -3202,7 +3202,7 @@ Base model summary for geeks
 <td>96.202</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</th>
 <td>8.7749</td>
 <td>1.423</td>
 <td>6.165</td>
@@ -3211,7 +3211,7 @@ Base model summary for geeks
 <td>11.564</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">MTRANS[T.Walking]</td>
+<th data-quarto-table-cell-role="th">MTRANS[T.Walking]</th>
 <td>1.2621</td>
 <td>2.258</td>
 <td>0.559</td>
@@ -3220,7 +3220,7 @@ Base model summary for geeks
 <td>5.687</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Age</td>
+<th data-quarto-table-cell-role="th">Age</th>
 <td>0.6974</td>
 <td>0.116</td>
 <td>6.002</td>
@@ -3229,7 +3229,7 @@ Base model summary for geeks
 <td>0.925</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Height</td>
+<th data-quarto-table-cell-role="th">Height</th>
 <td>-104.7093</td>
 <td>9.038</td>
 <td>-11.585</td>
@@ -3238,7 +3238,7 @@ Base model summary for geeks
 <td>-86.995</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Weight</td>
+<th data-quarto-table-cell-role="th">Weight</th>
 <td>2.6268</td>
 <td>0.190</td>
 <td>13.821</td>
@@ -3247,7 +3247,7 @@ Base model summary for geeks
 <td>2.999</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">FCVC</td>
+<th data-quarto-table-cell-role="th">FCVC</th>
 <td>0.2192</td>
 <td>0.764</td>
 <td>0.287</td>
@@ -3256,7 +3256,7 @@ Base model summary for geeks
 <td>1.716</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NCP</td>
+<th data-quarto-table-cell-role="th">NCP</th>
 <td>-1.8144</td>
 <td>0.606</td>
 <td>-2.992</td>
@@ -3265,7 +3265,7 @@ Base model summary for geeks
 <td>-0.626</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CH2O</td>
+<th data-quarto-table-cell-role="th">CH2O</th>
 <td>-1.9110</td>
 <td>0.757</td>
 <td>-2.525</td>
@@ -3274,7 +3274,7 @@ Base model summary for geeks
 <td>-0.428</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FAF</td>
+<th data-quarto-table-cell-role="th">FAF</th>
 <td>-0.9928</td>
 <td>0.439</td>
 <td>-2.264</td>
@@ -3283,7 +3283,7 @@ Base model summary for geeks
 <td>-0.133</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">TUE</td>
+<th data-quarto-table-cell-role="th">TUE</th>
 <td>0.0701</td>
 <td>0.671</td>
 <td>0.104</td>
@@ -3304,7 +3304,7 @@ Base model summary for geeks
 <div id="df25174c" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Evaluating the Logit model</summary>
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Predict on test data</span></span>
 <span id="cb8-2">base_preds <span class="op" style="color: #5E5E5E;
@@ -3340,7 +3340,7 @@ background-color: null;
 font-style: inherit;">"Classification Report:"</span>)</span>
 <span id="cb8-11"><span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">print</span>(report_orig)</span></code></pre></div>
+font-style: inherit;">print</span>(report_orig)</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy: 0.909952606635071
@@ -3382,7 +3382,7 @@ weighted avg       0.91      0.91      0.91       211
 <div id="f3f5f129" class="cell page-columns page-full" data-execution_count="9">
 <details class="code-fold">
 <summary>Doing what needs to Done Code ;)</summary>
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1">sns.set_style(<span class="st" style="color: #20794D;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1">sns.set_style(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"white"</span>)</span>
 <span id="cb10-2">sns.set_context(<span class="st" style="color: #20794D;
@@ -3538,7 +3538,7 @@ font-style: inherit;">0.5</span>)</span>
 background-color: null;
 font-style: inherit;"># Show the plot</span></span>
 <span id="cb10-28">plt.tight_layout()</span>
-<span id="cb10-29">plt.show()</span></code></pre></div>
+<span id="cb10-29">plt.show()</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>CSP calculated with decile for breaks!
@@ -3548,7 +3548,7 @@ Scores for 7 groups(s) is : 140.96057955229762</code></pre>
 <div class="cell-output cell-output-display page-columns page-full">
 <div class="page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="index_files/figure-html/cell-10-output-2.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-13"><img src="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-10-output-2.png" width="1142" height="471" class="figure-img column-page-right"></a></p>
+<p class="page-columns page-full"><a href="index_files/figure-html/cell-10-output-2.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-13"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-10-output-2.png" width="1142" height="471" class="figure-img column-page-right"></a></p>
 </figure>
 </div>
 </div>
@@ -3561,7 +3561,7 @@ Scores for 7 groups(s) is : 140.96057955229762</code></pre>
 <div id="da59ff04" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>And finally training and evaluating with drum rolls</summary>
-<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1">logit_model_rev <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1">logit_model_rev <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> sm.MNLogit.from_formula(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -3629,7 +3629,7 @@ background-color: null;
 font-style: inherit;">"Classification Report:"</span>)</span>
 <span id="cb12-15"><span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">print</span>(report_new)</span></code></pre></div>
+font-style: inherit;">print</span>(report_new)</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimization terminated successfully    (Exit mode 0)
@@ -3658,12 +3658,12 @@ weighted avg       0.94      0.94      0.94       211
 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Summary of retrained model
+<span class="screen-reader-only">None</span>Summary of retrained model
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -3672,71 +3672,71 @@ Summary of retrained model
 <div id="6351cfde" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1">display(logit_model_rev.summary())</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1">display(logit_model_rev.summary())</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display">
-<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable table table-sm table-striped small">
 <caption>MNLogit Regression Results</caption>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Dep. Variable:</td>
+<th data-quarto-table-cell-role="th">Dep. Variable:</th>
 <td>NObeyesdad</td>
-<td data-quarto-table-cell-role="th">No. Observations:</td>
+<th data-quarto-table-cell-role="th">No. Observations:</th>
 <td>1900</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Model:</td>
+<th data-quarto-table-cell-role="th">Model:</th>
 <td>MNLogit</td>
-<td data-quarto-table-cell-role="th">Df Residuals:</td>
+<th data-quarto-table-cell-role="th">Df Residuals:</th>
 <td>1858</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Method:</td>
+<th data-quarto-table-cell-role="th">Method:</th>
 <td>MLE</td>
-<td data-quarto-table-cell-role="th">Df Model:</td>
+<th data-quarto-table-cell-role="th">Df Model:</th>
 <td>36</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Date:</td>
+<th data-quarto-table-cell-role="th">Date:</th>
 <td>Thu, 27 Feb 2025</td>
-<td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
+<th data-quarto-table-cell-role="th">Pseudo R-squ.:</th>
 <td>0.9103</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Time:</td>
+<th data-quarto-table-cell-role="th">Time:</th>
 <td>03:18:54</td>
-<td data-quarto-table-cell-role="th">Log-Likelihood:</td>
+<th data-quarto-table-cell-role="th">Log-Likelihood:</th>
 <td>-331.32</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">converged:</td>
+<th data-quarto-table-cell-role="th">converged:</th>
 <td>True</td>
-<td data-quarto-table-cell-role="th">LL-Null:</td>
+<th data-quarto-table-cell-role="th">LL-Null:</th>
 <td>-3691.8</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Covariance Type:</td>
+<th data-quarto-table-cell-role="th">Covariance Type:</th>
 <td>nonrobust</td>
-<td data-quarto-table-cell-role="th">LLR p-value:</td>
+<th data-quarto-table-cell-role="th">LLR p-value:</th>
 <td>0.000</td>
 </tr>
 </tbody>
 </table>
 
 
-<table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable table table-sm table-striped small">
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NObeyesdad=1</td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">NObeyesdad=1</th>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>58.1248</td>
 <td>9.361</td>
 <td>6.209</td>
@@ -3745,7 +3745,7 @@ Summary of retrained model
 <td>76.472</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">TUE</td>
+<th data-quarto-table-cell-role="th">TUE</th>
 <td>0.1130</td>
 <td>0.445</td>
 <td>0.254</td>
@@ -3754,7 +3754,7 @@ Summary of retrained model
 <td>0.985</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CH2O</td>
+<th data-quarto-table-cell-role="th">CH2O</th>
 <td>-0.8634</td>
 <td>0.609</td>
 <td>-1.419</td>
@@ -3763,7 +3763,7 @@ Summary of retrained model
 <td>0.329</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FAF</td>
+<th data-quarto-table-cell-role="th">FAF</th>
 <td>0.1425</td>
 <td>0.334</td>
 <td>0.426</td>
@@ -3772,7 +3772,7 @@ Summary of retrained model
 <td>0.798</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Age</td>
+<th data-quarto-table-cell-role="th">Age</th>
 <td>0.0579</td>
 <td>0.077</td>
 <td>0.754</td>
@@ -3781,7 +3781,7 @@ Summary of retrained model
 <td>0.208</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Height</td>
+<th data-quarto-table-cell-role="th">Height</th>
 <td>-76.5735</td>
 <td>10.536</td>
 <td>-7.268</td>
@@ -3790,7 +3790,7 @@ Summary of retrained model
 <td>-55.923</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Weight</td>
+<th data-quarto-table-cell-role="th">Weight</th>
 <td>1.3337</td>
 <td>0.176</td>
 <td>7.566</td>
@@ -3799,16 +3799,16 @@ Summary of retrained model
 <td>1.679</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NObeyesdad=2</td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">NObeyesdad=2</th>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>328.4616</td>
 <td>25.112</td>
 <td>13.080</td>
@@ -3817,7 +3817,7 @@ Summary of retrained model
 <td>377.681</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">TUE</td>
+<th data-quarto-table-cell-role="th">TUE</th>
 <td>2.2275</td>
 <td>0.870</td>
 <td>2.560</td>
@@ -3826,7 +3826,7 @@ Summary of retrained model
 <td>3.933</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CH2O</td>
+<th data-quarto-table-cell-role="th">CH2O</th>
 <td>-1.4150</td>
 <td>0.984</td>
 <td>-1.439</td>
@@ -3835,7 +3835,7 @@ Summary of retrained model
 <td>0.513</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FAF</td>
+<th data-quarto-table-cell-role="th">FAF</th>
 <td>-1.3585</td>
 <td>0.747</td>
 <td>-1.820</td>
@@ -3844,7 +3844,7 @@ Summary of retrained model
 <td>0.105</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Age</td>
+<th data-quarto-table-cell-role="th">Age</th>
 <td>0.1537</td>
 <td>0.097</td>
 <td>1.591</td>
@@ -3853,7 +3853,7 @@ Summary of retrained model
 <td>0.343</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Height</td>
+<th data-quarto-table-cell-role="th">Height</th>
 <td>-426.3945</td>
 <td>30.970</td>
 <td>-13.768</td>
@@ -3862,7 +3862,7 @@ Summary of retrained model
 <td>-365.694</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Weight</td>
+<th data-quarto-table-cell-role="th">Weight</th>
 <td>5.3584</td>
 <td>0.372</td>
 <td>14.386</td>
@@ -3871,16 +3871,16 @@ Summary of retrained model
 <td>6.088</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NObeyesdad=3</td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">NObeyesdad=3</th>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>306.6447</td>
 <td>33.046</td>
 <td>9.279</td>
@@ -3889,7 +3889,7 @@ Summary of retrained model
 <td>371.413</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">TUE</td>
+<th data-quarto-table-cell-role="th">TUE</th>
 <td>-7.8630</td>
 <td>5.691</td>
 <td>-1.382</td>
@@ -3898,7 +3898,7 @@ Summary of retrained model
 <td>3.291</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CH2O</td>
+<th data-quarto-table-cell-role="th">CH2O</th>
 <td>-21.0118</td>
 <td>11.508</td>
 <td>-1.826</td>
@@ -3907,7 +3907,7 @@ Summary of retrained model
 <td>1.543</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FAF</td>
+<th data-quarto-table-cell-role="th">FAF</th>
 <td>-11.3624</td>
 <td>5.759</td>
 <td>-1.973</td>
@@ -3916,7 +3916,7 @@ Summary of retrained model
 <td>-0.075</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Age</td>
+<th data-quarto-table-cell-role="th">Age</th>
 <td>2.4017</td>
 <td>1.260</td>
 <td>1.905</td>
@@ -3925,7 +3925,7 @@ Summary of retrained model
 <td>4.872</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Height</td>
+<th data-quarto-table-cell-role="th">Height</th>
 <td>-710.3867</td>
 <td>156.303</td>
 <td>-4.545</td>
@@ -3934,7 +3934,7 @@ Summary of retrained model
 <td>-404.039</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Weight</td>
+<th data-quarto-table-cell-role="th">Weight</th>
 <td>10.1072</td>
 <td>2.588</td>
 <td>3.905</td>
@@ -3943,16 +3943,16 @@ Summary of retrained model
 <td>15.180</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NObeyesdad=4</td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">NObeyesdad=4</th>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>352.4249</td>
 <td>33.573</td>
 <td>10.497</td>
@@ -3961,7 +3961,7 @@ Summary of retrained model
 <td>418.227</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">TUE</td>
+<th data-quarto-table-cell-role="th">TUE</th>
 <td>-9.2469</td>
 <td>5.711</td>
 <td>-1.619</td>
@@ -3970,7 +3970,7 @@ Summary of retrained model
 <td>1.946</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CH2O</td>
+<th data-quarto-table-cell-role="th">CH2O</th>
 <td>-20.6780</td>
 <td>11.516</td>
 <td>-1.796</td>
@@ -3979,7 +3979,7 @@ Summary of retrained model
 <td>1.894</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FAF</td>
+<th data-quarto-table-cell-role="th">FAF</th>
 <td>-14.7525</td>
 <td>5.794</td>
 <td>-2.546</td>
@@ -3988,7 +3988,7 @@ Summary of retrained model
 <td>-3.397</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Age</td>
+<th data-quarto-table-cell-role="th">Age</th>
 <td>2.1487</td>
 <td>1.262</td>
 <td>1.703</td>
@@ -3997,7 +3997,7 @@ Summary of retrained model
 <td>4.622</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Height</td>
+<th data-quarto-table-cell-role="th">Height</th>
 <td>-758.2318</td>
 <td>156.401</td>
 <td>-4.848</td>
@@ -4006,7 +4006,7 @@ Summary of retrained model
 <td>-451.692</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Weight</td>
+<th data-quarto-table-cell-role="th">Weight</th>
 <td>10.5011</td>
 <td>2.589</td>
 <td>4.056</td>
@@ -4015,16 +4015,16 @@ Summary of retrained model
 <td>15.575</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NObeyesdad=5</td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">NObeyesdad=5</th>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>126.2892</td>
 <td>12.539</td>
 <td>10.072</td>
@@ -4033,7 +4033,7 @@ Summary of retrained model
 <td>150.865</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">TUE</td>
+<th data-quarto-table-cell-role="th">TUE</th>
 <td>0.5832</td>
 <td>0.541</td>
 <td>1.077</td>
@@ -4042,7 +4042,7 @@ Summary of retrained model
 <td>1.645</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CH2O</td>
+<th data-quarto-table-cell-role="th">CH2O</th>
 <td>-0.8764</td>
 <td>0.706</td>
 <td>-1.242</td>
@@ -4051,7 +4051,7 @@ Summary of retrained model
 <td>0.507</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FAF</td>
+<th data-quarto-table-cell-role="th">FAF</th>
 <td>-0.1920</td>
 <td>0.403</td>
 <td>-0.476</td>
@@ -4060,7 +4060,7 @@ Summary of retrained model
 <td>0.599</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Age</td>
+<th data-quarto-table-cell-role="th">Age</th>
 <td>0.0719</td>
 <td>0.082</td>
 <td>0.874</td>
@@ -4069,7 +4069,7 @@ Summary of retrained model
 <td>0.233</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Height</td>
+<th data-quarto-table-cell-role="th">Height</th>
 <td>-160.2982</td>
 <td>14.026</td>
 <td>-11.429</td>
@@ -4078,7 +4078,7 @@ Summary of retrained model
 <td>-132.808</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Weight</td>
+<th data-quarto-table-cell-role="th">Weight</th>
 <td>2.3663</td>
 <td>0.208</td>
 <td>11.397</td>
@@ -4087,16 +4087,16 @@ Summary of retrained model
 <td>2.773</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NObeyesdad=6</td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">NObeyesdad=6</th>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>207.3760</td>
 <td>15.374</td>
 <td>13.489</td>
@@ -4105,7 +4105,7 @@ Summary of retrained model
 <td>237.508</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">TUE</td>
+<th data-quarto-table-cell-role="th">TUE</th>
 <td>1.6561</td>
 <td>0.646</td>
 <td>2.564</td>
@@ -4114,7 +4114,7 @@ Summary of retrained model
 <td>2.922</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">CH2O</td>
+<th data-quarto-table-cell-role="th">CH2O</th>
 <td>-0.6583</td>
 <td>0.773</td>
 <td>-0.851</td>
@@ -4123,7 +4123,7 @@ Summary of retrained model
 <td>0.857</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">FAF</td>
+<th data-quarto-table-cell-role="th">FAF</th>
 <td>-0.1243</td>
 <td>0.485</td>
 <td>-0.256</td>
@@ -4132,7 +4132,7 @@ Summary of retrained model
 <td>0.827</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Age</td>
+<th data-quarto-table-cell-role="th">Age</th>
 <td>0.1042</td>
 <td>0.087</td>
 <td>1.197</td>
@@ -4141,7 +4141,7 @@ Summary of retrained model
 <td>0.275</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Height</td>
+<th data-quarto-table-cell-role="th">Height</th>
 <td>-266.6050</td>
 <td>17.598</td>
 <td>-15.150</td>
@@ -4150,7 +4150,7 @@ Summary of retrained model
 <td>-232.113</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Weight</td>
+<th data-quarto-table-cell-role="th">Weight</th>
 <td>3.6160</td>
 <td>0.241</td>
 <td>15.026</td>
@@ -4177,7 +4177,7 @@ Summary of retrained model
 <div id="c5b80684" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Comparision Code</summary>
-<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1">metrics <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1">metrics <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> {</span>
 <span id="cb15-2">    <span class="st" style="color: #20794D;
@@ -4238,13 +4238,13 @@ font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">4</span>).set_index(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'Metric'</span>).T)</span></code></pre></div>
+font-style: inherit;">'Metric'</span>).T)</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">Metric</th>
@@ -4256,14 +4256,14 @@ font-style: inherit;">'Metric'</span>).T)</span></code></pre></div>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Baseline Model with all Parameters</td>
+<th data-quarto-table-cell-role="th">Baseline Model with all Parameters</th>
 <td>0.9100</td>
 <td>0.9123</td>
 <td>0.9100</td>
 <td>0.9103</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Challenger Model with only 5 Variables</td>
+<th data-quarto-table-cell-role="th">Challenger Model with only 5 Variables</th>
 <td>0.9384</td>
 <td>0.9384</td>
 <td>0.9384</td>
@@ -4308,14 +4308,14 @@ font-style: inherit;">'Metric'</span>).T)</span></code></pre></div>
   <category>classification</category>
   <category>metric</category>
   <category>feature selection</category>
-  <guid>https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/</guid>
+  <guid>https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/</guid>
   <pubDate>Mon, 02 Jan 2023 18:30:00 GMT</pubDate>
-  <media:content url="https://www.jkapila.github.io/posts/04_crosstab_sparsity_classification/crossroad-unsplash.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/crossroad-unsplash.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>CrossTab Sparsity</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.jkapila.github.io/posts/03_crosstab_sparsity/</link>
+  <link>https://www.jitinkapila.com/posts/03_crosstab_sparsity/</link>
   <description><![CDATA[ 
 
 
@@ -4354,7 +4354,7 @@ Noisy variables often contaminated clusters, but traditional methods required ma
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="img/Picture 1.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Best Cluster for K-means Using Crosstab sparsity"><img src="https://www.jkapila.github.io/posts/03_crosstab_sparsity/img/Picture 1.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for K-means Using Crosstab sparsity"></a></p>
+<p class="page-columns page-full"><a href="img/Picture 1.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Best Cluster for K-means Using Crosstab sparsity"><img src="https://www.jitinkapila.com/posts/03_crosstab_sparsity/img/Picture 1.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for K-means Using Crosstab sparsity"></a></p>
 <figcaption>Best Cluster for K-means Using Crosstab sparsity</figcaption>
 </figure>
 </div>
@@ -4364,7 +4364,7 @@ Noisy variables often contaminated clusters, but traditional methods required ma
 <div class="no-row-height column-margin column-container"><div class="">
 <ol type="1">
 <li><p><strong>Segregation Factor</strong>:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Simplified calculation from our codebase  </span></span>
 <span id="cb1-2">median <span class="op" style="color: #5E5E5E;
@@ -4378,9 +4378,9 @@ font-style: inherit;">sum</span>(cross_tab <span class="op" style="color: #5E5E5
 background-color: null;
 font-style: inherit;">&gt;</span> median)  <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Count "well-segregated" instances  </span></span></code></pre></div></li>
+font-style: inherit;"># Count "well-segregated" instances  </span></span></code></pre></div></div></li>
 <li><p><strong>Explanation Factor</strong>:</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1">explanation <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1">explanation <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> np.log(<span class="bu" style="color: null;
 background-color: null;
@@ -4388,7 +4388,7 @@ font-style: inherit;">len</span>(data) <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">/</span> (bins <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">*</span> clusters))  </span></code></pre></div></li>
+font-style: inherit;">*</span> clusters))  </span></code></pre></div></div></li>
 </ol>
 </div></div><ol type="1">
 <li><strong>Segregation Factor</strong>: Measures how distinctly clusters separate data points. We used the median (not mean) to avoid skew from outlier-dominated matrices.</li>
@@ -4427,7 +4427,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="img/Kmeans on Vehicle.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Best Cluster for PAM method Using Crosstab sparsity"><img src="https://www.jkapila.github.io/posts/03_crosstab_sparsity/img/Kmeans on Vehicle.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for PAM method Using Crosstab sparsity"></a></p>
+<p class="page-columns page-full"><a href="img/Kmeans on Vehicle.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Best Cluster for PAM method Using Crosstab sparsity"><img src="https://www.jitinkapila.com/posts/03_crosstab_sparsity/img/Kmeans on Vehicle.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for PAM method Using Crosstab sparsity"></a></p>
 <figcaption>Best Cluster for PAM method Using Crosstab sparsity</figcaption>
 </figure>
 </div>
@@ -4436,7 +4436,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="img/Comparision across many methods.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Optimal Cluster for many methods"><img src="https://www.jkapila.github.io/posts/03_crosstab_sparsity/img/Comparision across many methods.png" class="img-fluid figure-img column-page-right" alt="Optimal Cluster for many methods"></a></p>
+<p class="page-columns page-full"><a href="img/Comparision across many methods.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Optimal Cluster for many methods"><img src="https://www.jitinkapila.com/posts/03_crosstab_sparsity/img/Comparision across many methods.png" class="img-fluid figure-img column-page-right" alt="Optimal Cluster for many methods"></a></p>
 <figcaption>Optimal Cluster for many methods</figcaption>
 </figure>
 </div>
@@ -4445,7 +4445,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="img/Variable segregation.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="All kind of variable scored against Metrics"><img src="https://www.jkapila.github.io/posts/03_crosstab_sparsity/img/Variable segregation.png" class="img-fluid figure-img column-page-right" alt="All kind of variable scored against Metrics"></a></p>
+<p class="page-columns page-full"><a href="img/Variable segregation.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="All kind of variable scored against Metrics"><img src="https://www.jitinkapila.com/posts/03_crosstab_sparsity/img/Variable segregation.png" class="img-fluid figure-img column-page-right" alt="All kind of variable scored against Metrics"></a></p>
 <figcaption>All kind of variable scored against Metrics</figcaption>
 </figure>
 </div>
@@ -4550,14 +4550,14 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
   <category>clustering</category>
   <category>analysis</category>
-  <guid>https://www.jkapila.github.io/posts/03_crosstab_sparsity/</guid>
+  <guid>https://www.jitinkapila.com/posts/03_crosstab_sparsity/</guid>
   <pubDate>Mon, 02 May 2022 18:30:00 GMT</pubDate>
-  <media:content url="https://www.jkapila.github.io/posts/03_crosstab_sparsity/img/pexels-n-voitkevich-5712829.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.jitinkapila.com/posts/03_crosstab_sparsity/img/pexels-n-voitkevich-5712829.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>A flow to Test Your Hypothesis in Python</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.jkapila.github.io/posts/02_hypothesis_test/</link>
+  <link>https://www.jitinkapila.com/posts/02_hypothesis_test/</link>
   <description><![CDATA[ 
 
 
@@ -4566,7 +4566,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="pexels-tara-winstead-7722866-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Hypothesis testing Photo by Tara Winstead"><img src="https://www.jkapila.github.io/posts/02_hypothesis_test/pexels-tara-winstead-7722866-thumb.jpg" class="img-fluid figure-img" alt="Hypothesis testing Photo by Tara Winstead"></a></p>
+<p><a href="pexels-tara-winstead-7722866-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Hypothesis testing Photo by Tara Winstead"><img src="https://www.jitinkapila.com/posts/02_hypothesis_test/pexels-tara-winstead-7722866-thumb.jpg" class="img-fluid figure-img" alt="Hypothesis testing Photo by Tara Winstead"></a></p>
 <figcaption class="margin-caption">Hypothesis testing <a href="https://www.pexels.com/photo/text-7722866/">Photo by Tara Winstead</a></figcaption>
 </figure>
 </div>
@@ -4575,12 +4575,12 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <p>All the practitioners of data science always hit one giant thing to do with data and you know it well its <em>EDA -Exploratory Data Analysis</em>. This word <em>EDA</em><sup>1</sup> was coined by Tukey himself in his seminal book published in 1983. But do you think that before that <em>EDA</em> doesn’t existed ?</p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Emerson, J. D., &amp; Hoaglin, D. C. (1983). Stem-and-leaf displays. In D. C. Hoaglin, F. Mosteller, &amp; J. W. Tukey (Eds.) Understanding Robust and Exploratory Data Analysis, pp.&nbsp;7–32. New York: Wiley. <a href="https://www.wiley.com/en-in/Understanding+Robust+and+Exploratory+Data+Analysis-p-9780471384915">Book is here.</a></p></div></div><p>Well glad you thought. Before that all were doing what is called as <em><em>Hypothesis Testing</em></em>. Yes, before this the race was majorly to fit the data and make most unbiased and robust estimate. But remember one thing when you talk about <em>Hypothesis Testing</em> it was always and majorly would be related to <em>RCTs (Randomized Controlled Trials)</em> a.k.a Randomized Clinical Trials and is <em>Gold Standard</em> of data.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-More on RCTs and ODs
+<span class="screen-reader-only">Tip</span>More on RCTs and ODs
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -4600,7 +4600,7 @@ More on RCTs and ODs
 <div id="28200618" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># import libraries</span></span>
 <span id="cb1-2"><span class="im" style="color: #00769E;
@@ -4621,7 +4621,11 @@ font-style: inherit;">'https://archive.ics.uci.edu/ml/machine-learning-databases
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'\s+'</span>,header<span class="op" style="color: #5E5E5E;
+font-style: inherit;">'</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">s+'</span>,header<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
@@ -4679,11 +4683,11 @@ font-style: inherit;">3</span>, result_full<span class="op" style="color: #5E5E5
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">True</span>)</span></code></pre></div>
+font-style: inherit;">True</span>)</span></code></pre></div></div>
 </details>
 </div>
 <p>Results form the <code>do_anova_test</code></p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource {markdown} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1">Levens Test Result:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource {markdown} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1">Levens Test Result:</span>
 <span id="cb2-2">                 Parameter    Value</span>
 <span id="cb2-3">0      Test statistics (W)  14.5856</span>
 <span id="cb2-4">1  Degrees of freedom (Df)   4.0000</span>
@@ -4714,14 +4718,14 @@ font-style: inherit;">True</span>)</span></code></pre></div>
 <span id="cb2-29">6       4       5   1.9201  -5.3676   9.2078   1.0212   0.9000</span>
 <span id="cb2-30">7       6       3   0.5643  -5.8486   6.9772   0.3410   0.9000</span>
 <span id="cb2-31">8       6       5   7.3810   0.0182  14.7437   3.8854   0.0491</span>
-<span id="cb2-32">9       3       5   6.8167  -2.7539  16.3873   2.7606   0.2919</span></code></pre></div>
+<span id="cb2-32">9       3       5   6.8167  -2.7539  16.3873   2.7606   0.2919</span></code></pre></div></div>
 <p>Nice!!!</p>
 <p><br></p>
 <p>And plotting is even easier</p>
 <div id="dc6c7d25" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Numbers are clumsy for most. Making more interpretable plot on above results.</span></span>
 <span id="cb3-2">plot_hsd(results.tukeyhsd.sort_values(<span class="st" style="color: #20794D;
@@ -4730,13 +4734,13 @@ font-style: inherit;">'Diff'</span>), title<span class="op" style="color: #5E5E5
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Tukey HSD resutls Anova of MPG ~ Cylinder"</span>)</span></code></pre></div>
+font-style: inherit;">"Tukey HSD resutls Anova of MPG ~ Cylinder"</span>)</span></code></pre></div></div>
 </details>
 </div>
 <p>Results form the <code>plot_hsd</code></p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="TukeyHSD.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Tukey’s HSD comparison based on Anova Results"><img src="https://www.jkapila.github.io/posts/02_hypothesis_test/TukeyHSD.png" class="img-fluid figure-img" alt="Tukey’s HSD comparison based on Anova Results"></a></p>
+<p><a href="TukeyHSD.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Tukey’s HSD comparison based on Anova Results"><img src="https://www.jitinkapila.com/posts/02_hypothesis_test/TukeyHSD.png" class="img-fluid figure-img" alt="Tukey’s HSD comparison based on Anova Results"></a></p>
 <figcaption class="margin-caption"><strong>Tukey’s HSD comparison based on Anova Results</strong></figcaption>
 </figure>
 </div>
@@ -4749,13 +4753,13 @@ font-style: inherit;">"Tukey HSD resutls Anova of MPG ~ Cylinder"</span>)</span>
 <section id="give-me-the-code" class="level1">
 <h1>Give me “The Code”</h1>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Performing Anova</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Plotting Results</a></li></ul>
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">Performing Anova</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">Plotting Results</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
 <div id="c9f4fdca" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Anova Test <code>anova_test.py</code></summary>
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> bioinfokit <span class="im" style="color: #00769E;
 background-color: null;
@@ -5085,7 +5089,11 @@ font-style: inherit;">'</span><span class="ch" style="color: #20794D;
 background-color: null;
 font-style: inherit;">\n</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">ANOVA\ANCOVA Test Result:'</span>)</span>
+font-style: inherit;">ANOVA</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">ANCOVA Test Result:'</span>)</span>
 <span id="cb4-77">    <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(aov_res)</span>
@@ -5152,7 +5160,7 @@ font-style: inherit;">'allresult'</span>,res)</span>
 <span id="cb4-91">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> results</span></code></pre></div>
+font-style: inherit;">return</span> results</span></code></pre></div></div>
 </details>
 </div>
 </div>
@@ -5160,7 +5168,7 @@ font-style: inherit;">return</span> results</span></code></pre></div>
 <div id="13c02dd3" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Plotting results <code>plot_hsd.py</code></summary>
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> seaborn <span class="im" style="color: #00769E;
 background-color: null;
@@ -5333,9 +5341,15 @@ font-style: inherit;">{</span>x[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>]<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+font-style: inherit;">}</span><span class="er" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">\ |\ p:</span><span class="sc" style="color: #5E5E5E;
+font-style: inherit;">\</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> |</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> p:</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">{</span>x[<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -5536,7 +5550,7 @@ font-style: inherit;">else</span>:</span>
 <span id="cb5-52">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> axp</span></code></pre></div>
+font-style: inherit;">return</span> axp</span></code></pre></div></div>
 </details>
 </div>
 </div>
@@ -5553,14 +5567,14 @@ font-style: inherit;">return</span> axp</span></code></pre></div>
   <category>hypothesis</category>
   <category>analysis</category>
   <category>python</category>
-  <guid>https://www.jkapila.github.io/posts/02_hypothesis_test/</guid>
+  <guid>https://www.jitinkapila.com/posts/02_hypothesis_test/</guid>
   <pubDate>Mon, 09 Aug 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://www.jkapila.github.io/posts/02_hypothesis_test/pexels-tara-winstead-7722866.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.jitinkapila.com/posts/02_hypothesis_test/pexels-tara-winstead-7722866.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Adaptive Regression</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.jkapila.github.io/posts/01_adaptive_regression/</link>
+  <link>https://www.jitinkapila.com/posts/01_adaptive_regression/</link>
   <description><![CDATA[ 
 
 
@@ -5569,7 +5583,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div>
 
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="img/pexels-zlfdmr23-20692065-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Adapting path through mountains! Photo by Zülfü Demir📸"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/pexels-zlfdmr23-20692065-thumb.jpg" class="img-fluid figure-img" alt="Adapting path through mountains! Photo by Zülfü Demir📸"></a></p>
+<p><a href="img/pexels-zlfdmr23-20692065-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Adapting path through mountains! Photo by Zülfü Demir📸"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/pexels-zlfdmr23-20692065-thumb.jpg" class="img-fluid figure-img" alt="Adapting path through mountains! Photo by Zülfü Demir📸"></a></p>
 <figcaption class="margin-caption">Adapting path through mountains! <a href="https://www.pexels.com/photo/view-of-empty-railway-and-a-hill-in-distance-20692065/">Photo by Zülfü Demir📸</a></figcaption>
 </figure>
 </div>
@@ -5603,13 +5617,13 @@ font-style: inherit;">return</span> axp</span></code></pre></div>
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/Anscombe_Data.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Plot of Anscombe’s Quartet"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/Anscombe_Data.png" class="img-fluid figure-img" alt="Plot of Anscombe’s Quartet"></a></p>
+<p><a href="img/Anscombe_Data.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Plot of Anscombe’s Quartet"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/Anscombe_Data.png" class="img-fluid figure-img" alt="Plot of Anscombe’s Quartet"></a></p>
 <figcaption>Plot of Anscombe’s Quartet</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/Anscombe_Stats.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Some Descriptive Stats for Anscombe’s Quartet"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/Anscombe_Stats.png" class="img-fluid figure-img" alt="Some Descriptive Stats for Anscombe’s Quartet"></a></p>
+<p><a href="img/Anscombe_Stats.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Some Descriptive Stats for Anscombe’s Quartet"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/Anscombe_Stats.png" class="img-fluid figure-img" alt="Some Descriptive Stats for Anscombe’s Quartet"></a></p>
 <figcaption>Some Descriptive Stats for Anscombe’s Quartet</figcaption>
 </figure>
 </div>
@@ -5620,7 +5634,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div>
 <h1>So what we do Now!</h1>
 <p>Astonished !!! Don’t be. This is what has been hiding behind those numbers. And this is why we really won’t be able to cross certain performance level. Unless you change some features or even do a lot of hyper parameter tuning, your results won’t vary much.</p>
 <p>If you look at the average value of MAPE in each decile you would see an interesting pattern. Let us show you what we see that pattern. One day while working on a business problem where I was using regression on a discussion with Kumarjit, we deviced a different way of model diagnosis. We worked together to give this a shape and build on it.</p>
-<p><a href="img/Pre_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/Pre_Mape_Plot.png" class="img-fluid"></a></p>
+<p><a href="img/Pre_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/Pre_Mape_Plot.png" class="img-fluid"></a></p>
 <p>As you can see it is absolutely evident that either of the side in the distribution of MAPE values is going wild!!!!!!! <strong><em>Still overall MAPE is good (18%).</em></strong></p>
 <!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
 </section>
@@ -5633,7 +5647,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div>
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/Image_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Plot for Classical Bath Tub Curve using a Hazard Function"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/Image_2.png" class="img-fluid figure-img" alt="Plot for Classical Bath Tub Curve using a Hazard Function"></a></p>
+<p><a href="img/Image_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Plot for Classical Bath Tub Curve using a Hazard Function"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/Image_2.png" class="img-fluid figure-img" alt="Plot for Classical Bath Tub Curve using a Hazard Function"></a></p>
 <figcaption>Plot for Classical Bath Tub Curve using a Hazard Function</figcaption>
 </figure>
 </div>
@@ -5642,7 +5656,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div>
 <p>Lets look at BostonHousing data from “mlbench” package in R.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="img/Plot_Bathtub.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/Plot_Bathtub.png" class="img-fluid figure-img" alt="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"></a></p>
+<p><a href="img/Plot_Bathtub.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/Plot_Bathtub.png" class="img-fluid figure-img" alt="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"></a></p>
 <figcaption class="margin-caption">Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data</figcaption>
 </figure>
 </div>
@@ -5652,7 +5666,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div>
 <h1>Final Analysis</h1>
 <p>Now the DAR framework essentially fixes this weakness of regression method and understands the behavior of data which is stable and can be tweak in a fashion that can be use in general practice.</p>
 <p>Plot of MAPE Bath Tub Curve after applying DAR Framework for Decile Split “mdev” from Data</p>
-<p><a href="img/Post_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="https://www.jkapila.github.io/posts/01_adaptive_regression/img/Post_Mape_Plot.png" class="img-fluid"></a></p>
+<p><a href="img/Post_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/Post_Mape_Plot.png" class="img-fluid"></a></p>
 <p>How this framework with same method reduced MAPEs so much and made model much more stable…?? Well here it is:</p>
 <p>The DAR framework splits the data at either ends of the order target variable and performs regression on these “split” data individually. This inherently reduces the so called “noise” part of the data and treat it as an individual data.</p>
 <!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
@@ -5671,16 +5685,16 @@ font-style: inherit;">return</span> axp</span></code></pre></div>
 <h1>Code and Flowchart</h1>
 <p>If things are simple lets keep it simple. Refer flowchart and code below for implementation of this framework. <a href="https://arxiv.org/abs/1805.01618">Paper here!</a></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">R code</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Python code</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false">Here is the Flow Chart</a></li></ul>
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">R code</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">Python code</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false" href="">Here is the Flow Chart</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Click to Expand
+<span class="screen-reader-only">Tip</span>Click to Expand
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -5693,12 +5707,12 @@ Click to Expand
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Click to Expand
+<span class="screen-reader-only">Tip</span>Click to Expand
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -5764,9 +5778,9 @@ Click to Expand
   <category>regression</category>
   <category>research</category>
   <category>analysis</category>
-  <guid>https://www.jkapila.github.io/posts/01_adaptive_regression/</guid>
+  <guid>https://www.jitinkapila.com/posts/01_adaptive_regression/</guid>
   <pubDate>Mon, 30 Apr 2018 18:30:00 GMT</pubDate>
-  <media:content url="https://www.jkapila.github.io/posts/01_adaptive_regression/img/pexels-zlfdmr23-20692065.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.jitinkapila.com/posts/01_adaptive_regression/img/pexels-zlfdmr23-20692065.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
