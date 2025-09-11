@@ -6,31 +6,33 @@ project:
     - CNAME
 
 website:
-  title: "Preceptions"
-  site-url: https://www.jkapila.github.io
-  description: "A blog about data science, statistics, machine learning, and the scientific method"
+  title: "Jitin Kapila"
+  site-url: https://www.jitinkapila.com
+  description: "Problem solver finding patterns across industries. Mathematical thinking applied to business challenges."
   favicon: "favicon-32x32.png"
-  # margin-header: includes/subscriber.html
+  open-graph: true
   navbar:
     logo: favicon.ico
-    # background: dark
-    background: "#000000"
+    background: "#1a1a1a"
     foreground: "#FFFFFF"
     pinned: true
     left:
-      - text: "Perceiving It !"    
-      # - text: Learnign DS Series
-      #   file: learningds.qmd 
+      - text: "Perceptions!"
     right:
-      - text: Blog
+      - text: "Home"
         file: index.qmd
       - text: "About"
         file: about.qmd
+      - text: "Strategic Insights"
+        file: insights.qmd
+      - text: "Executive Resume"
+        file: resume.qmd
+      - text: "Contact"
+        href: "mailto:jitin@jitinkapila.com?subject=AI%20Strategy%20Consultation"
     
   page-footer:
     left:
-      - text: Made with Quarto 😎
-        href: https://quarto.org/docs/blog/
+      - text: "© 2025 Jitin Kapila - AI Strategy Executive"
     right:
       - icon: rss
         href: index.xml
@@ -40,7 +42,6 @@ website:
         href: https://twitter.com/jitinkapila
       - icon: linkedin
         href: https://linkedin.com/in/jitinkapila
-  
 format:
   html:
     theme:
@@ -48,11 +49,10 @@ format:
     css: styles.css
     include-in-header:
       - includes/umami.html
-    highlight-style: printing
+    highlight-style: github
+    code-fold: true
+    code-tools: false
 
 execute:
   freeze: auto
   cache: true
-
-
-

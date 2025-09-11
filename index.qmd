@@ -1,21 +1,59 @@
 ---
-title: "Posts!"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  image-align: "left"
-  categories: true
-  sort-ui: false
-  filter-ui: false
-  fields: [image, date, title, description, categories]
-  feed: true
-format: 
-  html:
-    page-layout: article
-comments: false
+title: "Jitin Kapila"
+subtitle: "Problem Solver"
+image: display_image.jpg
+about:
+  template: trestles
+  image-shape: rounded
+  image-width: 280px
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/jitinkapila
+    - icon: github
+      text: GitHub  
+      href: https://github.com/jkapila
+    - text: "Contact"
+      href: mailto:jitin@jitinkapila.com
+    - text: "Resume"
+      href: resume.qmd
 page-layout: full
-# title-block-banner: true
 ---
 
+I solve problems by finding patterns others miss.
 
+*Sometimes the most elegant solution comes from applying insights from one industry to challenges in another.*
+
+## How I Think About Problems
+
+In mathematics, there's never just one solution to a problem. Some roots are simply more beautiful than others.
+
+This drives how I approach business challenges. After 14 years working across automotive, retail, insurance, FMCG, and telecommunications, I've learned that the breakthrough often comes when you look at a problem through the lens of a completely different industry.
+
+## An Example
+
+When I was working on automotive inventory management, traditional approaches weren't working. The patterns were too complex, the variables too numerous. Then I started thinking about it like a healthcare system managing patient flow.
+
+Suddenly, the solution became clear. We eliminated 45,000 excess units. Not because I knew more about automotive than the automotive experts, but because I was looking at it sideways.
+
+## What I Do
+
+I work with companies that have problems worth solving. Usually technical challenges that sit at the intersection of data, business logic, and human behavior. 
+
+Currently serving as Acting CTO across multiple Fortune 500 accounts while mentoring a team of 25+ professionals. The work spans predictive analytics, system optimization, and strategic planning.
+
+My background is mechanical engineering and applied mathematics. Turns out, the analytical frameworks that work for understanding physical systems often apply beautifully to business systems.
+
+## The Mathematical Mindset
+
+Pattern recognition across domains. Root cause analysis. Elegant solutions over brute force approaches.
+
+When you've solved similar problems in healthcare, the path through retail becomes visible. When you understand the mathematics of one optimization challenge, you start seeing the same structures everywhere.
+
+It's not about being the smartest person in the room. It's about being the person who's seen this pattern before, just wearing different clothes.
+
+---
+
+Want to discuss a problem you're working on?
+
+[Get in touch](mailto:jitin@jitinkapila.com)

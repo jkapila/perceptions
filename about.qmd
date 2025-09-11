@@ -1,43 +1,53 @@
 ---
-title: "Perceptions!"
-subtitle: "Jitin Kapila"
+title: "About"
+subtitle: "The person behind the patterns"
 image: display_image.jpg
-feed: true
-sidebar: false
 about:
   template: jolla
-  image-shape: rectangle
+  image-shape: rounded
   links:
-    - icon: twitter
-      # text: Twitter
-      href: https://twitter.com/jkapila
     - icon: linkedin
-      # text: LinkedIn
-      href: https://linkedin.com/jitinkapila
+      text: LinkedIn
+      href: https://linkedin.com/in/jitinkapila
     - icon: github
-      # text: Github
-      href: https://github.com/jitinkapila
-    - icon: rss
-      href: index.xml
-comments: false
+      text: GitHub
+      href: https://github.com/jkapila
+    - text: "Contact"
+      href: mailto:jitin@jitinkapila.com
+---
+
+## How I Think
+
+I've always been drawn to patterns. As a kid, I'd spend hours figuring out how things worked - taking apart radios, solving puzzles, trying to understand the underlying logic of systems.
+
+My background is mechanical engineering and applied mathematics. But somewhere along the way, I discovered that the same analytical frameworks that work for understanding physical systems often apply beautifully to business problems.
+
+## The Journey
+
+Fourteen years ago, I started working with data in the automotive industry. Traditional approaches weren't cutting it for the problems we faced. So I began looking at business challenges the way I'd approach a mathematical proof - breaking them down, finding the underlying patterns, testing different approaches until something elegant emerged.
+
+The breakthrough moment came when I realized that solutions from completely different industries could unlock problems that seemed intractable. Healthcare insights solving automotive challenges. Retail strategies transforming manufacturing operations. It sounds obvious now, but most experts stay within their domain expertise.
+
+## What Drives Me
+
+There's something deeply satisfying about finding the root cause of a complex problem. Even more satisfying when the solution is mathematically elegant - when all the pieces click into place and you realize there was a simpler way all along.
+
+*"In mathematics, there's never just one solution to a problem. Some roots are simply more beautiful than others."*
+
+This philosophy extends beyond work. Whether I'm learning a new piece on guitar or exploring some remote mountain trail, I'm always looking for patterns, connections, the underlying structure that makes things work.
+
+## Current Focus
+
+These days, I work with companies across multiple industries simultaneously. It keeps the pattern recognition sharp - jumping from automotive inventory problems to retail marketing optimization to insurance claims analytics. Each domain informs the others.
+
+I also spend time mentoring other professionals who want to develop this kind of cross-industry thinking. Teaching someone to see patterns they couldn't see before never gets old.
+
+## The Personal Side
+
+When I'm not solving problems, you'll find me playing guitar (badly but enthusiastically) or planning the next off-the-beaten-path adventure. There's something about getting lost in unfamiliar places that keeps the mind flexible.
+
+I believe in approaching challenges with curiosity rather than assumptions. Sometimes the most interesting solutions come from the most unexpected directions.
 
 ---
 
-**"Tao Te Ching, chapter 36, translation by Stephen Mitchell" >**
-As ***Lao Tzu*** says:  
-<br />
-_If you want to shrink something, you must first allow it to expand.  
-If you want to get rid of something, you must first allow it to flourish.  
-If you want to take something, you must first allow it to be given.  
-This is called the **subtle perception** of the way things are._  
-<br />
-_The soft overcomes the hard. The slow overcomes the fast.  
-Let your workings remain a mystery. Just show people the results._
-<br />
-
-
-Resume | [Research](research.qmd)  
-
-***Till next time, stay observant, stay crazy, stay safe, stay healthy.***
-
-
+*Want to discuss a problem you're working on? [Get in touch](mailto:jitin@jitinkapila.com)*

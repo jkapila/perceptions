@@ -1,13 +1,95 @@
 ---
-title: "Curriculum Vitae"
-format:
+title: "Resume"
+subtitle: "Cross-Industry Problem Solver"
+format: 
   html:
-    toc: true
-  # pdf:
-  #   author: Jitin Kapila
-  #   pdf-engine: weasyprint  
-# css: cv.css
-# format-links: [pdf]
+    page-layout: article
 ---
 
 
+# Jitin Kapila
+
+**📧** [Mail](jitin@jitinkapila.com) **|** **🔗** [LinkedIn](https://linkedin.com/in/jitinkapila) **|** **📍** Bengaluru, India
+
+---
+
+## Professional Summary
+
+Cross-industry problem solver with 14+ years applying mathematical thinking to business challenges across automotive, retail, FMCG, telecommunications, and insurance. Currently serving as Acting CTO for multiple Fortune 500 accounts while developing pattern recognition methodologies that transfer insights between industries.
+
+---
+
+## Professional Experience
+
+### **Principal Data Scientist** | Nagarro | 2023 - 2024
+
+**Multi-Account Strategic Leadership**
+- Simultaneously managed technical strategy across 4+ Fortune 500 clients
+- Developed cross-industry pattern recognition framework for solution transfer
+- Built and mentored cross-functional teams of 15+ professionals
+- Currently mentoring 25+ professionals across multiple accounts
+
+**Business Impact**
+- Automotive: Reduced inventory excess by 45,000 units through predictive analytics
+- Retail: Optimized marketing allocation resulting in $500K annual budget efficiency
+- Insurance: Implemented claims analytics reducing costs by ¥20M
+- FMCG: Post-pandemic inventory strategy eliminating $850K in holding costs
+
+### **Senior Data Science Consultant** | 2019 - 2023
+
+**Enterprise AI Strategy & Implementation**
+- Led AI transformation initiatives for Fortune 500 companies
+- Applied machine learning solutions across automotive, FMCG, telecommunications
+- Consistently delivered 3-7x return on investments within 2-3 year timeframes
+- Pioneered cross-industry solution adaptation methodology
+
+### **Data Science Lead** | 2010 - 2019
+
+**Foundation Building & Technical Excellence**
+- Built expertise in advanced analytics, machine learning, and statistical modeling
+- Gained experience across 6+ industries, developing pattern recognition abilities
+- Designed scalable AI systems for enterprise-level implementations
+
+---
+
+## Core Competencies
+
+**Strategic Leadership**
+- Cross-Industry Pattern Recognition & Innovation
+- Team Building & Talent Development
+- Executive Stakeholder Management
+
+**Technical Excellence** 
+- Advanced Analytics & Machine Learning Architecture
+- Predictive Modeling & Statistical Analysis
+- Enterprise AI System Design & Implementation
+
+**Industry Expertise**
+- Automotive: Inventory optimization, supply chain analytics
+- Retail/FMCG: Customer analytics, marketing optimization, promotional planning
+- Insurance: Claims analytics, risk modeling, fraud detection
+- Telecommunications: Customer lifecycle management, network optimization
+
+---
+
+## Education
+
+**Master of Technolog** | Data Sceince & Engineering  | *BITS Pilani* 
+
+**Bachelor of Engineering** | Mechanical Engineering  | *BIT, Durg* 
+
+---
+
+## Current Focus
+
+Fractional Client AI-CTO across multiple Fortune 500 accounts, developing frameworks for cross-industry insight transfer while building the next generation of analytical leaders.
+
+---
+
+<div style="text-align: center; margin-top: 3rem; padding: 2rem; background: #f8f9fa; border-radius: 8px;">
+
+**Available for senior strategic roles and consulting engagements**
+
+[**Download PDF Resume**](#) **|** [**Get in Touch**](mailto:jitin@jitinkapila.com)
+
+</div>

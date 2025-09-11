@@ -1,0 +1,25 @@
+---
+title: "Insights"
+subtitle: "Pattern recognition in action"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: grid
+  grid-columns: 2
+  image-align: "left"
+  categories: true
+  sort-ui: false
+  filter-ui: true
+  fields: [image, date, title, description, categories]
+  feed: true
+format: 
+  html:
+    page-layout: full
+comments: false
+---
+
+## Mathematical Thinking Applied to Business Problems
+
+Examples of how cross-industry pattern recognition transforms complex challenges into elegant solutions.
+
+---

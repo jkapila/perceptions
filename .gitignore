@@ -4,3 +4,6 @@
 *.ipynb_checkpoints
 /_site/
 .jupyter_cache
+
+**/*.quarto_ipynb
+.venv
