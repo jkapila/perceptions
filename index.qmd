@@ -1,59 +1,100 @@
 ---
-title: "Jitin Kapila"
-subtitle: "Problem Solver"
-image: display_image.jpg
-about:
-  template: trestles
-  image-shape: rounded
-  image-width: 280px
-  links:
-    - icon: linkedin
-      text: LinkedIn
-      href: https://linkedin.com/in/jitinkapila
-    - icon: github
-      text: GitHub  
-      href: https://github.com/jkapila
-    - text: "Contact"
-      href: mailto:jitin@jitinkapila.com
-    - text: "Resume"
-      href: resume.qmd
+pagetitle: "Jitin Kapila | AI Strategy & Enterprise Architecture"
 page-layout: full
 ---
 
-I solve problems by finding patterns others miss.
+::: {.hero-section}
 
-*Sometimes the most elegant solution comes from applying insights from one industry to challenges in another.*
 
-## How I Think About Problems
+::: {.hero-content}
 
-In mathematics, there's never just one solution to a problem. Some roots are simply more beautiful than others.
+[Framework for AI Leaders]{.eyebrow}
 
-This drives how I approach business challenges. After 14 years working across automotive, retail, insurance, FMCG, and telecommunications, I've learned that the breakthrough often comes when you look at a problem through the lens of a completely different industry.
+# Stop Guessing. Start Architecting.
 
-## An Example
+The operating system for AI-driven enterprises. Transform from 'Corporate AI Lead' to 'Strategic AI Architect'.
 
-When I was working on automotive inventory management, traditional approaches weren't working. The patterns were too complex, the variables too numerous. Then I started thinking about it like a healthcare system managing patient flow.
+::: {.hero-buttons}
 
-Suddenly, the solution became clear. We eliminated 45,000 excess units. Not because I knew more about automotive than the automotive experts, but because I was looking at it sideways.
+[Start the Protocol](https://YOUR-SYSTEME-IO-LINK.com){.btn-primary .btn-large}
+[Read the Manifesto](about.qmd){.btn-secondary .btn-large}
 
-## What I Do
+:::
 
-I work with companies that have problems worth solving. Usually technical challenges that sit at the intersection of data, business logic, and human behavior. 
+:::
 
-Currently serving as Acting CTO across multiple Fortune 500 accounts while mentoring a team of 25+ professionals. The work spans predictive analytics, system optimization, and strategic planning.
+:::
 
-My background is mechanical engineering and applied mathematics. Turns out, the analytical frameworks that work for understanding physical systems often apply beautifully to business systems.
+::: {.column-body-inset .bg-warm}
+#### Trusted by leaders at: Fortune 500 Automotive | Global Retail | Enterprise Insurance | FMCG
+:::
 
-## The Mathematical Mindset
+::: {.fixed-section}
 
-Pattern recognition across domains. Root cause analysis. Elegant solutions over brute force approaches.
+## The AI-ART Matrix
 
-When you've solved similar problems in healthcare, the path through retail becomes visible. When you understand the mathematics of one optimization challenge, you start seeing the same structures everywhere.
+Why 73% of enterprise AI initiatives fail to scale.
 
-It's not about being the smartest person in the room. It's about being the person who's seen this pattern before, just wearing different clothes.
+| The Old Way | The Architect Way |
+|-------------|-------------------|
+| Prescriptive AI | Predictive Strategy |
+| Tool-first thinking | Outcome-first design |
+| Siloed implementations | Systemic integration |
+| Vendor-dependent | Architecture-independent |
+| Reactive problem-solving | Proactive pattern recognition |
+| Dashboard metrics | Business transformation |
 
----
+:::
 
-Want to discuss a problem you're working on?
+::: {.fixed-section .bg-warm}
 
-[Get in touch](mailto:jitin@jitinkapila.com)
+[The Framework]{.eyebrow}
+
+## The OLCD Protocol
+
+**Objective → Learner → Controller → Diagnostic**
+
+A battle-tested operating system for enterprise AI transformation.
+
+After 14 years across automotive, retail, insurance, FMCG, and telecommunications, I've distilled what separates successful AI implementations from expensive experiments.
+
+It's not about having the best tools. It's about having the right architecture.
+
+[Explore the Protocol →](bootcamp.qmd){.text-link}
+
+:::
+
+::: {.section }
+
+## What You'll Master
+
+::: {.quarto-listing-grid}
+
+::: {.card}
+### Strategic Architecture
+Map your organization's AI maturity. Identify gaps between current state and AI-driven future. Design systems that scale.
+:::
+
+::: {.card}
+### Pattern Recognition
+Apply cross-industry insights. See solutions others miss. Solve problems sideways.
+:::
+
+::: {.card}
+### Implementation Frameworks
+OLCD Protocol. AI-ART Matrix. Blueprint methodology. Deployable from day one.
+:::
+
+:::
+
+:::
+
+::: {.section .text-center}
+
+## Ready to Transform Your Approach?
+
+The next cohort of The AI Architect Protocol starts soon.
+
+[Join the Blueprint →](https://YOUR-SYSTEME-IO-LINK.com){.btn-primary .btn-large}
+
+:::

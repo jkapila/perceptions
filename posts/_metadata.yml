@@ -17,16 +17,17 @@ page-layout: article
 format:
   html:
     grid:
-      sidebar-width: 300px
-      # body-width: 900px
-      margin-width: 400px 
+      sidebar-width: 250px
+      body-width: 1200px
+      margin-width: 350px
+      gutter-width: 1.5rem 
 reference-location: margin
 citation-location: margin
 cap-location: margin
 
 # title settings
-title-block-banner: "white"
-title-block-banner-color: "black"
+title-block-banner: ""
+title-block-banner-color: "royal blue"
 title-block-style: default
 
 # defaulting lightbox 

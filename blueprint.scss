@@ -1,0 +1,852 @@
+/*-- scss:defaults --*/
+
+/*
+  BLUEPRINT.SCSS - THE AI ARCHITECT THEME
+  Based on Option A: Minimal Blueprint design
+
+  This SCSS file follows Quarto best practices:
+  - scss:defaults = Override Bootstrap variables BEFORE compilation
+  - scss:rules = Extend the compiled theme cleanly
+*/
+
+// ========================================
+// TYPOGRAPHY - GOOGLE FONTS IMPORT
+// ========================================
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+// ========================================
+// BOOTSTRAP VARIABLE OVERRIDES
+// These override Bootstrap BEFORE it compiles
+// ========================================
+
+// Typography System
+$font-family-sans-serif:  'IBM Plex Sans', -apple-system, system-ui, sans-serif !default;
+$font-family-monospace:   'IBM Plex Mono', 'Consolas', monospace !default;
+$headings-font-family:    'Bebas Neue', Impact, sans-serif !default;
+$headings-font-weight:    400 !default;
+$headings-line-height:    1.1 !default;
+$headings-letter-spacing: 1px !default;
+
+// Base Font Sizes
+$font-size-base:          1rem !default;  // 16px
+$line-height-base:        1.7 !default;
+
+// Heading Sizes (Responsive via clamp in rules section)
+$h1-font-size:            4rem !default;   // 64px
+$h2-font-size:            2.5rem !default; // 40px
+$h3-font-size:            1.75rem !default; // 28px
+$h4-font-size:            1.25rem !default; // 20px
+
+// Color Palette - Navy & Cream Gold
+$primary:                 #0C2B4E !default; // Navy Deep
+$secondary:               #213555 !default; // Navy Royal
+$success:                 #3E5879 !default; // Slate Blue (repurpose)
+$info:                    #D8C4B6 !default; // Cream Gold (repurpose)
+$warning:                 #C4B09E !default; // Gold Hover
+$danger:                  #0C2B4E !default; // Keep navy for consistency
+
+// Background Colors
+$body-bg:                 #FAFBFC !default; // Light background
+$body-color:              #5A6A7A !default; // Body text
+$text-muted:              #8896A6 !default; // Muted text
+
+// Link Colors
+$link-color:              #0C2B4E !default; // Navy deep
+$link-hover-color:        #3E5879 !default; // Slate blue
+$link-decoration:         none !default;
+$link-hover-decoration:   underline !default;
+
+// Border Radius (Sharp corners - Blueprint aesthetic)
+$border-radius:           0 !default;
+$border-radius-sm:        0 !default;
+$border-radius-lg:        0 !default;
+$border-radius-pill:      0 !default; // Override pill shapes
+
+// Borders
+$border-width:            1px !default;
+$border-color:            rgba(12, 43, 78, 0.1) !default; // Subtle navy
+
+// Navbar
+$navbar-padding-y:        1rem !default;
+$navbar-padding-x:        0 !default;
+$navbar-brand-font-size:  1.25rem !default;
+$navbar-bg:               rgba(255,255,255, 0.85) !default;
+$navbar-color:            #0C2B4E !default;
+$navbar-hover-color:      #3E5879 !default;
+$navbar-active-color:     #0C2B4E !default;
+
+// Footer
+$footer-bg:               #F8F6F3 !default; // Warm background
+$footer-color:            #8896A6 !default; // Muted text
+
+// Spacing Scale
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.5,   // 8px
+  2: $spacer,         // 16px
+  3: $spacer * 1.5,   // 24px
+  4: $spacer * 2,     // 32px
+  5: $spacer * 3,     // 48px
+  6: $spacer * 4,     // 64px
+  7: $spacer * 6,     // 96px
+  8: $spacer * 7.5    // 120px
+) !default;
+
+// Card Styling
+$card-border-width:       1px !default;
+$card-border-color:       rgba(12, 43, 78, 0.1) !default;
+$card-border-radius:      0 !default; // Sharp corners
+$card-bg:                 white !default;
+$card-spacer-y:           1.5rem !default;
+$card-spacer-x:           1.5rem !default;
+
+// Button Styling
+$btn-padding-y:           0.875rem !default; // 14px
+$btn-padding-x:           1.75rem !default;  // 28px
+$btn-font-size:           0.75rem !default;  // 12px
+$btn-font-weight:         600 !default;
+$btn-border-radius:       0 !default;
+$btn-text-transform:      uppercase !default;
+$btn-letter-spacing:      2px !default;
+
+// Tables
+$table-cell-padding-y:    1rem !default;
+$table-cell-padding-x:    1rem !default;
+$table-border-color:      rgba(12, 43, 78, 0.1) !default;
+$table-striped-bg:        #F8F6F3 !default; // Warm background
+$table-hover-bg:          rgba(12, 43, 78, 0.03) !default;
+
+// Code Blocks
+$code-font-size:          0.9em !default;
+$code-color:              #0C2B4E !default;
+$pre-color:               #5A6A7A !default;
+
+
+/*-- scss:rules --*/
+
+/*
+  CUSTOM RULES
+  These extend the Bootstrap theme without fighting it
+  No !important needed - we modified the variables above
+*/
+
+// ========================================
+// BLUEPRINT GRID BACKGROUND
+// ========================================
+
+body {
+  background-image:
+    linear-gradient(rgba(33, 53, 85, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33, 53, 85, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-attachment: fixed;
+}
+
+// ========================================
+// TYPOGRAPHY ENHANCEMENTS
+// ========================================
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  letter-spacing: $headings-letter-spacing;
+  color: $primary;
+  font-weight: $headings-font-weight;
+  padding: 0rem 1rem;
+  margin-top: 1rem;
+}
+
+// Responsive Typography with clamp()
+h1 {
+  font-size: clamp(3.5rem, 10vw, 6.5rem); // 56px - 104px (increased from 48-80)
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3rem); // 32px - 48px
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem); // 24px - 32px
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+// Eyebrow Text
+.eyebrow {
+  font-family: $font-family-sans-serif;
+  font-size: 1rem; // 15px (upgraded from 11px)
+  font-weight: 600;
+  letter-spacing: 2.5px; // Slightly tighter for better readability
+  text-transform: uppercase;
+  color: $text-muted;
+  //margin-bottom: 1.25rem; // Increased spacing
+  display: block;
+  opacity: 0.80; // Subtle refinement for depth
+  transition: opacity 1s ease; // Smooth interaction
+  max-width: inherit;
+}
+
+// Body Text
+p {
+  margin-bottom: 1rem;
+  //max-width: 75ch; // Optimal reading width
+}
+
+
+// Strong Text
+strong {
+  font-weight: 600;
+  color: $primary;
+}
+
+// ========================================
+// NAVBAR CUSTOMIZATION
+// ========================================
+
+#quarto-header,
+.navbar {
+  background: rgba(255, 255, 255, 0.7); // More transparent (was 0.95)
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(12, 43, 78, 0.1); // Lighter border
+  box-shadow: none;
+
+  // Top accent bar (Option A style)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: $primary;
+  }
+}
+
+.navbar-brand,
+.navbar-title {
+  font-family: $headings-font-family; // Bebas Neue (was IBM Plex Sans)
+  font-size: 2rem; // 34px for better visibility
+  font-weight: 400; // Bebas Neue only has 400 weight
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding-left: 0.65em;
+  color: $primary;
+  white-space: nowrap; // Keep "JITIN KAPILA | THE AI ARCHITECT" on one line
+}
+
+.navbar-nav .nav-link {
+  font-family: $font-family-sans-serif;
+  font-size: 0.875rem; // 14px
+  font-weight: 500;
+  color: $navbar-color;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+
+  &:hover,
+  &:focus {
+    color: $navbar-hover-color;
+  }
+}
+
+.navbar-nav .active > .nav-link,
+.navbar-nav .nav-link.active {
+  color: $navbar-active-color;
+  font-weight: 600;
+  background-color: $footer-bg;
+  border-bottom: 2px solid $primary; // Underline the active page
+  padding-bottom: calc(0.5rem - 2px); // Adjust padding to account for border
+}
+
+// ========================================
+// BUTTONS (Option A Style)
+// ========================================
+
+.btn {
+  text-transform: $btn-text-transform;
+  letter-spacing: $btn-letter-spacing;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); // Smooth easing
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: $primary;
+  color: white;
+  border: 2px solid $primary;
+  box-shadow: 0 2px 8px rgba(12, 43, 78, 0.15);
+
+  // Subtle scale and shadow on hover
+  &:hover {
+    background: $secondary; // Slightly lighter navy
+    border-color: $secondary;
+    transform: translateY(-2px); // Lift effect
+    box-shadow: 0 4px 16px rgba(12, 43, 78, 0.25); // Enhanced shadow
+  }
+
+  &:active {
+    transform: translateY(0); // Press down
+    box-shadow: 0 2px 8px rgba(12, 43, 78, 0.15);
+  }
+}
+
+.btn-secondary {
+  background: transparent;
+  color: $primary;
+  border: 2px solid $primary;
+  box-shadow: none;
+
+  // Slide in background from left
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: $primary;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+
+  &:hover {
+    color: white;
+    border-color: $primary;
+
+    &::before {
+      width: 100%; // Fill from left to right
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.btn-large {
+  padding: 1.125rem 2.25rem; // 18px 36px
+  font-size: 0.875rem; // 14px
+}
+
+// ========================================
+// LINKS WITH UNDERLINE ANIMATION
+// ========================================
+
+.text-link {
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $link-color;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+// ========================================
+// HERO SECTION (Option A Style)
+// ========================================
+
+.hero-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7.5rem 1.5rem; // 120px 24px
+  text-align: center;
+  position: relative; // For future enhancements
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center; // Center all content by default
+
+  h1 {
+    margin-bottom: 1rem;
+    width: 100%;
+
+    // Accent divider bar (Option A style)
+    &::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: $info; // Cream gold
+      margin: 1.75rem auto 1.5rem;
+    }
+  }
+
+  p {
+    margin-bottom: 1rem;
+    width: 100%; // Optimal reading width
+  }
+
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+
+// ========================================
+// SECTIONS & CONTAINERS
+// ========================================
+
+.section {
+  padding: 4.5rem 1.5rem; // 72px
+  margin: 0 auto;
+}
+
+.social-proof {
+  text-align: center;
+  padding: 3rem 0;
+  background: $footer-bg; // Warm background
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $text-muted;
+  letter-spacing: 1px;
+}
+
+.fixed-section {
+  padding: 4.5rem 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+// Background Utilities
+.bg-warm {
+  background-color: $footer-bg;
+}
+
+.bg-navy {
+  background-color: $primary;
+  color: white;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
+
+  .eyebrow {
+    color: rgba(255, 255, 255, 0.7); // Slightly more visible (was 0.6)
+    text-align: center; // More appropriate than justify-content
+    opacity: 1; // Override default opacity on dark backgrounds
+    width: 100%;
+  }
+}
+
+// ========================================
+// CARDS (Sharp Corners, Minimal)
+// ========================================
+
+.card,
+.quarto-grid-item {
+  background: $card-bg;
+  border: 2px solid $card-border-color;
+  padding: $card-spacer-y $card-spacer-x;
+  transition: box-shadow 0.8s ease, transform 0.8s ease;
+
+  &:hover {
+    box-shadow: 0 3px 9px rgba(12, 43, 78, 0.2);
+    transform: translateY(-7px);
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-size: 1.25rem; // 20px
+    margin-bottom: 1rem;
+  }
+}
+
+.card-title,
+.listing-title {
+  font-family: $headings-font-family;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+  color: $primary;
+  margin-bottom: 0.5rem;
+  padding: 1rem 1rem;
+}
+
+.card-description,
+.listing-description {
+  font-size: 0.875rem;
+  color: $body-color;
+  line-height: 1.6;
+  padding: 1rem 1rem;
+}
+
+// ========================================
+// TABLES (Option A Style)
+// ========================================
+
+table {
+  width: 100%;
+  margin: 3rem 0;
+  background: white;
+
+  th {
+    background: $footer-bg;
+    font-family: $font-family-sans-serif;
+    font-weight: 600;
+    font-size: 0.8125rem; // 13px
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $primary;
+  }
+}
+
+// ========================================
+// DIVIDERS (Option A Style)
+// ========================================
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background: $info; // Cream gold
+  margin: 1.75rem 0;
+
+  &.divider-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+hr {
+  border: none;
+  border-top: 1px solid $border-color;
+  margin: 3rem 0;
+}
+
+// ========================================
+// BLOG LISTING (THE VAULT)
+// ========================================
+
+.vault-header {
+  text-align: center;
+  padding: 4.5rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quarto-listing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 3rem;
+  padding: 3rem 1rem;
+}
+
+.listing-category {
+  font-size: 0.6875rem; // 11px
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $text-muted;
+  margin-bottom: 0.5rem;
+}
+
+.listing-date {
+  font-size: 0.8125rem; // 13px
+  color: $text-muted;
+  margin-top: 0.5rem;
+}
+
+// ========================================
+// TABS (PANEL TABSET)
+// ========================================
+
+.panel-tabset {
+  margin: 1.5rem 0;
+
+  .nav-tabs {
+    border-bottom: 2px solid $border-color;
+    margin-bottom: 1rem;
+  }
+
+  .nav-link {
+    font-family: $headings-font-family;
+    font-size: 1.25rem; // 20px
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $text-muted;
+    border: none;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $primary;
+      border: none;
+    }
+
+    &.active {
+      color: $primary;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid $info; // Cream gold accent
+    }
+  }
+}
+
+// ========================================
+// BOOTCAMP / SALES PAGES
+// ========================================
+
+.bootcamp-hero {
+  text-align: center;
+  padding: 7.5rem 1.5rem;
+  background: $footer-bg; // Warm background
+}
+
+.timeline {
+  position: relative;
+  padding-left: 3rem;
+  border-left: 2px solid $border-color;
+
+  &-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 1.5rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -42px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      background: $info; // Cream gold
+      border: 3px solid $body-bg;
+    }
+
+    h3 {
+      font-size: 1.5rem; // 24px
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.cta-section {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: $primary;
+  color: white;
+
+  h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto 1.5rem auto;
+    font-size: 1.125rem; // Slightly larger for readability
+  }
+
+  // Make links visible on dark background
+  a:not(.btn):not(.btn-primary):not(.btn-secondary) {
+    color: $info; // Cream gold for contrast
+    text-decoration: underline;
+    font-weight: 500;
+
+    &:hover {
+      color: $warning; // Gold hover
+    }
+  }
+
+  // Override button styles for dark background
+  .btn-primary {
+    background: white;
+    color: $primary;
+    border: 2px solid white;
+    margin: 2rem auto 1rem;
+
+    &:hover {
+      background: $info; // Cream gold
+      color: $primary;
+      border-color: $info;
+    }
+  }
+
+  // Strong text styling
+  strong {
+    color: white;
+    font-weight: 600;
+  }
+
+  // Spacing utilities
+  .mt-lg {
+    margin-top: 3rem;
+  }
+}
+
+// ========================================
+// FOOTER
+// ========================================
+
+.nav-footer {
+  border-top: 2px solid $border-color;
+  padding: 1.5rem 0; // Reduced from 3rem
+  background: $footer-bg;
+  margin-top: 7.5rem;
+}
+
+.nav-footer-left {
+  font-size: 0.875rem; // 14px
+  color: $body-color;
+  font-weight: 500;
+}
+
+.nav-footer-right {
+  display: flex;
+  gap: 1.5rem; // Space between icons
+  align-items: center;
+}
+
+.nav-footer a {
+  color: $primary;
+  font-size: 1.5rem; // Bigger social icons (24px)
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: $secondary;
+    transform: translateY(-2px); // Subtle lift
+  }
+
+  // Icon-specific styling
+  i {
+    font-size: inherit;
+  }
+}
+
+// ========================================
+// ABOUT PAGE (Quarto About Template Customization)
+// ========================================
+
+.about-entity {
+  // Customize the about page header
+  .about-image {
+    border: 3px solid $primary;
+    box-shadow: 0 4px 12px rgba(12, 43, 78, 0.15);
+  }
+
+  .about-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+
+    .about-link {
+      font-family: $font-family-sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: $primary;
+      background: white;
+      border: 2px solid $primary;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      &:hover {
+        background: $primary;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(12, 43, 78, 0.15);
+      }
+
+      i {
+        font-size: 1.125rem;
+      }
+    }
+  }
+}
+
+// ========================================
+// RESPONSIVE DESIGN
+// ========================================
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 60vh;
+    padding: 4.5rem 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+
+    .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  .eyebrow {
+    font-size: 0.75rem; // 12px on mobile (slightly smaller)
+    letter-spacing: 2px; // Tighter on mobile
+    margin-bottom: 1rem;
+  }
+
+  .quarto-listing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  table {
+    font-size: 0.8125rem; // 13px
+
+    th, td {
+      padding: 0.5rem;
+    }
+  }
+}
+
+// ========================================
+// UTILITY CLASSES
+// ========================================
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-sm { margin-top: map-get($spacers, 2); }
+.mt-md { margin-top: map-get($spacers, 3); }
+.mt-lg { margin-top: map-get($spacers, 5); }
+.mt-xl { margin-top: map-get($spacers, 7); }
+
+.mb-sm { margin-bottom: map-get($spacers, 2); }
+.mb-md { margin-bottom: map-get($spacers, 3); }
+.mb-lg { margin-bottom: map-get($spacers, 5); }
+.mb-xl { margin-bottom: map-get($spacers, 7); }

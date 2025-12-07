@@ -1,0 +1,297 @@
+# BRAND.YML
+# Design Token System for The AI Architect
+# Single source of truth for all brand assets
+
+meta:
+  name: "The AI Architect"
+  tagline: "Stop Guessing. Start Architecting."
+  link: "https://jitinkapila.com"
+  founder: "Jitin Kapila"
+
+color:
+  # Primary Palette
+  palette:
+    navy-deep: "#0C2B4E"
+    navy-royal: "#213555"
+    slate-blue: "#3E5879"
+    cream-gold: "#D8C4B6"
+    gold-hover: "#C4B09E"
+    bg-light: "#FAFBFC"
+    bg-warm: "#F8F6F3"
+    text-body: "#5A6A7A"
+    text-muted: "#8896A6"
+
+  # Semantic Colors (mapped to palette)
+  background: "#FAFBFC"
+  foreground: "#0C2B4E"
+  primary: "#0C2B4E"
+  secondary: "#213555"
+  success: "#3E5879"
+  info: "#D8C4B6"
+  warning: "#C4B09E"
+  danger: "#0C2B4E"
+
+  # Link Colors
+  link: "#0C2B4E"
+  link-hover: "#3E5879"
+
+  # Border & Shadow
+  border: "rgba(12, 43, 78, 0.1)"
+  shadow: "rgba(12, 43, 78, 0.08)"
+
+typography:
+  # Font Families
+  fonts:
+    - family: "Bebas Neue"
+      source: google
+      weight: [400]
+      use: "headings"
+
+    - family: "IBM Plex Sans"
+      source: google
+      weight: [400, 500, 600]
+      use: "body"
+
+    - family: "IBM Plex Mono"
+      source: google
+      weight: [400, 500]
+      use: "monospace"
+
+  # Base Typography
+  base-size: "16px"
+  base-line-height: 1.7
+
+  # Headings Configuration
+  headings:
+    family: "Bebas Neue"
+    weight: 400
+    transform: "uppercase"
+    letter-spacing: "1px"
+    line-height: 1.1
+
+  # Body Configuration
+  body:
+    family: "IBM Plex Sans"
+    weight: 400
+    line-height: 1.7
+    color: "#5A6A7A"
+
+  # Font Sizes (Responsive)
+  sizes:
+    h1:
+      min: "48px"
+      preferred: "8vw"
+      max: "80px"
+      line-height: 0.95
+
+    h2:
+      min: "32px"
+      preferred: "5vw"
+      max: "48px"
+      line-height: 1.1
+
+    h3:
+      min: "24px"
+      preferred: "3vw"
+      max: "32px"
+      line-height: 1.2
+
+    eyebrow:
+      size: "11px"
+      weight: 600
+      letter-spacing: "3px"
+      transform: "uppercase"
+
+    body:
+      size: "16px"
+      line-height: 1.7
+
+    small:
+      size: "13px"
+      line-height: 1.6
+
+layout:
+  # Spacing Scale
+  spacing:
+    xs: "8px"
+    sm: "16px"
+    md: "24px"
+    lg: "32px"
+    xl: "48px"
+    2xl: "64px"
+    3xl: "96px"
+    section: "120px"
+
+  # Grid Settings
+  grid:
+    max-width: "1200px"
+    columns: 12
+    gutter: "24px"
+
+  # Border Radius (Sharp Corners)
+  border-radius:
+    default: "0"
+    small: "0"
+    large: "0"
+    pill: "0"
+
+  # Container Widths
+  containers:
+    default: "1200px"
+    article: "800px"
+    narrow: "600px"
+    wide: "1400px"
+
+components:
+  # Button Styles
+  button:
+    primary:
+      background: "#0C2B4E"
+      color: "#FFFFFF"
+      padding: "14px 28px"
+      font-size: "12px"
+      font-weight: 600
+      letter-spacing: "2px"
+      transform: "uppercase"
+      border-radius: "0"
+      hover-background: "#213555"
+
+    secondary:
+      background: "transparent"
+      color: "#0C2B4E"
+      border: "2px solid #0C2B4E"
+      padding: "14px 28px"
+      font-size: "12px"
+      hover-background: "#0C2B4E"
+      hover-color: "#FFFFFF"
+
+  # Card Styles
+  card:
+    background: "#FFFFFF"
+    border: "1px solid rgba(12, 43, 78, 0.1)"
+    border-radius: "0"
+    padding: "24px"
+    shadow: "none"
+    hover-shadow: "0 2px 8px rgba(12, 43, 78, 0.08)"
+    hover-transform: "translateY(-3px)"
+
+  # Divider Styles
+  divider:
+    width: "60px"
+    height: "2px"
+    color: "#D8C4B6"
+
+  # Navbar Styles
+  navbar:
+    background: "rgba(255, 255, 255, 0.95)"
+    border: "1px solid rgba(12, 43, 78, 0.1)"
+    top-accent-height: "4px"
+    top-accent-color: "#0C2B4E"
+    brand-size: "11px"
+    brand-spacing: "3px"
+    link-size: "14px"
+
+  # Table Styles
+  table:
+    border: "1px solid rgba(12, 43, 78, 0.1)"
+    header-bg: "#F8F6F3"
+    stripe-bg: "#F8F6F3"
+    hover-bg: "rgba(12, 43, 78, 0.03)"
+
+visual-motif:
+  # Blueprint Grid Background
+  grid-background:
+    size: "20px"
+    color: "rgba(33, 53, 85, 0.03)"
+    attachment: "fixed"
+
+  # Design Principles
+  principles:
+    - "Sharp corners (border-radius: 0)"
+    - "No gradients except subtle grid background"
+    - "Geometric precision"
+    - "Engineering blueprint aesthetic"
+    - "Minimal, professional, authority"
+
+  # Accent Elements
+  accents:
+    top-bar: "#0C2B4E"  # 4px solid bar at top of sections
+    divider-line: "#D8C4B6"  # 60px × 2px horizontal lines
+    corner-brackets: "rgba(216, 196, 182, 0.3)"  # Optional geometric corners
+
+breakpoints:
+  mobile: "480px"
+  tablet: "768px"
+  desktop: "1024px"
+  wide: "1280px"
+  max: "1440px"
+
+assets:
+  # Logo & Icons
+  logo: "favicon.ico"
+  favicon: "favicon-32x32.png"
+  apple-touch-icon: "apple-touch-icon.png"
+
+  # Social Share Images
+  og-image: "display_image.jpg"
+  twitter-image: "display_image.jpg"
+
+social:
+  # Social Media Handles
+  linkedin: "jitinkapila"
+  github: "jkapila"
+  twitter: "jitinkapila"
+  instagram: "jitinkapila"
+  youtube: "jitinkapila"
+  substack: "aicrosscurrent"
+
+seo:
+  # SEO Metadata
+  title-template: "%s | The AI Architect"
+  description: "Helping Fortune 500 leaders transition from Prescriptive AI to Predictive Strategy."
+  keywords:
+    - "AI Strategy"
+    - "Enterprise Architecture"
+    - "AI Transformation"
+    - "Fortune 500 AI"
+    - "AI Consulting"
+
+canva-reference:
+  # For creating social media graphics
+  brand-kit-colors:
+    - "#0C2B4E"  # Navy Deep
+    - "#213555"  # Navy Royal
+    - "#3E5879"  # Slate Blue
+    - "#D8C4B6"  # Cream Gold
+    - "#FAFBFC"  # BG Light
+    - "#F8F6F3"  # BG Warm
+    - "#5A6A7A"  # Text Body
+
+  fonts:
+    headline: "Bebas Neue"
+    body: "Lato"  # Canva alternative to IBM Plex Sans
+
+  slide-sizes:
+    instagram-post: "1080x1080"
+    instagram-story: "1080x1920"
+    instagram-carousel: "1080x1350"
+    linkedin-post: "1200x1200"
+    linkedin-banner: "1584x396"
+    twitter-header: "1500x500"
+
+frameworks:
+  # Core Teaching Frameworks
+  olcd:
+    name: "OLCD Protocol"
+    full-name: "Observe → Learn → Create → Deploy"
+    description: "Systematic implementation approach for AI transformation"
+
+  ai-art:
+    name: "AI-ART Matrix"
+    full-name: "AI Architecture Review & Transformation Matrix"
+    description: "Diagnostic framework revealing why 73% of AI initiatives fail"
+
+  roification:
+    name: "ROIfication Grid"
+    full-name: "ROI Quantification & Communication Framework"
+    description: "Measure and communicate AI value to stakeholders"

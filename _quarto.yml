@@ -1,58 +1,83 @@
 project:
   type: website
-  pre-render: 
+  output-dir: _site
+  pre-render:
     - "rm -rf _site/*"
   resources:
     - CNAME
+    - favicon-32x32.png
+    - favicon.ico
+    - apple-touch-icon.png
 
 website:
-  title: "Jitin Kapila"
-  site-url: https://www.jitinkapila.com
-  description: "Problem solver finding patterns across industries. Mathematical thinking applied to business challenges."
+  title: "Jitin Kapila | The AI Architect"
+  site-url: https://jitinkapila.com
+  description: "Helping Fortune 500 leaders transition from Prescriptive AI to Predictive Strategy."
   favicon: "favicon-32x32.png"
+
+  # SEO
   open-graph: true
+  twitter-card:
+    creator: "@jitinkapila"
+    card-style: summary_large_image
+
+  # NAVIGATION
   navbar:
-    logo: favicon.ico
-    background: "#1a1a1a"
-    foreground: "#FFFFFF"
-    pinned: true
-    left:
-      - text: "Perceptions!"
+    title: "JITIN KAPILA"
+    background: transparent
     right:
-      - text: "Home"
-        file: index.qmd
+      - text: "The Protocol"
+        href: bootcamp.qmd
+      - text: "The Vault"
+        href: vault.qmd
+      - text: "Consulting"
+        href: consulting.qmd
       - text: "About"
-        file: about.qmd
-      - text: "Strategic Insights"
-        file: insights.qmd
-      - text: "Executive Resume"
-        file: resume.qmd
-      - text: "Contact"
-        href: "mailto:jitin@jitinkapila.com?subject=AI%20Strategy%20Consultation"
-    
+        href: about.qmd
+      - text: "Newsletter"
+        href: https://aicrosscurrent.substack.com/
+        target: _blank
+
+  # FOOTER
   page-footer:
-    left:
-      - text: "© 2025 Jitin Kapila - AI Strategy Executive"
+    left: "© 2025 Jitin Kapila"
     right:
-      - icon: rss
-        href: index.xml
-      - icon: github
-        href: https://github.com/jkapila
-      - icon: twitter
-        href: https://twitter.com/jitinkapila
       - icon: linkedin
         href: https://linkedin.com/in/jitinkapila
+        aria-label: LinkedIn
+      - icon: twitter
+        href: https://x.com/jitinkapila
+        aria-label: Twitter
+      - icon: github
+        href: https://github.com/jkapila
+        aria-label: GitHub
+      - icon: youtube
+        href: https://www.youtube.com/@jitinkapila
+        aria-label: YouTube
+      - icon: substack
+        href: https://aicrosscurrent.substack.com/
+        aria-label: Substack Newsletter
+      - icon: instagram
+        href: https://instagram.com/jitinkapila
+        aria-label: Instagram
+
+
 format:
   html:
-    theme:
-      light: [literia, styles.scss]
-    css: styles.css
+    theme: [cosmo, blueprint.scss]
     include-in-header:
       - includes/umami.html
-    highlight-style: github
+      - includes/schema.html
+    toc: false
     code-fold: true
     code-tools: false
+    highlight-style: github
+    mainfont: 'IBM Plex Sans'
+    smooth-scroll: true
 
 execute:
   freeze: auto
   cache: true
+
+# Google Analytics (replace with your actual GA4 ID)
+google-analytics: "G-XXXXXXXXXX"

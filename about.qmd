@@ -1,53 +1,150 @@
 ---
-title: "About"
-subtitle: "The person behind the patterns"
-image: display_image.jpg
+title: "Jitin Kapila"
+pagetitle: "About | Jitin Kapila - The AI Architect"
 about:
-  template: jolla
+  template: trestles
+  image: display_image.jpg
+  image-width: 15em
   image-shape: rounded
   links:
     - icon: linkedin
       text: LinkedIn
       href: https://linkedin.com/in/jitinkapila
+    - icon: twitter
+      text: Twitter
+      href: https://x.com/jitinkapila
     - icon: github
       text: GitHub
       href: https://github.com/jkapila
-    - text: "Contact"
+    - icon: youtube
+      text: YouTube
+      href: https://www.youtube.com/@jitinkapila
+    - text: "{{< iconify simple-icons substack >}} Newsletter"
+      href: https://aicrosscurrent.substack.com/
+    - icon: envelope
+      text: Email
       href: mailto:jitin@jitinkapila.com
 ---
 
-## How I Think
+## The AI Architect
 
-I've always been drawn to patterns. As a kid, I'd spend hours figuring out how things worked - taking apart radios, solving puzzles, trying to understand the underlying logic of systems.
+14 years. 6 industries. One insight that changes everything.
 
-My background is mechanical engineering and applied mathematics. But somewhere along the way, I discovered that the same analytical frameworks that work for understanding physical systems often apply beautifully to business problems.
+::: {.section}
 
-## The Journey
+## The Origin Story
 
-Fourteen years ago, I started working with data in the automotive industry. Traditional approaches weren't cutting it for the problems we faced. So I began looking at business challenges the way I'd approach a mathematical proof - breaking them down, finding the underlying patterns, testing different approaches until something elegant emerged.
+I didn't set out to become "The AI Architect."
 
-The breakthrough moment came when I realized that solutions from completely different industries could unlock problems that seemed intractable. Healthcare insights solving automotive challenges. Retail strategies transforming manufacturing operations. It sounds obvious now, but most experts stay within their domain expertise.
+I started as a mechanical engineer with a background in applied mathematics. Early in my career, I was hired to solve automotive inventory problems that traditional approaches couldn't crack.
 
-## What Drives Me
+The patterns were too complex. The variables too numerous. The standard playbooks weren't working.
 
-There's something deeply satisfying about finding the root cause of a complex problem. Even more satisfying when the solution is mathematically elegant - when all the pieces click into place and you realize there was a simpler way all along.
+**Then I had a realization:**
 
-*"In mathematics, there's never just one solution to a problem. Some roots are simply more beautiful than others."*
+What if I stopped thinking about this like an automotive problem and started thinking about it like a healthcare system managing patient flow?
 
-This philosophy extends beyond work. Whether I'm learning a new piece on guitar or exploring some remote mountain trail, I'm always looking for patterns, connections, the underlying structure that makes things work.
+Suddenly, the solution became obvious. We eliminated 45,000 excess units.
 
-## Current Focus
+Not because I knew more about automotive than the automotive experts.
 
-These days, I work with companies across multiple industries simultaneously. It keeps the pattern recognition sharp - jumping from automotive inventory problems to retail marketing optimization to insurance claims analytics. Each domain informs the others.
+**Because I was looking at it sideways.**
 
-I also spend time mentoring other professionals who want to develop this kind of cross-industry thinking. Teaching someone to see patterns they couldn't see before never gets old.
+:::
 
-## The Personal Side
+::: {.section .bg-warm}
 
-When I'm not solving problems, you'll find me playing guitar (badly but enthusiastically) or planning the next off-the-beaten-path adventure. There's something about getting lost in unfamiliar places that keeps the mind flexible.
+## The Pattern Emerges
 
-I believe in approaching challenges with curiosity rather than assumptions. Sometimes the most interesting solutions come from the most unexpected directions.
+Over 14 years across automotive, retail, insurance, FMCG, and telecommunications, I kept seeing the same thing:
 
----
+**The breakthrough comes from applying insights from completely different domains.**
 
-*Want to discuss a problem you're working on? [Get in touch](mailto:jitin@jitinkapila.com)*
+Healthcare solving automotive. Retail transforming manufacturing. Mathematical frameworks from physics applied to business systems.
+
+Most experts stay within their industry expertise. They know their domain deeply, but they're looking straight ahead.
+
+I learned to look sideways.
+
+:::
+
+::: {.section}
+
+## The Mathematical Mindset
+
+In mathematics, there's never just one solution to a problem. Some roots are simply more beautiful than others.
+
+This philosophy drives how I approach enterprise AI:
+
+- **Pattern recognition across domains** instead of single-industry expertise
+- **Root cause analysis** instead of surface-level fixes
+- **Elegant solutions** over brute force approaches
+- **Systemic thinking** instead of point solutions
+
+When you've solved similar problems in healthcare, the path through retail becomes visible. When you understand the mathematics of one optimization challenge, you start seeing the same structures everywhere.
+
+:::
+
+::: {.section .bg-warm}
+
+## Current Work
+
+I serve as Acting CTO across multiple Fortune 500 accounts while mentoring a team of 25+ professionals.
+
+The work spans:
+
+- Predictive analytics and AI strategy architecture
+- Cross-industry system optimization
+- Executive team transformation and strategic planning
+- Implementation frameworks that actually scale
+
+I also run **The AI Architect Protocol** — a 3-day intensive that teaches enterprise leaders to think like architects instead of tool users.
+
+:::
+
+::: {.section}
+
+## The Framework
+
+After years of cross-industry work, I've distilled the approach into repeatable systems:
+
+**The OLCD Protocol:** Observe → Learn → Create → Deploy
+
+**The AI-ART Matrix:** A diagnostic framework that reveals why 73% of enterprise AI initiatives fail to scale
+
+**The Blueprint Methodology:** Architecture-first thinking for AI transformation
+
+These aren't theoretical models. They're battle-tested frameworks deployed across six industries.
+
+:::
+
+::: {.section .text-center}
+
+## Beyond the Work
+
+When I'm not architecting AI systems, you'll find me:
+
+- Playing guitar (badly but enthusiastically)
+- Planning the next off-the-beaten-path adventure
+- Reading mathematical proofs for fun (yes, really)
+
+Getting lost in unfamiliar places keeps the mind flexible. Some of my best insights come from being completely outside my comfort zone.
+
+:::
+
+::: {.cta-section}
+
+## Want to Work Together?
+
+I take on a limited number of consulting engagements and run cohort-based training for enterprise AI leaders.
+
+If you're exploring a major AI transformation, let's talk.
+
+[Explore Consulting](consulting.qmd){.btn-primary .btn-large}
+[Join The Protocol](bootcamp.qmd){.btn-secondary .btn-large}
+
+::: {.mt-lg}
+Or just [email me](mailto:info@kriyaytics.com) to discuss your challenge.
+:::
+
+:::

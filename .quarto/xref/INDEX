@@ -78,5 +78,68 @@
   },
   "insights.qmd": {
     "insights.html": "9ac182b6"
+  },
+  "consulting.qmd": {
+    "consulting.html": "63179348"
+  },
+  "vault/index.qmd": {
+    "index.html": "528d7d26"
+  },
+  "bootcamp.qmd": {
+    "bootcamp.html": "6b1f04c6"
+  },
+  "extras/sample-blog-post.qmd": {
+    "sample-blog-post.html": "f2d9eccf"
+  },
+  "extras/BRAND_MEMORY.md": {
+    "BRAND_MEMORY.html": "e367b3ec"
+  },
+  "CLAUDE.md": {
+    "CLAUDE.html": "d7bec051"
+  },
+  "vault.qmd": {
+    "vault.html": "2e54abdf"
+  },
+  "posts/strategy/decision-first-ai/index.qmd": {
+    "index.html": "f2cfc817"
+  },
+  "posts/engineering/04_crosstab_sparsity_classification/index.qmd": {
+    "index.html": "4d3c89b1"
+  },
+  "posts/engineering/01_adaptive_regression/index.qmd": {
+    "index.html": "f5661c3e"
+  },
+  "posts/engineering/09_linear_regression_the_right_way/index.qmd": {
+    "index.html": "450ad809"
+  },
+  "posts/engineering/going_back_to_basics_series/index.qmd": {
+    "index.html": "e328b195"
+  },
+  "posts/engineering/05_crostab_sparsity_regression/index.qmd": {
+    "index.html": "56869ea0"
+  },
+  "posts/engineering/03_crosstab_sparsity/index.qmd": {
+    "index.html": "7efba2ff"
+  },
+  "posts/engineering/11_what_is_trie_and_why_I_love_it/index.qmd": {
+    "index.html": "0ef0f027"
+  },
+  "posts/engineering/12_one_r_the_new way/index.qmd": {
+    "index.html": "627c490c"
+  },
+  "posts/engineering/learning_from_r_doing_in_python/index.qmd": {
+    "index.html": "196190f0"
+  },
+  "posts/engineering/08_efb_and_more/index.qmd": {
+    "index.html": "1a73682a"
+  },
+  "posts/engineering/02_hypothesis_test/index.qmd": {
+    "index.html": "6df209e6"
+  },
+  "posts/engineering/06_saving_my_blog/index.qmd": {
+    "index.html": "a2a3c415"
+  },
+  "posts/engineering/10_treeknn/index.qmd": {
+    "index.html": "2e8d902c"
   }
 }

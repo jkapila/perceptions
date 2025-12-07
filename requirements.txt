@@ -1,0 +1,5 @@
+statsmodels
+jupyterlab
+jupyter-cache
+seaborn
+scikit-learn

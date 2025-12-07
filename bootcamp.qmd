@@ -1,0 +1,118 @@
+---
+title: ""
+pagetitle: "The AI Architect Protocol | 3-Day AI Transformation Intensive"
+page-layout: full
+---
+
+::: {.hero-content}
+
+[Live Cohort Training]{.eyebrow}
+
+# The AI Architect Protocol
+
+Don't just learn AI. Install the Operating System.
+
+A 3-day intensive that transforms how you think about enterprise AI strategy.
+
+:::
+
+::: {.section}
+
+## The Problem
+
+You've been to the conferences. Read the whitepapers. Attended the vendor demos.
+
+But when it's time to actually implement AI at scale, the frameworks fall apart.
+
+**Why?**
+
+Because most AI training teaches you to think like a tool user. Not like an architect.
+
+The AI Architect Protocol rewires your approach from the ground up.
+
+:::
+
+::: {.fixed-section}
+
+## The 3-Day Intensive
+
+::: {.timeline}
+
+::: {.timeline-item}
+### Day 1: Observe
+Map your organization's AI maturity. Identify the gaps between where you are and where AI can take you. Learn the diagnostic frameworks that reveal hidden bottlenecks.
+:::
+
+::: {.timeline-item}
+### Day 2: Learn
+Master the frameworks. OLCD Protocol, AI-ART Matrix, and the Architecture Blueprint. Understand how to think systematically about AI transformation instead of project-by-project.
+:::
+
+::: {.timeline-item}
+### Day 3: Create
+Build your 90-day AI transformation roadmap. Leave with a deployable strategy, not theoretical concepts. Apply pattern recognition across industries to solve your specific challenges.
+:::
+
+:::
+
+:::
+
+::: {.section .bg-warm}
+
+## What You Get
+
+::: {.quarto-listing-grid}
+
+::: {.card}
+### Live Interactive Sessions
+3 full days of intensive training with direct access to 14+ years of cross-industry AI implementation experience.
+:::
+
+::: {.card}
+### The Framework Library
+OLCD Protocol. AI-ART Matrix. Blueprint Methodology. All templates, worksheets, and diagnostic tools.
+:::
+
+::: {.card}
+### Your 90-Day Roadmap
+Walk away with a customized transformation plan for your organization. Not theory. Deployable strategy.
+:::
+
+::: {.card}
+### Lifetime Access
+Recording access, framework updates, and ongoing community support with other AI Architects.
+:::
+
+:::
+
+:::
+
+::: {.section .text-center}
+
+## Who This Is For
+
+**You're a director or above** at an enterprise organization tasked with AI strategy.
+
+**You're tired of vendor pitches** and want to understand the underlying architecture.
+
+**You need results,** not another certification to put on LinkedIn.
+
+This isn't for beginners. This is for leaders who need to architect systems that scale.
+
+:::
+
+::: {.cta-section}
+
+## Ready to Architect?
+
+Next cohort starts **[INSERT DATE]**. Limited to 20 seats.
+
+**Investment:** $4,997
+
+[Secure Your Seat →](https://YOUR-SYSTEME-IO-CHECKOUT.com){.btn-primary .btn-large}
+
+::: {.mt-lg}
+Questions? [Email me directly](mailto:jitin@jitinkapila.com)
+:::
+
+:::

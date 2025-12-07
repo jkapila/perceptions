@@ -1,0 +1,131 @@
+---
+title: "Decision-First AI: Why Data Should Follow, Not Lead"
+description: "Let's stop the habit of blaming data and AI and start with what decisions we want !!"
+author: "Jitin Kapila"
+date: "2025-10-09"
+categories: [strategy, roi, business, ai]
+image: decision-map-framework.webp
+draft: false
+---
+
+
+Start here: don’t open a notebook until you know the decision you want to change.
+
+Sounds obvious. But most AI projects don’t start there. They start with a dataset, or with a “let’s try this model,” or with a platform demo that looks great in the cloud. And then weeks later the obvious question appears: “Okay — what decision does this support?” People shrug. The project stalls. The models are good. The business impact is vague.
+
+This is the dataset-first trap. It wastes time, money, and faith. It also gives AI a bad name.
+
+I’ve seen the opposite work — a lot. Start with the decision. Map the decision. Then pick the simplest data and model that make the decision better. The result? Faster pilots, clearer ROI, and systems that actually get used.
+
+That approach is not just a management neat-idea. There’s a real body of research showing that aligning models to downstream decision goals yields better decisions than optimizing prediction accuracy alone. And there are real, practical wins — from telecom fault detection to inventory systems — when you flip the order. arXiv+1
+
+## The “dataset-first” trap — what it looks like, and why it hurts
+
+Here’s the typical playbook I see in companies:
+
+- Someone discovers a new dataset.
+- They build dashboards, then a model, then a fine model, then a fancier model.
+- They show a demo. The demo gets applause. Then the work hits integration, governance, and the messy reality of people who must make decisions every day. The model’s outputs don’t map to a decision process. So adoption fails.
+
+Why? Because the project optimized the wrong thing. It optimized prediction metrics — error, F1, AUC, MAPE. And those are useful. But they’re not the measure of business impact. A model with better accuracy can still be useless if it doesn’t change what someone does.
+
+Harvard Business Review captured this idea well: decisions don’t start with data. They start with a problem, a role, a process, and a behavior. If your analytics don’t connect to that reality, you get slides and disappointment. Harvard Business Review
+
+There are more subtle costs too. Dataset-first projects often create models that are brittle in production: they overfit to historical quirks, they require constant data wrangling, and they produce numbers no one trusts. That kills scale.
+
+## Decision-first in research: not new, but finally practical
+There’s academic grounding for starting with decisions. In the machine-learning community this shows up as “decision-focused learning” or “smart predict-then-optimize.” The idea: train predictive models not for pure accuracy, but to minimize the loss that matters to the downstream optimization or decision task. When you optimize directly for the decision loss, you often get better business outcomes — even with “worse” prediction metrics. arXiv+1
+
+Recent papers and reviews show both the theory and practical methods: surrogate losses that reflect decision outcomes, techniques to differentiate through optimization, and heuristics for discrete problems. The takeaway: the math supports the intuition. If you want a model to help choose inventory levels, price points, or routing, train it with that decision in mind — not just with RMSE. Optimization Online+1
+
+That doesn’t mean every model must be complex. Often the opposite. Framing the decision reduces model complexity because you only model what matters. This is your Occam’s Razor
+
+## The Decision Map: simple framework you can use today
+If you want to flip to decision-first, start with a small, disciplined tool I call a Decision Map. It’s a one-page artefact. Build it before you touch data.
+
+Here’s the Decision Map — six steps. Do them in order.
+
+- **Name the decision.** Who decides, how often, and what options do they choose? Example: “Field-ops decides whether to dispatch a technician to a suspected DSL fault.” Be specific. Frequency matters — hourly, daily, weekly change what you can do.
+
+- **Define the decision metric(s).**What counts as success? Lower cost? Faster response time? Increase in net revenue? Pick one primary metric and one secondary. If you can’t name it in a single measurable sentence, you don’t have a decision.
+
+- **Map the current process.** Where is the decision made today? Which people and tools are involved? Where does data enter? Where do delays happen? This step exposes the friction you must remove.
+
+- **Identify the minimal action the model must trigger.** The model doesn’t need to be perfect. It needs to change behavior. If the model’s output is a probability, what threshold triggers action? Who gets the alert? What’s the handoff?
+
+- **List the minimal signals (data) needed.** Only include data that directly reduces uncertainty for the decision. You’ll be surprised how small this list often is. Think: signal → action. Not “all the data.”
+
+- **Plan the feedback loop.** How will you measure the decision metric after deployment? How will you collect labels and iterate? Decide that upfront.
+
+If you complete this map, you’ll have done 80% of the work most teams skip. It forces alignment, and it reveals whether the project is worth doing.
+
+![](/decision-map-framework.webp)
+
+## A telecom example, mapped end-to-end (real story)
+A brief, real example matters. I built a real-time anomaly detection system for a European telecom client early in my career. The project didn’t begin with “we have logs.” It began with this decision map:
+
+- **Decision:** Should operations dispatch a field technician proactively for a suspected DSL fault?
+- **Metric:** Reduce customer reported faults and improve Net Promoter Score (NPS) by reducing time-to-detect. Also: monthly cost savings from fewer reactive truck rolls and more planned truck rolls.
+- **Process:** Operations received the customer call, created a ticket, and dispatched if needed — often hours or days later. That was slow and expensive.
+  - **Action:** If the system flags an anomaly with high confidence
+  - **Red :** Very high probability in next 48 hours,
+  - **Amber:** probability in next 2-15 days
+  - **Green:** No visibility of error in next 15 days
+  This creates a high-priority ticket and dispatch a remote check or technician and was planned in region wise manner.
+- **Signals:** DSL line metrics, error rates, device telemetry, event logs — a handful of streams, not every log.
+- **Feedback:** Compare flagged incidents to customer complaints and adjust thresholds.
+
+Because the decision was so clear, we could measure value before full scale. The pilot cut detection time from days to hours, raised customer satisfaction significantly ( We sent messages to possible signal disruption early), and saved ~£80K per month ( because reducing complete breakdown to DSL by heat or so and by planning the route than going everywhere) . It wasn’t an exotic model (or may be it was, tech details some other day); it was a tightly scoped system that informed a clear action.
+
+Notice how this maps to the **Decision-First steps**. The model existed to change a single operational choice. That focus made deployment possible and measurable fast.
+
+## Another quick example: inventory decisions
+Inventory forecasting is a classic area where decision-first matters. You can chase lower MAPE and never change stocking policy. Or you can ask: what decision do merchandisers make with this forecast? When you frame it as “which SKUs do we order for next week, and what reorder points trigger expedited shipments,” you design the forecast differently: shorter horizons, bias for understock on fast movers, and direct constraints on reorder costs.
+
+I’ve led projects that delivered $11M in inventory optimization by building forecasts and decision rules that match merchant behavior and supply constraints. The trick was not better models — it was framing forecasts so the merchandisers could act with confidence.
+
+## Practical tips for teams (do this in week one)
+1) **Run a one-hour Decision Map workshop.** Invite the decision owner, one operator, one engineer, and one product owner. Build the one-page map. If the owner can’t commit to a metric, pause the project.
+1) **Start with a simple rule baseline.** Before modeling, define a rule that will be your baseline (e.g., “if X > T, create ticket”). If the model can’t beat that rule in decision impact, scrap it.
+1) **Measure decision impact, not model accuracy.** Your dashboard should show business metric delta — not just RMSE. If you show the board a change in cost or conversion, you’ll get attention.
+1) **Prioritize deployment constraints.** Decide telemetry, latency, and handoff requirements first. Models that can’t meet latency or trust constraints are useless no matter how accurate.
+1) **Iterate with real feedback.** Don’t wait for “perfect.” Ship an MVP that can be measured, then refine. Real decisions provide labels and operational learning.
+
+## Common objections and how to handle them
+
+***“But we don’t have a clear decision owner.”*** Then don’t build a model. Decisions live in roles. Pull the right owner in early, or you’ll build for nobody.
+
+***“Our data is messy.”*** Fine. If you can define the minimal signals, you can often create a proxy or start with manual labels. Messy data is easier to handle when you only need a few signals for a specific decision.
+
+***“We need predictions for many uses.”*** Build a simple decision-first pilot first. Use its success to fund broader platform work. Pilots create proof that unlocks investment.
+
+***“Decision-focused methods are academic — too hard.”*** There’s truth and myth here. The academic techniques show big wins when decision loss can be written down. But you don’t need complicated differentiable optimization to start. Use a decision map, simple thresholds, A/B tests, and iterative measurement. Graduate to decision-focused training once you have a stable objective. The research just tells us — unsurprisingly — that when you train with the decision in mind, outcomes improve. Optimization Online+1
+
+## One-page checklist (copy this)
+ - Decision name (The GOTO problem statement): ____________________
+ - Primary / Secondary metric (which can accounted for ROI calculation later ): _____
+ - Decision owner (I don’t want to debate on this): ________________________
+ - Frequency of predictions: real-time / hourly / daily / weekly / monthly
+ - Action / interventions which can be triggered by model: ____________________
+ - Minimal signals required( The core Data to begin with): ______________________
+ - Baseline rule (your fail-safe if everything goes wrong): ____________________
+ - Feedback source ( might be tricky, but you should have one): __________________
+
+If you can fill this in, you’re set for a pilot.
+
+## Final note — start small, measure fast, then scale with discipline
+The decision-first approach is simple because business problems are simple when stated well. The hard part is discipline: saying no to shiny demos and yes to measurable change. Start with one decision that matters. Map it. Ship a small system that changes behavior. Measure the business metric. Iterate.
+
+Research supports this: models trained with the decision in mind perform better on the actual outcomes you care about. And in practice, teams that flip the order — decision first, data second — get to value faster. arXiv+1
+
+If you want help mapping a decision in your company, send me one line describing the decision and the current process. I’ll reply with the Decision Map template you can use in a one-hour workshop. Or if you want we can connect too.
+
+If this post help you or think help someone in need, please do share it. Thanks!!!
+
+##Key sources & further reading
+Elmachtoub, A.N., & Grigas, P. — Smart “Predict, then Optimize” (foundational paper on decision-focused loss and SPO). arXiv
+Reviews and recent work on decision-focused learning (predict-and-optimize / decision-focused methods). arXiv+1
+Harvard Business Review — Decisions Don’t Start with Data — on why framing the decision matters. Harvard Business Review
+(And — the telecom and inventory examples referenced above are from projects on my profile/resume: Ask, if you want more details !! )
+
+

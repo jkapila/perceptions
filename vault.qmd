@@ -1,0 +1,48 @@
+---
+title: ""
+page-layout: full
+listing:
+  - id: strategy-posts
+    contents: "../posts/strategy/*/index.qmd"
+    type: grid
+    grid-columns: 3
+    categories: true
+    sort: "date desc"
+    fields: [title, description, date, categories]
+
+  - id: engineering-posts
+    contents: "../posts/engineering/*/index.qmd"
+    type: grid
+    grid-columns: 3
+    categories: true
+    sort: "date desc"
+    fields: [title, description, date, categories]
+---
+
+::: {.hero-content}
+
+[Knowledge Base]{.eyebrow}
+
+# The Vault
+
+Frameworks, code, and strategy for AI Architects.
+
+:::
+
+::: {.panel-tabset .column-page}
+
+## Strategy
+
+***For the C-Suite. ROI-focused frameworks and business transformation insights.***
+
+::: {#strategy-posts}
+:::
+
+## Engineering
+
+***For the builders. Code, implementation patterns, and technical deep-dives.***
+
+::: {#engineering-posts}
+:::
+
+:::

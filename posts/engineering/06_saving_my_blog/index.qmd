@@ -1,0 +1,72 @@
+---
+title: "Journey back to Bloggin' with Quarto"
+description: Sometime all you can do is wait for things to happen!
+date: "2025-01-23"
+categories: [blog, quarto]
+tags: [blogging, quarto, hugo, journey]
+image: mount-everest-6395759_640.jpg
+title-block-style: manuscript
+draft: true
+from: markdown+emoji  
+---
+![Journey that challenges you are the best! Image by [Devraj Bajgain](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6395759)](mount-everest-6395759_640.jpg)
+
+# My Blogging Evolution: From Jekyll's Depths to Quarto's Data Science Peak
+
+The realm of blogging platforms is expansive and constantly evolving, offering solutions for every niche. As a data science architect, my journey through this landscape has been a search for the ideal tool—one that integrates with my workflow, supports my use of R and Python, and enables me to share insights efficiently. This quest has led me from Jekyll to Hugo, and finally, to the data science-focused environment of Quarto. Let me recount this evolution.
+
+### The Beginning: [Jekyll's ](https://jekyllrb.com/) Promise and Problems
+
+Around 2015, *Jekyll* was a leading choice for static site generation. It promised a simple, static blog, but the reality had its challenges. The setup was relatively straightforward, but as a data scientist, I encountered significant drawbacks. My workflow involved R and Python code, and integrating these into blog posts was cumbersome. I spent more time tweaking Ruby and HTMLthan writing, which wasn't ideal.
+
+*It was an inefficient process that stifled creativity*. I needed a platform that understood the needs of data scientists, allowing seamless integration of code, narrative, and visuals. Despite its initial appeal, [*Jekyll proved more of a hindrance*](https://danmackinlay.name/notebook/static_sites.html) :disappointed_relieved:
+
+### A Glimmer of Hope: [Hugo](https://gohugo.io/) and [Blogdown](https://bookdown.org/yihui/blogdown/)
+
+Next, I discovered *Hugo*, along with the *blogdown* package in R. This combination allowed me to write blog posts directly in R Markdown, which was revolutionary. I created shortcodes that suited my style, and *writing in R Markdown was a game-changer*.
+
+However, my enthusiasm was short-lived. As I shifted more towards Python for development, I faced the same old problem: *juggling between environments*. The dream of a unified workflow remained [out of reach](https://rasmusnes.com/posts/hugo_vs_quarto/).
+
+### The Ideal: [Quarto](https://quarto.org/)
+
+Then came *Quarto*. This has been transformative. Quarto is designed for researchers and data scientists, supporting both R and Python seamlessly. I started migrating my site in early 2022, and the transition was smooth. *I built my site, deployed it on Netlify*, and finally had a natural and intuitive workflow.
+
+_Quarto allowed me to focus on content_. I could write, code, and visualize without leaving my data science environment. Its support for multiple output formats made adapting content for different channels easy.
+
+### The Hiatus and the Return
+
+Life intervened, and blogging took a backseat during 2023 and early 2024.
+
+*Now, I'm back*. The goal is to blog *better*, creating content that sparks conversations and pushes data science communication. I aim to leverage Quarto's full capabilities, building an engaging and informative blog, dashboards and whatever is possible. The plan is to distribute content across multiple channels and build a community. _Fingers crossed, I won't stop this time_. :v:
+
+# Lessons Learned and Resources
+
+My blogging journey has taught me valuable lessons:
+
+1.  **Choose the Right Tool**: The platform impacts your productivity. Select one that aligns with your workflow.
+2.  **Embrace Simplicity**: Focus on creating content and let the platform handle the rest.
+3.  **Stay Consistent**: Consistency is key. Maintain a realistic schedule.
+4.  **Engage with Your Audience**: Interact with readers and build a community.
+
+My recent inspiration is from :
+
+*   [%>% dreams](https://ivelasq.rbind.io/) Blog by Isabella Velásquez.
+*   [Notes from a data witch](https://blog.djnavarro.net/) A blog by Danielle Navarro.
+*   [Albert Rapp](https://albert-rapp.de/) His personal Blog.
+*   [Random Realizations](https://randomrealizations.com) A great work by Matt Bowers especially for python users.
+*   [Bits of Analytics](https://bitsofanalytics.org/) A good simple site!
+*   [Awesome Quarto](https://github.com/mcanouil/awesome-quarto) A great place to find best things on Quarto!!!
+
+To enhance my blog, I'm referring to these resources:
+
+*   [Aster Hu's experience migrating from Jekyll to Quarto](https://www.asterhu.com/post/2023-03-30-jekyll-migrating-to-quarto/)
+*   [Rasmus Nes's Blog on Hugo vs Quarto](https://rasmusnes.com/posts/hugo_vs_quarto/)
+*   [Discussion on lightweight personal blogging platforms on Hacker News](https://news.ycombinator.com/item?id=39272953)
+*   [Dan MacKinlay's notes on static websites](https://danmackinlay.name/notebook/static_sites.html)
+*   [Another Hacker News discussion on the best way to author blogs in 2024](https://news.ycombinator.com/item?id=41014806)
+*   [Can quarto work with Jekyll?](https://github.com/quarto-dev/quarto-cli/discussions/6534)
+*   [Swesome Static Generators ](https://github.com/myles/awesome-static-generators)
+
+
+_Here's to the next phase of my blogging evolution. May it be filled with insights and innovation!_
+

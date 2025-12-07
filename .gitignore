@@ -1,4 +1,4 @@
-/.quarto/
+.quarto
 /env/
 *.pyc
 *.ipynb_checkpoints
@@ -7,3 +7,6 @@
 
 **/*.quarto_ipynb
 .venv
+extras
+_backup
+backup

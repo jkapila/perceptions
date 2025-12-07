@@ -1,0 +1,101 @@
+---
+title: ""
+pagetitle: "AI Strategy Consulting | Jitin Kapila"
+page-layout: full
+---
+
+::: {.hero-content}
+
+[Strategic Consulting]{.eyebrow}
+
+# Work Directly With Me
+
+Limited 1:1 consulting engagements for Fortune 500 enterprises.
+
+:::
+
+::: {.section}
+
+## The Approach
+
+After 14 years architecting AI systems across automotive, retail, insurance, FMCG, and telecommunications, I've learned one thing:
+
+**The best solutions come from looking sideways.**
+
+Most consultants stay within their industry expertise. I bring patterns from completely different domains to solve problems that seem intractable.
+
+Healthcare insights solving automotive challenges. Retail strategies transforming manufacturing operations. Mathematical frameworks from applied physics applied to business systems.
+
+:::
+
+::: {.section .bg-warm}
+
+## What We'll Work On
+
+::: {.quarto-listing-grid}
+
+::: {.card}
+### AI Strategy & Architecture
+Map your AI maturity. Design scalable systems. Build transformation roadmaps that actually deploy.
+:::
+
+::: {.card}
+### Cross-Industry Pattern Recognition
+Apply insights from adjacent industries. Solve problems others can't see because they're looking straight ahead.
+:::
+
+::: {.card}
+### Executive Team Alignment
+Get your leadership on the same page about AI transformation. No vendor pitches. Just architecture.
+:::
+
+::: {.card}
+### Implementation Support
+I don't just hand you a deck and leave. I work alongside your team until the system is live and scaled.
+:::
+
+:::
+
+:::
+
+::: {.section .text-center}
+
+## Who This Is For
+
+**Fortune 500 enterprises** with real transformation budgets.
+
+**Leaders who are tired of prescriptive AI** and ready for predictive strategy.
+
+**Organizations ready to commit** to systemic change, not point solutions.
+
+This isn't for everyone. But if you're the right fit, the ROI is undeniable.
+
+:::
+
+::: {.section}
+
+## Current Engagement Model
+
+I work with a limited number of clients at any given time, typically serving as Acting CTO or Strategic AI Advisor across multiple accounts.
+
+**Typical engagement:** 6-12 months, embedded with your leadership team.
+
+**Investment:** Custom scoped based on organization size and transformation goals.
+
+:::
+
+::: {.cta-section}
+
+## Apply for Consulting
+
+Current waitlist: **[Q2 2025]**
+
+If you're exploring a major AI transformation and want to discuss whether we're a fit, let's talk.
+
+[Schedule a Discovery Call](https://cal.com/jitink-kriyalytics/strategy-consulting){.btn-primary .btn-large target="_blank"}
+
+::: {.mt-lg}
+Or email me directly at [jitin@jitinkapila.com](mailto:jitin@jitinkapila.com)
+:::
+
+:::
