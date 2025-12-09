@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>claude – Jitin Kapila | The AI Architect</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon-32x32.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-626b0fff7b0ff2cc043be631a594889b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-bf6ac82ea150da859c3069c6ef4fdf89.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script defer="" src="https://cloud.umami.is/script.js" data-website-id="aeaaf854-d53a-45ab-83d5-1963c96af264"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jitinkapila.com/#person",
+      "name": "Jitin Kapila",
+      "alternateName": "The AI Architect",
+      "description": "AI Strategy Consultant and Acting CTO with 14 years of enterprise AI implementation experience across Fortune 500 companies",
+      "url": "https://jitinkapila.com",
+      "image": "https://jitinkapila.com/display_image.jpg",
+      "jobTitle": "AI Strategy Consultant & Acting CTO",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Independent Consultant"
+      },
+      "knowsAbout": [
+        "Artificial Intelligence Strategy",
+        "Enterprise Architecture",
+        "Predictive Analytics",
+        "Machine Learning",
+        "Digital Transformation",
+        "Decision-Focused AI"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Mechanical Engineering & Applied Mathematics"
+      },
+      "sameAs": [
+        "https://linkedin.com/in/jitinkapila",
+        "https://github.com/jkapila",
+        "https://x.com/jitinkapila",
+        "https://youtube.com/@jitinkapila",
+        "https://aicrosscurrent.substack.com/",
+        "https://instagram.com/jitinkapila"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://jitinkapila.com/#service",
+      "name": "The AI Architect - AI Strategy Consulting",
+      "description": "AI Strategy Consulting and Enterprise AI Transformation for Fortune 500 companies. Specializing in cross-industry pattern recognition and decision-first AI implementation.",
+      "url": "https://jitinkapila.com",
+      "logo": "https://jitinkapila.com/favicon-32x32.png",
+      "image": "https://jitinkapila.com/display_image.jpg",
+      "founder": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "provider": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "serviceType": [
+        "AI Strategy Consulting",
+        "Enterprise AI Architecture",
+        "AI Transformation Roadmaps",
+        "Acting CTO Services",
+        "AI Training & Coaching"
+      ],
+      "priceRange": "$$$$"
+    },
+    {
+      "@type": "Course",
+      "@id": "https://jitinkapila.com/bootcamp.html#course",
+      "name": "The AI Architect Protocol",
+      "description": "A 3-day intensive bootcamp that transforms how enterprise leaders think about AI strategy. Master the OLCD Protocol, AI-ART Matrix, and Blueprint Methodology.",
+      "provider": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "url": "https://jitinkapila.com/bootcamp.html",
+      "courseMode": "Online",
+      "educationalLevel": "Executive",
+      "educationalCredentialAwarded": "Certificate of Completion",
+      "numberOfCredits": "3 days",
+      "timeRequired": "P3D",
+      "inLanguage": "en",
+      "coursePrerequisites": "Director or above at enterprise organization with AI strategy responsibility",
+      "teaches": [
+        "OLCD Protocol (Observe → Learn → Create → Deploy)",
+        "AI-ART Matrix framework",
+        "Blueprint Methodology for AI transformation",
+        "Cross-industry pattern recognition",
+        "Decision-first AI implementation"
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Online",
+        "courseWorkload": "P3D",
+        "instructor": {
+          "@id": "https://jitinkapila.com/#person"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "7999",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/LimitedAvailability",
+        "validFrom": "2025-01-01",
+        "url": "https://jitinkapila.com/bootcamp.html",
+        "seller": {
+          "@id": "https://jitinkapila.com/#person"
+        },
+        "priceValidUntil": "2025-12-31",
+        "description": "Limited to 20 seats per cohort. Includes live sessions, framework library, 90-day roadmap, and lifetime access."
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://jitinkapila.com/#website",
+      "url": "https://jitinkapila.com",
+      "name": "Jitin Kapila | The AI Architect",
+      "description": "AI Strategy & Enterprise Architecture for Fortune 500 Leaders",
+      "publisher": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+
+
+<meta property="og:title" content="Jitin Kapila | The AI Architect">
+<meta property="og:description" content="Helping Fortune 500 leaders transition from Prescriptive AI to Predictive Strategy.">
+<meta property="og:site_name" content="Jitin Kapila | The AI Architect">
+<meta name="twitter:title" content="Jitin Kapila | The AI Architect">
+<meta name="twitter:description" content="Helping Fortune 500 leaders transition from Prescriptive AI to Predictive Strategy.">
+<meta name="twitter:creator" content="@jitinkapila">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">JITIN KAPILA</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./bootcamp.html"> 
+<span class="menu-text">The Protocol</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./vault.html"> 
+<span class="menu-text">The Vault</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./consulting.html"> 
+<span class="menu-text">Consulting</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://aicrosscurrent.substack.com/" target="_blank"> 
+<span class="menu-text">Newsletter</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="claude.md" class="level1">
+<h1>CLAUDE.md</h1>
+<p>This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.</p>
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
+<p>This is <strong>“The AI Architect”</strong> brand website for Jitin Kapila, built with Quarto. The site transforms from a portfolio into a premium coaching/consulting platform featuring:</p>
+<ul>
+<li>Homepage with hero + frameworks (AI-ART Matrix, OLCD Protocol)</li>
+<li>Course sales page (AI Profit OS - ₹19,999/₹34,999)</li>
+<li>Consulting waitlist</li>
+<li>Blog (“The Vault”) with Strategy/Engineering tabs</li>
+<li>About page (authority building)</li>
+</ul>
+<p><strong>Live URLs:</strong> - Primary: https://jitinkapila.com - Netlify: https://percieveit.com</p>
+</section>
+<section id="technology-stack" class="level2">
+<h2 class="anchored" data-anchor-id="technology-stack">Technology Stack</h2>
+<ul>
+<li><strong>Static Site Generator</strong>: Quarto (1.4+)</li>
+<li><strong>Styling Approach</strong>: SCSS + CSS (hybrid system - see below)</li>
+<li><strong>Current Theme</strong>: Brite (Bootstrap-based)</li>
+<li><strong>Analytics</strong>: Umami (includes/umami.html)</li>
+<li><strong>SEO</strong>: Schema.org JSON-LD (includes/schema.html)</li>
+<li><strong>Comments</strong>: Utterances (GitHub-based, on blog posts)</li>
+<li><strong>Publishing</strong>: Netlify</li>
+</ul>
+</section>
+<section id="architecture-decision-why-scss-css-hybrid" class="level2">
+<h2 class="anchored" data-anchor-id="architecture-decision-why-scss-css-hybrid">Architecture Decision: Why SCSS + CSS Hybrid?</h2>
+<section id="the-stability-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-stability-problem">The Stability Problem</h3>
+<p>The project currently uses <strong>two styling systems</strong> which can cause conflicts:</p>
+<ol type="1">
+<li><strong>custom.css</strong> - Direct CSS overrides (current implementation)</li>
+<li><strong>styles.scss</strong> - SCSS with Bootstrap variables (backup/original)</li>
+</ol>
+</section>
+<section id="recommended-approach-scss-first-architecture" class="level3">
+<h3 class="anchored" data-anchor-id="recommended-approach-scss-first-architecture">Recommended Approach: SCSS-First Architecture</h3>
+<p>Based on Quarto best practices and the Lumo theme example in <code>extras/</code>, here’s why SCSS is superior:</p>
+<section id="scss-advantages" class="level4">
+<h4 class="anchored" data-anchor-id="scss-advantages">SCSS Advantages:</h4>
+<ol type="1">
+<li><strong>Native Quarto Integration</strong>: Quarto processes SCSS at build time with Bootstrap</li>
+<li><strong>Variable System</strong>: Can override Bootstrap variables (<code>$primary</code>, <code>$font-family-sans-serif</code>)</li>
+<li><strong>Theme Inheritance</strong>: Extend themes properly instead of fighting them</li>
+<li><strong>Compile-Time Safety</strong>: SCSS errors caught during build, not runtime</li>
+<li><strong>Source Order Control</strong>: SCSS compiles BEFORE custom CSS in cascade</li>
+</ol>
+</section>
+<section id="current-css-limitations" class="level4">
+<h4 class="anchored" data-anchor-id="current-css-limitations">Current CSS Limitations:</h4>
+<ol type="1">
+<li><strong>Override Battles</strong>: Must use <code>!important</code> everywhere to fight Bootstrap</li>
+<li><strong>Specificity Wars</strong>: Constantly battling theme defaults</li>
+<li><strong>No Variables</strong>: Can’t modify Bootstrap’s design tokens cleanly</li>
+<li><strong>Runtime Conflicts</strong>: Themes like Cosmo/Brite have their own opinions</li>
+</ol>
+</section>
+</section>
+<section id="recommended-migration-path" class="level3">
+<h3 class="anchored" data-anchor-id="recommended-migration-path">Recommended Migration Path:</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode scss code-with-copy"><code class="sourceCode scss"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:defaults --*/</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Override Bootstrap variables BEFORE they compile</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">@import</span> <span class="fu">url(</span><span class="st">'https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap'</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Typography Variables</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="va">$font-family-sans-serif</span>: <span class="st">'IBM Plex Sans'</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="va">$headings-font-family</span>: <span class="st">'Bebas Neue'</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="va">$headings-font-weight</span>: <span class="dv">400</span><span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="va">$headings-text-transform</span>: <span class="dv">uppercase</span><span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="va">$headings-letter-spacing</span>: <span class="dv">1</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">// Color Variables</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="va">$primary</span>: <span class="cn">#0C2B4E</span><span class="op">;</span>      <span class="co">// Navy Deep</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="va">$secondary</span>: <span class="cn">#213555</span><span class="op">;</span>    <span class="co">// Navy Royal</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="va">$body-color</span>: <span class="cn">#5A6A7A</span><span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="va">$link-color</span>: <span class="cn">#0C2B4E</span><span class="op">;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Spacing</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="va">$spacer</span>: <span class="dv">1</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">// Border Radius (Blueprint aesthetic - no curves)</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="va">$border-radius</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="va">$border-radius-sm</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="va">$border-radius-lg</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:rules --*/</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">// Custom rules that extend the compiled theme</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>body {</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background-image</span>:</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">linear-gradient(rgba(</span><span class="dv">33</span><span class="op">,</span> <span class="dv">53</span><span class="op">,</span> <span class="dv">85</span><span class="op">,</span> <span class="dv">0.03</span><span class="fu">)</span> <span class="dv">1</span><span class="dt">px</span><span class="op">,</span> <span class="dv">transparent</span> <span class="dv">1</span><span class="dt">px</span><span class="fu">)</span><span class="op">,</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">linear-gradient(</span><span class="dv">90</span><span class="dt">deg</span><span class="op">,</span> <span class="fu">rgba(</span><span class="dv">33</span><span class="op">,</span> <span class="dv">53</span><span class="op">,</span> <span class="dv">85</span><span class="op">,</span> <span class="dv">0.03</span><span class="fu">)</span> <span class="dv">1</span><span class="dt">px</span><span class="op">,</span> <span class="dv">transparent</span> <span class="dv">1</span><span class="dt">px</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background-size</span>: <span class="dv">20</span><span class="dt">px</span> <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>h1<span class="op">,</span> h2<span class="op">,</span> h3<span class="op">,</span> h4<span class="op">,</span> h5<span class="op">,</span> h6 {</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-family</span>: <span class="va">$headings-font-family</span><span class="op">;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-transform</span>: <span class="va">$headings-text-transform</span><span class="op">;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="kw">letter-spacing</span>: <span class="va">$headings-letter-spacing</span><span class="op">;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="why-this-works-better" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-works-better">Why This Works Better:</h3>
+<ol type="1">
+<li><strong>Variables in <code>/*-- scss:defaults --*/</code></strong> override Bootstrap BEFORE compilation</li>
+<li><strong>Rules in <code>/*-- scss:rules --*/</code></strong> extend the theme cleanly</li>
+<li><strong>No <code>!important</code> needed</strong> - you’re modifying the source, not fighting it</li>
+<li><strong>Theme changes are easy</strong> - just change theme name in <code>_quarto.yml</code></li>
+</ol>
+</section>
+</section>
+<section id="current-build-commands" class="level2">
+<h2 class="anchored" data-anchor-id="current-build-commands">Current Build Commands</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview with live reload</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Production build</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Publish to Netlify</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish netlify</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Note</strong>: Pre-render hook cleans <code>_site/*</code> automatically (see <code>_quarto.yml</code>)</p>
+</section>
+<section id="site-structure" class="level2">
+<h2 class="anchored" data-anchor-id="site-structure">Site Structure</h2>
+<pre><code>/
+├── index.qmd              # Homepage (Hero + AI-ART Matrix)
+├── about.qmd              # Authority building
+├── bootcamp.qmd           # AI Profit OS sales page
+├── consulting.qmd         # Consulting waitlist
+├── vault/
+│   ├── index.qmd          # Blog listing with tabs
+│   └── (links to ../posts/)
+├── posts/                 # Blog posts
+│   ├── _metadata.yml      # Default settings for all posts
+│   └── [post_name]/index.qmd
+├── includes/
+│   ├── umami.html         # Analytics
+│   └── schema.html        # SEO structured data
+├── extras/                # Reference materials
+│   ├── BRAND_MEMORY.md    # Complete brand guide
+│   ├── design-tokens.json # Design system tokens
+│   └── lumo theme/        # Example Quarto extension
+├── _quarto.yml            # Site configuration
+├── custom.css             # Current CSS (to migrate to SCSS)
+├── styles.scss            # Backup SCSS system
+└── backup/                # Original files backup</code></pre>
+</section>
+<section id="design-system-the-blueprint" class="level2">
+<h2 class="anchored" data-anchor-id="design-system-the-blueprint">Design System (The Blueprint)</h2>
+<section id="brand-identity" class="level3">
+<h3 class="anchored" data-anchor-id="brand-identity">Brand Identity</h3>
+<ul>
+<li><strong>Brand Name</strong>: The AI Architect</li>
+<li><strong>Tagline</strong>: “Stop Guessing. Start Architecting.”</li>
+<li><strong>Visual Motif</strong>: Engineering blueprint aesthetic</li>
+<li><strong>Core Principle</strong>: Sharp corners, no gradients, geometric precision</li>
+</ul>
+</section>
+<section id="color-palette-design-tokens" class="level3">
+<h3 class="anchored" data-anchor-id="color-palette-design-tokens">Color Palette (Design Tokens)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">:root</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Primary */</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">--navy-deep</span><span class="ch">:</span> <span class="cn">#0C2B4E</span><span class="op">;</span>      <span class="co">/* Headers, buttons, primary text */</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="va">--navy-royal</span><span class="ch">:</span> <span class="cn">#213555</span><span class="op">;</span>     <span class="co">/* Hover states, secondary */</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="va">--slate-blue</span><span class="ch">:</span> <span class="cn">#3E5879</span><span class="op">;</span>     <span class="co">/* Accent text */</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Accent */</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="va">--cream-gold</span><span class="ch">:</span> <span class="cn">#D8C4B6</span><span class="op">;</span>     <span class="co">/* Dividers, highlights */</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="va">--gold-hover</span><span class="ch">:</span> <span class="cn">#C4B09E</span><span class="op">;</span>     <span class="co">/* Gold hover state */</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Backgrounds */</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="va">--bg-light</span><span class="ch">:</span> <span class="cn">#FAFBFC</span><span class="op">;</span>       <span class="co">/* Default background */</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="va">--bg-warm</span><span class="ch">:</span> <span class="cn">#F8F6F3</span><span class="op">;</span>        <span class="co">/* Alternate sections */</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="va">--bg-grid</span><span class="ch">:</span> <span class="fu">rgba(</span><span class="dv">33</span><span class="op">,</span> <span class="dv">53</span><span class="op">,</span> <span class="dv">85</span><span class="op">,</span> <span class="dv">0.03</span><span class="fu">)</span><span class="op">;</span>  <span class="co">/* Blueprint grid */</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Text */</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="va">--text-primary</span><span class="ch">:</span> <span class="cn">#0C2B4E</span><span class="op">;</span>   <span class="co">/* Headlines */</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="va">--text-body</span><span class="ch">:</span> <span class="cn">#5A6A7A</span><span class="op">;</span>      <span class="co">/* Paragraphs */</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="va">--text-muted</span><span class="ch">:</span> <span class="cn">#8896A6</span><span class="op">;</span>     <span class="co">/* Meta info */</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="typography-system" class="level3">
+<h3 class="anchored" data-anchor-id="typography-system">Typography System</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Headers: Bebas Neue - Bold, Uppercase, Tight */</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>h1<span class="op">,</span> h2<span class="op">,</span> h3 {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-family</span><span class="ch">:</span> <span class="st">'Bebas Neue'</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-transform</span><span class="ch">:</span> <span class="dv">uppercase</span><span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">letter-spacing</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">/* Body: IBM Plex Sans - Clean, Professional */</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>body {</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-family</span><span class="ch">:</span> <span class="st">'IBM Plex Sans'</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">400</span><span class="op">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1.7</span><span class="op">;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">/* Responsive Sizing */</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>h1 { <span class="kw">font-size</span><span class="ch">:</span> <span class="fu">clamp(</span><span class="dv">48</span><span class="dt">px</span><span class="op">,</span> <span class="dv">8</span><span class="dt">vw</span><span class="op">,</span> <span class="dv">80</span><span class="dt">px</span><span class="fu">)</span><span class="op">;</span> <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">0.95</span><span class="op">;</span> }</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>h2 { <span class="kw">font-size</span><span class="ch">:</span> <span class="fu">clamp(</span><span class="dv">32</span><span class="dt">px</span><span class="op">,</span> <span class="dv">5</span><span class="dt">vw</span><span class="op">,</span> <span class="dv">48</span><span class="dt">px</span><span class="fu">)</span><span class="op">;</span> <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1.1</span><span class="op">;</span> }</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>h3 { <span class="kw">font-size</span><span class="ch">:</span> <span class="fu">clamp(</span><span class="dv">24</span><span class="dt">px</span><span class="op">,</span> <span class="dv">3</span><span class="dt">vw</span><span class="op">,</span> <span class="dv">32</span><span class="dt">px</span><span class="fu">)</span><span class="op">;</span> <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1.2</span><span class="op">;</span> }</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">/* Eyebrow Text */</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="fu">.eyebrow</span> {</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">11</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">600</span><span class="op">;</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="kw">letter-spacing</span><span class="ch">:</span> <span class="dv">3</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-transform</span><span class="ch">:</span> <span class="dv">uppercase</span><span class="op">;</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--text-muted</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="component-standards" class="level3">
+<h3 class="anchored" data-anchor-id="component-standards">Component Standards</h3>
+<p>All components follow <strong>border-radius: 0</strong> (no rounded corners):</p>
+<ul>
+<li><strong>Buttons</strong>: Sharp, uppercase, slide-in hover effect</li>
+<li><strong>Cards</strong>: 1-2px border, subtle shadow on hover</li>
+<li><strong>Dividers</strong>: 60px horizontal lines in cream-gold</li>
+<li><strong>Grid Background</strong>: 20px × 20px blueprint grid at 3% opacity</li>
+</ul>
+</section>
+</section>
+<section id="configuration-guide" class="level2">
+<h2 class="anchored" data-anchor-id="configuration-guide">Configuration Guide</h2>
+<section id="quarto.yml-structure" class="level3">
+<h3 class="anchored" data-anchor-id="quarto.yml-structure">_quarto.yml Structure</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> _site</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pre-render</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"rm -rf _site/*"</span><span class="kw">]</span><span class="co">  # Clean build</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">resources</span><span class="kw">:</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> CNAME</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> favicon-32x32.png</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> favicon.ico</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> apple-touch-icon.png</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Jitin Kapila | The AI Architect"</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> https://jitinkapila.com</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">background</span><span class="kw">:</span><span class="at"> transparent</span><span class="co">  # Let CSS control this</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">" "</span><span class="co">  # Blank for logo/brand</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">right</span><span class="kw">:</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"The Protocol"</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">href</span><span class="kw">:</span><span class="at"> bootcamp.qmd</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">      # ... other nav items</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">page-footer</span><span class="kw">:</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span><span class="at"> </span><span class="st">"© 2025 Jitin Kapila | The AI Architect"</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">right</span><span class="kw">:</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> linkedin</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">href</span><span class="kw">:</span><span class="at"> https://linkedin.com/in/jitinkapila</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="co">      # ... other social icons</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> brite</span><span class="co">  # Can also use: cosmo, flatly, litera</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> custom.css</span><span class="co">  # Or use SCSS with theme: [custom.scss]</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">include-in-header</span><span class="kw">:</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> includes/umami.html</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> includes/schema.html</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # Disable by default, enable per-page</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">highlight-style</span><span class="kw">:</span><span class="at"> github</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">smooth-scroll</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> auto</span><span class="co">  # Cache computational output</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">cache</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="fu">google-analytics</span><span class="kw">:</span><span class="at"> </span><span class="st">"G-XXXXXXXXXX"</span><span class="co">  # Replace with actual ID</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="key-configuration-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="key-configuration-patterns">Key Configuration Patterns</h3>
+<ol type="1">
+<li><strong>Theme Selection</strong>: Use Bootstrap-based themes (cosmo, brite, flatly, litera)</li>
+<li><strong>CSS Loading Order</strong>: Theme → CSS → Page-specific styles</li>
+<li><strong>Freeze Strategy</strong>: <code>freeze: auto</code> prevents re-running code unnecessarily</li>
+<li><strong>Resources</strong>: Always include CNAME, favicons for deployment</li>
+</ol>
+</section>
+</section>
+<section id="working-with-blog-posts" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-blog-posts">Working with Blog Posts</h2>
+<section id="post-frontmatter-template" class="level3">
+<h3 class="anchored" data-anchor-id="post-frontmatter-template">Post Frontmatter Template</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Post Title"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Brief description for listings"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"YYYY-MM-DD"</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">categories</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">strategy</span><span class="kw">,</span><span class="at"> code</span><span class="kw">]</span><span class="co">  # For tab filtering</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tags</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">ai</span><span class="kw">,</span><span class="at"> ml</span><span class="kw">,</span><span class="at"> enterprise</span><span class="kw">]</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span><span class="kw">:</span><span class="at"> </span><span class="st">"img/feature.jpg"</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">image-alt</span><span class="kw">:</span><span class="at"> </span><span class="st">"Alt text"</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">draft</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # Set true to hide</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Jitin Kapila"</span><span class="co">  # Inherited from posts/_metadata.yml</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="post-metadata-inheritance" class="level3">
+<h3 class="anchored" data-anchor-id="post-metadata-inheritance">Post Metadata Inheritance</h3>
+<p><code>posts/_metadata.yml</code> sets defaults for ALL posts:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">freeze</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">'Jitin Kapila'</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">toc-location</span><span class="kw">:</span><span class="at"> left</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">page-layout</span><span class="kw">:</span><span class="at"> article</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">reference-location</span><span class="kw">:</span><span class="at"> margin</span><span class="co">  # Tufte-style margin notes</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">citation-location</span><span class="kw">:</span><span class="at"> margin</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lightbox</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">license</span><span class="kw">:</span><span class="at"> </span><span class="st">"CC BY"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">code-line-numbers</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">comments</span><span class="kw">:</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">utterances</span><span class="kw">:</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">repo</span><span class="kw">:</span><span class="at"> jkapila/perceptions</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> github-light</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="category-based-tab-filtering" class="level3">
+<h3 class="anchored" data-anchor-id="category-based-tab-filtering">Category-Based Tab Filtering</h3>
+<p>The Vault uses categories to separate posts:</p>
+<ul>
+<li><strong>Strategy Tab</strong>: <code>categories: [strategy, business, roi]</code></li>
+<li><strong>Engineering Tab</strong>: <code>categories: [code, llm, agents]</code></li>
+</ul>
+<p><strong>Note</strong>: Posts can appear in multiple tabs if they have multiple categories.</p>
+</section>
+</section>
+<section id="advanced-quarto-features" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-quarto-features">Advanced Quarto Features</h2>
+<section id="custom-layouts-with-divs" class="level3">
+<h3 class="anchored" data-anchor-id="custom-layouts-with-divs">Custom Layouts with Divs</h3>
+<p>Quarto uses fenced divs for layout control:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>::: {.hero-section}</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>Content here</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>::: {.column-body-outset}</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>Wide content that extends beyond normal margins</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tab 1</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>Content</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tab 2</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>More content</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="available-layout-classes" class="level3">
+<h3 class="anchored" data-anchor-id="available-layout-classes">Available Layout Classes</h3>
+<ul>
+<li><code>.column-body</code> - Normal width (default)</li>
+<li><code>.column-body-outset</code> - Slightly wider</li>
+<li><code>.column-page</code> - Page width</li>
+<li><code>.column-screen</code> - Full screen width</li>
+<li><code>.column-margin</code> - Margin notes (Tufte style)</li>
+</ul>
+</section>
+<section id="template-partials-advanced" class="level3">
+<h3 class="anchored" data-anchor-id="template-partials-advanced">Template Partials (Advanced)</h3>
+<p>For deep customization, use template partials (see <code>extras/lumo theme/</code>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">template-partials</span><span class="kw">:</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> title-block.html</span><span class="co">  # Custom title block</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> footer.html</span><span class="co">       # Custom footer</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="brand.yml-implementation-recommended-future" class="level2">
+<h2 class="anchored" data-anchor-id="brand.yml-implementation-recommended-future">Brand.yml Implementation (Recommended Future)</h2>
+<p>Quarto 1.4+ supports <code>brand.yml</code> for centralized design tokens. This is the FUTURE direction:</p>
+<section id="brand.yml-structure" class="level3">
+<h3 class="anchored" data-anchor-id="brand.yml-structure">brand.yml Structure</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span><span class="kw">:</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"The AI Architect"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">link</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://jitinkapila.com"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">color</span><span class="kw">:</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">palette</span><span class="kw">:</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">navy-deep</span><span class="kw">:</span><span class="at"> </span><span class="st">"#0C2B4E"</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">navy-royal</span><span class="kw">:</span><span class="at"> </span><span class="st">"#213555"</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">cream-gold</span><span class="kw">:</span><span class="at"> </span><span class="st">"#D8C4B6"</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">background</span><span class="kw">:</span><span class="at"> </span><span class="st">"#FAFBFC"</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">foreground</span><span class="kw">:</span><span class="at"> </span><span class="st">"#0C2B4E"</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">primary</span><span class="kw">:</span><span class="at"> </span><span class="st">"#0C2B4E"</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">secondary</span><span class="kw">:</span><span class="at"> </span><span class="st">"#213555"</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="fu">typography</span><span class="kw">:</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">fonts</span><span class="kw">:</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">family</span><span class="kw">:</span><span class="at"> </span><span class="st">"Bebas Neue"</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">source</span><span class="kw">:</span><span class="at"> google</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">family</span><span class="kw">:</span><span class="at"> </span><span class="st">"IBM Plex Sans"</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">source</span><span class="kw">:</span><span class="at"> google</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">400</span><span class="kw">,</span><span class="at"> </span><span class="dv">500</span><span class="kw">,</span><span class="at"> </span><span class="dv">600</span><span class="kw">]</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">base-size</span><span class="kw">:</span><span class="at"> </span><span class="st">"16px"</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">headings</span><span class="kw">:</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">family</span><span class="kw">:</span><span class="at"> </span><span class="st">"Bebas Neue"</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="dv">400</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">body</span><span class="kw">:</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">family</span><span class="kw">:</span><span class="at"> </span><span class="st">"IBM Plex Sans"</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="dv">400</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">line-height</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="why-brand.yml" class="level3">
+<h3 class="anchored" data-anchor-id="why-brand.yml">Why Brand.yml?</h3>
+<ol type="1">
+<li><strong>Single Source of Truth</strong>: All design tokens in one file</li>
+<li><strong>Cross-Format</strong>: Works across HTML, PDF, DOCX outputs</li>
+<li><strong>Tooling Integration</strong>: IDEs can autocomplete brand values</li>
+<li><strong>Team Collaboration</strong>: Designers can edit without touching code</li>
+</ol>
+<p><strong>Status</strong>: Not yet implemented. Consider for Phase 2 refactor.</p>
+</section>
+</section>
+<section id="seo-analytics" class="level2">
+<h2 class="anchored" data-anchor-id="seo-analytics">SEO &amp; Analytics</h2>
+<section id="schema.org-structured-data" class="level3">
+<h3 class="anchored" data-anchor-id="schema.org-structured-data">Schema.org Structured Data</h3>
+<p>Located in <code>includes/schema.html</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">"application/ld+json"</span><span class="dt">&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"@context"</span><span class="op">:</span> <span class="st">"https://schema.org"</span><span class="op">,</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"@graph"</span><span class="op">:</span> [</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">"@type"</span><span class="op">:</span> <span class="st">"ProfessionalService"</span><span class="op">,</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"name"</span><span class="op">:</span> <span class="st">"Jitin Kapila - The AI Architect"</span><span class="op">,</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"founder"</span><span class="op">:</span> {</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"@type"</span><span class="op">:</span> <span class="st">"Person"</span><span class="op">,</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"name"</span><span class="op">:</span> <span class="st">"Jitin Kapila"</span><span class="op">,</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"jobTitle"</span><span class="op">:</span> <span class="st">"AI Strategy Consultant"</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">"@type"</span><span class="op">:</span> <span class="st">"Course"</span><span class="op">,</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>      <span class="st">"name"</span><span class="op">:</span> <span class="st">"The AI Architect Protocol"</span><span class="op">,</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">"provider"</span><span class="op">:</span> { <span class="st">"@type"</span><span class="op">:</span> <span class="st">"Person"</span><span class="op">,</span> <span class="st">"name"</span><span class="op">:</span> <span class="st">"Jitin Kapila"</span> }</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="umami-analytics" class="level3">
+<h3 class="anchored" data-anchor-id="umami-analytics">Umami Analytics</h3>
+<p>Located in <code>includes/umami.html</code> - lightweight, privacy-focused alternative to Google Analytics.</p>
+</section>
+<section id="open-graph-twitter-cards" class="level3">
+<h3 class="anchored" data-anchor-id="open-graph-twitter-cards">Open Graph &amp; Twitter Cards</h3>
+<p>Configured in <code>_quarto.yml</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">open-graph</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">twitter-card</span><span class="kw">:</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">creator</span><span class="kw">:</span><span class="at"> </span><span class="st">"@jitinkapila"</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">card-style</span><span class="kw">:</span><span class="at"> summary_large_image</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="performance-optimizations" class="level2">
+<h2 class="anchored" data-anchor-id="performance-optimizations">Performance Optimizations</h2>
+<section id="freeze-strategy" class="level3">
+<h3 class="anchored" data-anchor-id="freeze-strategy">Freeze Strategy</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> auto</span><span class="co">  # Only re-run when source changes</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">cache</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">   # Cache results</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>When to Clear Cache</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> _freeze/</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="image-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="image-optimization">Image Optimization</h3>
+<ul>
+<li>Use thumbnails for listings (<code>-thumb.jpg</code> suffix)</li>
+<li>Compress images before adding to repo</li>
+<li>Enable lightbox for blog images (<code>lightbox: true</code>)</li>
+</ul>
+</section>
+<section id="code-highlighting" class="level3">
+<h3 class="anchored" data-anchor-id="code-highlighting">Code Highlighting</h3>
+<ul>
+<li>Use <code>highlight-style: github</code> for consistency</li>
+<li>Enable <code>code-fold: true</code> for long code blocks</li>
+<li>Add <code>code-line-numbers: true</code> for readability</li>
+</ul>
+</section>
+</section>
+<section id="common-tasks" class="level2">
+<h2 class="anchored" data-anchor-id="common-tasks">Common Tasks</h2>
+<section id="change-navigation" class="level3">
+<h3 class="anchored" data-anchor-id="change-navigation">Change Navigation</h3>
+<p>Edit <code>_quarto.yml</code> → <code>website.navbar.right</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">right</span><span class="kw">:</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"New Page"</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">href</span><span class="kw">:</span><span class="at"> newpage.qmd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="add-social-icon" class="level3">
+<h3 class="anchored" data-anchor-id="add-social-icon">Add Social Icon</h3>
+<p>Edit <code>_quarto.yml</code> → <code>page-footer.right</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">page-footer</span><span class="kw">:</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">right</span><span class="kw">:</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> youtube</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">href</span><span class="kw">:</span><span class="at"> https://youtube.com/@channel</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="create-new-page" class="level3">
+<h3 class="anchored" data-anchor-id="create-new-page">Create New Page</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create file</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> newpage.qmd</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add frontmatter</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="ex">title:</span> <span class="st">"Page Title"</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">page-layout:</span> full  <span class="co"># or article, custom</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="modify-theme-colors-scss-method" class="level3">
+<h3 class="anchored" data-anchor-id="modify-theme-colors-scss-method">Modify Theme Colors (SCSS Method)</h3>
+<p>Edit <code>styles.scss</code> → <code>/*-- scss:defaults --*/</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode scss code-with-copy"><code class="sourceCode scss"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="va">$primary</span>: <span class="cn">#0C2B4E</span><span class="op">;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="va">$secondary</span>: <span class="cn">#213555</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then in <code>_quarto.yml</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">cosmo</span><span class="kw">,</span><span class="at"> styles.scss</span><span class="kw">]</span><span class="co">  # Theme + custom SCSS</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
+<section id="navbar-not-showing" class="level3">
+<h3 class="anchored" data-anchor-id="navbar-not-showing">Navbar Not Showing</h3>
+<p><strong>Cause</strong>: Using <code>theme: none</code> removes Bootstrap navbar structure. <strong>Fix</strong>: Use a Bootstrap theme (cosmo, brite, flatly) + CSS overrides.</p>
+</section>
+<section id="styles-not-applying" class="level3">
+<h3 class="anchored" data-anchor-id="styles-not-applying">Styles Not Applying</h3>
+<p><strong>Check Order</strong>: 1. Is SCSS in <code>/*-- scss:defaults --*/</code> section? 2. Is CSS loaded AFTER theme in <code>_quarto.yml</code>? 3. Are you using <code>!important</code> (symptom of wrong approach)?</p>
+<p><strong>Debug</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview <span class="at">--log-level</span> debug</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="freeze-issues" class="level3">
+<h3 class="anchored" data-anchor-id="freeze-issues">Freeze Issues</h3>
+<p><strong>Symptom</strong>: Old content showing despite changes. <strong>Fix</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> _freeze/</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="preview-not-updating" class="level3">
+<h3 class="anchored" data-anchor-id="preview-not-updating">Preview Not Updating</h3>
+<p><strong>Fix</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kill all Quarto processes</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pkill</span> <span class="at">-f</span> quarto</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Restart preview</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="best-practices">Best Practices</h2>
+<section id="styling-best-practices" class="level3">
+<h3 class="anchored" data-anchor-id="styling-best-practices">Styling Best Practices</h3>
+<ol type="1">
+<li><strong>Use SCSS variables</strong> instead of CSS custom properties for Bootstrap integration</li>
+<li><strong>Prefer theme extension</strong> over complete override</li>
+<li><strong>Avoid <code>!important</code></strong> - it indicates fighting the cascade</li>
+<li><strong>Test mobile-first</strong> - use responsive breakpoints</li>
+<li><strong>Keep specificity low</strong> - let cascade work naturally</li>
+</ol>
+</section>
+<section id="content-best-practices" class="level3">
+<h3 class="anchored" data-anchor-id="content-best-practices">Content Best Practices</h3>
+<ol type="1">
+<li><strong>Use divs for layout</strong>, not CSS classes in markdown</li>
+<li><strong>Enable freeze for computational posts</strong> - save build time</li>
+<li><strong>Add alt text to all images</strong> - SEO + accessibility</li>
+<li><strong>Use relative links</strong> for internal navigation</li>
+<li><strong>Test locally before pushing</strong> - <code>quarto preview</code></li>
+</ol>
+</section>
+<section id="performance-best-practices" class="level3">
+<h3 class="anchored" data-anchor-id="performance-best-practices">Performance Best Practices</h3>
+<ol type="1">
+<li><strong>Optimize images</strong> before committing (use WebP when possible)</li>
+<li><strong>Use code-fold</strong> for long code blocks</li>
+<li><strong>Enable caching</strong> for expensive computations</li>
+<li><strong>Minimize custom fonts</strong> (currently 2 families - good)</li>
+<li><strong>Lazy load images</strong> in listings</li>
+</ol>
+</section>
+</section>
+<section id="future-roadmap" class="level2">
+<h2 class="anchored" data-anchor-id="future-roadmap">Future Roadmap</h2>
+<section id="phase-1-stability-current" class="level3">
+<h3 class="anchored" data-anchor-id="phase-1-stability-current">Phase 1: Stability (Current)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Migrate to Bootstrap theme + CSS overrides</label></li>
+<li><label><input type="checkbox" checked="">Fix navbar visibility</label></li>
+<li><label><input type="checkbox">Consolidate to SCSS-only approach</label></li>
+<li><label><input type="checkbox">Remove <code>!important</code> from CSS</label></li>
+</ul>
+</section>
+<section id="phase-2-enhancement" class="level3">
+<h3 class="anchored" data-anchor-id="phase-2-enhancement">Phase 2: Enhancement</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Implement <code>brand.yml</code> for design tokens</label></li>
+<li><label><input type="checkbox">Create Quarto extension for Blueprint theme</label></li>
+<li><label><input type="checkbox">Add custom template partials</label></li>
+<li><label><input type="checkbox">Implement custom listing layouts</label></li>
+</ul>
+</section>
+<section id="phase-3-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="phase-3-optimization">Phase 3: Optimization</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Add service worker for offline</label></li>
+<li><label><input type="checkbox">Implement lazy loading for images</label></li>
+<li><label><input type="checkbox">Optimize build time (currently ~20s)</label></li>
+<li><label><input type="checkbox">Add progressive enhancement features</label></li>
+</ul>
+</section>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<section id="official-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="official-documentation">Official Documentation</h3>
+<ul>
+<li><a href="https://quarto.org/docs/websites/">Quarto Websites</a></li>
+<li><a href="https://quarto.org/docs/output-formats/html-themes.html">HTML Themes</a></li>
+<li><a href="https://quarto.org/docs/output-formats/html-themes-more.html">HTML Theme Customization</a></li>
+<li><a href="https://quarto.org/docs/authoring/brand.html">Brand Guide</a></li>
+<li><a href="https://quarto.org/docs/output-formats/html-basics.html">HTML Basics</a></li>
+</ul>
+</section>
+<section id="reference-files" class="level3">
+<h3 class="anchored" data-anchor-id="reference-files">Reference Files</h3>
+<ul>
+<li><code>extras/BRAND_MEMORY.md</code> - Complete brand guide</li>
+<li><code>extras/design-tokens.json</code> - Design system reference</li>
+<li><code>extras/lumo theme/</code> - Example custom Quarto extension</li>
+<li><code>backup/</code> - Original files before rebuild</li>
+</ul>
+</section>
+<section id="community" class="level3">
+<h3 class="anchored" data-anchor-id="community">Community</h3>
+<ul>
+<li><a href="https://github.com/quarto-dev/quarto-cli/discussions">Quarto Discussions</a></li>
+<li><a href="https://github.com/mcanouil/awesome-quarto">Awesome Quarto</a></li>
+</ul>
+</section>
+</section>
+<section id="quick-reference" class="level2">
+<h2 class="anchored" data-anchor-id="quick-reference">Quick Reference</h2>
+<section id="file-purposes" class="level3">
+<h3 class="anchored" data-anchor-id="file-purposes">File Purposes</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 29%">
+<col style="width: 51%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Purpose</th>
+<th>Edit Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>_quarto.yml</code></td>
+<td>Site config, nav, theme</td>
+<td>Occasionally</td>
+</tr>
+<tr class="even">
+<td><code>custom.css</code></td>
+<td>Style overrides</td>
+<td>Often (to migrate to SCSS)</td>
+</tr>
+<tr class="odd">
+<td><code>styles.scss</code></td>
+<td>SCSS variables/rules</td>
+<td>Recommended approach</td>
+</tr>
+<tr class="even">
+<td><code>includes/schema.html</code></td>
+<td>SEO structured data</td>
+<td>Rarely</td>
+</tr>
+<tr class="odd">
+<td><code>includes/umami.html</code></td>
+<td>Analytics script</td>
+<td>Never (unless changing provider)</td>
+</tr>
+<tr class="even">
+<td><code>posts/_metadata.yml</code></td>
+<td>Blog post defaults</td>
+<td>Rarely</td>
+</tr>
+<tr class="odd">
+<td><code>index.qmd</code></td>
+<td>Homepage</td>
+<td>Occasionally</td>
+</tr>
+<tr class="even">
+<td><code>vault/index.qmd</code></td>
+<td>Blog listing</td>
+<td>Rarely</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="common-frontmatter-options" class="level3">
+<h3 class="anchored" data-anchor-id="common-frontmatter-options">Common Frontmatter Options</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Page Title"</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pagetitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"Browser Tab Title"</span><span class="co">  # Overrides title for &lt;title&gt; tag</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">page-layout</span><span class="kw">:</span><span class="at"> full</span><span class="co">  # full, article, custom</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Enable table of contents</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">toc-location</span><span class="kw">:</span><span class="at"> left</span><span class="co">  # left, right, body</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Meta description for SEO"</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span><span class="kw">:</span><span class="at"> </span><span class="st">"path/to/social-share.jpg"</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="fu">draft</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # Hide page if true</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<p><em>This document should be referenced when making ANY changes to the site architecture, styling, or content structure.</em></p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/jitinkapila\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 Jitin Kapila</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/jitinkapila">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/jitinkapila">
+      <i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jkapila">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@jitinkapila">
+      <i class="bi bi-youtube" role="img" aria-label="YouTube">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://aicrosscurrent.substack.com/">
+      <i class="bi bi-substack" role="img" aria-label="Substack Newsletter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/jitinkapila">
+      <i class="bi bi-instagram" role="img" aria-label="Instagram">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

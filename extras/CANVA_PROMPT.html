@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>canva_prompt – Jitin Kapila | The AI Architect</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon-32x32.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-626b0fff7b0ff2cc043be631a594889b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-bf6ac82ea150da859c3069c6ef4fdf89.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script defer="" src="https://cloud.umami.is/script.js" data-website-id="aeaaf854-d53a-45ab-83d5-1963c96af264"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jitinkapila.com/#person",
+      "name": "Jitin Kapila",
+      "alternateName": "The AI Architect",
+      "description": "AI Strategy Consultant and Acting CTO with 14 years of enterprise AI implementation experience across Fortune 500 companies",
+      "url": "https://jitinkapila.com",
+      "image": "https://jitinkapila.com/display_image.jpg",
+      "jobTitle": "AI Strategy Consultant & Acting CTO",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Independent Consultant"
+      },
+      "knowsAbout": [
+        "Artificial Intelligence Strategy",
+        "Enterprise Architecture",
+        "Predictive Analytics",
+        "Machine Learning",
+        "Digital Transformation",
+        "Decision-Focused AI"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Mechanical Engineering & Applied Mathematics"
+      },
+      "sameAs": [
+        "https://linkedin.com/in/jitinkapila",
+        "https://github.com/jkapila",
+        "https://x.com/jitinkapila",
+        "https://youtube.com/@jitinkapila",
+        "https://aicrosscurrent.substack.com/",
+        "https://instagram.com/jitinkapila"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://jitinkapila.com/#service",
+      "name": "The AI Architect - AI Strategy Consulting",
+      "description": "AI Strategy Consulting and Enterprise AI Transformation for Fortune 500 companies. Specializing in cross-industry pattern recognition and decision-first AI implementation.",
+      "url": "https://jitinkapila.com",
+      "logo": "https://jitinkapila.com/favicon-32x32.png",
+      "image": "https://jitinkapila.com/display_image.jpg",
+      "founder": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "provider": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "serviceType": [
+        "AI Strategy Consulting",
+        "Enterprise AI Architecture",
+        "AI Transformation Roadmaps",
+        "Acting CTO Services",
+        "AI Training & Coaching"
+      ],
+      "priceRange": "$$$$"
+    },
+    {
+      "@type": "Course",
+      "@id": "https://jitinkapila.com/bootcamp.html#course",
+      "name": "The AI Architect Protocol",
+      "description": "A 3-day intensive bootcamp that transforms how enterprise leaders think about AI strategy. Master the OLCD Protocol, AI-ART Matrix, and Blueprint Methodology.",
+      "provider": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "url": "https://jitinkapila.com/bootcamp.html",
+      "courseMode": "Online",
+      "educationalLevel": "Executive",
+      "educationalCredentialAwarded": "Certificate of Completion",
+      "numberOfCredits": "3 days",
+      "timeRequired": "P3D",
+      "inLanguage": "en",
+      "coursePrerequisites": "Director or above at enterprise organization with AI strategy responsibility",
+      "teaches": [
+        "OLCD Protocol (Observe → Learn → Create → Deploy)",
+        "AI-ART Matrix framework",
+        "Blueprint Methodology for AI transformation",
+        "Cross-industry pattern recognition",
+        "Decision-first AI implementation"
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Online",
+        "courseWorkload": "P3D",
+        "instructor": {
+          "@id": "https://jitinkapila.com/#person"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "7999",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/LimitedAvailability",
+        "validFrom": "2025-01-01",
+        "url": "https://jitinkapila.com/bootcamp.html",
+        "seller": {
+          "@id": "https://jitinkapila.com/#person"
+        },
+        "priceValidUntil": "2025-12-31",
+        "description": "Limited to 20 seats per cohort. Includes live sessions, framework library, 90-day roadmap, and lifetime access."
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://jitinkapila.com/#website",
+      "url": "https://jitinkapila.com",
+      "name": "Jitin Kapila | The AI Architect",
+      "description": "AI Strategy & Enterprise Architecture for Fortune 500 Leaders",
+      "publisher": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+
+
+<meta property="og:title" content="Jitin Kapila | The AI Architect">
+<meta property="og:description" content="Helping Fortune 500 leaders transition from Prescriptive AI to Predictive Strategy.">
+<meta property="og:site_name" content="Jitin Kapila | The AI Architect">
+<meta name="twitter:title" content="Jitin Kapila | The AI Architect">
+<meta name="twitter:description" content="Helping Fortune 500 leaders transition from Prescriptive AI to Predictive Strategy.">
+<meta name="twitter:creator" content="@jitinkapila">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">JITIN KAPILA</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../bootcamp.html"> 
+<span class="menu-text">The Protocol</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../vault.html"> 
+<span class="menu-text">The Vault</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../consulting.html"> 
+<span class="menu-text">Consulting</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://aicrosscurrent.substack.com/" target="_blank"> 
+<span class="menu-text">Newsletter</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="canva-template-creation-prompt-for-claude-desktop" class="level1">
+<h1>Canva Template Creation Prompt for Claude Desktop</h1>
+<p>Use this prompt with Claude Desktop (which has Canva integration) to create “The AI Architect” slide templates.</p>
+<hr>
+<section id="prompt-for-claude-desktop" class="level2">
+<h2 class="anchored" data-anchor-id="prompt-for-claude-desktop">Prompt for Claude Desktop:</h2>
+<p>I need you to create 9 presentation slide templates in Canva for my brand “The AI Architect”. Here are the exact specifications:</p>
+<section id="brand-identity" class="level3">
+<h3 class="anchored" data-anchor-id="brand-identity">Brand Identity</h3>
+<ul>
+<li><strong>Brand Name</strong>: The AI Architect</li>
+<li><strong>Tagline</strong>: “Stop Guessing. Start Architecting.”</li>
+<li><strong>Fonts</strong>:
+<ul>
+<li>Headers: Bebas Neue (or similar condensed sans-serif if unavailable)</li>
+<li>Body: IBM Plex Sans (or similar clean sans-serif)</li>
+</ul></li>
+<li><strong>Color Palette</strong>:
+<ul>
+<li>Navy Deep: #0C2B4E (primary)</li>
+<li>Navy Royal: #213555 (secondary)</li>
+<li>Slate Blue: #3E5879 (accent)</li>
+<li>Cream Gold: #D8C4B6 (highlights)</li>
+<li>Text Body: #5A6A7A</li>
+<li>Text Muted: #8896A6</li>
+<li>Background Light: #FAFBFC</li>
+<li>Background Warm: #F8F6F3</li>
+</ul></li>
+</ul>
+</section>
+<section id="slide-dimensions" class="level3">
+<h3 class="anchored" data-anchor-id="slide-dimensions">Slide Dimensions</h3>
+<ul>
+<li><strong>Size</strong>: 1600 × 2000 px (portrait, 4:5 ratio)</li>
+<li>This allows for Instagram posts, LinkedIn carousels, and presentation slides</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="option-a-minimal-blueprint-style" class="level2">
+<h2 class="anchored" data-anchor-id="option-a-minimal-blueprint-style">OPTION A: Minimal Blueprint Style</h2>
+<section id="design-elements-for-all-option-a-slides" class="level3">
+<h3 class="anchored" data-anchor-id="design-elements-for-all-option-a-slides">Design Elements for All Option A Slides:</h3>
+<ul>
+<li>Background: #FAFBFC with subtle grid pattern (20px × 20px squares at 3% opacity in Navy Royal)</li>
+<li>Top accent bar: 4px tall, full width, Navy Deep (#0C2B4E)</li>
+<li>Header section: “THE AI ARCHITECT” in 11px uppercase, 3px letter spacing, Navy Deep</li>
+<li>Page numbers: 10px, top right, Text Muted (#8896A6)</li>
+<li>Sharp corners (border-radius: 0) on all elements</li>
+</ul>
+</section>
+<section id="a1.-header-slide" class="level3">
+<h3 class="anchored" data-anchor-id="a1.-header-slide">A1. Header Slide</h3>
+<p><strong>Layout:</strong> - Top bar (4px, Navy Deep) - Header: “THE AI ARCHITECT” (top left, 32px from top) - Page number: “01” (top right, 32px from top) - Center content (vertically centered): - Eyebrow text: “FRAMEWORK 001” (10px, uppercase, 3px letter spacing, Text Muted) - Main title: “AI-ART MATRIX” (80px, Bebas Neue, Navy Deep, -1px letter spacing) - Divider line: 60px × 2px, Cream Gold, centered below title - Subtitle: “The operating system for AI-enabled enterprises.” (13px, Text Body, max-width 280px, centered)</p>
+</section>
+<section id="a2.-content-slide" class="level3">
+<h3 class="anchored" data-anchor-id="a2.-content-slide">A2. Content Slide</h3>
+<p><strong>Layout:</strong> - Top bar + header (same as A1) - Section title: “THE PROBLEM” (48px, Bebas Neue, Navy Deep) - Accent line: 40px × 2px, Cream Gold, below title - Body text: 2-3 paragraphs, 14px, line-height 1.7, Text Body - Highlight box (at bottom): - Background: Cream Gold at 10% opacity - Border-left: 3px solid Cream Gold - Padding: 16px - Strong text: “KEY INSIGHT” (13px, Navy Deep, bold) - Description text: 13px, line-height 1.6, Text Body</p>
+</section>
+<section id="a3.-bullets-slide" class="level3">
+<h3 class="anchored" data-anchor-id="a3.-bullets-slide">A3. Bullets Slide</h3>
+<p><strong>Layout:</strong> - Top bar + header (same as A1) - Section title: “FOUR CORE PILLARS” (40px, Bebas Neue, Navy Deep) - Accent line: 40px × 2px, Cream Gold - 4 bullet points with: - Square bullet icon: 8px × 8px, Navy Deep - Text: 14px, line-height 1.6, Text Body - Bold label followed by description - 16px gap between bullets</p>
+<hr>
+</section>
+</section>
+<section id="option-b-dark-authority-style" class="level2">
+<h2 class="anchored" data-anchor-id="option-b-dark-authority-style">OPTION B: Dark Authority Style</h2>
+<section id="design-elements-for-all-option-b-slides" class="level3">
+<h3 class="anchored" data-anchor-id="design-elements-for-all-option-b-slides">Design Elements for All Option B Slides:</h3>
+<ul>
+<li>Background: Navy Deep (#0C2B4E) with grid pattern (24px × 24px at 2% white opacity)</li>
+<li>Corner accents: 80px × 80px L-shaped borders (1px, Cream Gold at 30% opacity)
+<ul>
+<li>Top-right corner (missing left and bottom borders)</li>
+<li>Bottom-left corner (missing right and top borders)</li>
+</ul></li>
+<li>Header: “THE AI ARCHITECT” (10px, 4px letter spacing, Cream Gold)</li>
+<li>Square marker: 8px × 8px, Cream Gold (top right)</li>
+</ul>
+</section>
+<section id="b1.-header-slide" class="level3">
+<h3 class="anchored" data-anchor-id="b1.-header-slide">B1. Header Slide</h3>
+<p><strong>Layout:</strong> - Corner accents (top-right, bottom-left) - Header section + marker - Center content: - Eyebrow: “STRATEGY FRAMEWORK” (10px, uppercase, 3px letter spacing, white at 40% opacity) - Title: “THE AI-ART MATRIX” (72px, Bebas Neue, white, with “AI-ART” in Cream Gold) - Horizontal line: 80px × 1px, Cream Gold, centered - Subtitle: “Operational leverage for Fortune 500 enterprises.” (13px, white at 60% opacity, centered, max-width 280px)</p>
+</section>
+<section id="b2.-content-slide" class="level3">
+<h3 class="anchored" data-anchor-id="b2.-content-slide">B2. Content Slide</h3>
+<p><strong>Layout:</strong> - No corner accents - Header with border-bottom: 1px solid white at 10% opacity - Page indicator: “02 / 05” (top right, 10px, white at 40% opacity, 2px letter spacing) - Section title: “WHY IT MATTERS” (48px, Bebas Neue, white) - Gold gradient accent: 60px wide × 2px, gradient from Cream Gold to transparent - Body text: 2-3 paragraphs, 14px, line-height 1.8, white at 70% opacity - Callout box: - Background: Cream Gold at 10% opacity - Border: 1px solid Cream Gold at 30% opacity - Padding: 20px - Strong label: “CASE STUDY” (13px, uppercase, 1px spacing, Cream Gold, bold) - Text: 13px, white at 80% opacity, line-height 1.6</p>
+</section>
+<section id="b3.-bullets-slide" class="level3">
+<h3 class="anchored" data-anchor-id="b3.-bullets-slide">B3. Bullets Slide</h3>
+<p><strong>Layout:</strong> - Header with border-bottom - Section title: “THE FRAMEWORK” (40px, Bebas Neue, white) - Gold gradient accent - 4 numbered bullets: - Number: “01”, “02”, “03”, “04” (20px, Bebas Neue, Cream Gold) - Bold title + line break + description (14px, white at 80% opacity, line-height 1.6) - 18px gap between bullets</p>
+<hr>
+</section>
+</section>
+<section id="option-c-editorial-style" class="level2">
+<h2 class="anchored" data-anchor-id="option-c-editorial-style">OPTION C: Editorial Style</h2>
+<section id="design-elements-for-all-option-c-slides" class="level3">
+<h3 class="anchored" data-anchor-id="design-elements-for-all-option-c-slides">Design Elements for All Option C Slides:</h3>
+<ul>
+<li>Background: Warm (#F8F6F3)</li>
+<li>Left sidebar: 48px wide, Navy Deep, full height
+<ul>
+<li>Brand vertical text: “AI ARCHITECT” (9px, rotated 180°, 4px letter spacing, Cream Gold)</li>
+<li>Dot navigation: 4px × 4px circles, white at 30% opacity (active: Cream Gold, 4px × 16px)</li>
+</ul></li>
+<li>Main content area: starts 48px from left edge</li>
+</ul>
+</section>
+<section id="c1.-header-slide" class="level3">
+<h3 class="anchored" data-anchor-id="c1.-header-slide">C1. Header Slide</h3>
+<p><strong>Layout:</strong> - Left sidebar with dots (1st dot active) - Tag at top: “FRAMEWORK 001” (9px, uppercase, 2px letter spacing, Navy Deep, background: Navy Deep at 8% opacity, padding: 6px 12px) - Title: “THE AI-ART MATRIX” (72px, Bebas Neue, Navy Deep, centered) - Divider: 60px × 1px, Navy Deep at 20%, centered - Subtitle: “Strategic framework for operational AI leverage…” (13px, Text Body, centered, max-width 260px)</p>
+</section>
+<section id="c2.-content-slide" class="level3">
+<h3 class="anchored" data-anchor-id="c2.-content-slide">C2. Content Slide</h3>
+<p><strong>Layout:</strong> - Left sidebar with page indicator “02” (10px, Cream Gold, 1px letter spacing, bottom of sidebar) - Section title: “THE DIAGNOSIS” (44px, Bebas Neue, Navy Deep) - Accent bar: 40px × 3px, Navy Deep, below title - Body text: 2-3 paragraphs, 14px, line-height 1.8, Text Body - Quote box: - Background: Navy Deep at 4% opacity - Border-left: 3px solid Navy Deep - Padding: 20px - Strong label: “REAL-WORLD IMPACT” (13px, Navy Deep, bold) - Quote text: 13px, Text Body, italic, line-height 1.6</p>
+</section>
+<section id="c3.-bullets-slide" class="level3">
+<h3 class="anchored" data-anchor-id="c3.-bullets-slide">C3. Bullets Slide</h3>
+<p><strong>Layout:</strong> - Left sidebar with page indicator “03” - Section title: “FOUR PILLARS” (38px, Bebas Neue, Navy Deep) - Accent bar: 40px × 3px, Navy Deep - 4 bullets with letter markers: - Marker box: 24px × 24px, Navy Deep at 8% opacity, letter centered (“O”, “L”, “C”, “D”, 11px, Navy Deep, bold) - Bold title + description (14px, Text Body, line-height 1.6) - 16px gap between bullets</p>
+<hr>
+</section>
+</section>
+<section id="instructions-for-creating-in-canva" class="level2">
+<h2 class="anchored" data-anchor-id="instructions-for-creating-in-canva">Instructions for Creating in Canva:</h2>
+<ol type="1">
+<li>Create 9 blank designs (1600 × 2000 px each)</li>
+<li>For each design:
+<ul>
+<li>Set the background color</li>
+<li>Add grid pattern using Canva’s pattern/texture overlays (or create with lines)</li>
+<li>Add all text elements with exact fonts, sizes, and colors</li>
+<li>Add decorative elements (bars, boxes, corners, etc.)</li>
+<li>Ensure all corners are sharp (no rounding)</li>
+<li>Use exact spacing and padding specified</li>
+</ul></li>
+<li>Save each template with descriptive names:
+<ul>
+<li>“AI-Architect-A1-Header”</li>
+<li>“AI-Architect-A2-Content”</li>
+<li>“AI-Architect-A3-Bullets”</li>
+<li>(Same pattern for B and C options)</li>
+</ul></li>
+<li>Make them editable templates so I can easily swap text/content</li>
+</ol>
+<hr>
+</section>
+<section id="sample-content-for-testing" class="level2">
+<h2 class="anchored" data-anchor-id="sample-content-for-testing">Sample Content for Testing:</h2>
+<p><strong>Header Slides</strong>: “AI-ART MATRIX”, “THE OLCD PROTOCOL”, “OPERATIONAL LEVERAGE” <strong>Content Slides</strong>: 2-3 paragraphs about AI strategy, implementation, or case studies <strong>Bullets Slides</strong>: Framework steps, key principles, or implementation checklist</p>
+<hr>
+<p>Please create all 9 templates following these exact specifications. Maintain consistency within each design option (A, B, C) while ensuring they’re distinct from each other.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/jitinkapila\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 Jitin Kapila</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/jitinkapila">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/jitinkapila">
+      <i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jkapila">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@jitinkapila">
+      <i class="bi bi-youtube" role="img" aria-label="YouTube">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://aicrosscurrent.substack.com/">
+      <i class="bi bi-substack" role="img" aria-label="Substack Newsletter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/jitinkapila">
+      <i class="bi bi-instagram" role="img" aria-label="Instagram">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

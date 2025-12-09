@@ -1,13 +1,24 @@
 [
   {
+    "listing": "/vault.html",
+    "items": [
+      "/posts/strategy/decision-first-ai/index.html",
+      "/posts/engineering/10_treeknn/index.html",
+      "/posts/engineering/04_crosstab_sparsity_classification/index.html",
+      "/posts/engineering/03_crosstab_sparsity/index.html",
+      "/posts/engineering/02_hypothesis_test/index.html",
+      "/posts/engineering/01_adaptive_regression/index.html"
+    ]
+  },
+  {
     "listing": "/insights.html",
     "items": [
-      "/posts/10_treeknn/index.html",
-      "/posts/06_saving_my_blog/index.html",
-      "/posts/04_crosstab_sparsity_classification/index.html",
-      "/posts/03_crosstab_sparsity/index.html",
-      "/posts/02_hypothesis_test/index.html",
-      "/posts/01_adaptive_regression/index.html"
+      "/posts/strategy/decision-first-ai/index.html",
+      "/posts/engineering/10_treeknn/index.html",
+      "/posts/engineering/04_crosstab_sparsity_classification/index.html",
+      "/posts/engineering/03_crosstab_sparsity/index.html",
+      "/posts/engineering/02_hypothesis_test/index.html",
+      "/posts/engineering/01_adaptive_regression/index.html"
     ]
   }
 ]

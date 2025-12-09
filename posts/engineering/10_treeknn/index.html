@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jitin Kapila">
+<meta name="dcterms.date" content="2025-02-26">
+<meta name="description" content="Discover TrieKNN, a novel approach to extend the K-Nearest Neighbors algorithm to datasets with both categorical and numerical features. Learn how it works, see it in action, and explore its potential.">
+
+<title>TrieKNN: Unleashing KNN’s Power on Mixed Data Types – Jitin Kapila | The AI Architect</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../favicon-32x32.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-626b0fff7b0ff2cc043be631a594889b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-47b0ca00fa58fe725db5702cbbe06d40.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script defer="" src="https://cloud.umami.is/script.js" data-website-id="aeaaf854-d53a-45ab-83d5-1963c96af264"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jitinkapila.com/#person",
+      "name": "Jitin Kapila",
+      "alternateName": "The AI Architect",
+      "description": "AI Strategy Consultant and Acting CTO with 14 years of enterprise AI implementation experience across Fortune 500 companies",
+      "url": "https://jitinkapila.com",
+      "image": "https://jitinkapila.com/display_image.jpg",
+      "jobTitle": "AI Strategy Consultant & Acting CTO",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Independent Consultant"
+      },
+      "knowsAbout": [
+        "Artificial Intelligence Strategy",
+        "Enterprise Architecture",
+        "Predictive Analytics",
+        "Machine Learning",
+        "Digital Transformation",
+        "Decision-Focused AI"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Mechanical Engineering & Applied Mathematics"
+      },
+      "sameAs": [
+        "https://linkedin.com/in/jitinkapila",
+        "https://github.com/jkapila",
+        "https://x.com/jitinkapila",
+        "https://youtube.com/@jitinkapila",
+        "https://aicrosscurrent.substack.com/",
+        "https://instagram.com/jitinkapila"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://jitinkapila.com/#service",
+      "name": "The AI Architect - AI Strategy Consulting",
+      "description": "AI Strategy Consulting and Enterprise AI Transformation for Fortune 500 companies. Specializing in cross-industry pattern recognition and decision-first AI implementation.",
+      "url": "https://jitinkapila.com",
+      "logo": "https://jitinkapila.com/favicon-32x32.png",
+      "image": "https://jitinkapila.com/display_image.jpg",
+      "founder": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "provider": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "serviceType": [
+        "AI Strategy Consulting",
+        "Enterprise AI Architecture",
+        "AI Transformation Roadmaps",
+        "Acting CTO Services",
+        "AI Training & Coaching"
+      ],
+      "priceRange": "$$$$"
+    },
+    {
+      "@type": "Course",
+      "@id": "https://jitinkapila.com/bootcamp.html#course",
+      "name": "The AI Architect Protocol",
+      "description": "A 3-day intensive bootcamp that transforms how enterprise leaders think about AI strategy. Master the OLCD Protocol, AI-ART Matrix, and Blueprint Methodology.",
+      "provider": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "url": "https://jitinkapila.com/bootcamp.html",
+      "courseMode": "Online",
+      "educationalLevel": "Executive",
+      "educationalCredentialAwarded": "Certificate of Completion",
+      "numberOfCredits": "3 days",
+      "timeRequired": "P3D",
+      "inLanguage": "en",
+      "coursePrerequisites": "Director or above at enterprise organization with AI strategy responsibility",
+      "teaches": [
+        "OLCD Protocol (Observe → Learn → Create → Deploy)",
+        "AI-ART Matrix framework",
+        "Blueprint Methodology for AI transformation",
+        "Cross-industry pattern recognition",
+        "Decision-first AI implementation"
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Online",
+        "courseWorkload": "P3D",
+        "instructor": {
+          "@id": "https://jitinkapila.com/#person"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "7999",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/LimitedAvailability",
+        "validFrom": "2025-01-01",
+        "url": "https://jitinkapila.com/bootcamp.html",
+        "seller": {
+          "@id": "https://jitinkapila.com/#person"
+        },
+        "priceValidUntil": "2025-12-31",
+        "description": "Limited to 20 seats per cohort. Includes live sessions, framework library, 90-day roadmap, and lifetime access."
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://jitinkapila.com/#website",
+      "url": "https://jitinkapila.com",
+      "name": "Jitin Kapila | The AI Architect",
+      "description": "AI Strategy & Enterprise Architecture for Fortune 500 Leaders",
+      "publisher": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+
+
+<meta property="og:title" content="TrieKNN: Unleashing KNN’s Power on Mixed Data Types – Jitin Kapila | The AI Architect">
+<meta property="og:description" content="Discover TrieKNN, a novel approach to extend the K-Nearest Neighbors algorithm to datasets with both categorical and numerical features. Learn how it works, see it in action, and explore its potential.">
+<meta property="og:image" content="https://jitinkapila.com/posts/engineering/10_treeknn/pexels-anntarazevich-7299985.jpg">
+<meta property="og:site_name" content="Jitin Kapila | The AI Architect">
+<meta name="twitter:title" content="TrieKNN: Unleashing KNN’s Power on Mixed Data Types – Jitin Kapila | The AI Architect">
+<meta name="twitter:description" content="Discover TrieKNN, a novel approach to extend the K-Nearest Neighbors algorithm to datasets with both categorical and numerical features. Learn how it works, see it in action, and explore its potential.">
+<meta name="twitter:image" content="https://jitinkapila.com/posts/engineering/10_treeknn/pexels-anntarazevich-7299985.jpg">
+<meta name="twitter:creator" content="@jitinkapila">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="floating nav-fixed slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">JITIN KAPILA</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../bootcamp.html"> 
+<span class="menu-text">The Protocol</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../vault.html"> 
+<span class="menu-text">The Vault</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../consulting.html"> 
+<span class="menu-text">Consulting</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://aicrosscurrent.substack.com/" target="_blank"> 
+<span class="menu-text">Newsletter</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-allure-and-limitation-of-knn" id="toc-the-allure-and-limitation-of-knn" class="nav-link active" data-scroll-target="#the-allure-and-limitation-of-knn">The Allure and Limitation of KNN</a>
+  <ul class="collapse">
+  <li><a href="#prior-art" id="toc-prior-art" class="nav-link" data-scroll-target="#prior-art">Prior Art</a></li>
+  </ul></li>
+  <li><a href="#enter-trieknn-a-novel-approach" id="toc-enter-trieknn-a-novel-approach" class="nav-link" data-scroll-target="#enter-trieknn-a-novel-approach">Enter TrieKNN: A Novel Approach</a>
+  <ul class="collapse">
+  <li><a href="#why-this-works" id="toc-why-this-works" class="nav-link" data-scroll-target="#why-this-works">Why This Works</a></li>
+  </ul></li>
+  <li><a href="#building-a-trieknn-model" id="toc-building-a-trieknn-model" class="nav-link" data-scroll-target="#building-a-trieknn-model">Building a TrieKNN Model</a>
+  <ul class="collapse">
+  <li><a href="#trie-implementation" id="toc-trie-implementation" class="nav-link" data-scroll-target="#trie-implementation">Trie Implementation</a></li>
+  <li><a href="#knn-model" id="toc-knn-model" class="nav-link" data-scroll-target="#knn-model">KNN Model</a></li>
+  <li><a href="#training-and-evaluation" id="toc-training-and-evaluation" class="nav-link" data-scroll-target="#training-and-evaluation">Training and Evaluation</a></li>
+  <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation">Explanation</a></li>
+  </ul></li>
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and Discussion</a></li>
+  <li><a href="#conclusion-a-promising-path-forward" id="toc-conclusion-a-promising-path-forward" class="nav-link" data-scroll-target="#conclusion-a-promising-path-forward">Conclusion: A Promising Path Forward</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">TrieKNN: Unleashing KNN’s Power on Mixed Data Types</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">knn</div>
+    <div class="quarto-category">ml</div>
+    <div class="quarto-category">mixed-data</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Discover TrieKNN, a novel approach to extend the K-Nearest Neighbors algorithm to datasets with both categorical and numerical features. Learn how it works, see it in action, and explore its potential.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jitin Kapila </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 26, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><a href="pexels-gelgas-401213.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by Gelgas Airlangga"><img src="pexels-gelgas-401213.jpg" class="img-fluid figure-img" alt="Photo by Gelgas Airlangga"></a></p>
+<figcaption class="margin-caption"><a href="https://www.pexels.com/photo/shallow-focus-of-sprout-401213/">Photo by Gelgas Airlangga</a></figcaption>
+</figure>
+</div>
+<!-- [Photo by Anna Tarazevich](https://www.pexels.com/photo/strawberry-plant-on-a-black-container-7299985/)
+
+[Photo by Eva Bronzini](https://www.pexels.com/photo/succulent-plants-in-pot-shaped-soil-7127801/) -->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>In This Post
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>We’ll dissect the limitations of traditional KNN when faced with mixed data types.</li>
+<li>Introduce TrieKNN, a Trie-based approach that elegantly handles mixed data.</li>
+<li>Walk through the implementation and training of a TrieKNN model.</li>
+<li>Evaluate its performance and discuss its potential impact.</li>
+</ul>
+</div>
+</div>
+<section id="the-allure-and-limitation-of-knn" class="level2">
+<h2 class="anchored" data-anchor-id="the-allure-and-limitation-of-knn">The Allure and Limitation of KNN</h2>
+<p>In the realm of machine learning, the K-Nearest Neighbors (KNN) algorithm stands out for its intuitive nature and ease of implementation. Its principle is simple: classify a data point based on the majority class among its ‘k’ nearest neighbors in the feature space. This non-parametric approach makes no assumptions about the underlying data distribution, rendering it versatile for various applications. <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">KNN</a> is very popular, but it comes with some limitations.</p>
+<p>However, KNN’s Achilles’ heel lies in its reliance on distance metrics, which are inherently designed for numerical data. Real-world datasets often contain a mix of numerical and categorical features, posing a significant challenge for KNN. How do you measure the distance between ‘red’ and ‘blue,’ or ‘large’ and ‘small’?</p>
+<section id="prior-art" class="level3">
+<h3 class="anchored" data-anchor-id="prior-art">Prior Art</h3>
+<p>Several strategies have been proposed to adapt KNN for mixed data:</p>
+<ul>
+<li><strong>One-Hot Encoding:</strong> Converts categorical features into numerical vectors, but can lead to high dimensionality.</li>
+<li><strong>Distance Functions for Mixed Data:</strong> Develops and apply custom distance metrics that can handle both numerical and categorical features such as <a href="https://conservancy.umn.edu/server/api/core/bitstreams/845f587d-079a-469b-97e9-411533fa666d/content">HEOM and many others</a>.</li>
+<li><strong>Using mean/mode values</strong>: Replace the missing values with mean/mode.</li>
+</ul>
+<p>These methods often involve compromises, either distorting the data’s inherent structure or adding computational overhead.</p>
+</section>
+</section>
+<section id="enter-trieknn-a-novel-approach" class="level2">
+<h2 class="anchored" data-anchor-id="enter-trieknn-a-novel-approach">Enter TrieKNN: A Novel Approach</h2>
+<p>What if we could cleverly sidestep the distance calculation problem for categorical features, while still leveraging KNN’s power? TrieKNN offers just that—a way to perform KNN on any mixed data!</p>
+<p>TrieKNN combines the strengths of Trie data structures and KNN to handle mixed data types gracefully. Here’s the core idea:</p>
+<ol type="1">
+<li><strong>Trie-Based Categorical Encoding:</strong> A Trie is used to store the categorical features of the data. Each node in the Trie represents a category.</li>
+<li><strong>Leaf-Node KNN Models:</strong> At the leaf nodes of the Trie, where specific combinations of categorical features are found, we fit individual KNN models using only the numerical features.</li>
+<li><strong>Weighted Prediction:</strong> To classify a new data point, we traverse the Trie based on its categorical features. At each level, we calculate a weighted distance based on available data, ending in a probability score in each leaf node.</li>
+</ol>
+<section id="why-this-works" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-works">Why This Works</h3>
+<ul>
+<li><strong>No Direct Distance Calculation for Categorical Features:</strong> The Trie structure implicitly captures the relationships between categorical values.</li>
+<li><strong>Localized KNN Models:</strong> By fitting KNN models at the leaf nodes, we ensure that distance calculations are performed only on relevant numerical features.</li>
+<li><strong>Scalability:</strong> The Trie structure efficiently handles a large number of categorical features and values.</li>
+</ul>
+</section>
+</section>
+<section id="building-a-trieknn-model" class="level2">
+<h2 class="anchored" data-anchor-id="building-a-trieknn-model">Building a TrieKNN Model</h2>
+<p>Let’s dive into the implementation. We’ll start with the <code>TrieNode</code> and <code>Trie</code> classes, then move on to the KNN model and the training/prediction process.</p>
+<section id="trie-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="trie-implementation">Trie Implementation</h3>
+<div id="baecf651" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">class</span> TrieNode:</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb1-6"><a href="#cb1-6"></a>        <span class="va">self</span>.children <span class="op">=</span> {}  <span class="co"># Dictionary to store child nodes</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>        <span class="va">self</span>.is_end_of_word <span class="op">=</span> <span class="va">False</span>  <span class="co"># True if the node is the end of a word</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>        <span class="va">self</span>.count <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Count of how many times a word has been inserted</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>        <span class="va">self</span>.class_counts <span class="op">=</span> {}  <span class="co"># Class counts</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>        <span class="va">self</span>.class_weights <span class="op">=</span> {}</span>
+<span id="cb1-11"><a href="#cb1-11"></a>        <span class="va">self</span>.model <span class="op">=</span> <span class="va">None</span>  <span class="co"># Model at leaf nodes</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>        <span class="va">self</span>.indexes <span class="op">=</span> []  <span class="co"># Store data indexes belonging to this leaf</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>        <span class="va">self</span>.labels <span class="op">=</span> []  <span class="co"># Store data indexes belonging to this leaf</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>        <span class="va">self</span>.node_weight <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="kw">class</span> Trie:</span>
+<span id="cb1-17"><a href="#cb1-17"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb1-18"><a href="#cb1-18"></a>        <span class="va">self</span>.root <span class="op">=</span> TrieNode()  <span class="co"># Root node of the Trie</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>        <span class="va">self</span>.data_index <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Initialize data index</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a></span>
+<span id="cb1-21"><a href="#cb1-21"></a>    <span class="kw">def</span> insert(<span class="va">self</span>, word_val, model):</span>
+<span id="cb1-22"><a href="#cb1-22"></a>        current_node <span class="op">=</span> <span class="va">self</span>.root</span>
+<span id="cb1-23"><a href="#cb1-23"></a>        word, val <span class="op">=</span> word_val</span>
+<span id="cb1-24"><a href="#cb1-24"></a>        current_node.count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a></span>
+<span id="cb1-26"><a href="#cb1-26"></a>        <span class="co"># Adding class counts</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a>        <span class="cf">if</span> val <span class="kw">not</span> <span class="kw">in</span> current_node.class_counts:</span>
+<span id="cb1-28"><a href="#cb1-28"></a>            current_node.class_counts[val] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>        current_node.class_counts[val] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a></span>
+<span id="cb1-31"><a href="#cb1-31"></a>        <span class="cf">for</span> char <span class="kw">in</span> word:</span>
+<span id="cb1-32"><a href="#cb1-32"></a>            <span class="co"># If the character is not in children, add a new TrieNode</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a>            <span class="cf">if</span> char <span class="kw">not</span> <span class="kw">in</span> current_node.children:</span>
+<span id="cb1-34"><a href="#cb1-34"></a>                current_node.children[char] <span class="op">=</span> TrieNode()</span>
+<span id="cb1-35"><a href="#cb1-35"></a>            current_node <span class="op">=</span> current_node.children[char]</span>
+<span id="cb1-36"><a href="#cb1-36"></a></span>
+<span id="cb1-37"><a href="#cb1-37"></a>            <span class="co"># Adding count of instances</span></span>
+<span id="cb1-38"><a href="#cb1-38"></a>            current_node.count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a></span>
+<span id="cb1-40"><a href="#cb1-40"></a>            <span class="co"># adding class counts</span></span>
+<span id="cb1-41"><a href="#cb1-41"></a>            <span class="cf">if</span> val <span class="kw">not</span> <span class="kw">in</span> current_node.class_counts:</span>
+<span id="cb1-42"><a href="#cb1-42"></a>                current_node.class_counts[val] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-43"><a href="#cb1-43"></a>            current_node.class_counts[val] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-44"><a href="#cb1-44"></a></span>
+<span id="cb1-45"><a href="#cb1-45"></a>        <span class="co"># Mark the end of the word and increment count</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a>        current_node.is_end_of_word <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb1-47"><a href="#cb1-47"></a>        current_node.indexes.append(<span class="va">self</span>.data_index)  <span class="co"># Store the data index</span></span>
+<span id="cb1-48"><a href="#cb1-48"></a>        current_node.labels.append(val)</span>
+<span id="cb1-49"><a href="#cb1-49"></a>        current_node.model <span class="op">=</span> model</span>
+<span id="cb1-50"><a href="#cb1-50"></a>        <span class="va">self</span>.data_index <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Increment data index</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a></span>
+<span id="cb1-52"><a href="#cb1-52"></a>    <span class="kw">def</span> search(<span class="va">self</span>, word):</span>
+<span id="cb1-53"><a href="#cb1-53"></a>        current_node <span class="op">=</span> <span class="va">self</span>.root</span>
+<span id="cb1-54"><a href="#cb1-54"></a>        <span class="cf">for</span> char <span class="kw">in</span> word:</span>
+<span id="cb1-55"><a href="#cb1-55"></a>            <span class="co"># If the character doesn't exist in the children, the word doesn't exist</span></span>
+<span id="cb1-56"><a href="#cb1-56"></a>            <span class="cf">if</span> char <span class="kw">not</span> <span class="kw">in</span> current_node.children:</span>
+<span id="cb1-57"><a href="#cb1-57"></a>                <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-58"><a href="#cb1-58"></a>            current_node <span class="op">=</span> current_node.children[char]</span>
+<span id="cb1-59"><a href="#cb1-59"></a></span>
+<span id="cb1-60"><a href="#cb1-60"></a>        <span class="co"># Return True if it's the end of a word and the word exists</span></span>
+<span id="cb1-61"><a href="#cb1-61"></a>        <span class="cf">return</span> current_node.is_end_of_word</span>
+<span id="cb1-62"><a href="#cb1-62"></a></span>
+<span id="cb1-63"><a href="#cb1-63"></a>    <span class="kw">def</span> count_word(<span class="va">self</span>, word):</span>
+<span id="cb1-64"><a href="#cb1-64"></a>        current_node <span class="op">=</span> <span class="va">self</span>.root</span>
+<span id="cb1-65"><a href="#cb1-65"></a>        <span class="cf">for</span> char <span class="kw">in</span> word:</span>
+<span id="cb1-66"><a href="#cb1-66"></a>            <span class="co"># If the character doesn't exist, the word doesn't exist</span></span>
+<span id="cb1-67"><a href="#cb1-67"></a>            <span class="cf">if</span> char <span class="kw">not</span> <span class="kw">in</span> current_node.children:</span>
+<span id="cb1-68"><a href="#cb1-68"></a>                <span class="cf">return</span> <span class="dv">0</span>, current_node.class_counts  <span class="co"># Correctly return class_counts</span></span>
+<span id="cb1-69"><a href="#cb1-69"></a>            current_node <span class="op">=</span> current_node.children[char]</span>
+<span id="cb1-70"><a href="#cb1-70"></a></span>
+<span id="cb1-71"><a href="#cb1-71"></a>        <span class="co"># Return the count of the word</span></span>
+<span id="cb1-72"><a href="#cb1-72"></a>        <span class="cf">return</span> current_node.count, current_node.class_counts</span>
+<span id="cb1-73"><a href="#cb1-73"></a></span>
+<span id="cb1-74"><a href="#cb1-74"></a>    <span class="kw">def</span> display(<span class="va">self</span>):</span>
+<span id="cb1-75"><a href="#cb1-75"></a>        <span class="co"># Recursively display the tree</span></span>
+<span id="cb1-76"><a href="#cb1-76"></a>        <span class="kw">def</span> _display(node, word):</span>
+<span id="cb1-77"><a href="#cb1-77"></a>            <span class="cf">if</span> node.is_end_of_word:</span>
+<span id="cb1-78"><a href="#cb1-78"></a>                <span class="bu">print</span>(<span class="ss">f"Data: </span><span class="sc">{</span>word<span class="sc">}</span><span class="ss">, Count: </span><span class="sc">{</span>node<span class="sc">.</span>count<span class="sc">}</span><span class="ss">, Indexes: </span><span class="sc">{</span><span class="bu">len</span>(node.indexes)<span class="sc">}</span><span class="ss"> Classes :</span><span class="sc">{</span>node<span class="sc">.</span>class_counts<span class="sc">}</span><span class="ss"> weights:</span><span class="sc">{</span><span class="bu">len</span>(node.class_weights)<span class="sc">}</span><span class="ss">"</span>)  <span class="co"># Display indexes too</span></span>
+<span id="cb1-79"><a href="#cb1-79"></a>            <span class="cf">for</span> char, child <span class="kw">in</span> node.children.items():</span>
+<span id="cb1-80"><a href="#cb1-80"></a>                _display(child, word <span class="op">+</span> char)  <span class="co"># corrected the display</span></span>
+<span id="cb1-81"><a href="#cb1-81"></a></span>
+<span id="cb1-82"><a href="#cb1-82"></a>        _display(<span class="va">self</span>.root, <span class="st">""</span>)</span>
+<span id="cb1-83"><a href="#cb1-83"></a></span>
+<span id="cb1-84"><a href="#cb1-84"></a>    <span class="kw">def</span> <span class="bu">apply</span>(<span class="va">self</span>, func):</span>
+<span id="cb1-85"><a href="#cb1-85"></a>        <span class="co">"""</span></span>
+<span id="cb1-86"><a href="#cb1-86"></a><span class="co">        Applies a function to all models in the leaf nodes.</span></span>
+<span id="cb1-87"><a href="#cb1-87"></a><span class="co">        """</span></span>
+<span id="cb1-88"><a href="#cb1-88"></a>        <span class="kw">def</span> _apply(node):</span>
+<span id="cb1-89"><a href="#cb1-89"></a>            <span class="cf">if</span> node.is_end_of_word <span class="kw">and</span> node.model <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb1-90"><a href="#cb1-90"></a>                func(node)</span>
+<span id="cb1-91"><a href="#cb1-91"></a>            <span class="cf">for</span> child <span class="kw">in</span> node.children.values():</span>
+<span id="cb1-92"><a href="#cb1-92"></a>                _apply(child)</span>
+<span id="cb1-93"><a href="#cb1-93"></a></span>
+<span id="cb1-94"><a href="#cb1-94"></a>        _apply(<span class="va">self</span>.root)</span>
+<span id="cb1-95"><a href="#cb1-95"></a></span>
+<span id="cb1-96"><a href="#cb1-96"></a>    <span class="kw">def</span> apply_weight_to_indexes(<span class="va">self</span>, weight):</span>
+<span id="cb1-97"><a href="#cb1-97"></a>        <span class="co">"""</span></span>
+<span id="cb1-98"><a href="#cb1-98"></a><span class="co">        Applies a weight to the indexes based on the percentage of data available.</span></span>
+<span id="cb1-99"><a href="#cb1-99"></a><span class="co">        """</span></span>
+<span id="cb1-100"><a href="#cb1-100"></a>        <span class="kw">def</span> _apply_weight_to_indexes(node):</span>
+<span id="cb1-101"><a href="#cb1-101"></a>            <span class="cf">if</span> node.is_end_of_word:</span>
+<span id="cb1-102"><a href="#cb1-102"></a>                total_count <span class="op">=</span> <span class="bu">sum</span>(<span class="va">self</span>.root.children[child].count <span class="cf">for</span> child <span class="kw">in</span> <span class="va">self</span>.root.children)</span>
+<span id="cb1-103"><a href="#cb1-103"></a>                percentage <span class="op">=</span> node.count <span class="op">/</span> total_count <span class="cf">if</span> total_count <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb1-104"><a href="#cb1-104"></a>                weighted_indexes <span class="op">=</span> [(index, weight <span class="op">*</span> percentage) <span class="cf">for</span> index <span class="kw">in</span> node.indexes]</span>
+<span id="cb1-105"><a href="#cb1-105"></a>                node.class_weights <span class="op">=</span> weighted_indexes  <span class="co"># Corrected this line</span></span>
+<span id="cb1-106"><a href="#cb1-106"></a>            <span class="cf">for</span> child <span class="kw">in</span> node.children.values():</span>
+<span id="cb1-107"><a href="#cb1-107"></a>                _apply_weight_to_indexes(child)</span>
+<span id="cb1-108"><a href="#cb1-108"></a></span>
+<span id="cb1-109"><a href="#cb1-109"></a>        _apply_weight_to_indexes(<span class="va">self</span>.root)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="knn-model" class="level3">
+<h3 class="anchored" data-anchor-id="knn-model">KNN Model</h3>
+<div id="e6060356" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> KNNModel:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, k<span class="op">=</span><span class="dv">5</span>):</span>
+<span id="cb2-3"><a href="#cb2-3"></a>        <span class="va">self</span>.data <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>        <span class="va">self</span>.labels <span class="op">=</span> []</span>
+<span id="cb2-5"><a href="#cb2-5"></a>        <span class="va">self</span>.k <span class="op">=</span> k</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a>    <span class="kw">def</span> fit(<span class="va">self</span>, data, indexes, labels):</span>
+<span id="cb2-8"><a href="#cb2-8"></a>        <span class="co"># print("Fitting model with indexes:", len(indexes), "labels:", len(labels))</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>        <span class="va">self</span>.data <span class="op">=</span> data[indexes].astype(<span class="bu">float</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>        <span class="va">self</span>.labels <span class="op">=</span> np.array(labels).astype(<span class="bu">float</span>)</span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="kw">def</span> predict(<span class="va">self</span>, data):</span>
+<span id="cb2-13"><a href="#cb2-13"></a>        <span class="co"># print("Predicting with data:", data)</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>        dist_ind <span class="op">=</span> np.sqrt(np.<span class="bu">sum</span>((<span class="va">self</span>.data <span class="op">-</span> data) <span class="op">**</span> <span class="dv">2</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="op">**</span> <span class="dv">2</span>)  <span class="co"># euclidean distance</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a>        main_arr <span class="op">=</span> np.column_stack((<span class="va">self</span>.labels, dist_ind))  <span class="co"># labels with distance</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>        main <span class="op">=</span> main_arr[main_arr[:, <span class="dv">1</span>].argsort()]  <span class="co"># sorting based on distance</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a>        count <span class="op">=</span> Counter(main[<span class="dv">0</span>:<span class="va">self</span>.k, <span class="dv">0</span>])  <span class="co"># counting labels</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a>        sums <span class="op">=</span> np.array(<span class="bu">list</span>(count.values()))  <span class="co"># getting counts</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a>        <span class="cf">return</span> sums <span class="op">/</span> np.<span class="bu">sum</span>(sums)  <span class="co"># prediction as probability</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="training-and-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="training-and-evaluation">Training and Evaluation</h3>
+<p>Here’s how we train and evaluate the TrieKNN model:</p>
+<div id="6428a5e2" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Sample data</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>n <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>data <span class="op">=</span> np.array((np.random.choice([<span class="st">'Anything '</span>, <span class="st">'By '</span>,<span class="st">'Chance '</span>], p<span class="op">=</span>[<span class="fl">0.6</span>,<span class="fl">0.1</span>,<span class="fl">0.3</span>],size<span class="op">=</span>n),</span>
+<span id="cb3-4"><a href="#cb3-4"></a>                 np.random.choice([<span class="st">'can'</span>, <span class="st">'go'</span>, <span class="st">'here'</span>,<span class="st">'lets'</span>, <span class="st">'see'</span>, <span class="st">"it"</span>], p<span class="op">=</span>[<span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>], size<span class="op">=</span>n),</span>
+<span id="cb3-5"><a href="#cb3-5"></a>                 np.random.normal(<span class="dv">3</span>, <span class="dv">1</span>, size<span class="op">=</span>n),</span>
+<span id="cb3-6"><a href="#cb3-6"></a>                 np.random.normal(<span class="dv">5</span>, <span class="dv">2</span>, size<span class="op">=</span>n))).T</span>
+<span id="cb3-7"><a href="#cb3-7"></a>y_label <span class="op">=</span> np.random.choice([<span class="dv">0</span>,<span class="dv">1</span>], p<span class="op">=</span>[<span class="fl">0.7</span>, <span class="fl">0.3</span>], size<span class="op">=</span>n)</span>
+<span id="cb3-8"><a href="#cb3-8"></a></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co"># Trie training</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>trie <span class="op">=</span> Trie()</span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="cf">for</span> X, y <span class="kw">in</span> <span class="bu">zip</span>(data, y_label):</span>
+<span id="cb3-12"><a href="#cb3-12"></a>    trie.insert((X[:<span class="dv">2</span>], y),<span class="va">None</span>)</span>
+<span id="cb3-13"><a href="#cb3-13"></a></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co"># Apply weights to indexes</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>trie.apply_weight_to_indexes(<span class="fl">0.5</span>)</span>
+<span id="cb3-16"><a href="#cb3-16"></a></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="co"># Fit models of leaf nodes</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="kw">def</span> add_model(node, data):</span>
+<span id="cb3-19"><a href="#cb3-19"></a>    node.model <span class="op">=</span> KNNModel()</span>
+<span id="cb3-20"><a href="#cb3-20"></a>    node.model.fit(data, node.indexes, node.labels)</span>
+<span id="cb3-21"><a href="#cb3-21"></a></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="kw">def</span> traverse_and_add_model(node, data):</span>
+<span id="cb3-23"><a href="#cb3-23"></a>    <span class="cf">if</span> node.is_end_of_word:</span>
+<span id="cb3-24"><a href="#cb3-24"></a>        add_model(node, data)  <span class="co"># Add model to leaf node</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a>    <span class="cf">for</span> child <span class="kw">in</span> node.children.values():</span>
+<span id="cb3-26"><a href="#cb3-26"></a>        traverse_and_add_model(child, data)</span>
+<span id="cb3-27"><a href="#cb3-27"></a></span>
+<span id="cb3-28"><a href="#cb3-28"></a>traverse_and_add_model(trie.root, data[:, <span class="dv">2</span>:])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="explanation" class="level3">
+<h3 class="anchored" data-anchor-id="explanation">Explanation</h3>
+<ul>
+<li>We create sample data with mixed categorical and numerical features.</li>
+<li>We insert each data point into the Trie, using the categorical features as the path.</li>
+<li>After the Trie is built, we traverse it and fit a KNN model to the data points stored at each leaf node.</li>
+<li>Finally, we can predict the class of new data points by traversing the Trie and using the KNN model at the corresponding leaf node.</li>
+</ul>
+</section>
+</section>
+<section id="results-and-discussion" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="results-and-discussion">Results and Discussion</h2>
+<p>Let us display the trie.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="5e086fb7" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>trie.display()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Data: Anything see, Count: 2429, Indexes: 2429 Classes :{np.int64(0): 1690, np.int64(1): 739} weights:2429
+Data: Anything here, Count: 576, Indexes: 576 Classes :{np.int64(0): 407, np.int64(1): 169} weights:576
+Data: Anything lets, Count: 1166, Indexes: 1166 Classes :{np.int64(1): 335, np.int64(0): 831} weights:1166
+Data: Anything go, Count: 599, Indexes: 599 Classes :{np.int64(1): 172, np.int64(0): 427} weights:599
+Data: Anything can, Count: 623, Indexes: 623 Classes :{np.int64(0): 439, np.int64(1): 184} weights:623
+Data: Anything it, Count: 614, Indexes: 614 Classes :{np.int64(0): 432, np.int64(1): 182} weights:614
+Data: Chance can, Count: 300, Indexes: 300 Classes :{np.int64(1): 84, np.int64(0): 216} weights:300
+Data: Chance see, Count: 1247, Indexes: 1247 Classes :{np.int64(1): 403, np.int64(0): 844} weights:1247
+Data: Chance it, Count: 295, Indexes: 295 Classes :{np.int64(1): 101, np.int64(0): 194} weights:295
+Data: Chance lets, Count: 602, Indexes: 602 Classes :{np.int64(1): 182, np.int64(0): 420} weights:602
+Data: Chance here, Count: 301, Indexes: 301 Classes :{np.int64(0): 209, np.int64(1): 92} weights:301
+Data: Chance go, Count: 314, Indexes: 314 Classes :{np.int64(0): 228, np.int64(1): 86} weights:314
+Data: By lets, Count: 177, Indexes: 177 Classes :{np.int64(0): 120, np.int64(1): 57} weights:177
+Data: By see, Count: 386, Indexes: 386 Classes :{np.int64(0): 279, np.int64(1): 107} weights:386
+Data: By here, Count: 91, Indexes: 91 Classes :{np.int64(0): 74, np.int64(1): 17} weights:91
+Data: By go, Count: 83, Indexes: 83 Classes :{np.int64(0): 54, np.int64(1): 29} weights:83
+Data: By can, Count: 102, Indexes: 102 Classes :{np.int64(0): 68, np.int64(1): 34} weights:102
+Data: By it, Count: 95, Indexes: 95 Classes :{np.int64(1): 24, np.int64(0): 71} weights:95</code></pre>
+</div>
+</div>
+</div></div><p>The model predicted the following values:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fc99edcc" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Prediction example</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">def</span> predict_with_model(node):</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    predictions <span class="op">=</span> node.model.predict(np.array([<span class="dv">2</span>,<span class="dv">5</span>]))</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    <span class="bu">print</span>(<span class="st">"Predictions:"</span>, predictions)</span>
+<span id="cb6-5"><a href="#cb6-5"></a></span>
+<span id="cb6-6"><a href="#cb6-6"></a>trie.<span class="bu">apply</span>(predict_with_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Predictions: [0.6 0.4]
+Predictions: [0.4 0.6]
+Predictions: [0.4 0.6]
+Predictions: [0.6 0.4]
+Predictions: [1.]
+Predictions: [0.8 0.2]
+Predictions: [0.8 0.2]
+Predictions: [1.]
+Predictions: [0.4 0.6]
+Predictions: [0.8 0.2]
+Predictions: [0.8 0.2]
+Predictions: [0.4 0.6]
+Predictions: [0.6 0.4]
+Predictions: [0.8 0.2]
+Predictions: [0.8 0.2]
+Predictions: [0.6 0.4]
+Predictions: [0.8 0.2]
+Predictions: [0.2 0.8]</code></pre>
+</div>
+</div>
+</div></div><p>The predictions will vary on each run. From this we can see that we can use KNN on mixed data types.</p>
+</section>
+<section id="conclusion-a-promising-path-forward" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-a-promising-path-forward">Conclusion: A Promising Path Forward</h2>
+<p>TrieKNN presents a compelling solution for extending the applicability of KNN to mixed data types. By leveraging the Trie data structure, it avoids direct distance calculations on categorical features, enabling the use of localized KNN models for numerical data.</p>
+<p>Further research could explore:</p>
+<ul>
+<li>Optimizing the weighting scheme for combining predictions from different Trie levels.</li>
+<li>Comparing TrieKNN’s performance against other mixed-data KNN approaches on benchmark datasets.</li>
+<li>Extending TrieKNN to handle missing data and noisy categorical features.</li>
+</ul>
+<p>TrieKNN opens up new possibilities for applying KNN in domains where mixed data types are prevalent, such as healthcare, e-commerce, and social science.</p>
+<p>Resources and further reads:<br>
+1. <a href="https://cran.r-project.org/web/packages/nomclust/nomclust.pdf">Nomclust R package</a><br>
+2. <a href="https://ieeexplore.ieee.org/abstract/document/8337394">An Improved kNN Based on Class Contribution and Feature Weighting</a><br>
+3. <a href="https://ieeexplore.ieee.org/abstract/document/8780580">An Improved Weighted KNN Algorithm for Imbalanced Data Classification</a><br>
+4. <a href="https://ieeexplore.ieee.org/abstract/document/6718270">A weighting approach for KNN classifier</a><br>
+5. <a href="https://ieeexplore.ieee.org/abstract/document/9739702">Unsupervised Outlier Detection for Mixed-Valued Dataset Based on the Adaptive k-Nearest Neighbor Global Network</a><br>
+6. <a href="https://journalskuwait.org/kjs/index.php/KJS/article/download/18331/1253">A hybrid approach based on k-nearest neighbors and decision tree for software fault prediction</a><br>
+7. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7173366/">Analysis of Decision Tree and K-Nearest Neighbor Algorithm in the Classification of Breast Cancer</a></p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/jitinkapila\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<script src="https://utteranc.es/client.js" repo="jkapila/perceptions" issue-term="url" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 Jitin Kapila</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/jitinkapila">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/jitinkapila">
+      <i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jkapila">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@jitinkapila">
+      <i class="bi bi-youtube" role="img" aria-label="YouTube">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://aicrosscurrent.substack.com/">
+      <i class="bi bi-substack" role="img" aria-label="Substack Newsletter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/jitinkapila">
+      <i class="bi bi-instagram" role="img" aria-label="Instagram">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

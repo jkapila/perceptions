@@ -1,47 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.jitinkapila.com/resume.html</loc>
-    <lastmod>2025-09-11T15:06:03.912Z</lastmod>
+    <loc>https://jitinkapila.com/REFACTOR_SUMMARY.html</loc>
+    <lastmod>2025-12-08T11:08:05.159Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jitinkapila.com/posts/10_treeknn/index.html</loc>
-    <lastmod>2025-09-11T13:14:08.037Z</lastmod>
+    <loc>https://jitinkapila.com/posts/engineering/03_crosstab_sparsity/index.html</loc>
+    <lastmod>2025-12-06T12:16:24.625Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jitinkapila.com/posts/03_crosstab_sparsity/index.html</loc>
-    <lastmod>2025-09-11T13:14:08.029Z</lastmod>
+    <loc>https://jitinkapila.com/posts/engineering/01_adaptive_regression/index.html</loc>
+    <lastmod>2025-12-07T12:37:37.528Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jitinkapila.com/posts/01_adaptive_regression/index.html</loc>
-    <lastmod>2025-09-11T13:14:08.022Z</lastmod>
+    <loc>https://jitinkapila.com/posts/strategy/decision-first-ai/index.html</loc>
+    <lastmod>2025-12-07T12:37:36.496Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jitinkapila.com/index.html</loc>
-    <lastmod>2025-09-11T19:02:18.568Z</lastmod>
+    <loc>https://jitinkapila.com/extras/SEO_TODO.html</loc>
+    <lastmod>2025-12-07T13:43:58.697Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jitinkapila.com/about.html</loc>
-    <lastmod>2025-09-11T14:42:48.140Z</lastmod>
+    <loc>https://jitinkapila.com/extras/BRAND_MEMORY.html</loc>
+    <lastmod>2025-12-06T11:33:34.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jitinkapila.com/insights.html</loc>
-    <lastmod>2025-09-11T14:22:43.763Z</lastmod>
+    <loc>https://jitinkapila.com/CLAUDE.html</loc>
+    <lastmod>2025-12-07T08:18:05.646Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jitinkapila.com/posts/02_hypothesis_test/index.html</loc>
-    <lastmod>2025-09-11T15:12:37.008Z</lastmod>
+    <loc>https://jitinkapila.com/vault.html</loc>
+    <lastmod>2025-12-08T18:34:12.142Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index.html</loc>
-    <lastmod>2025-09-11T13:14:08.032Z</lastmod>
+    <loc>https://jitinkapila.com/SCSS_AUDIT.html</loc>
+    <lastmod>2025-12-08T11:03:14.818Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jitinkapila.com/posts/06_saving_my_blog/index.html</loc>
-    <lastmod>2025-09-11T13:14:08.033Z</lastmod>
+    <loc>https://jitinkapila.com/index.html</loc>
+    <lastmod>2025-12-08T18:33:04.016Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jitinkapila.com/research.html</loc>
-    <lastmod>2025-09-11T13:14:08.040Z</lastmod>
+    <loc>https://jitinkapila.com/insights.html</loc>
+    <lastmod>2025-12-06T12:16:24.621Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/about.html</loc>
+    <lastmod>2025-12-08T18:33:25.952Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/consulting.html</loc>
+    <lastmod>2025-12-08T18:33:54.078Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/extras/sample-blog-post.html</loc>
+    <lastmod>2025-12-06T11:33:34.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/extras/CANVA_PROMPT.html</loc>
+    <lastmod>2025-12-08T18:14:31.287Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/bootcamp.html</loc>
+    <lastmod>2025-12-08T18:33:12.714Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index.html</loc>
+    <lastmod>2025-12-06T12:16:24.627Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/posts/engineering/02_hypothesis_test/index.html</loc>
+    <lastmod>2025-12-06T12:16:24.623Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/posts/engineering/10_treeknn/index.html</loc>
+    <lastmod>2025-12-06T12:16:24.631Z</lastmod>
   </url>
 </urlset>

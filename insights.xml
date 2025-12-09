@@ -5,25 +5,146 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Jitin Kapila</title>
-<link>https://www.jitinkapila.com/insights.html</link>
-<atom:link href="https://www.jitinkapila.com/insights.xml" rel="self" type="application/rss+xml"/>
-<description>AI Strategy Expert | Machine Learning &amp; Data Science Leader | GenAI Implementation | Cross-Industry Analytics Solutions | Fortune 500 AI Transformation</description>
-<generator>quarto-1.8.24</generator>
-<lastBuildDate>Tue, 25 Feb 2025 18:30:00 GMT</lastBuildDate>
+<title>Jitin Kapila | The AI Architect</title>
+<link>https://jitinkapila.com/insights.html</link>
+<atom:link href="https://jitinkapila.com/insights.xml" rel="self" type="application/rss+xml"/>
+<description>Helping Fortune 500 leaders transition from Prescriptive AI to Predictive Strategy.</description>
+<generator>quarto-1.8.26</generator>
+<lastBuildDate>Wed, 08 Oct 2025 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Decision-First AI: Why Data Should Follow, Not Lead</title>
+  <dc:creator>Jitin Kapila</dc:creator>
+  <link>https://jitinkapila.com/posts/strategy/decision-first-ai/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Start here: don’t open a notebook until you know the decision you want to change.</p>
+<p>Sounds obvious. But most AI projects don’t start there. They start with a dataset, or with a “let’s try this model,” or with a platform demo that looks great in the cloud. And then weeks later the obvious question appears: “Okay — what decision does this support?” People shrug. The project stalls. The models are good. The business impact is vague.</p>
+<p>This is the dataset-first trap. It wastes time, money, and faith. It also gives AI a bad name.</p>
+<p>I’ve seen the opposite work — a lot. Start with the decision. Map the decision. Then pick the simplest data and model that make the decision better. The result? Faster pilots, clearer ROI, and systems that actually get used.</p>
+<p>That approach is not just a management neat-idea. There’s a real body of research showing that aligning models to downstream decision goals yields better decisions than optimizing prediction accuracy alone. And there are real, practical wins — from telecom fault detection to inventory systems — when you flip the order. arXiv+1</p>
+<section id="the-dataset-first-trap-what-it-looks-like-and-why-it-hurts" class="level2">
+<h2 class="anchored" data-anchor-id="the-dataset-first-trap-what-it-looks-like-and-why-it-hurts">The “dataset-first” trap — what it looks like, and why it hurts</h2>
+<p>Here’s the typical playbook I see in companies:</p>
+<ul>
+<li>Someone discovers a new dataset.</li>
+<li>They build dashboards, then a model, then a fine model, then a fancier model.</li>
+<li>They show a demo. The demo gets applause. Then the work hits integration, governance, and the messy reality of people who must make decisions every day. The model’s outputs don’t map to a decision process. So adoption fails.</li>
+</ul>
+<p>Why? Because the project optimized the wrong thing. It optimized prediction metrics — error, F1, AUC, MAPE. And those are useful. But they’re not the measure of business impact. A model with better accuracy can still be useless if it doesn’t change what someone does.</p>
+<p>Harvard Business Review captured this idea well: decisions don’t start with data. They start with a problem, a role, a process, and a behavior. If your analytics don’t connect to that reality, you get slides and disappointment. Harvard Business Review</p>
+<p>There are more subtle costs too. Dataset-first projects often create models that are brittle in production: they overfit to historical quirks, they require constant data wrangling, and they produce numbers no one trusts. That kills scale.</p>
+</section>
+<section id="decision-first-in-research-not-new-but-finally-practical" class="level2">
+<h2 class="anchored" data-anchor-id="decision-first-in-research-not-new-but-finally-practical">Decision-first in research: not new, but finally practical</h2>
+<p>There’s academic grounding for starting with decisions. In the machine-learning community this shows up as “decision-focused learning” or “smart predict-then-optimize.” The idea: train predictive models not for pure accuracy, but to minimize the loss that matters to the downstream optimization or decision task. When you optimize directly for the decision loss, you often get better business outcomes — even with “worse” prediction metrics. arXiv+1</p>
+<p>Recent papers and reviews show both the theory and practical methods: surrogate losses that reflect decision outcomes, techniques to differentiate through optimization, and heuristics for discrete problems. The takeaway: the math supports the intuition. If you want a model to help choose inventory levels, price points, or routing, train it with that decision in mind — not just with RMSE. Optimization Online+1</p>
+<p>That doesn’t mean every model must be complex. Often the opposite. Framing the decision reduces model complexity because you only model what matters. This is your Occam’s Razor</p>
+</section>
+<section id="the-decision-map-simple-framework-you-can-use-today" class="level2">
+<h2 class="anchored" data-anchor-id="the-decision-map-simple-framework-you-can-use-today">The Decision Map: simple framework you can use today</h2>
+<p>If you want to flip to decision-first, start with a small, disciplined tool I call a Decision Map. It’s a one-page artefact. Build it before you touch data.</p>
+<p>Here’s the Decision Map — six steps. Do them in order.</p>
+<ul>
+<li><p><strong>Name the decision.</strong> Who decides, how often, and what options do they choose? Example: “Field-ops decides whether to dispatch a technician to a suspected DSL fault.” Be specific. Frequency matters — hourly, daily, weekly change what you can do.</p></li>
+<li><p><strong>Define the decision metric(s).</strong>What counts as success? Lower cost? Faster response time? Increase in net revenue? Pick one primary metric and one secondary. If you can’t name it in a single measurable sentence, you don’t have a decision.</p></li>
+<li><p><strong>Map the current process.</strong> Where is the decision made today? Which people and tools are involved? Where does data enter? Where do delays happen? This step exposes the friction you must remove.</p></li>
+<li><p><strong>Identify the minimal action the model must trigger.</strong> The model doesn’t need to be perfect. It needs to change behavior. If the model’s output is a probability, what threshold triggers action? Who gets the alert? What’s the handoff?</p></li>
+<li><p><strong>List the minimal signals (data) needed.</strong> Only include data that directly reduces uncertainty for the decision. You’ll be surprised how small this list often is. Think: signal → action. Not “all the data.”</p></li>
+<li><p><strong>Plan the feedback loop.</strong> How will you measure the decision metric after deployment? How will you collect labels and iterate? Decide that upfront.</p></li>
+</ul>
+<p>If you complete this map, you’ll have done 80% of the work most teams skip. It forces alignment, and it reveals whether the project is worth doing.</p>
+<p><a href="../../../decision-map-framework.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://jitinkapila.com/decision-map-framework.webp" class="img-fluid"></a></p>
+</section>
+<section id="a-telecom-example-mapped-end-to-end-real-story" class="level2">
+<h2 class="anchored" data-anchor-id="a-telecom-example-mapped-end-to-end-real-story">A telecom example, mapped end-to-end (real story)</h2>
+<p>A brief, real example matters. I built a real-time anomaly detection system for a European telecom client early in my career. The project didn’t begin with “we have logs.” It began with this decision map:</p>
+<ul>
+<li><strong>Decision:</strong> Should operations dispatch a field technician proactively for a suspected DSL fault?</li>
+<li><strong>Metric:</strong> Reduce customer reported faults and improve Net Promoter Score (NPS) by reducing time-to-detect. Also: monthly cost savings from fewer reactive truck rolls and more planned truck rolls.</li>
+<li><strong>Process:</strong> Operations received the customer call, created a ticket, and dispatched if needed — often hours or days later. That was slow and expensive.
+<ul>
+<li><strong>Action:</strong> If the system flags an anomaly with high confidence</li>
+<li><strong>Red :</strong> Very high probability in next 48 hours,</li>
+<li><strong>Amber:</strong> probability in next 2-15 days</li>
+<li><strong>Green:</strong> No visibility of error in next 15 days This creates a high-priority ticket and dispatch a remote check or technician and was planned in region wise manner.</li>
+</ul></li>
+<li><strong>Signals:</strong> DSL line metrics, error rates, device telemetry, event logs — a handful of streams, not every log.</li>
+<li><strong>Feedback:</strong> Compare flagged incidents to customer complaints and adjust thresholds.</li>
+</ul>
+<p>Because the decision was so clear, we could measure value before full scale. The pilot cut detection time from days to hours, raised customer satisfaction significantly ( We sent messages to possible signal disruption early), and saved ~£80K per month ( because reducing complete breakdown to DSL by heat or so and by planning the route than going everywhere) . It wasn’t an exotic model (or may be it was, tech details some other day); it was a tightly scoped system that informed a clear action.</p>
+<p>Notice how this maps to the <strong>Decision-First steps</strong>. The model existed to change a single operational choice. That focus made deployment possible and measurable fast.</p>
+</section>
+<section id="another-quick-example-inventory-decisions" class="level2">
+<h2 class="anchored" data-anchor-id="another-quick-example-inventory-decisions">Another quick example: inventory decisions</h2>
+<p>Inventory forecasting is a classic area where decision-first matters. You can chase lower MAPE and never change stocking policy. Or you can ask: what decision do merchandisers make with this forecast? When you frame it as “which SKUs do we order for next week, and what reorder points trigger expedited shipments,” you design the forecast differently: shorter horizons, bias for understock on fast movers, and direct constraints on reorder costs.</p>
+<p>I’ve led projects that delivered $11M in inventory optimization by building forecasts and decision rules that match merchant behavior and supply constraints. The trick was not better models — it was framing forecasts so the merchandisers could act with confidence.</p>
+</section>
+<section id="practical-tips-for-teams-do-this-in-week-one" class="level2">
+<h2 class="anchored" data-anchor-id="practical-tips-for-teams-do-this-in-week-one">Practical tips for teams (do this in week one)</h2>
+<ol type="1">
+<li><strong>Run a one-hour Decision Map workshop.</strong> Invite the decision owner, one operator, one engineer, and one product owner. Build the one-page map. If the owner can’t commit to a metric, pause the project.</li>
+<li><strong>Start with a simple rule baseline.</strong> Before modeling, define a rule that will be your baseline (e.g., “if X &gt; T, create ticket”). If the model can’t beat that rule in decision impact, scrap it.</li>
+<li><strong>Measure decision impact, not model accuracy.</strong> Your dashboard should show business metric delta — not just RMSE. If you show the board a change in cost or conversion, you’ll get attention.</li>
+<li><strong>Prioritize deployment constraints.</strong> Decide telemetry, latency, and handoff requirements first. Models that can’t meet latency or trust constraints are useless no matter how accurate.</li>
+<li><strong>Iterate with real feedback.</strong> Don’t wait for “perfect.” Ship an MVP that can be measured, then refine. Real decisions provide labels and operational learning.</li>
+</ol>
+</section>
+<section id="common-objections-and-how-to-handle-them" class="level2">
+<h2 class="anchored" data-anchor-id="common-objections-and-how-to-handle-them">Common objections and how to handle them</h2>
+<p><strong><em>“But we don’t have a clear decision owner.”</em></strong> Then don’t build a model. Decisions live in roles. Pull the right owner in early, or you’ll build for nobody.</p>
+<p><strong><em>“Our data is messy.”</em></strong> Fine. If you can define the minimal signals, you can often create a proxy or start with manual labels. Messy data is easier to handle when you only need a few signals for a specific decision.</p>
+<p><strong><em>“We need predictions for many uses.”</em></strong> Build a simple decision-first pilot first. Use its success to fund broader platform work. Pilots create proof that unlocks investment.</p>
+<p><strong><em>“Decision-focused methods are academic — too hard.”</em></strong> There’s truth and myth here. The academic techniques show big wins when decision loss can be written down. But you don’t need complicated differentiable optimization to start. Use a decision map, simple thresholds, A/B tests, and iterative measurement. Graduate to decision-focused training once you have a stable objective. The research just tells us — unsurprisingly — that when you train with the decision in mind, outcomes improve. Optimization Online+1</p>
+</section>
+<section id="one-page-checklist-copy-this" class="level2">
+<h2 class="anchored" data-anchor-id="one-page-checklist-copy-this">One-page checklist (copy this)</h2>
+<ul>
+<li>Decision name (The GOTO problem statement): ____________________</li>
+<li>Primary / Secondary metric (which can accounted for ROI calculation later ): _____</li>
+<li>Decision owner (I don’t want to debate on this): ________________________</li>
+<li>Frequency of predictions: real-time / hourly / daily / weekly / monthly</li>
+<li>Action / interventions which can be triggered by model: ____________________</li>
+<li>Minimal signals required( The core Data to begin with): ______________________</li>
+<li>Baseline rule (your fail-safe if everything goes wrong): ____________________</li>
+<li>Feedback source ( might be tricky, but you should have one): __________________</li>
+</ul>
+<p>If you can fill this in, you’re set for a pilot.</p>
+</section>
+<section id="final-note-start-small-measure-fast-then-scale-with-discipline" class="level2">
+<h2 class="anchored" data-anchor-id="final-note-start-small-measure-fast-then-scale-with-discipline">Final note — start small, measure fast, then scale with discipline</h2>
+<p>The decision-first approach is simple because business problems are simple when stated well. The hard part is discipline: saying no to shiny demos and yes to measurable change. Start with one decision that matters. Map it. Ship a small system that changes behavior. Measure the business metric. Iterate.</p>
+<p>Research supports this: models trained with the decision in mind perform better on the actual outcomes you care about. And in practice, teams that flip the order — decision first, data second — get to value faster. arXiv+1</p>
+<p>If you want help mapping a decision in your company, send me one line describing the decision and the current process. I’ll reply with the Decision Map template you can use in a one-hour workshop. Or if you want we can connect too.</p>
+<p>If this post help you or think help someone in need, please do share it. Thanks!!!</p>
+<p>##Key sources &amp; further reading Elmachtoub, A.N., &amp; Grigas, P. — Smart “Predict, then Optimize” (foundational paper on decision-focused loss and SPO). arXiv Reviews and recent work on decision-focused learning (predict-and-optimize / decision-focused methods). arXiv+1 Harvard Business Review — Decisions Don’t Start with Data — on why framing the decision matters. Harvard Business Review (And — the telecom and inventory examples referenced above are from projects on my profile/resume: Ask, if you want more details !! )</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
+  <category>strategy</category>
+  <category>roi</category>
+  <category>business</category>
+  <category>ai</category>
+  <guid>https://jitinkapila.com/posts/strategy/decision-first-ai/</guid>
+  <pubDate>Wed, 08 Oct 2025 18:30:00 GMT</pubDate>
+  <media:content url="https://jitinkapila.com/posts/strategy/decision-first-ai/decision-map-framework.webp" medium="image" type="image/webp"/>
+</item>
 <item>
   <title>TrieKNN: Unleashing KNN’s Power on Mixed Data Types</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.jitinkapila.com/posts/10_treeknn/</link>
+  <link>https://jitinkapila.com/posts/engineering/10_treeknn/</link>
   <description><![CDATA[ 
-
 
 
 
 
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="pexels-gelgas-401213.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by Gelgas Airlangga"><img src="https://www.jitinkapila.com/posts/10_treeknn/pexels-gelgas-401213.jpg" class="img-fluid figure-img" alt="Photo by Gelgas Airlangga"></a></p>
+<p><a href="pexels-gelgas-401213.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by Gelgas Airlangga"><img src="https://jitinkapila.com/posts/engineering/10_treeknn/pexels-gelgas-401213.jpg" class="img-fluid figure-img" alt="Photo by Gelgas Airlangga"></a></p>
 <figcaption class="margin-caption"><a href="https://www.pexels.com/photo/shallow-focus-of-sprout-401213/">Photo by Gelgas Airlangga</a></figcaption>
 </figure>
 </div>
@@ -86,7 +207,7 @@
 <p>Let’s dive into the implementation. We’ll start with the <code>TrieNode</code> and <code>Trie</code> classes, then move on to the KNN model and the training/prediction process.</p>
 <section id="trie-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="trie-implementation">Trie Implementation</h3>
-<div id="f64ed864" class="cell" data-execution_count="2">
+<div id="baecf651" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
@@ -659,7 +780,7 @@ font-style: inherit;">self</span>.root)</span></code></pre></div></div>
 </section>
 <section id="knn-model" class="level3">
 <h3 class="anchored" data-anchor-id="knn-model">KNN Model</h3>
-<div id="77d420dd" class="cell" data-execution_count="3">
+<div id="e6060356" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
@@ -800,7 +921,7 @@ font-style: inherit;"># prediction as probability</span></span></code></pre></di
 <section id="training-and-evaluation" class="level3">
 <h3 class="anchored" data-anchor-id="training-and-evaluation">Training and Evaluation</h3>
 <p>Here’s how we train and evaluate the TrieKNN model:</p>
-<div id="cdc54cad" class="cell" data-execution_count="4">
+<div id="6428a5e2" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
@@ -970,36 +1091,36 @@ font-style: inherit;">2</span>:])</span></code></pre></div></div>
 <p>Let us display the trie.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<div id="88dd6e09" class="cell" data-execution_count="5">
+<div id="5e086fb7" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1">trie.display()</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Data: Anything see, Count: 2383, Indexes: 2383 Classes :{1: 698, 0: 1685} weights:2383
-Data: Anything go, Count: 618, Indexes: 618 Classes :{0: 427, 1: 191} weights:618
-Data: Anything lets, Count: 1259, Indexes: 1259 Classes :{1: 365, 0: 894} weights:1259
-Data: Anything it, Count: 574, Indexes: 574 Classes :{1: 182, 0: 392} weights:574
-Data: Anything can, Count: 592, Indexes: 592 Classes :{0: 411, 1: 181} weights:592
-Data: Anything here, Count: 617, Indexes: 617 Classes :{0: 438, 1: 179} weights:617
-Data: Chance see, Count: 1217, Indexes: 1217 Classes :{1: 358, 0: 859} weights:1217
-Data: Chance it, Count: 300, Indexes: 300 Classes :{0: 214, 1: 86} weights:300
-Data: Chance go, Count: 302, Indexes: 302 Classes :{0: 227, 1: 75} weights:302
-Data: Chance lets, Count: 549, Indexes: 549 Classes :{1: 165, 0: 384} weights:549
-Data: Chance here, Count: 284, Indexes: 284 Classes :{0: 188, 1: 96} weights:284
-Data: Chance can, Count: 280, Indexes: 280 Classes :{0: 185, 1: 95} weights:280
-Data: By see, Count: 421, Indexes: 421 Classes :{1: 112, 0: 309} weights:421
-Data: By go, Count: 81, Indexes: 81 Classes :{0: 64, 1: 17} weights:81
-Data: By can, Count: 107, Indexes: 107 Classes :{0: 80, 1: 27} weights:107
-Data: By it, Count: 90, Indexes: 90 Classes :{0: 64, 1: 26} weights:90
-Data: By here, Count: 107, Indexes: 107 Classes :{0: 75, 1: 32} weights:107
-Data: By lets, Count: 219, Indexes: 219 Classes :{0: 149, 1: 70} weights:219</code></pre>
+<pre><code>Data: Anything see, Count: 2429, Indexes: 2429 Classes :{np.int64(0): 1690, np.int64(1): 739} weights:2429
+Data: Anything here, Count: 576, Indexes: 576 Classes :{np.int64(0): 407, np.int64(1): 169} weights:576
+Data: Anything lets, Count: 1166, Indexes: 1166 Classes :{np.int64(1): 335, np.int64(0): 831} weights:1166
+Data: Anything go, Count: 599, Indexes: 599 Classes :{np.int64(1): 172, np.int64(0): 427} weights:599
+Data: Anything can, Count: 623, Indexes: 623 Classes :{np.int64(0): 439, np.int64(1): 184} weights:623
+Data: Anything it, Count: 614, Indexes: 614 Classes :{np.int64(0): 432, np.int64(1): 182} weights:614
+Data: Chance can, Count: 300, Indexes: 300 Classes :{np.int64(1): 84, np.int64(0): 216} weights:300
+Data: Chance see, Count: 1247, Indexes: 1247 Classes :{np.int64(1): 403, np.int64(0): 844} weights:1247
+Data: Chance it, Count: 295, Indexes: 295 Classes :{np.int64(1): 101, np.int64(0): 194} weights:295
+Data: Chance lets, Count: 602, Indexes: 602 Classes :{np.int64(1): 182, np.int64(0): 420} weights:602
+Data: Chance here, Count: 301, Indexes: 301 Classes :{np.int64(0): 209, np.int64(1): 92} weights:301
+Data: Chance go, Count: 314, Indexes: 314 Classes :{np.int64(0): 228, np.int64(1): 86} weights:314
+Data: By lets, Count: 177, Indexes: 177 Classes :{np.int64(0): 120, np.int64(1): 57} weights:177
+Data: By see, Count: 386, Indexes: 386 Classes :{np.int64(0): 279, np.int64(1): 107} weights:386
+Data: By here, Count: 91, Indexes: 91 Classes :{np.int64(0): 74, np.int64(1): 17} weights:91
+Data: By go, Count: 83, Indexes: 83 Classes :{np.int64(0): 54, np.int64(1): 29} weights:83
+Data: By can, Count: 102, Indexes: 102 Classes :{np.int64(0): 68, np.int64(1): 34} weights:102
+Data: By it, Count: 95, Indexes: 95 Classes :{np.int64(1): 24, np.int64(0): 71} weights:95</code></pre>
 </div>
 </div>
 </div></div><p>The model predicted the following values:</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<div id="a8477afe" class="cell" data-execution_count="6">
+<div id="fc99edcc" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
@@ -1027,24 +1148,24 @@ background-color: null;
 font-style: inherit;">apply</span>(predict_with_model)</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Predictions: [0.8 0.2]
+<pre><code>Predictions: [0.6 0.4]
+Predictions: [0.4 0.6]
+Predictions: [0.4 0.6]
 Predictions: [0.6 0.4]
-Predictions: [0.6 0.4]
-Predictions: [0.6 0.4]
+Predictions: [1.]
+Predictions: [0.8 0.2]
+Predictions: [0.8 0.2]
+Predictions: [1.]
+Predictions: [0.4 0.6]
+Predictions: [0.8 0.2]
+Predictions: [0.8 0.2]
 Predictions: [0.4 0.6]
 Predictions: [0.6 0.4]
 Predictions: [0.8 0.2]
-Predictions: [0.4 0.6]
-Predictions: [1.]
-Predictions: [0.4 0.6]
-Predictions: [0.4 0.6]
-Predictions: [1.]
+Predictions: [0.8 0.2]
 Predictions: [0.6 0.4]
-Predictions: [0.6 0.4]
-Predictions: [0.4 0.6]
-Predictions: [0.2 0.8]
-Predictions: [0.4 0.6]
-Predictions: [0.4 0.6]</code></pre>
+Predictions: [0.8 0.2]
+Predictions: [0.2 0.8]</code></pre>
 </div>
 </div>
 </div></div><p>The predictions will vary on each run. From this we can see that we can use KNN on mixed data types.</p>
@@ -1075,104 +1196,22 @@ Predictions: [0.4 0.6]</code></pre>
   <category>knn</category>
   <category>ml</category>
   <category>mixed-data</category>
-  <guid>https://www.jitinkapila.com/posts/10_treeknn/</guid>
+  <guid>https://jitinkapila.com/posts/engineering/10_treeknn/</guid>
   <pubDate>Tue, 25 Feb 2025 18:30:00 GMT</pubDate>
-  <media:content url="https://www.jitinkapila.com/posts/10_treeknn/pexels-anntarazevich-7299985.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Journey back to Bloggin’ with Quarto</title>
-  <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.jitinkapila.com/posts/06_saving_my_blog/</link>
-  <description><![CDATA[ 
-
-
-
-  
-
-
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><a href="mount-everest-6395759_640.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Journey that challenges you are the best! Image by Devraj Bajgain"><img src="https://www.jitinkapila.com/posts/06_saving_my_blog/mount-everest-6395759_640.jpg" class="img-fluid figure-img" alt="Journey that challenges you are the best! Image by Devraj Bajgain"></a></p>
-<figcaption class="margin-caption">Journey that challenges you are the best! Image by <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6395759">Devraj Bajgain</a></figcaption>
-</figure>
-</div>
-<section id="my-blogging-evolution-from-jekylls-depths-to-quartos-data-science-peak" class="level1">
-<h1>My Blogging Evolution: From Jekyll’s Depths to Quarto’s Data Science Peak</h1>
-<p>The realm of blogging platforms is expansive and constantly evolving, offering solutions for every niche. As a data science architect, my journey through this landscape has been a search for the ideal tool—one that integrates with my workflow, supports my use of R and Python, and enables me to share insights efficiently. This quest has led me from Jekyll to Hugo, and finally, to the data science-focused environment of Quarto. Let me recount this evolution.</p>
-<section id="the-beginning-jekylls-promise-and-problems" class="level3">
-<h3 class="anchored" data-anchor-id="the-beginning-jekylls-promise-and-problems">The Beginning: <a href="https://jekyllrb.com/">Jekyll’s</a> Promise and Problems</h3>
-<p>Around 2015, <em>Jekyll</em> was a leading choice for static site generation. It promised a simple, static blog, but the reality had its challenges. The setup was relatively straightforward, but as a data scientist, I encountered significant drawbacks. My workflow involved R and Python code, and integrating these into blog posts was cumbersome. I spent more time tweaking Ruby and HTMLthan writing, which wasn’t ideal.</p>
-<p><em>It was an inefficient process that stifled creativity</em>. I needed a platform that understood the needs of data scientists, allowing seamless integration of code, narrative, and visuals. Despite its initial appeal, <a href="https://danmackinlay.name/notebook/static_sites.html"><em>Jekyll proved more of a hindrance</em></a> <span class="emoji" data-emoji="disappointed_relieved">😥</span></p>
-</section>
-<section id="a-glimmer-of-hope-hugo-and-blogdown" class="level3">
-<h3 class="anchored" data-anchor-id="a-glimmer-of-hope-hugo-and-blogdown">A Glimmer of Hope: <a href="https://gohugo.io/">Hugo</a> and <a href="https://bookdown.org/yihui/blogdown/">Blogdown</a></h3>
-<p>Next, I discovered <em>Hugo</em>, along with the <em>blogdown</em> package in R. This combination allowed me to write blog posts directly in R Markdown, which was revolutionary. I created shortcodes that suited my style, and <em>writing in R Markdown was a game-changer</em>.</p>
-<p>However, my enthusiasm was short-lived. As I shifted more towards Python for development, I faced the same old problem: <em>juggling between environments</em>. The dream of a unified workflow remained <a href="https://rasmusnes.com/posts/hugo_vs_quarto/">out of reach</a>.</p>
-</section>
-<section id="the-ideal-quarto" class="level3">
-<h3 class="anchored" data-anchor-id="the-ideal-quarto">The Ideal: <a href="https://quarto.org/">Quarto</a></h3>
-<p>Then came <em>Quarto</em>. This has been transformative. Quarto is designed for researchers and data scientists, supporting both R and Python seamlessly. I started migrating my site in early 2022, and the transition was smooth. <em>I built my site, deployed it on Netlify</em>, and finally had a natural and intuitive workflow.</p>
-<p><em>Quarto allowed me to focus on content</em>. I could write, code, and visualize without leaving my data science environment. Its support for multiple output formats made adapting content for different channels easy.</p>
-</section>
-<section id="the-hiatus-and-the-return" class="level3">
-<h3 class="anchored" data-anchor-id="the-hiatus-and-the-return">The Hiatus and the Return</h3>
-<p>Life intervened, and blogging took a backseat during 2023 and early 2024.</p>
-<p><em>Now, I’m back</em>. The goal is to blog <em>better</em>, creating content that sparks conversations and pushes data science communication. I aim to leverage Quarto’s full capabilities, building an engaging and informative blog, dashboards and whatever is possible. The plan is to distribute content across multiple channels and build a community. <em>Fingers crossed, I won’t stop this time</em>. <span class="emoji" data-emoji="v">✌️</span></p>
-</section>
-</section>
-<section id="lessons-learned-and-resources" class="level1">
-<h1>Lessons Learned and Resources</h1>
-<p>My blogging journey has taught me valuable lessons:</p>
-<ol type="1">
-<li><strong>Choose the Right Tool</strong>: The platform impacts your productivity. Select one that aligns with your workflow.</li>
-<li><strong>Embrace Simplicity</strong>: Focus on creating content and let the platform handle the rest.</li>
-<li><strong>Stay Consistent</strong>: Consistency is key. Maintain a realistic schedule.</li>
-<li><strong>Engage with Your Audience</strong>: Interact with readers and build a community.</li>
-</ol>
-<p>My recent inspiration is from :</p>
-<ul>
-<li><a href="https://ivelasq.rbind.io/">%&gt;% dreams</a> Blog by Isabella Velásquez.</li>
-<li><a href="https://blog.djnavarro.net/">Notes from a data witch</a> A blog by Danielle Navarro.</li>
-<li><a href="https://albert-rapp.de/">Albert Rapp</a> His personal Blog.</li>
-<li><a href="https://randomrealizations.com">Random Realizations</a> A great work by Matt Bowers especially for python users.</li>
-<li><a href="https://bitsofanalytics.org/">Bits of Analytics</a> A good simple site!</li>
-<li><a href="https://github.com/mcanouil/awesome-quarto">Awesome Quarto</a> A great place to find best things on Quarto!!!</li>
-</ul>
-<p>To enhance my blog, I’m referring to these resources:</p>
-<ul>
-<li><a href="https://www.asterhu.com/post/2023-03-30-jekyll-migrating-to-quarto/">Aster Hu’s experience migrating from Jekyll to Quarto</a></li>
-<li><a href="https://rasmusnes.com/posts/hugo_vs_quarto/">Rasmus Nes’s Blog on Hugo vs Quarto</a></li>
-<li><a href="https://news.ycombinator.com/item?id=39272953">Discussion on lightweight personal blogging platforms on Hacker News</a></li>
-<li><a href="https://danmackinlay.name/notebook/static_sites.html">Dan MacKinlay’s notes on static websites</a></li>
-<li><a href="https://news.ycombinator.com/item?id=41014806">Another Hacker News discussion on the best way to author blogs in 2024</a></li>
-<li><a href="https://github.com/quarto-dev/quarto-cli/discussions/6534">Can quarto work with Jekyll?</a></li>
-<li><a href="https://github.com/myles/awesome-static-generators">Swesome Static Generators</a></li>
-</ul>
-<p><em>Here’s to the next phase of my blogging evolution. May it be filled with insights and innovation!</em></p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
-  <category>blog</category>
-  <category>quarto</category>
-  <guid>https://www.jitinkapila.com/posts/06_saving_my_blog/</guid>
-  <pubDate>Wed, 22 Jan 2025 18:30:00 GMT</pubDate>
-  <media:content url="https://www.jitinkapila.com/posts/06_saving_my_blog/mount-everest-6395759_640.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://jitinkapila.com/posts/engineering/10_treeknn/pexels-anntarazevich-7299985.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>CrossTab Sparsity for Classification</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/</link>
+  <link>https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/</link>
   <description><![CDATA[ 
-
 
 
 
 
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="crossroad-unsplash-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Cross Roads where everyone meets!"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/crossroad-unsplash-thumb.jpg" class="img-fluid figure-img" alt="Cross Roads where everyone meets!"></a></p>
+<p><a href="crossroad-unsplash-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Cross Roads where everyone meets!"><img src="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/crossroad-unsplash-thumb.jpg" class="img-fluid figure-img" alt="Cross Roads where everyone meets!"></a></p>
 <figcaption class="margin-caption">Cross Roads where everyone meets!</figcaption>
 </figure>
 </div>
@@ -1216,7 +1255,7 @@ Predictions: [0.4 0.6]</code></pre>
 <section id="eda-for-obesity-data" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="eda-for-obesity-data">EDA for Obesity Data</h3>
 <p>Here’s a brief code snippet to perform essential EDA on the Obesity dataset:</p>
-<div id="a7e3b5f5" class="cell" data-execution_count="2">
+<div id="a4a53412" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Loading data and generating basic descriptive</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
@@ -1551,7 +1590,7 @@ font-style: inherit;"># Summary statistics</span></span>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><em>Target distribution</em></p>
-<div id="7a9949ad" class="cell" data-execution_count="3">
+<div id="9d65205e" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Target and Correlation</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
@@ -1620,14 +1659,14 @@ font-style: inherit;">'Kendall Correlation Heatmap'</span>)</span>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-4-output-1.png" width="400" height="392" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index_files/figure-html/cell-4-output-1.png" width="392" height="382" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-4-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-4-output-2.png" width="544" height="431" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-4-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index_files/figure-html/cell-4-output-2.png" width="537" height="430" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
@@ -1644,7 +1683,7 @@ font-style: inherit;">'Kendall Correlation Heatmap'</span>)</span>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="b1065f39" class="cell" data-execution_count="4">
+<div id="6bd2c320" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>EDA code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
@@ -1717,63 +1756,63 @@ font-style: inherit;">"</span>)</span>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-1.png" width="2085" height="1885" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-1.png" width="2075" height="1887" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-2.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-2.png" width="961" height="447" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-3.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-3.png" width="961" height="447" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-4.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-4.png" width="961" height="447" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-5.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-5.png" width="961" height="447" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-6.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-6.png" width="961" height="447" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-7.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-7.png" width="961" height="447" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-8.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-8.png" width="961" height="447" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-5-output-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-9.png" width="965" height="449" class="figure-img img-fluid"></a></p>
+<p><a href="index_files/figure-html/cell-5-output-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index_files/figure-html/cell-5-output-9.png" width="961" height="447" class="figure-img img-fluid"></a></p>
 </figure>
 </div>
 </div>
@@ -1786,7 +1825,7 @@ font-style: inherit;">"</span>)</span>
 <section id="model-creation-establishing-a-baseline" class="level1 page-columns page-full">
 <h1>Model Creation: Establishing a Baseline</h1>
 <p>With our exploratory analysis complete, we’re ready to create our baseline model using logistic regression with Statsmodels. This initial model will serve as our reference point—like setting up a benchmark for your favorite video game.</p>
-<div id="5fa93e38" class="cell" data-execution_count="5">
+<div id="faaa424e" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Splitting data and training a default Multinomila Logit model on our data</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1">data_df <span class="op" style="color: #5E5E5E;
@@ -1864,10 +1903,10 @@ font-style: inherit;">=</span>data_df_train</span>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimization terminated successfully    (Exit mode 0)
-            Current function value: 0.17113347578942742
-            Iterations: 489
-            Function evaluations: 670
-            Gradient evaluations: 489</code></pre>
+            Current function value: 0.17057119619320013
+            Iterations: 485
+            Function evaluations: 639
+            Gradient evaluations: 485</code></pre>
 </div>
 </div>
 
@@ -1884,7 +1923,7 @@ font-style: inherit;">=</span>data_df_train</span>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="57ec3990" class="cell" data-execution_count="6">
+<div id="7577a83a" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Display summary</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1">display(logit_model.summary())</span></code></pre></div></div>
@@ -1913,15 +1952,15 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Date:</th>
-<td>Thu, 27 Feb 2025</td>
+<td>Sun, 07 Dec 2025</td>
 <th data-quarto-table-cell-role="th">Pseudo R-squ.:</th>
-<td>0.9119</td>
+<td>0.9122</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Time:</th>
-<td>03:18:53</td>
+<td>16:56:59</td>
 <th data-quarto-table-cell-role="th">Log-Likelihood:</th>
-<td>-325.15</td>
+<td>-324.09</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">converged:</th>
@@ -1952,219 +1991,219 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Intercept</th>
-<td>-11.3439</td>
-<td>3.45e+05</td>
-<td>-3.29e-05</td>
+<td>-11.2903</td>
+<td>3.25e+05</td>
+<td>-3.48e-05</td>
 <td>1.000</td>
-<td>-6.76e+05</td>
-<td>6.76e+05</td>
+<td>-6.36e+05</td>
+<td>6.36e+05</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Gender[T.Male]</th>
-<td>-3.4606</td>
-<td>0.819</td>
-<td>-4.224</td>
+<td>-3.4851</td>
+<td>0.817</td>
+<td>-4.268</td>
 <td>0.000</td>
-<td>-5.066</td>
-<td>-1.855</td>
+<td>-5.085</td>
+<td>-1.885</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</th>
-<td>-0.8874</td>
-<td>0.658</td>
-<td>-1.349</td>
-<td>0.177</td>
-<td>-2.177</td>
-<td>0.402</td>
+<td>-0.8162</td>
+<td>0.655</td>
+<td>-1.246</td>
+<td>0.213</td>
+<td>-2.100</td>
+<td>0.468</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FAVC[T.yes]</th>
-<td>0.2631</td>
-<td>0.782</td>
-<td>0.337</td>
-<td>0.736</td>
-<td>-1.269</td>
-<td>1.795</td>
+<td>0.2636</td>
+<td>0.785</td>
+<td>0.336</td>
+<td>0.737</td>
+<td>-1.275</td>
+<td>1.802</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CAEC[T.Frequently]</th>
-<td>-8.2219</td>
-<td>2.342</td>
-<td>-3.511</td>
+<td>-8.2402</td>
+<td>2.312</td>
+<td>-3.564</td>
 <td>0.000</td>
-<td>-12.811</td>
-<td>-3.632</td>
+<td>-12.771</td>
+<td>-3.709</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CAEC[T.Sometimes]</th>
-<td>-6.2475</td>
-<td>2.265</td>
-<td>-2.758</td>
-<td>0.006</td>
-<td>-10.687</td>
-<td>-1.808</td>
+<td>-6.2226</td>
+<td>2.232</td>
+<td>-2.787</td>
+<td>0.005</td>
+<td>-10.598</td>
+<td>-1.847</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CAEC[T.no]</th>
-<td>-8.6341</td>
-<td>2.916</td>
-<td>-2.961</td>
+<td>-8.5977</td>
+<td>2.889</td>
+<td>-2.976</td>
 <td>0.003</td>
-<td>-14.349</td>
-<td>-2.919</td>
+<td>-14.260</td>
+<td>-2.935</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">SMOKE[T.yes]</th>
-<td>4.5048</td>
-<td>3.105</td>
-<td>1.451</td>
-<td>0.147</td>
-<td>-1.582</td>
-<td>10.591</td>
+<td>4.4919</td>
+<td>3.115</td>
+<td>1.442</td>
+<td>0.149</td>
+<td>-1.614</td>
+<td>10.598</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">SCC[T.yes]</th>
-<td>-0.7063</td>
-<td>1.458</td>
-<td>-0.484</td>
-<td>0.628</td>
+<td>-0.7294</td>
+<td>1.447</td>
+<td>-0.504</td>
+<td>0.614</td>
 <td>-3.565</td>
-<td>2.152</td>
+<td>2.106</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CALC[T.Frequently]</th>
-<td>-12.6173</td>
-<td>3.45e+05</td>
-<td>-3.66e-05</td>
+<td>-12.6192</td>
+<td>3.25e+05</td>
+<td>-3.89e-05</td>
 <td>1.000</td>
-<td>-6.76e+05</td>
-<td>6.76e+05</td>
+<td>-6.36e+05</td>
+<td>6.36e+05</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CALC[T.Sometimes]</th>
-<td>-13.3244</td>
-<td>3.45e+05</td>
-<td>-3.86e-05</td>
+<td>-13.2985</td>
+<td>3.25e+05</td>
+<td>-4.1e-05</td>
 <td>1.000</td>
-<td>-6.76e+05</td>
-<td>6.76e+05</td>
+<td>-6.36e+05</td>
+<td>6.36e+05</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CALC[T.no]</th>
-<td>-14.1980</td>
-<td>3.45e+05</td>
-<td>-4.12e-05</td>
+<td>-14.1585</td>
+<td>3.25e+05</td>
+<td>-4.36e-05</td>
 <td>1.000</td>
-<td>-6.76e+05</td>
-<td>6.76e+05</td>
+<td>-6.36e+05</td>
+<td>6.36e+05</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">MTRANS[T.Bike]</th>
-<td>15.8821</td>
-<td>2529.381</td>
+<td>15.8909</td>
+<td>2489.580</td>
 <td>0.006</td>
 <td>0.995</td>
-<td>-4941.614</td>
-<td>4973.378</td>
+<td>-4863.596</td>
+<td>4895.378</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</th>
-<td>4.0050</td>
-<td>47.345</td>
-<td>0.085</td>
+<td>3.9944</td>
+<td>47.659</td>
+<td>0.084</td>
 <td>0.933</td>
-<td>-88.790</td>
-<td>96.800</td>
+<td>-89.416</td>
+<td>97.405</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</th>
-<td>4.5116</td>
-<td>1.001</td>
-<td>4.505</td>
+<td>4.4914</td>
+<td>0.995</td>
+<td>4.514</td>
 <td>0.000</td>
-<td>2.549</td>
-<td>6.474</td>
+<td>2.541</td>
+<td>6.441</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">MTRANS[T.Walking]</th>
-<td>4.3989</td>
-<td>1.507</td>
-<td>2.918</td>
+<td>4.3554</td>
+<td>1.502</td>
+<td>2.900</td>
 <td>0.004</td>
-<td>1.445</td>
-<td>7.353</td>
+<td>1.412</td>
+<td>7.299</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Age</th>
-<td>0.3779</td>
-<td>0.098</td>
-<td>3.858</td>
+<td>0.3721</td>
+<td>0.097</td>
+<td>3.833</td>
 <td>0.000</td>
-<td>0.186</td>
-<td>0.570</td>
+<td>0.182</td>
+<td>0.562</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Height</th>
-<td>-14.4182</td>
-<td>4.123</td>
-<td>-3.497</td>
+<td>-14.4208</td>
+<td>4.118</td>
+<td>-3.502</td>
 <td>0.000</td>
-<td>-22.499</td>
-<td>-6.338</td>
+<td>-22.492</td>
+<td>-6.349</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Weight</th>
-<td>1.0784</td>
+<td>1.0786</td>
 <td>0.146</td>
-<td>7.384</td>
+<td>7.378</td>
 <td>0.000</td>
 <td>0.792</td>
 <td>1.365</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FCVC</th>
-<td>-0.7676</td>
-<td>0.428</td>
-<td>-1.793</td>
-<td>0.073</td>
-<td>-1.607</td>
-<td>0.072</td>
+<td>-0.7754</td>
+<td>0.429</td>
+<td>-1.806</td>
+<td>0.071</td>
+<td>-1.617</td>
+<td>0.066</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">NCP</th>
-<td>-1.7199</td>
-<td>0.489</td>
-<td>-3.516</td>
-<td>0.000</td>
-<td>-2.679</td>
-<td>-0.761</td>
+<td>-1.7094</td>
+<td>0.491</td>
+<td>-3.480</td>
+<td>0.001</td>
+<td>-2.672</td>
+<td>-0.747</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CH2O</th>
-<td>-1.7255</td>
+<td>-1.7291</td>
 <td>0.578</td>
-<td>-2.985</td>
+<td>-2.992</td>
 <td>0.003</td>
-<td>-2.859</td>
-<td>-0.592</td>
+<td>-2.862</td>
+<td>-0.596</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">FAF</th>
-<td>-0.1753</td>
-<td>0.281</td>
-<td>-0.624</td>
-<td>0.533</td>
-<td>-0.726</td>
-<td>0.375</td>
+<td>-0.1924</td>
+<td>0.280</td>
+<td>-0.688</td>
+<td>0.491</td>
+<td>-0.740</td>
+<td>0.356</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">TUE</th>
-<td>-0.9735</td>
-<td>0.458</td>
-<td>-2.124</td>
-<td>0.034</td>
-<td>-1.872</td>
-<td>-0.075</td>
+<td>-0.9320</td>
+<td>0.456</td>
+<td>-2.043</td>
+<td>0.041</td>
+<td>-1.826</td>
+<td>-0.038</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">NObeyesdad=2</th>
@@ -2177,7 +2216,7 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Intercept</th>
-<td>17.3832</td>
+<td>17.4309</td>
 <td>nan</td>
 <td>nan</td>
 <td>nan</td>
@@ -2186,79 +2225,79 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Gender[T.Male]</th>
-<td>-13.9964</td>
-<td>1.976</td>
-<td>-7.083</td>
+<td>-14.0384</td>
+<td>1.983</td>
+<td>-7.079</td>
 <td>0.000</td>
-<td>-17.869</td>
-<td>-10.123</td>
+<td>-17.925</td>
+<td>-10.151</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</th>
-<td>2.0850</td>
-<td>1.721</td>
-<td>1.212</td>
-<td>0.226</td>
-<td>-1.288</td>
-<td>5.458</td>
+<td>2.0527</td>
+<td>1.717</td>
+<td>1.195</td>
+<td>0.232</td>
+<td>-1.313</td>
+<td>5.418</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">FAVC[T.yes]</th>
-<td>1.0223</td>
-<td>1.765</td>
-<td>0.579</td>
-<td>0.562</td>
-<td>-2.437</td>
-<td>4.482</td>
+<td>0.9668</td>
+<td>1.752</td>
+<td>0.552</td>
+<td>0.581</td>
+<td>-2.468</td>
+<td>4.401</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CAEC[T.Frequently]</th>
-<td>-10.0658</td>
-<td>4.392</td>
-<td>-2.292</td>
-<td>0.022</td>
-<td>-18.674</td>
-<td>-1.458</td>
+<td>-10.0052</td>
+<td>4.352</td>
+<td>-2.299</td>
+<td>0.021</td>
+<td>-18.534</td>
+<td>-1.476</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CAEC[T.Sometimes]</th>
-<td>-1.0233</td>
-<td>3.443</td>
-<td>-0.297</td>
-<td>0.766</td>
-<td>-7.771</td>
-<td>5.724</td>
+<td>-1.0074</td>
+<td>3.427</td>
+<td>-0.294</td>
+<td>0.769</td>
+<td>-7.724</td>
+<td>5.709</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CAEC[T.no]</th>
-<td>-0.4821</td>
-<td>977.119</td>
-<td>-0.000</td>
+<td>-0.4896</td>
+<td>894.479</td>
+<td>-0.001</td>
 <td>1.000</td>
-<td>-1915.601</td>
-<td>1914.637</td>
+<td>-1753.637</td>
+<td>1752.658</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">SMOKE[T.yes]</th>
-<td>8.1449</td>
-<td>4.011</td>
-<td>2.030</td>
+<td>8.1410</td>
+<td>4.013</td>
+<td>2.029</td>
 <td>0.042</td>
-<td>0.283</td>
-<td>16.007</td>
+<td>0.277</td>
+<td>16.005</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">SCC[T.yes]</th>
-<td>-7.6939</td>
-<td>155.443</td>
-<td>-0.049</td>
-<td>0.961</td>
-<td>-312.356</td>
-<td>296.968</td>
+<td>-7.6940</td>
+<td>152.983</td>
+<td>-0.050</td>
+<td>0.960</td>
+<td>-307.535</td>
+<td>292.147</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CALC[T.Frequently]</th>
-<td>-2.4712</td>
+<td>-2.4516</td>
 <td>nan</td>
 <td>nan</td>
 <td>nan</td>
@@ -2267,7 +2306,7 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CALC[T.Sometimes]</th>
-<td>-7.5357</td>
+<td>-7.5316</td>
 <td>nan</td>
 <td>nan</td>
 <td>nan</td>
@@ -2276,7 +2315,7 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CALC[T.no]</th>
-<td>-7.2634</td>
+<td>-7.2301</td>
 <td>nan</td>
 <td>nan</td>
 <td>nan</td>
@@ -2285,111 +2324,111 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">MTRANS[T.Bike]</th>
-<td>-11.9360</td>
-<td>1.16e+08</td>
-<td>-1.03e-07</td>
+<td>-11.9350</td>
+<td>8.09e+07</td>
+<td>-1.47e-07</td>
 <td>1.000</td>
-<td>-2.27e+08</td>
-<td>2.27e+08</td>
+<td>-1.59e+08</td>
+<td>1.59e+08</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</th>
-<td>10.9302</td>
-<td>48.258</td>
-<td>0.226</td>
-<td>0.821</td>
-<td>-83.653</td>
-<td>105.513</td>
+<td>10.9226</td>
+<td>48.493</td>
+<td>0.225</td>
+<td>0.822</td>
+<td>-84.123</td>
+<td>105.968</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</th>
-<td>11.2094</td>
-<td>1.756</td>
-<td>6.383</td>
+<td>11.1756</td>
+<td>1.750</td>
+<td>6.387</td>
 <td>0.000</td>
-<td>7.767</td>
-<td>14.651</td>
+<td>7.746</td>
+<td>14.605</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">MTRANS[T.Walking]</th>
-<td>1.7141</td>
-<td>2.758</td>
-<td>0.622</td>
-<td>0.534</td>
-<td>-3.691</td>
-<td>7.119</td>
+<td>1.7281</td>
+<td>2.759</td>
+<td>0.626</td>
+<td>0.531</td>
+<td>-3.679</td>
+<td>7.135</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Age</th>
-<td>0.8105</td>
-<td>0.133</td>
-<td>6.108</td>
+<td>0.8111</td>
+<td>0.132</td>
+<td>6.139</td>
 <td>0.000</td>
-<td>0.550</td>
-<td>1.071</td>
+<td>0.552</td>
+<td>1.070</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Height</th>
-<td>-184.0655</td>
-<td>14.785</td>
-<td>-12.450</td>
+<td>-184.0385</td>
+<td>14.746</td>
+<td>-12.481</td>
 <td>0.000</td>
-<td>-213.043</td>
-<td>-155.088</td>
+<td>-212.939</td>
+<td>-155.138</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Weight</th>
-<td>3.9430</td>
+<td>3.9438</td>
 <td>0.288</td>
-<td>13.681</td>
+<td>13.688</td>
 <td>0.000</td>
-<td>3.378</td>
+<td>3.379</td>
 <td>4.508</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">FCVC</th>
-<td>0.8899</td>
-<td>1.009</td>
-<td>0.882</td>
-<td>0.378</td>
-<td>-1.088</td>
-<td>2.867</td>
+<td>0.8915</td>
+<td>1.014</td>
+<td>0.879</td>
+<td>0.379</td>
+<td>-1.095</td>
+<td>2.878</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">NCP</th>
-<td>-1.1103</td>
-<td>0.710</td>
-<td>-1.564</td>
-<td>0.118</td>
-<td>-2.502</td>
-<td>0.281</td>
+<td>-1.1415</td>
+<td>0.711</td>
+<td>-1.605</td>
+<td>0.109</td>
+<td>-2.536</td>
+<td>0.253</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CH2O</th>
-<td>-1.5409</td>
-<td>0.877</td>
-<td>-1.757</td>
+<td>-1.5390</td>
+<td>0.876</td>
+<td>-1.756</td>
 <td>0.079</td>
-<td>-3.259</td>
-<td>0.178</td>
+<td>-3.256</td>
+<td>0.179</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FAF</th>
-<td>-1.4599</td>
-<td>0.593</td>
-<td>-2.461</td>
-<td>0.014</td>
-<td>-2.622</td>
-<td>-0.297</td>
+<td>-1.5295</td>
+<td>0.591</td>
+<td>-2.586</td>
+<td>0.010</td>
+<td>-2.689</td>
+<td>-0.370</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">TUE</th>
-<td>-0.5909</td>
+<td>-0.5710</td>
 <td>0.840</td>
-<td>-0.704</td>
-<td>0.482</td>
-<td>-2.237</td>
-<td>1.055</td>
+<td>-0.680</td>
+<td>0.497</td>
+<td>-2.217</td>
+<td>1.075</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">NObeyesdad=3</th>
@@ -2402,115 +2441,115 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Intercept</th>
-<td>-138.5283</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
+<td>-138.5068</td>
+<td>1.47e+07</td>
+<td>-9.41e-06</td>
+<td>1.000</td>
+<td>-2.89e+07</td>
+<td>2.89e+07</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Gender[T.Male]</th>
-<td>-16.6646</td>
-<td>8.382</td>
-<td>-1.988</td>
-<td>0.047</td>
-<td>-33.094</td>
-<td>-0.235</td>
+<td>-16.6365</td>
+<td>8.279</td>
+<td>-2.010</td>
+<td>0.044</td>
+<td>-32.863</td>
+<td>-0.410</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</th>
-<td>2.3697</td>
-<td>11.592</td>
-<td>0.204</td>
-<td>0.838</td>
-<td>-20.350</td>
-<td>25.090</td>
+<td>2.3538</td>
+<td>11.601</td>
+<td>0.203</td>
+<td>0.839</td>
+<td>-20.384</td>
+<td>25.092</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FAVC[T.yes]</th>
-<td>-8.7847</td>
-<td>5.440</td>
-<td>-1.615</td>
-<td>0.106</td>
-<td>-19.447</td>
-<td>1.878</td>
+<td>-8.7785</td>
+<td>5.476</td>
+<td>-1.603</td>
+<td>0.109</td>
+<td>-19.512</td>
+<td>1.955</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CAEC[T.Frequently]</th>
-<td>-71.7139</td>
-<td>2.13e+08</td>
-<td>-3.37e-07</td>
-<td>1.000</td>
-<td>-4.17e+08</td>
-<td>4.17e+08</td>
+<td>-71.7022</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CAEC[T.Sometimes]</th>
-<td>-3.9355</td>
-<td>4.749</td>
-<td>-0.829</td>
-<td>0.407</td>
-<td>-13.244</td>
-<td>5.373</td>
+<td>-3.9034</td>
+<td>4.734</td>
+<td>-0.824</td>
+<td>0.410</td>
+<td>-13.183</td>
+<td>5.376</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CAEC[T.no]</th>
-<td>7.7274</td>
-<td>977.625</td>
-<td>0.008</td>
-<td>0.994</td>
-<td>-1908.382</td>
-<td>1923.836</td>
+<td>7.7265</td>
+<td>895.063</td>
+<td>0.009</td>
+<td>0.993</td>
+<td>-1746.566</td>
+<td>1762.019</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">SMOKE[T.yes]</th>
-<td>3.5336</td>
-<td>19.117</td>
-<td>0.185</td>
-<td>0.853</td>
-<td>-33.935</td>
-<td>41.002</td>
+<td>3.5306</td>
+<td>19.342</td>
+<td>0.183</td>
+<td>0.855</td>
+<td>-34.379</td>
+<td>41.440</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">SCC[T.yes]</th>
-<td>-19.4881</td>
-<td>156.920</td>
-<td>-0.124</td>
-<td>0.901</td>
-<td>-327.046</td>
-<td>288.070</td>
+<td>-19.4879</td>
+<td>154.607</td>
+<td>-0.126</td>
+<td>0.900</td>
+<td>-322.512</td>
+<td>283.536</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CALC[T.Frequently]</th>
-<td>-43.6047</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
+<td>-43.6020</td>
+<td>1.48e+07</td>
+<td>-2.95e-06</td>
+<td>1.000</td>
+<td>-2.9e+07</td>
+<td>2.9e+07</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CALC[T.Sometimes]</th>
-<td>-45.7392</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
+<td>-45.7496</td>
+<td>1.47e+07</td>
+<td>-3.11e-06</td>
+<td>1.000</td>
+<td>-2.88e+07</td>
+<td>2.88e+07</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CALC[T.no]</th>
-<td>-28.2608</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
+<td>-28.2183</td>
+<td>1.43e+07</td>
+<td>-1.97e-06</td>
+<td>1.000</td>
+<td>-2.81e+07</td>
+<td>2.81e+07</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">MTRANS[T.Bike]</th>
-<td>0.0374</td>
+<td>0.0376</td>
 <td>nan</td>
 <td>nan</td>
 <td>nan</td>
@@ -2519,102 +2558,102 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</th>
-<td>-2.3922</td>
+<td>-2.3812</td>
 <td>1.05e+11</td>
-<td>-2.28e-11</td>
+<td>-2.27e-11</td>
 <td>1.000</td>
-<td>-2.05e+11</td>
-<td>2.05e+11</td>
+<td>-2.06e+11</td>
+<td>2.06e+11</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</th>
-<td>22.6192</td>
-<td>6.634</td>
-<td>3.410</td>
+<td>22.5234</td>
+<td>6.664</td>
+<td>3.380</td>
 <td>0.001</td>
-<td>9.618</td>
-<td>35.621</td>
+<td>9.463</td>
+<td>35.584</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">MTRANS[T.Walking]</th>
-<td>-5.3362</td>
-<td>34.114</td>
-<td>-0.156</td>
-<td>0.876</td>
-<td>-72.198</td>
-<td>61.526</td>
+<td>-5.3334</td>
+<td>33.279</td>
+<td>-0.160</td>
+<td>0.873</td>
+<td>-70.560</td>
+<td>59.893</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Age</th>
-<td>2.5098</td>
-<td>0.960</td>
-<td>2.615</td>
+<td>2.5106</td>
+<td>0.964</td>
+<td>2.605</td>
 <td>0.009</td>
-<td>0.629</td>
-<td>4.391</td>
+<td>0.621</td>
+<td>4.400</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Height</th>
-<td>-278.8861</td>
-<td>44.172</td>
-<td>-6.314</td>
+<td>-278.9439</td>
+<td>44.201</td>
+<td>-6.311</td>
 <td>0.000</td>
-<td>-365.461</td>
-<td>-192.311</td>
+<td>-365.576</td>
+<td>-192.312</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Weight</th>
-<td>7.1526</td>
-<td>1.391</td>
-<td>5.141</td>
+<td>7.1539</td>
+<td>1.394</td>
+<td>5.132</td>
 <td>0.000</td>
-<td>4.426</td>
-<td>9.879</td>
+<td>4.422</td>
+<td>9.886</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FCVC</th>
-<td>4.1479</td>
-<td>3.269</td>
-<td>1.269</td>
-<td>0.204</td>
-<td>-2.258</td>
-<td>10.554</td>
+<td>4.1064</td>
+<td>3.285</td>
+<td>1.250</td>
+<td>0.211</td>
+<td>-2.333</td>
+<td>10.546</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">NCP</th>
-<td>-1.5833</td>
-<td>2.388</td>
-<td>-0.663</td>
-<td>0.507</td>
-<td>-6.264</td>
-<td>3.098</td>
+<td>-1.5637</td>
+<td>2.424</td>
+<td>-0.645</td>
+<td>0.519</td>
+<td>-6.315</td>
+<td>3.187</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CH2O</th>
-<td>-13.3811</td>
-<td>5.527</td>
-<td>-2.421</td>
-<td>0.015</td>
-<td>-24.213</td>
-<td>-2.549</td>
+<td>-13.4088</td>
+<td>5.560</td>
+<td>-2.412</td>
+<td>0.016</td>
+<td>-24.306</td>
+<td>-2.511</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">FAF</th>
-<td>-9.8066</td>
-<td>4.355</td>
-<td>-2.252</td>
+<td>-9.8534</td>
+<td>4.356</td>
+<td>-2.262</td>
 <td>0.024</td>
-<td>-18.342</td>
-<td>-1.271</td>
+<td>-18.390</td>
+<td>-1.316</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">TUE</th>
-<td>-5.7061</td>
-<td>3.289</td>
-<td>-1.735</td>
-<td>0.083</td>
-<td>-12.152</td>
-<td>0.739</td>
+<td>-5.6951</td>
+<td>3.292</td>
+<td>-1.730</td>
+<td>0.084</td>
+<td>-12.147</td>
+<td>0.757</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">NObeyesdad=4</th>
@@ -2627,25 +2666,25 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Intercept</th>
-<td>-87.3253</td>
-<td>6.43e+07</td>
-<td>-1.36e-06</td>
-<td>1.000</td>
-<td>-1.26e+08</td>
-<td>1.26e+08</td>
+<td>-87.3214</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Gender[T.Male]</th>
-<td>-200.2957</td>
-<td>4.25e+07</td>
-<td>-4.71e-06</td>
+<td>-200.3037</td>
+<td>5.41e+07</td>
+<td>-3.7e-06</td>
 <td>1.000</td>
-<td>-8.33e+07</td>
-<td>8.33e+07</td>
+<td>-1.06e+08</td>
+<td>1.06e+08</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</th>
-<td>-30.9113</td>
+<td>-30.9252</td>
 <td>nan</td>
 <td>nan</td>
 <td>nan</td>
@@ -2654,52 +2693,52 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">FAVC[T.yes]</th>
-<td>-53.1787</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
+<td>-53.1818</td>
+<td>3.98e+07</td>
+<td>-1.34e-06</td>
+<td>1.000</td>
+<td>-7.8e+07</td>
+<td>7.8e+07</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CAEC[T.Frequently]</th>
-<td>-28.5507</td>
-<td>2.16e+08</td>
-<td>-1.32e-07</td>
-<td>1.000</td>
-<td>-4.23e+08</td>
-<td>4.23e+08</td>
+<td>-28.5483</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CAEC[T.Sometimes]</th>
-<td>-21.5727</td>
-<td>4.19e+07</td>
-<td>-5.15e-07</td>
+<td>-21.5821</td>
+<td>5.38e+07</td>
+<td>-4.01e-07</td>
 <td>1.000</td>
-<td>-8.21e+07</td>
-<td>8.21e+07</td>
+<td>-1.05e+08</td>
+<td>1.05e+08</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CAEC[T.no]</th>
-<td>-2.1999</td>
-<td>1.31e+29</td>
-<td>-1.69e-29</td>
+<td>-2.2000</td>
+<td>4.62e+29</td>
+<td>-4.76e-30</td>
 <td>1.000</td>
-<td>-2.56e+29</td>
-<td>2.56e+29</td>
+<td>-9.06e+29</td>
+<td>9.06e+29</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">SMOKE[T.yes]</th>
-<td>-6.0935</td>
-<td>9.24e+08</td>
-<td>-6.59e-09</td>
-<td>1.000</td>
-<td>-1.81e+09</td>
-<td>1.81e+09</td>
+<td>-6.0944</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">SCC[T.yes]</th>
-<td>-12.3062</td>
+<td>-12.3054</td>
 <td>nan</td>
 <td>nan</td>
 <td>nan</td>
@@ -2708,25 +2747,25 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CALC[T.Frequently]</th>
-<td>-6.2458</td>
-<td>1.59e+10</td>
-<td>-3.93e-10</td>
-<td>1.000</td>
-<td>-3.12e+10</td>
-<td>3.12e+10</td>
+<td>-6.2460</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CALC[T.Sometimes]</th>
-<td>-37.1969</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
-<td>nan</td>
+<td>-37.2004</td>
+<td>2.12e+08</td>
+<td>-1.76e-07</td>
+<td>1.000</td>
+<td>-4.15e+08</td>
+<td>4.15e+08</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CALC[T.no]</th>
-<td>-64.5072</td>
+<td>-64.5032</td>
 <td>nan</td>
 <td>nan</td>
 <td>nan</td>
@@ -2745,101 +2784,101 @@ font-style: inherit;">=</span>data_df_train</span>
 <tr class="even">
 <th data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</th>
 <td>-0.2031</td>
-<td>3.86e+35</td>
-<td>-5.26e-37</td>
-<td>1.000</td>
-<td>-7.57e+35</td>
-<td>7.57e+35</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</th>
-<td>-57.6929</td>
-<td>5.78e+07</td>
-<td>-9.98e-07</td>
+<td>-57.6854</td>
+<td>7.04e+07</td>
+<td>-8.2e-07</td>
 <td>1.000</td>
-<td>-1.13e+08</td>
-<td>1.13e+08</td>
+<td>-1.38e+08</td>
+<td>1.38e+08</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">MTRANS[T.Walking]</th>
-<td>-7.4454</td>
-<td>2.11e+15</td>
-<td>-3.52e-15</td>
+<td>-7.4464</td>
+<td>2.03e+15</td>
+<td>-3.66e-15</td>
 <td>1.000</td>
-<td>-4.14e+15</td>
-<td>4.14e+15</td>
+<td>-3.98e+15</td>
+<td>3.98e+15</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Age</th>
-<td>-9.3711</td>
-<td>100.732</td>
-<td>-0.093</td>
-<td>0.926</td>
-<td>-206.803</td>
-<td>188.061</td>
+<td>-9.3747</td>
+<td>103.246</td>
+<td>-0.091</td>
+<td>0.928</td>
+<td>-211.733</td>
+<td>192.984</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Height</th>
-<td>-174.4791</td>
-<td>585.777</td>
-<td>-0.298</td>
-<td>0.766</td>
-<td>-1322.581</td>
-<td>973.623</td>
+<td>-174.4727</td>
+<td>592.866</td>
+<td>-0.294</td>
+<td>0.769</td>
+<td>-1336.469</td>
+<td>987.523</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Weight</th>
-<td>8.7401</td>
-<td>34.352</td>
-<td>0.254</td>
-<td>0.799</td>
-<td>-58.588</td>
-<td>76.068</td>
+<td>8.7405</td>
+<td>35.222</td>
+<td>0.248</td>
+<td>0.804</td>
+<td>-60.293</td>
+<td>77.774</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">FCVC</th>
-<td>49.0843</td>
-<td>3.05e+04</td>
+<td>49.0613</td>
+<td>3.02e+04</td>
 <td>0.002</td>
 <td>0.999</td>
-<td>-5.98e+04</td>
-<td>5.99e+04</td>
+<td>-5.91e+04</td>
+<td>5.92e+04</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">NCP</th>
-<td>2.3456</td>
-<td>4587.346</td>
+<td>2.3650</td>
+<td>4572.743</td>
 <td>0.001</td>
 <td>1.000</td>
-<td>-8988.688</td>
-<td>8993.379</td>
+<td>-8960.047</td>
+<td>8964.777</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CH2O</th>
-<td>-18.5876</td>
-<td>33.678</td>
-<td>-0.552</td>
-<td>0.581</td>
-<td>-84.595</td>
-<td>47.420</td>
+<td>-18.5809</td>
+<td>34.347</td>
+<td>-0.541</td>
+<td>0.589</td>
+<td>-85.900</td>
+<td>48.738</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FAF</th>
-<td>-65.1863</td>
-<td>257.967</td>
-<td>-0.253</td>
-<td>0.801</td>
-<td>-570.792</td>
-<td>440.420</td>
+<td>-65.1761</td>
+<td>262.887</td>
+<td>-0.248</td>
+<td>0.804</td>
+<td>-580.424</td>
+<td>450.072</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">TUE</th>
-<td>-44.3687</td>
-<td>279.949</td>
-<td>-0.158</td>
-<td>0.874</td>
-<td>-593.058</td>
-<td>504.321</td>
+<td>-44.3721</td>
+<td>285.217</td>
+<td>-0.156</td>
+<td>0.876</td>
+<td>-603.387</td>
+<td>514.643</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">NObeyesdad=5</th>
@@ -2852,219 +2891,219 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Intercept</th>
-<td>-12.5582</td>
-<td>3.45e+05</td>
-<td>-3.64e-05</td>
+<td>-12.5683</td>
+<td>3.25e+05</td>
+<td>-3.87e-05</td>
 <td>1.000</td>
-<td>-6.76e+05</td>
-<td>6.76e+05</td>
+<td>-6.36e+05</td>
+<td>6.36e+05</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Gender[T.Male]</th>
-<td>-6.8927</td>
-<td>1.091</td>
-<td>-6.319</td>
+<td>-6.8149</td>
+<td>1.085</td>
+<td>-6.282</td>
 <td>0.000</td>
-<td>-9.031</td>
-<td>-4.755</td>
+<td>-8.941</td>
+<td>-4.689</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</th>
-<td>-0.5826</td>
-<td>0.791</td>
-<td>-0.736</td>
-<td>0.462</td>
-<td>-2.134</td>
-<td>0.969</td>
+<td>-0.5822</td>
+<td>0.790</td>
+<td>-0.737</td>
+<td>0.461</td>
+<td>-2.130</td>
+<td>0.966</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FAVC[T.yes]</th>
-<td>2.6029</td>
-<td>0.975</td>
-<td>2.670</td>
+<td>2.6008</td>
+<td>0.978</td>
+<td>2.660</td>
 <td>0.008</td>
-<td>0.692</td>
-<td>4.514</td>
+<td>0.684</td>
+<td>4.517</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CAEC[T.Frequently]</th>
-<td>-7.2782</td>
-<td>2.533</td>
-<td>-2.873</td>
+<td>-7.2298</td>
+<td>2.507</td>
+<td>-2.884</td>
 <td>0.004</td>
-<td>-12.243</td>
-<td>-2.314</td>
+<td>-12.143</td>
+<td>-2.316</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CAEC[T.Sometimes]</th>
-<td>-2.8841</td>
-<td>2.442</td>
-<td>-1.181</td>
-<td>0.238</td>
-<td>-7.671</td>
-<td>1.903</td>
+<td>-2.8197</td>
+<td>2.413</td>
+<td>-1.168</td>
+<td>0.243</td>
+<td>-7.550</td>
+<td>1.910</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CAEC[T.no]</th>
-<td>-3.8084</td>
-<td>3.166</td>
-<td>-1.203</td>
-<td>0.229</td>
-<td>-10.013</td>
-<td>2.397</td>
+<td>-3.8181</td>
+<td>3.143</td>
+<td>-1.215</td>
+<td>0.224</td>
+<td>-9.977</td>
+<td>2.341</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">SMOKE[T.yes]</th>
-<td>3.1147</td>
-<td>3.291</td>
-<td>0.947</td>
-<td>0.344</td>
-<td>-3.335</td>
-<td>9.565</td>
+<td>3.1451</td>
+<td>3.296</td>
+<td>0.954</td>
+<td>0.340</td>
+<td>-3.314</td>
+<td>9.604</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">SCC[T.yes]</th>
-<td>2.1332</td>
-<td>1.626</td>
-<td>1.312</td>
-<td>0.190</td>
-<td>-1.054</td>
-<td>5.320</td>
+<td>2.1647</td>
+<td>1.617</td>
+<td>1.339</td>
+<td>0.181</td>
+<td>-1.004</td>
+<td>5.334</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CALC[T.Frequently]</th>
-<td>-9.0218</td>
-<td>3.45e+05</td>
-<td>-2.61e-05</td>
+<td>-9.0315</td>
+<td>3.25e+05</td>
+<td>-2.78e-05</td>
 <td>1.000</td>
-<td>-6.76e+05</td>
-<td>6.76e+05</td>
+<td>-6.36e+05</td>
+<td>6.36e+05</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CALC[T.Sometimes]</th>
-<td>-9.1622</td>
-<td>3.45e+05</td>
-<td>-2.66e-05</td>
+<td>-9.1446</td>
+<td>3.25e+05</td>
+<td>-2.82e-05</td>
 <td>1.000</td>
-<td>-6.76e+05</td>
-<td>6.76e+05</td>
+<td>-6.36e+05</td>
+<td>6.36e+05</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CALC[T.no]</th>
-<td>-10.7609</td>
-<td>3.45e+05</td>
-<td>-3.12e-05</td>
+<td>-10.7708</td>
+<td>3.25e+05</td>
+<td>-3.32e-05</td>
 <td>1.000</td>
-<td>-6.76e+05</td>
-<td>6.76e+05</td>
+<td>-6.36e+05</td>
+<td>6.36e+05</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">MTRANS[T.Bike]</th>
-<td>19.0539</td>
-<td>2529.381</td>
+<td>19.0425</td>
+<td>2489.581</td>
 <td>0.008</td>
 <td>0.994</td>
-<td>-4938.442</td>
-<td>4976.550</td>
+<td>-4860.446</td>
+<td>4898.531</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</th>
-<td>1.6649</td>
-<td>47.401</td>
-<td>0.035</td>
-<td>0.972</td>
-<td>-91.240</td>
-<td>94.570</td>
+<td>1.6235</td>
+<td>47.716</td>
+<td>0.034</td>
+<td>0.973</td>
+<td>-91.899</td>
+<td>95.146</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</th>
-<td>6.0083</td>
-<td>1.212</td>
-<td>4.956</td>
+<td>5.9777</td>
+<td>1.209</td>
+<td>4.946</td>
 <td>0.000</td>
-<td>3.632</td>
-<td>8.385</td>
+<td>3.609</td>
+<td>8.346</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">MTRANS[T.Walking]</th>
-<td>4.3751</td>
-<td>1.779</td>
-<td>2.460</td>
+<td>4.3596</td>
+<td>1.776</td>
+<td>2.454</td>
 <td>0.014</td>
-<td>0.889</td>
-<td>7.861</td>
+<td>0.878</td>
+<td>7.841</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Age</th>
-<td>0.4896</td>
-<td>0.107</td>
-<td>4.589</td>
+<td>0.4878</td>
+<td>0.106</td>
+<td>4.597</td>
 <td>0.000</td>
-<td>0.281</td>
-<td>0.699</td>
+<td>0.280</td>
+<td>0.696</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Height</th>
-<td>-49.9784</td>
-<td>6.729</td>
-<td>-7.427</td>
+<td>-50.0157</td>
+<td>6.721</td>
+<td>-7.442</td>
 <td>0.000</td>
-<td>-63.167</td>
-<td>-36.790</td>
+<td>-63.188</td>
+<td>-36.844</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Weight</th>
 <td>1.7920</td>
 <td>0.168</td>
-<td>10.650</td>
+<td>10.651</td>
 <td>0.000</td>
 <td>1.462</td>
 <td>2.122</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FCVC</th>
-<td>-0.8144</td>
-<td>0.599</td>
-<td>-1.359</td>
-<td>0.174</td>
-<td>-1.989</td>
-<td>0.360</td>
+<td>-0.8369</td>
+<td>0.601</td>
+<td>-1.393</td>
+<td>0.164</td>
+<td>-2.014</td>
+<td>0.341</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">NCP</th>
-<td>-1.4253</td>
-<td>0.552</td>
-<td>-2.580</td>
-<td>0.010</td>
-<td>-2.508</td>
-<td>-0.343</td>
+<td>-1.4453</td>
+<td>0.554</td>
+<td>-2.608</td>
+<td>0.009</td>
+<td>-2.531</td>
+<td>-0.359</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CH2O</th>
-<td>-1.8250</td>
-<td>0.678</td>
-<td>-2.690</td>
-<td>0.007</td>
-<td>-3.155</td>
-<td>-0.495</td>
+<td>-1.7648</td>
+<td>0.679</td>
+<td>-2.601</td>
+<td>0.009</td>
+<td>-3.095</td>
+<td>-0.435</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">FAF</th>
-<td>-0.5296</td>
-<td>0.375</td>
-<td>-1.412</td>
-<td>0.158</td>
-<td>-1.265</td>
-<td>0.206</td>
+<td>-0.5613</td>
+<td>0.374</td>
+<td>-1.499</td>
+<td>0.134</td>
+<td>-1.295</td>
+<td>0.172</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">TUE</th>
-<td>-0.8409</td>
-<td>0.557</td>
-<td>-1.510</td>
-<td>0.131</td>
-<td>-1.932</td>
-<td>0.250</td>
+<td>-0.7982</td>
+<td>0.555</td>
+<td>-1.439</td>
+<td>0.150</td>
+<td>-1.886</td>
+<td>0.289</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">NObeyesdad=6</th>
@@ -3077,219 +3116,219 @@ font-style: inherit;">=</span>data_df_train</span>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Intercept</th>
-<td>-2.1495</td>
-<td>1.51e+06</td>
-<td>-1.42e-06</td>
+<td>-2.1693</td>
+<td>6.28e+06</td>
+<td>-3.45e-07</td>
 <td>1.000</td>
-<td>-2.96e+06</td>
-<td>2.96e+06</td>
+<td>-1.23e+07</td>
+<td>1.23e+07</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Gender[T.Male]</th>
-<td>-6.7717</td>
-<td>1.213</td>
-<td>-5.583</td>
+<td>-6.6857</td>
+<td>1.207</td>
+<td>-5.537</td>
 <td>0.000</td>
-<td>-9.149</td>
-<td>-4.395</td>
+<td>-9.052</td>
+<td>-4.319</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Famil_Hist_Owt[T.yes]</th>
-<td>1.9277</td>
-<td>1.078</td>
-<td>1.789</td>
-<td>0.074</td>
-<td>-0.185</td>
-<td>4.040</td>
+<td>1.9296</td>
+<td>1.076</td>
+<td>1.793</td>
+<td>0.073</td>
+<td>-0.179</td>
+<td>4.038</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">FAVC[T.yes]</th>
-<td>-0.4390</td>
+<td>-0.4617</td>
 <td>1.141</td>
-<td>-0.385</td>
-<td>0.700</td>
-<td>-2.676</td>
-<td>1.798</td>
+<td>-0.405</td>
+<td>0.686</td>
+<td>-2.698</td>
+<td>1.775</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CAEC[T.Frequently]</th>
-<td>-5.4475</td>
-<td>3.295</td>
-<td>-1.653</td>
-<td>0.098</td>
-<td>-11.906</td>
-<td>1.011</td>
+<td>-5.5324</td>
+<td>3.264</td>
+<td>-1.695</td>
+<td>0.090</td>
+<td>-11.930</td>
+<td>0.866</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CAEC[T.Sometimes]</th>
-<td>0.8345</td>
-<td>3.075</td>
-<td>0.271</td>
-<td>0.786</td>
-<td>-5.192</td>
-<td>6.861</td>
+<td>0.7854</td>
+<td>3.044</td>
+<td>0.258</td>
+<td>0.796</td>
+<td>-5.181</td>
+<td>6.752</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CAEC[T.no]</th>
-<td>1.6818</td>
-<td>3.972</td>
-<td>0.423</td>
-<td>0.672</td>
-<td>-6.103</td>
-<td>9.466</td>
+<td>1.7141</td>
+<td>3.934</td>
+<td>0.436</td>
+<td>0.663</td>
+<td>-5.997</td>
+<td>9.426</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">SMOKE[T.yes]</th>
-<td>7.0586</td>
-<td>3.567</td>
-<td>1.979</td>
-<td>0.048</td>
-<td>0.068</td>
-<td>14.049</td>
+<td>7.0398</td>
+<td>3.570</td>
+<td>1.972</td>
+<td>0.049</td>
+<td>0.043</td>
+<td>14.036</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">SCC[T.yes]</th>
-<td>1.3350</td>
-<td>2.021</td>
-<td>0.661</td>
-<td>0.509</td>
-<td>-2.625</td>
-<td>5.295</td>
+<td>1.3664</td>
+<td>2.012</td>
+<td>0.679</td>
+<td>0.497</td>
+<td>-2.577</td>
+<td>5.309</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CALC[T.Frequently]</th>
-<td>-2.1230</td>
-<td>1.51e+06</td>
-<td>-1.41e-06</td>
+<td>-2.1001</td>
+<td>6.28e+06</td>
+<td>-3.34e-07</td>
 <td>1.000</td>
-<td>-2.96e+06</td>
-<td>2.96e+06</td>
+<td>-1.23e+07</td>
+<td>1.23e+07</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">CALC[T.Sometimes]</th>
-<td>-4.6506</td>
-<td>1.51e+06</td>
-<td>-3.08e-06</td>
+<td>-4.6772</td>
+<td>6.28e+06</td>
+<td>-7.45e-07</td>
 <td>1.000</td>
-<td>-2.96e+06</td>
-<td>2.96e+06</td>
+<td>-1.23e+07</td>
+<td>1.23e+07</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CALC[T.no]</th>
-<td>-4.1703</td>
-<td>1.51e+06</td>
-<td>-2.76e-06</td>
+<td>-4.1972</td>
+<td>6.28e+06</td>
+<td>-6.68e-07</td>
 <td>1.000</td>
-<td>-2.96e+06</td>
-<td>2.96e+06</td>
+<td>-1.23e+07</td>
+<td>1.23e+07</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">MTRANS[T.Bike]</th>
-<td>-21.8443</td>
-<td>6.4e+09</td>
-<td>-3.41e-09</td>
+<td>-21.8420</td>
+<td>6.54e+09</td>
+<td>-3.34e-09</td>
 <td>1.000</td>
-<td>-1.26e+10</td>
-<td>1.26e+10</td>
+<td>-1.28e+10</td>
+<td>1.28e+10</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">MTRANS[T.Motorbike]</th>
-<td>3.1683</td>
-<td>47.467</td>
-<td>0.067</td>
-<td>0.947</td>
-<td>-89.865</td>
-<td>96.202</td>
+<td>3.2252</td>
+<td>47.781</td>
+<td>0.068</td>
+<td>0.946</td>
+<td>-90.423</td>
+<td>96.873</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">MTRANS[T.Public_Transportation]</th>
-<td>8.7749</td>
-<td>1.423</td>
-<td>6.165</td>
+<td>8.8055</td>
+<td>1.416</td>
+<td>6.219</td>
 <td>0.000</td>
-<td>5.985</td>
-<td>11.564</td>
+<td>6.030</td>
+<td>11.581</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">MTRANS[T.Walking]</th>
-<td>1.2621</td>
-<td>2.258</td>
-<td>0.559</td>
-<td>0.576</td>
-<td>-3.163</td>
-<td>5.687</td>
+<td>1.2540</td>
+<td>2.256</td>
+<td>0.556</td>
+<td>0.578</td>
+<td>-3.168</td>
+<td>5.676</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Age</th>
-<td>0.6974</td>
+<td>0.7030</td>
 <td>0.116</td>
-<td>6.002</td>
+<td>6.086</td>
 <td>0.000</td>
-<td>0.470</td>
-<td>0.925</td>
+<td>0.477</td>
+<td>0.929</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Height</th>
-<td>-104.7093</td>
-<td>9.038</td>
-<td>-11.585</td>
+<td>-104.6838</td>
+<td>9.021</td>
+<td>-11.605</td>
 <td>0.000</td>
-<td>-122.424</td>
-<td>-86.995</td>
+<td>-122.364</td>
+<td>-87.003</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Weight</th>
-<td>2.6268</td>
+<td>2.6259</td>
 <td>0.190</td>
-<td>13.821</td>
+<td>13.819</td>
 <td>0.000</td>
-<td>2.254</td>
-<td>2.999</td>
+<td>2.253</td>
+<td>2.998</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">FCVC</th>
-<td>0.2192</td>
+<td>0.1776</td>
 <td>0.764</td>
-<td>0.287</td>
-<td>0.774</td>
-<td>-1.278</td>
-<td>1.716</td>
+<td>0.232</td>
+<td>0.816</td>
+<td>-1.320</td>
+<td>1.675</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">NCP</th>
-<td>-1.8144</td>
-<td>0.606</td>
-<td>-2.992</td>
+<td>-1.8276</td>
+<td>0.608</td>
+<td>-3.007</td>
 <td>0.003</td>
-<td>-3.003</td>
-<td>-0.626</td>
+<td>-3.019</td>
+<td>-0.636</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CH2O</th>
-<td>-1.9110</td>
+<td>-1.8930</td>
 <td>0.757</td>
-<td>-2.525</td>
+<td>-2.502</td>
 <td>0.012</td>
-<td>-3.394</td>
-<td>-0.428</td>
+<td>-3.376</td>
+<td>-0.410</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FAF</th>
-<td>-0.9928</td>
-<td>0.439</td>
-<td>-2.264</td>
-<td>0.024</td>
-<td>-1.852</td>
-<td>-0.133</td>
+<td>-1.0280</td>
+<td>0.438</td>
+<td>-2.347</td>
+<td>0.019</td>
+<td>-1.887</td>
+<td>-0.169</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">TUE</th>
-<td>0.0701</td>
-<td>0.671</td>
-<td>0.104</td>
-<td>0.917</td>
-<td>-1.246</td>
-<td>1.386</td>
+<td>0.1282</td>
+<td>0.670</td>
+<td>0.191</td>
+<td>0.848</td>
+<td>-1.186</td>
+<td>1.442</td>
 </tr>
 </tbody>
 </table>
@@ -3301,7 +3340,7 @@ font-style: inherit;">=</span>data_df_train</span>
 </div></div><section id="evaluating-model-performance" class="level3">
 <h3 class="anchored" data-anchor-id="evaluating-model-performance">Evaluating Model Performance</h3>
 <p>To gauge our models’ effectiveness, we’ll employ various metrics such as accuracy, precision, recall, and F1-score. A confusion matrix will help visualize how well our models perform in classifying outcomes—think of it as a report card for your model!</p>
-<div id="df25174c" class="cell" data-execution_count="7">
+<div id="792a2d55" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Evaluating the Logit model</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
@@ -3379,7 +3418,7 @@ weighted avg       0.91      0.91      0.91       211
 </ol>
 <p>Here we go!!!</p>
 <div class="page-columns page-full">
-<div id="f3f5f129" class="cell page-columns page-full" data-execution_count="9">
+<div id="68b36f78" class="cell page-columns page-full" data-execution_count="9">
 <details class="code-fold">
 <summary>Doing what needs to Done Code ;)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1">sns.set_style(<span class="st" style="color: #20794D;
@@ -3548,7 +3587,7 @@ Scores for 7 groups(s) is : 140.96057955229762</code></pre>
 <div class="cell-output cell-output-display page-columns page-full">
 <div class="page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="index_files/figure-html/cell-10-output-2.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-13"><img src="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/index_files/figure-html/cell-10-output-2.png" width="1142" height="471" class="figure-img column-page-right"></a></p>
+<p class="page-columns page-full"><a href="index_files/figure-html/cell-10-output-2.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-13"><img src="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index_files/figure-html/cell-10-output-2.png" width="1143" height="472" class="figure-img column-page-right"></a></p>
 </figure>
 </div>
 </div>
@@ -3558,7 +3597,7 @@ Scores for 7 groups(s) is : 140.96057955229762</code></pre>
 <section id="and-drum-rolls-pelase" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="and-drum-rolls-pelase">And Drum Rolls pelase!!!</h3>
 <p>Using just top 5 varaibles we are getting almost similar or better overall accuracy. This amounts to greatly simplifing the models and clearly explain why some variable are not useful for modeling.</p>
-<div id="da59ff04" class="cell" data-execution_count="10">
+<div id="5134fbcb" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>And finally training and evaluating with drum rolls</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1">logit_model_rev <span class="op" style="color: #5E5E5E;
@@ -3632,11 +3671,11 @@ background-color: null;
 font-style: inherit;">print</span>(report_new)</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Optimization terminated successfully    (Exit mode 0)
-            Current function value: 0.174380345428068
-            Iterations: 417
-            Function evaluations: 662
-            Gradient evaluations: 417
+<pre><code>Singular matrix E in LSQ subproblem    (Exit mode 5)
+            Current function value: nan
+            Iterations: 470
+            Function evaluations: 1227
+            Gradient evaluations: 470
 Accuracy: 0.9383886255924171
 Classification Report:
               precision    recall  f1-score   support
@@ -3654,6 +3693,10 @@ Classification Report:
 weighted avg       0.94      0.94      0.94       211
 </code></pre>
 </div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/home/jitin/Documents/applications/perceptions/.venv/lib/python3.12/site-packages/statsmodels/base/model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn("Maximum Likelihood optimization failed to "</code></pre>
+</div>
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="">
@@ -3669,10 +3712,10 @@ weighted avg       0.94      0.94      0.94       211
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="6351cfde" class="cell" data-execution_count="11">
+<div id="c496c9bc" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1">display(logit_model_rev.summary())</span></code></pre></div></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1">display(logit_model_rev.summary())</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display">
 <table class="simpletable table table-sm table-striped small">
@@ -3698,19 +3741,19 @@ weighted avg       0.94      0.94      0.94       211
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Date:</th>
-<td>Thu, 27 Feb 2025</td>
+<td>Sun, 07 Dec 2025</td>
 <th data-quarto-table-cell-role="th">Pseudo R-squ.:</th>
-<td>0.9103</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Time:</th>
-<td>03:18:54</td>
+<td>16:57:01</td>
 <th data-quarto-table-cell-role="th">Log-Likelihood:</th>
-<td>-331.32</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">converged:</th>
-<td>True</td>
+<td>False</td>
 <th data-quarto-table-cell-role="th">LL-Null:</th>
 <td>-3691.8</td>
 </tr>
@@ -3718,7 +3761,7 @@ weighted avg       0.94      0.94      0.94       211
 <th data-quarto-table-cell-role="th">Covariance Type:</th>
 <td>nonrobust</td>
 <th data-quarto-table-cell-role="th">LLR p-value:</th>
-<td>0.000</td>
+<td>nan</td>
 </tr>
 </tbody>
 </table>
@@ -3738,65 +3781,65 @@ weighted avg       0.94      0.94      0.94       211
 <tr class="even">
 <th data-quarto-table-cell-role="th">Intercept</th>
 <td>58.1248</td>
-<td>9.361</td>
-<td>6.209</td>
-<td>0.000</td>
-<td>39.778</td>
-<td>76.472</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">TUE</th>
 <td>0.1130</td>
-<td>0.445</td>
-<td>0.254</td>
-<td>0.799</td>
-<td>-0.759</td>
-<td>0.985</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CH2O</th>
 <td>-0.8634</td>
-<td>0.609</td>
-<td>-1.419</td>
-<td>0.156</td>
-<td>-2.056</td>
-<td>0.329</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FAF</th>
 <td>0.1425</td>
-<td>0.334</td>
-<td>0.426</td>
-<td>0.670</td>
-<td>-0.513</td>
-<td>0.798</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Age</th>
 <td>0.0579</td>
-<td>0.077</td>
-<td>0.754</td>
-<td>0.451</td>
-<td>-0.093</td>
-<td>0.208</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Height</th>
 <td>-76.5735</td>
-<td>10.536</td>
-<td>-7.268</td>
-<td>0.000</td>
-<td>-97.224</td>
-<td>-55.923</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Weight</th>
 <td>1.3337</td>
-<td>0.176</td>
-<td>7.566</td>
-<td>0.000</td>
-<td>0.988</td>
-<td>1.679</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">NObeyesdad=2</th>
@@ -3810,65 +3853,65 @@ weighted avg       0.94      0.94      0.94       211
 <tr class="even">
 <th data-quarto-table-cell-role="th">Intercept</th>
 <td>328.4616</td>
-<td>25.112</td>
-<td>13.080</td>
-<td>0.000</td>
-<td>279.242</td>
-<td>377.681</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">TUE</th>
 <td>2.2275</td>
-<td>0.870</td>
-<td>2.560</td>
-<td>0.010</td>
-<td>0.522</td>
-<td>3.933</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CH2O</th>
 <td>-1.4150</td>
-<td>0.984</td>
-<td>-1.439</td>
-<td>0.150</td>
-<td>-3.343</td>
-<td>0.513</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FAF</th>
 <td>-1.3585</td>
-<td>0.747</td>
-<td>-1.820</td>
-<td>0.069</td>
-<td>-2.822</td>
-<td>0.105</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Age</th>
 <td>0.1537</td>
-<td>0.097</td>
-<td>1.591</td>
-<td>0.112</td>
-<td>-0.036</td>
-<td>0.343</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Height</th>
 <td>-426.3945</td>
-<td>30.970</td>
-<td>-13.768</td>
-<td>0.000</td>
-<td>-487.095</td>
-<td>-365.694</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Weight</th>
 <td>5.3584</td>
-<td>0.372</td>
-<td>14.386</td>
-<td>0.000</td>
-<td>4.628</td>
-<td>6.088</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">NObeyesdad=3</th>
@@ -3882,65 +3925,65 @@ weighted avg       0.94      0.94      0.94       211
 <tr class="even">
 <th data-quarto-table-cell-role="th">Intercept</th>
 <td>306.6447</td>
-<td>33.046</td>
-<td>9.279</td>
-<td>0.000</td>
-<td>241.876</td>
-<td>371.413</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">TUE</th>
 <td>-7.8630</td>
-<td>5.691</td>
-<td>-1.382</td>
-<td>0.167</td>
-<td>-19.017</td>
-<td>3.291</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CH2O</th>
 <td>-21.0118</td>
-<td>11.508</td>
-<td>-1.826</td>
-<td>0.068</td>
-<td>-43.567</td>
-<td>1.543</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FAF</th>
 <td>-11.3624</td>
-<td>5.759</td>
-<td>-1.973</td>
-<td>0.048</td>
-<td>-22.650</td>
-<td>-0.075</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Age</th>
 <td>2.4017</td>
-<td>1.260</td>
-<td>1.905</td>
-<td>0.057</td>
-<td>-0.069</td>
-<td>4.872</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Height</th>
 <td>-710.3867</td>
-<td>156.303</td>
-<td>-4.545</td>
-<td>0.000</td>
-<td>-1016.734</td>
-<td>-404.039</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Weight</th>
 <td>10.1072</td>
-<td>2.588</td>
-<td>3.905</td>
-<td>0.000</td>
-<td>5.034</td>
-<td>15.180</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">NObeyesdad=4</th>
@@ -3954,65 +3997,65 @@ weighted avg       0.94      0.94      0.94       211
 <tr class="even">
 <th data-quarto-table-cell-role="th">Intercept</th>
 <td>352.4249</td>
-<td>33.573</td>
-<td>10.497</td>
-<td>0.000</td>
-<td>286.623</td>
-<td>418.227</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">TUE</th>
 <td>-9.2469</td>
-<td>5.711</td>
-<td>-1.619</td>
-<td>0.105</td>
-<td>-20.440</td>
-<td>1.946</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CH2O</th>
 <td>-20.6780</td>
-<td>11.516</td>
-<td>-1.796</td>
-<td>0.073</td>
-<td>-43.250</td>
-<td>1.894</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FAF</th>
 <td>-14.7525</td>
-<td>5.794</td>
-<td>-2.546</td>
-<td>0.011</td>
-<td>-26.108</td>
-<td>-3.397</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Age</th>
 <td>2.1487</td>
-<td>1.262</td>
-<td>1.703</td>
-<td>0.089</td>
-<td>-0.325</td>
-<td>4.622</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Height</th>
 <td>-758.2318</td>
-<td>156.401</td>
-<td>-4.848</td>
-<td>0.000</td>
-<td>-1064.772</td>
-<td>-451.692</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Weight</th>
 <td>10.5011</td>
-<td>2.589</td>
-<td>4.056</td>
-<td>0.000</td>
-<td>5.427</td>
-<td>15.575</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">NObeyesdad=5</th>
@@ -4026,65 +4069,65 @@ weighted avg       0.94      0.94      0.94       211
 <tr class="even">
 <th data-quarto-table-cell-role="th">Intercept</th>
 <td>126.2892</td>
-<td>12.539</td>
-<td>10.072</td>
-<td>0.000</td>
-<td>101.713</td>
-<td>150.865</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">TUE</th>
 <td>0.5832</td>
-<td>0.541</td>
-<td>1.077</td>
-<td>0.281</td>
-<td>-0.478</td>
-<td>1.645</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CH2O</th>
 <td>-0.8764</td>
-<td>0.706</td>
-<td>-1.242</td>
-<td>0.214</td>
-<td>-2.260</td>
-<td>0.507</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FAF</th>
 <td>-0.1920</td>
-<td>0.403</td>
-<td>-0.476</td>
-<td>0.634</td>
-<td>-0.983</td>
-<td>0.599</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Age</th>
 <td>0.0719</td>
-<td>0.082</td>
-<td>0.874</td>
-<td>0.382</td>
-<td>-0.089</td>
-<td>0.233</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Height</th>
 <td>-160.2982</td>
-<td>14.026</td>
-<td>-11.429</td>
-<td>0.000</td>
-<td>-187.788</td>
-<td>-132.808</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Weight</th>
 <td>2.3663</td>
-<td>0.208</td>
-<td>11.397</td>
-<td>0.000</td>
-<td>1.959</td>
-<td>2.773</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">NObeyesdad=6</th>
@@ -4098,65 +4141,65 @@ weighted avg       0.94      0.94      0.94       211
 <tr class="even">
 <th data-quarto-table-cell-role="th">Intercept</th>
 <td>207.3760</td>
-<td>15.374</td>
-<td>13.489</td>
-<td>0.000</td>
-<td>177.244</td>
-<td>237.508</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">TUE</th>
 <td>1.6561</td>
-<td>0.646</td>
-<td>2.564</td>
-<td>0.010</td>
-<td>0.390</td>
-<td>2.922</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">CH2O</th>
 <td>-0.6583</td>
-<td>0.773</td>
-<td>-0.851</td>
-<td>0.395</td>
-<td>-2.174</td>
-<td>0.857</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">FAF</th>
 <td>-0.1243</td>
-<td>0.485</td>
-<td>-0.256</td>
-<td>0.798</td>
-<td>-1.076</td>
-<td>0.827</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Age</th>
 <td>0.1042</td>
-<td>0.087</td>
-<td>1.197</td>
-<td>0.231</td>
-<td>-0.066</td>
-<td>0.275</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Height</th>
 <td>-266.6050</td>
-<td>17.598</td>
-<td>-15.150</td>
-<td>0.000</td>
-<td>-301.097</td>
-<td>-232.113</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Weight</th>
 <td>3.6160</td>
-<td>0.241</td>
-<td>15.026</td>
-<td>0.000</td>
-<td>3.144</td>
-<td>4.088</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
 </tr>
 </tbody>
 </table>
@@ -4174,13 +4217,13 @@ weighted avg       0.94      0.94      0.94       211
 <h3 class="anchored" data-anchor-id="results-and-discussion-unveiling-insights">Results and Discussion: Unveiling Insights</h3>
 <p><strong>Model Comparison Table</strong></p>
 <p>After implementing CrossTab Sparsity in our feature selection process, let’s take a look at the results:</p>
-<div id="c5b80684" class="cell" data-execution_count="12">
+<div id="6729a497" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Comparision Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1">metrics <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1">metrics <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> {</span>
-<span id="cb15-2">    <span class="st" style="color: #20794D;
+<span id="cb16-2">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Metric"</span>: [<span class="st" style="color: #20794D;
 background-color: null;
@@ -4191,48 +4234,48 @@ background-color: null;
 font-style: inherit;">"Recall"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"F1-Score"</span>],</span>
-<span id="cb15-3">    <span class="st" style="color: #20794D;
+<span id="cb16-3">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Baseline Model with all Parameters"</span>: [</span>
-<span id="cb15-4">        accuracy_score(y_test, base_preds),</span>
-<span id="cb15-5">        precision_score(y_test, base_preds, average<span class="op" style="color: #5E5E5E;
+<span id="cb16-4">        accuracy_score(y_test, base_preds),</span>
+<span id="cb16-5">        precision_score(y_test, base_preds, average<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'weighted'</span>),</span>
-<span id="cb15-6">        recall_score(y_test, base_preds, average<span class="op" style="color: #5E5E5E;
+<span id="cb16-6">        recall_score(y_test, base_preds, average<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'weighted'</span>),</span>
-<span id="cb15-7">        f1_score(y_test, base_preds, average<span class="op" style="color: #5E5E5E;
+<span id="cb16-7">        f1_score(y_test, base_preds, average<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'weighted'</span>),</span>
-<span id="cb15-8">    ],</span>
-<span id="cb15-9">    <span class="st" style="color: #20794D;
+<span id="cb16-8">    ],</span>
+<span id="cb16-9">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Challenger Model with only 5 Variables"</span>: [</span>
-<span id="cb15-10">        accuracy_score(y_test, challenger_preds),</span>
-<span id="cb15-11">        precision_score(y_test, challenger_preds, average<span class="op" style="color: #5E5E5E;
+<span id="cb16-10">        accuracy_score(y_test, challenger_preds),</span>
+<span id="cb16-11">        precision_score(y_test, challenger_preds, average<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'weighted'</span>),</span>
-<span id="cb15-12">        recall_score(y_test, challenger_preds, average<span class="op" style="color: #5E5E5E;
+<span id="cb16-12">        recall_score(y_test, challenger_preds, average<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'weighted'</span>),</span>
-<span id="cb15-13">        f1_score(y_test, challenger_preds, average<span class="op" style="color: #5E5E5E;
+<span id="cb16-13">        f1_score(y_test, challenger_preds, average<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'weighted'</span>),</span>
-<span id="cb15-14">    ]</span>
-<span id="cb15-15">}</span>
-<span id="cb15-16">display(pd.DataFrame(metrics).<span class="bu" style="color: null;
+<span id="cb16-14">    ]</span>
+<span id="cb16-15">}</span>
+<span id="cb16-16">display(pd.DataFrame(metrics).<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -4277,7 +4320,7 @@ font-style: inherit;">'Metric'</span>).T)</span></code></pre></div></div>
 </div>
 <p><strong>Insights Gained</strong></p>
 <p>Through this analysis, several key insights emerge:</p>
-<div id="17681086" class="cell" data-execution_count="13">
+<div id="30305fa1" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-stdout">
 <pre><code>Reduction of similar accuracy from 16 to 5 i.e 68.75% reduction</code></pre>
 </div>
@@ -4308,14 +4351,14 @@ font-style: inherit;">'Metric'</span>).T)</span></code></pre></div></div>
   <category>classification</category>
   <category>metric</category>
   <category>feature selection</category>
-  <guid>https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/</guid>
+  <guid>https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/</guid>
   <pubDate>Mon, 02 Jan 2023 18:30:00 GMT</pubDate>
-  <media:content url="https://www.jitinkapila.com/posts/04_crosstab_sparsity_classification/crossroad-unsplash.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/crossroad-unsplash.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>CrossTab Sparsity</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.jitinkapila.com/posts/03_crosstab_sparsity/</link>
+  <link>https://jitinkapila.com/posts/engineering/03_crosstab_sparsity/</link>
   <description><![CDATA[ 
 
 
@@ -4354,7 +4397,7 @@ Noisy variables often contaminated clusters, but traditional methods required ma
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="img/Picture 1.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Best Cluster for K-means Using Crosstab sparsity"><img src="https://www.jitinkapila.com/posts/03_crosstab_sparsity/img/Picture 1.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for K-means Using Crosstab sparsity"></a></p>
+<p class="page-columns page-full"><a href="img/Picture 1.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Best Cluster for K-means Using Crosstab sparsity"><img src="https://jitinkapila.com/posts/engineering/03_crosstab_sparsity/img/Picture 1.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for K-means Using Crosstab sparsity"></a></p>
 <figcaption>Best Cluster for K-means Using Crosstab sparsity</figcaption>
 </figure>
 </div>
@@ -4427,7 +4470,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="img/Kmeans on Vehicle.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Best Cluster for PAM method Using Crosstab sparsity"><img src="https://www.jitinkapila.com/posts/03_crosstab_sparsity/img/Kmeans on Vehicle.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for PAM method Using Crosstab sparsity"></a></p>
+<p class="page-columns page-full"><a href="img/Kmeans on Vehicle.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Best Cluster for PAM method Using Crosstab sparsity"><img src="https://jitinkapila.com/posts/engineering/03_crosstab_sparsity/img/Kmeans on Vehicle.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for PAM method Using Crosstab sparsity"></a></p>
 <figcaption>Best Cluster for PAM method Using Crosstab sparsity</figcaption>
 </figure>
 </div>
@@ -4436,7 +4479,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="img/Comparision across many methods.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Optimal Cluster for many methods"><img src="https://www.jitinkapila.com/posts/03_crosstab_sparsity/img/Comparision across many methods.png" class="img-fluid figure-img column-page-right" alt="Optimal Cluster for many methods"></a></p>
+<p class="page-columns page-full"><a href="img/Comparision across many methods.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Optimal Cluster for many methods"><img src="https://jitinkapila.com/posts/engineering/03_crosstab_sparsity/img/Comparision across many methods.png" class="img-fluid figure-img column-page-right" alt="Optimal Cluster for many methods"></a></p>
 <figcaption>Optimal Cluster for many methods</figcaption>
 </figure>
 </div>
@@ -4445,7 +4488,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="img/Variable segregation.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="All kind of variable scored against Metrics"><img src="https://www.jitinkapila.com/posts/03_crosstab_sparsity/img/Variable segregation.png" class="img-fluid figure-img column-page-right" alt="All kind of variable scored against Metrics"></a></p>
+<p class="page-columns page-full"><a href="img/Variable segregation.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="All kind of variable scored against Metrics"><img src="https://jitinkapila.com/posts/engineering/03_crosstab_sparsity/img/Variable segregation.png" class="img-fluid figure-img column-page-right" alt="All kind of variable scored against Metrics"></a></p>
 <figcaption>All kind of variable scored against Metrics</figcaption>
 </figure>
 </div>
@@ -4550,23 +4593,22 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
   <category>clustering</category>
   <category>analysis</category>
-  <guid>https://www.jitinkapila.com/posts/03_crosstab_sparsity/</guid>
+  <guid>https://jitinkapila.com/posts/engineering/03_crosstab_sparsity/</guid>
   <pubDate>Mon, 02 May 2022 18:30:00 GMT</pubDate>
-  <media:content url="https://www.jitinkapila.com/posts/03_crosstab_sparsity/img/pexels-n-voitkevich-5712829.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://jitinkapila.com/posts/engineering/03_crosstab_sparsity/img/pexels-n-voitkevich-5712829.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>A flow to Test Your Hypothesis in Python</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.jitinkapila.com/posts/02_hypothesis_test/</link>
+  <link>https://jitinkapila.com/posts/engineering/02_hypothesis_test/</link>
   <description><![CDATA[ 
-
 
 
 
 
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="pexels-tara-winstead-7722866-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Hypothesis testing Photo by Tara Winstead"><img src="https://www.jitinkapila.com/posts/02_hypothesis_test/pexels-tara-winstead-7722866-thumb.jpg" class="img-fluid figure-img" alt="Hypothesis testing Photo by Tara Winstead"></a></p>
+<p><a href="pexels-tara-winstead-7722866-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Hypothesis testing Photo by Tara Winstead"><img src="https://jitinkapila.com/posts/engineering/02_hypothesis_test/pexels-tara-winstead-7722866-thumb.jpg" class="img-fluid figure-img" alt="Hypothesis testing Photo by Tara Winstead"></a></p>
 <figcaption class="margin-caption">Hypothesis testing <a href="https://www.pexels.com/photo/text-7722866/">Photo by Tara Winstead</a></figcaption>
 </figure>
 </div>
@@ -4597,7 +4639,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 <section id="what-are-the-results" class="level1 page-columns page-full">
 <h1>What are the results</h1>
 <p>Pheww… Thats too much code right. But that would save a lot of your time in real life. So in real life you would write code as 3 steps below:</p>
-<div id="28200618" class="cell" data-execution_count="2">
+<div id="bd899efb" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
@@ -4722,7 +4764,7 @@ font-style: inherit;">True</span>)</span></code></pre></div></div>
 <p>Nice!!!</p>
 <p><br></p>
 <p>And plotting is even easier</p>
-<div id="dc6c7d25" class="cell" data-execution_count="3">
+<div id="1abd8537" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
@@ -4740,7 +4782,7 @@ font-style: inherit;">"Tukey HSD resutls Anova of MPG ~ Cylinder"</span>)</span>
 <p>Results form the <code>plot_hsd</code></p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="TukeyHSD.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Tukey’s HSD comparison based on Anova Results"><img src="https://www.jitinkapila.com/posts/02_hypothesis_test/TukeyHSD.png" class="img-fluid figure-img" alt="Tukey’s HSD comparison based on Anova Results"></a></p>
+<p><a href="TukeyHSD.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Tukey’s HSD comparison based on Anova Results"><img src="https://jitinkapila.com/posts/engineering/02_hypothesis_test/TukeyHSD.png" class="img-fluid figure-img" alt="Tukey’s HSD comparison based on Anova Results"></a></p>
 <figcaption class="margin-caption"><strong>Tukey’s HSD comparison based on Anova Results</strong></figcaption>
 </figure>
 </div>
@@ -4756,7 +4798,7 @@ font-style: inherit;">"Tukey HSD resutls Anova of MPG ~ Cylinder"</span>)</span>
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">Performing Anova</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">Plotting Results</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<div id="c9f4fdca" class="cell" data-execution_count="4">
+<div id="5f00ba05" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Anova Test <code>anova_test.py</code></summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
@@ -5165,7 +5207,7 @@ font-style: inherit;">return</span> results</span></code></pre></div></div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
-<div id="13c02dd3" class="cell" data-execution_count="5">
+<div id="f3ff8504" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Plotting results <code>plot_hsd.py</code></summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
@@ -5567,23 +5609,22 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
   <category>hypothesis</category>
   <category>analysis</category>
   <category>python</category>
-  <guid>https://www.jitinkapila.com/posts/02_hypothesis_test/</guid>
+  <guid>https://jitinkapila.com/posts/engineering/02_hypothesis_test/</guid>
   <pubDate>Mon, 09 Aug 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://www.jitinkapila.com/posts/02_hypothesis_test/pexels-tara-winstead-7722866.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://jitinkapila.com/posts/engineering/02_hypothesis_test/pexels-tara-winstead-7722866.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Adaptive Regression</title>
   <dc:creator>Jitin Kapila</dc:creator>
-  <link>https://www.jitinkapila.com/posts/01_adaptive_regression/</link>
+  <link>https://jitinkapila.com/posts/engineering/01_adaptive_regression/</link>
   <description><![CDATA[ 
-
 
 
 
 
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="img/pexels-zlfdmr23-20692065-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Adapting path through mountains! Photo by Zülfü Demir📸"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/pexels-zlfdmr23-20692065-thumb.jpg" class="img-fluid figure-img" alt="Adapting path through mountains! Photo by Zülfü Demir📸"></a></p>
+<p><a href="img/pexels-zlfdmr23-20692065-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Adapting path through mountains! Photo by Zülfü Demir📸"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/pexels-zlfdmr23-20692065-thumb.jpg" class="img-fluid figure-img" alt="Adapting path through mountains! Photo by Zülfü Demir📸"></a></p>
 <figcaption class="margin-caption">Adapting path through mountains! <a href="https://www.pexels.com/photo/view-of-empty-railway-and-a-hill-in-distance-20692065/">Photo by Zülfü Demir📸</a></figcaption>
 </figure>
 </div>
@@ -5608,8 +5649,8 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 
 <div class="parallax-container"><div class="parallax-image-container"></div></div> 
 -->
-<section id="introduction" class="level1 page-columns page-full">
-<h1>Introduction</h1>
+<section id="introduction" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Here I am trying to express our logic to find such Observation. Lets dive in.</p>
 <p>There are different value estimation technique like regression analysis and time-series analysis. Everyone of us has experimented on regression using OLS ,MLE, Ridge, LASSO, Robust etc., and also might have evaluated them using RMSE (Root Mean/Median Square Error), MAD (Mean/Median Absolute Deviation), MAE (Mean / Median Absolute Error) and MAPE (Mean/Median Absolute Percentage Error), etc…</p>
 <p>But all of these gives a single point estimate that what is the overall error looks like. Just a different thought!! can we be sure that this single value of MAPE or MAE? How easy it is to infer that our trained model has fitted well across the distribution of dependent variable?</p>
@@ -5617,29 +5658,29 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/Anscombe_Data.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Plot of Anscombe’s Quartet"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/Anscombe_Data.png" class="img-fluid figure-img" alt="Plot of Anscombe’s Quartet"></a></p>
+<p><a href="img/Anscombe_Data.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Plot of Anscombe’s Quartet"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Anscombe_Data.png" class="img-fluid figure-img" alt="Plot of Anscombe’s Quartet"></a></p>
 <figcaption>Plot of Anscombe’s Quartet</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/Anscombe_Stats.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Some Descriptive Stats for Anscombe’s Quartet"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/Anscombe_Stats.png" class="img-fluid figure-img" alt="Some Descriptive Stats for Anscombe’s Quartet"></a></p>
+<p><a href="img/Anscombe_Stats.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Some Descriptive Stats for Anscombe’s Quartet"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Anscombe_Stats.png" class="img-fluid figure-img" alt="Some Descriptive Stats for Anscombe’s Quartet"></a></p>
 <figcaption>Some Descriptive Stats for Anscombe’s Quartet</figcaption>
 </figure>
 </div>
 </div></div><p>Let me give you a pretty small data-set to play with “The Anscombe’s quartet”. This is a very famous data-set by Francis Anscombe. Please refer the plots below to understand the distribution of y1, y2, y3, y4. Isn’t it different?</p>
 <p>Would the measure of central tendency and disportion be same for this data? I am sure none of us would believe but to our utter surprise we see all the descriptive stats are kind of same. Don’t believe me !!! Please see the results below ( Source: Wikipedia ):</p>
 </section>
-<section id="so-what-we-do-now" class="level1">
-<h1>So what we do Now!</h1>
+<section id="so-what-we-do-now" class="level2">
+<h2 class="anchored" data-anchor-id="so-what-we-do-now">So what we do Now!</h2>
 <p>Astonished !!! Don’t be. This is what has been hiding behind those numbers. And this is why we really won’t be able to cross certain performance level. Unless you change some features or even do a lot of hyper parameter tuning, your results won’t vary much.</p>
 <p>If you look at the average value of MAPE in each decile you would see an interesting pattern. Let us show you what we see that pattern. One day while working on a business problem where I was using regression on a discussion with Kumarjit, we deviced a different way of model diagnosis. We worked together to give this a shape and build on it.</p>
-<p><a href="img/Pre_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/Pre_Mape_Plot.png" class="img-fluid"></a></p>
+<p><a href="img/Pre_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Pre_Mape_Plot.png" class="img-fluid"></a></p>
 <p>As you can see it is absolutely evident that either of the side in the distribution of MAPE values is going wild!!!!!!! <strong><em>Still overall MAPE is good (18%).</em></strong></p>
 <!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
 </section>
-<section id="seeking-scope-of-improvement" class="level1 page-columns page-full">
-<h1>Seeking Scope of Improvement</h1>
+<section id="seeking-scope-of-improvement" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="seeking-scope-of-improvement">Seeking Scope of Improvement</h2>
 <p>We worked together to build a different framework to address such issues on the go and reduce the MAPE deterioration on the edge of the distribution.</p>
 <p>This problems gives rise to a concept we named as <strong>Distribution Assertive Regression (DAR).</strong></p>
 <p>DAR is a framework that is based on cancelling the weakness of one point summaries by using the classical concepts of <strong><em>Reliability Engineering : The Bath Tub Curve.</em></strong></p>
@@ -5647,7 +5688,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/Image_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Plot for Classical Bath Tub Curve using a Hazard Function"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/Image_2.png" class="img-fluid figure-img" alt="Plot for Classical Bath Tub Curve using a Hazard Function"></a></p>
+<p><a href="img/Image_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Plot for Classical Bath Tub Curve using a Hazard Function"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Image_2.png" class="img-fluid figure-img" alt="Plot for Classical Bath Tub Curve using a Hazard Function"></a></p>
 <figcaption>Plot for Classical Bath Tub Curve using a Hazard Function</figcaption>
 </figure>
 </div>
@@ -5656,23 +5697,23 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 <p>Lets look at BostonHousing data from “mlbench” package in R.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="img/Plot_Bathtub.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/Plot_Bathtub.png" class="img-fluid figure-img" alt="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"></a></p>
+<p><a href="img/Plot_Bathtub.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Plot_Bathtub.png" class="img-fluid figure-img" alt="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"></a></p>
 <figcaption class="margin-caption">Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data</figcaption>
 </figure>
 </div>
 <p>Here the MAPE is calculated for each decile split of ordered target variable. As you can observe it is following the bath tub curve. Hence the validates our hypothesis that the regression method is not able to understand much about the data at the either ends of the distribution.</p>
 </section>
-<section id="final-analysis" class="level1">
-<h1>Final Analysis</h1>
+<section id="final-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="final-analysis">Final Analysis</h2>
 <p>Now the DAR framework essentially fixes this weakness of regression method and understands the behavior of data which is stable and can be tweak in a fashion that can be use in general practice.</p>
 <p>Plot of MAPE Bath Tub Curve after applying DAR Framework for Decile Split “mdev” from Data</p>
-<p><a href="img/Post_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="https://www.jitinkapila.com/posts/01_adaptive_regression/img/Post_Mape_Plot.png" class="img-fluid"></a></p>
+<p><a href="img/Post_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Post_Mape_Plot.png" class="img-fluid"></a></p>
 <p>How this framework with same method reduced MAPEs so much and made model much more stable…?? Well here it is:</p>
 <p>The DAR framework splits the data at either ends of the order target variable and performs regression on these “split” data individually. This inherently reduces the so called “noise” part of the data and treat it as an individual data.</p>
 <!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
 </section>
-<section id="scoring-on-new-data" class="level1">
-<h1>Scoring on New Data</h1>
+<section id="scoring-on-new-data" class="level2">
+<h2 class="anchored" data-anchor-id="scoring-on-new-data">Scoring on New Data</h2>
 <p>Now you might be thinking while applying regression this sounds good but how will one score this on new data. Well to answer that we used our most simple yet very effective friend “KNN” (Though any multiclass Classifier can be used here). So ideally scoring involves two step method :</p>
 <ol type="1">
 <li>Score new value against each KNN / Multiclass Classifier model of the data</li>
@@ -5681,8 +5722,8 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 <p>So now we know how we can improve the prediction power of data for regression.</p>
 <!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
 </section>
-<section id="code-and-flowchart" class="level1">
-<h1>Code and Flowchart</h1>
+<section id="code-and-flowchart" class="level2">
+<h2 class="anchored" data-anchor-id="code-and-flowchart">Code and Flowchart</h2>
 <p>If things are simple lets keep it simple. Refer flowchart and code below for implementation of this framework. <a href="https://arxiv.org/abs/1805.01618">Paper here!</a></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">R code</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">Python code</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false" href="">Here is the Flow Chart</a></li></ul>
@@ -5775,12 +5816,10 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
-  <category>regression</category>
-  <category>research</category>
-  <category>analysis</category>
-  <guid>https://www.jitinkapila.com/posts/01_adaptive_regression/</guid>
+  <category>strategy</category>
+  <guid>https://jitinkapila.com/posts/engineering/01_adaptive_regression/</guid>
   <pubDate>Mon, 30 Apr 2018 18:30:00 GMT</pubDate>
-  <media:content url="https://www.jitinkapila.com/posts/01_adaptive_regression/img/pexels-zlfdmr23-20692065.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/pexels-zlfdmr23-20692065.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jitin Kapila">
+<meta name="dcterms.date" content="2018-05-01">
+<meta name="description" content="We recently put through our observation on Regression Problem in our research. This post is a nonformal attempt to explain it.">
+
+<title>Adaptive Regression – Jitin Kapila | The AI Architect</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../favicon-32x32.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-626b0fff7b0ff2cc043be631a594889b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-47b0ca00fa58fe725db5702cbbe06d40.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script defer="" src="https://cloud.umami.is/script.js" data-website-id="aeaaf854-d53a-45ab-83d5-1963c96af264"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jitinkapila.com/#person",
+      "name": "Jitin Kapila",
+      "alternateName": "The AI Architect",
+      "description": "AI Strategy Consultant and Acting CTO with 14 years of enterprise AI implementation experience across Fortune 500 companies",
+      "url": "https://jitinkapila.com",
+      "image": "https://jitinkapila.com/display_image.jpg",
+      "jobTitle": "AI Strategy Consultant & Acting CTO",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Independent Consultant"
+      },
+      "knowsAbout": [
+        "Artificial Intelligence Strategy",
+        "Enterprise Architecture",
+        "Predictive Analytics",
+        "Machine Learning",
+        "Digital Transformation",
+        "Decision-Focused AI"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Mechanical Engineering & Applied Mathematics"
+      },
+      "sameAs": [
+        "https://linkedin.com/in/jitinkapila",
+        "https://github.com/jkapila",
+        "https://x.com/jitinkapila",
+        "https://youtube.com/@jitinkapila",
+        "https://aicrosscurrent.substack.com/",
+        "https://instagram.com/jitinkapila"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://jitinkapila.com/#service",
+      "name": "The AI Architect - AI Strategy Consulting",
+      "description": "AI Strategy Consulting and Enterprise AI Transformation for Fortune 500 companies. Specializing in cross-industry pattern recognition and decision-first AI implementation.",
+      "url": "https://jitinkapila.com",
+      "logo": "https://jitinkapila.com/favicon-32x32.png",
+      "image": "https://jitinkapila.com/display_image.jpg",
+      "founder": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "provider": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "serviceType": [
+        "AI Strategy Consulting",
+        "Enterprise AI Architecture",
+        "AI Transformation Roadmaps",
+        "Acting CTO Services",
+        "AI Training & Coaching"
+      ],
+      "priceRange": "$$$$"
+    },
+    {
+      "@type": "Course",
+      "@id": "https://jitinkapila.com/bootcamp.html#course",
+      "name": "The AI Architect Protocol",
+      "description": "A 3-day intensive bootcamp that transforms how enterprise leaders think about AI strategy. Master the OLCD Protocol, AI-ART Matrix, and Blueprint Methodology.",
+      "provider": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "url": "https://jitinkapila.com/bootcamp.html",
+      "courseMode": "Online",
+      "educationalLevel": "Executive",
+      "educationalCredentialAwarded": "Certificate of Completion",
+      "numberOfCredits": "3 days",
+      "timeRequired": "P3D",
+      "inLanguage": "en",
+      "coursePrerequisites": "Director or above at enterprise organization with AI strategy responsibility",
+      "teaches": [
+        "OLCD Protocol (Observe → Learn → Create → Deploy)",
+        "AI-ART Matrix framework",
+        "Blueprint Methodology for AI transformation",
+        "Cross-industry pattern recognition",
+        "Decision-first AI implementation"
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Online",
+        "courseWorkload": "P3D",
+        "instructor": {
+          "@id": "https://jitinkapila.com/#person"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "7999",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/LimitedAvailability",
+        "validFrom": "2025-01-01",
+        "url": "https://jitinkapila.com/bootcamp.html",
+        "seller": {
+          "@id": "https://jitinkapila.com/#person"
+        },
+        "priceValidUntil": "2025-12-31",
+        "description": "Limited to 20 seats per cohort. Includes live sessions, framework library, 90-day roadmap, and lifetime access."
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://jitinkapila.com/#website",
+      "url": "https://jitinkapila.com",
+      "name": "Jitin Kapila | The AI Architect",
+      "description": "AI Strategy & Enterprise Architecture for Fortune 500 Leaders",
+      "publisher": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+<script src="../../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Adaptive Regression – Jitin Kapila | The AI Architect">
+<meta property="og:description" content="We recently put through our observation on Regression Problem in our research. This post is a nonformal attempt to explain it.">
+<meta property="og:image" content="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/pexels-zlfdmr23-20692065.jpg">
+<meta property="og:site_name" content="Jitin Kapila | The AI Architect">
+<meta property="og:image:alt" content="Adapting path through mountains! Photo by Zülfü Demir📸">
+<meta name="twitter:title" content="Adaptive Regression – Jitin Kapila | The AI Architect">
+<meta name="twitter:description" content="We recently put through our observation on Regression Problem in our research. This post is a nonformal attempt to explain it.">
+<meta name="twitter:image" content="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/pexels-zlfdmr23-20692065.jpg">
+<meta name="twitter:creator" content="@jitinkapila">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Adapting path through mountains! Photo by Zülfü Demir📸">
+</head>
+
+<body class="floating nav-fixed slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">JITIN KAPILA</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../bootcamp.html"> 
+<span class="menu-text">The Protocol</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../vault.html"> 
+<span class="menu-text">The Vault</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../consulting.html"> 
+<span class="menu-text">Consulting</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://aicrosscurrent.substack.com/" target="_blank"> 
+<span class="menu-text">Newsletter</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#so-what-we-do-now" id="toc-so-what-we-do-now" class="nav-link" data-scroll-target="#so-what-we-do-now">So what we do Now!</a></li>
+  <li><a href="#seeking-scope-of-improvement" id="toc-seeking-scope-of-improvement" class="nav-link" data-scroll-target="#seeking-scope-of-improvement">Seeking Scope of Improvement</a></li>
+  <li><a href="#final-analysis" id="toc-final-analysis" class="nav-link" data-scroll-target="#final-analysis">Final Analysis</a></li>
+  <li><a href="#scoring-on-new-data" id="toc-scoring-on-new-data" class="nav-link" data-scroll-target="#scoring-on-new-data">Scoring on New Data</a></li>
+  <li><a href="#code-and-flowchart" id="toc-code-and-flowchart" class="nav-link" data-scroll-target="#code-and-flowchart">Code and Flowchart</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Adaptive Regression</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">strategy</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    We recently put through our observation on Regression Problem in our research. This post is a nonformal attempt to explain it.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jitin Kapila </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 1, 2018</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><a href="img/pexels-zlfdmr23-20692065-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Adapting path through mountains! Photo by Zülfü Demir📸"><img src="img/pexels-zlfdmr23-20692065-thumb.jpg" class="img-fluid figure-img" alt="Adapting path through mountains! Photo by Zülfü Demir📸"></a></p>
+<figcaption class="margin-caption">Adapting path through mountains! <a href="https://www.pexels.com/photo/view-of-empty-railway-and-a-hill-in-distance-20692065/">Photo by Zülfü Demir📸</a></figcaption>
+</figure>
+</div>
+<!-- 
+<div class="parallax-container"><div class="parallax-image-container"></div></div>
+<style>
+.parallax-container {
+  position: relative;
+}
+
+.parallax-image-container {
+  background-image: url(https://github.com/holtzy/dataviz-inspiration/blob/main/public/misc/overview1.png?raw=true);
+  height: 50px;
+  background-attachment: fixed;
+  opacity: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: screen;
+}
+</style>
+
+
+<div class="parallax-container"><div class="parallax-image-container"></div></div> 
+-->
+<section id="introduction" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Here I am trying to express our logic to find such Observation. Lets dive in.</p>
+<p>There are different value estimation technique like regression analysis and time-series analysis. Everyone of us has experimented on regression using OLS ,MLE, Ridge, LASSO, Robust etc., and also might have evaluated them using RMSE (Root Mean/Median Square Error), MAD (Mean/Median Absolute Deviation), MAE (Mean / Median Absolute Error) and MAPE (Mean/Median Absolute Percentage Error), etc…</p>
+<p>But all of these gives a single point estimate that what is the overall error looks like. Just a different thought!! can we be sure that this single value of MAPE or MAE? How easy it is to infer that our trained model has fitted well across the distribution of dependent variable?</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/Anscombe_Data.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Plot of Anscombe’s Quartet"><img src="img/Anscombe_Data.png" class="img-fluid figure-img" alt="Plot of Anscombe’s Quartet"></a></p>
+<figcaption>Plot of Anscombe’s Quartet</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/Anscombe_Stats.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Some Descriptive Stats for Anscombe’s Quartet"><img src="img/Anscombe_Stats.png" class="img-fluid figure-img" alt="Some Descriptive Stats for Anscombe’s Quartet"></a></p>
+<figcaption>Some Descriptive Stats for Anscombe’s Quartet</figcaption>
+</figure>
+</div>
+</div></div><p>Let me give you a pretty small data-set to play with “The Anscombe’s quartet”. This is a very famous data-set by Francis Anscombe. Please refer the plots below to understand the distribution of y1, y2, y3, y4. Isn’t it different?</p>
+<p>Would the measure of central tendency and disportion be same for this data? I am sure none of us would believe but to our utter surprise we see all the descriptive stats are kind of same. Don’t believe me !!! Please see the results below ( Source: Wikipedia ):</p>
+</section>
+<section id="so-what-we-do-now" class="level2">
+<h2 class="anchored" data-anchor-id="so-what-we-do-now">So what we do Now!</h2>
+<p>Astonished !!! Don’t be. This is what has been hiding behind those numbers. And this is why we really won’t be able to cross certain performance level. Unless you change some features or even do a lot of hyper parameter tuning, your results won’t vary much.</p>
+<p>If you look at the average value of MAPE in each decile you would see an interesting pattern. Let us show you what we see that pattern. One day while working on a business problem where I was using regression on a discussion with Kumarjit, we deviced a different way of model diagnosis. We worked together to give this a shape and build on it.</p>
+<p><a href="img/Pre_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/Pre_Mape_Plot.png" class="img-fluid"></a></p>
+<p>As you can see it is absolutely evident that either of the side in the distribution of MAPE values is going wild!!!!!!! <strong><em>Still overall MAPE is good (18%).</em></strong></p>
+<!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
+</section>
+<section id="seeking-scope-of-improvement" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="seeking-scope-of-improvement">Seeking Scope of Improvement</h2>
+<p>We worked together to build a different framework to address such issues on the go and reduce the MAPE deterioration on the edge of the distribution.</p>
+<p>This problems gives rise to a concept we named as <strong>Distribution Assertive Regression (DAR).</strong></p>
+<p>DAR is a framework that is based on cancelling the weakness of one point summaries by using the classical concepts of <strong><em>Reliability Engineering : The Bath Tub Curve.</em></strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/Image_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Plot for Classical Bath Tub Curve using a Hazard Function"><img src="img/Image_2.png" class="img-fluid figure-img" alt="Plot for Classical Bath Tub Curve using a Hazard Function"></a></p>
+<figcaption>Plot for Classical Bath Tub Curve using a Hazard Function</figcaption>
+</figure>
+</div>
+</div></div><p>The Specialty of this curve is that it gives you the likelihood which areas one tends to have high failure rates. In our experiments when we replace failure with MAPE value and the Time with sorted (ascending) value of target / dependent variable, we observe the same phenomenon. This is likely to happen because most of regression techniques assumes Normal (Gaussian) Distribution of data and fits itself towards the central tendency of this distribution.</p>
+<p>Because of this tendency, any regression methods tends to learn less about data which are away from the central tendency of the target.</p>
+<p>Lets look at BostonHousing data from “mlbench” package in R.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><a href="img/Plot_Bathtub.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"><img src="img/Plot_Bathtub.png" class="img-fluid figure-img" alt="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"></a></p>
+<figcaption class="margin-caption">Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data</figcaption>
+</figure>
+</div>
+<p>Here the MAPE is calculated for each decile split of ordered target variable. As you can observe it is following the bath tub curve. Hence the validates our hypothesis that the regression method is not able to understand much about the data at the either ends of the distribution.</p>
+</section>
+<section id="final-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="final-analysis">Final Analysis</h2>
+<p>Now the DAR framework essentially fixes this weakness of regression method and understands the behavior of data which is stable and can be tweak in a fashion that can be use in general practice.</p>
+<p>Plot of MAPE Bath Tub Curve after applying DAR Framework for Decile Split “mdev” from Data</p>
+<p><a href="img/Post_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img/Post_Mape_Plot.png" class="img-fluid"></a></p>
+<p>How this framework with same method reduced MAPEs so much and made model much more stable…?? Well here it is:</p>
+<p>The DAR framework splits the data at either ends of the order target variable and performs regression on these “split” data individually. This inherently reduces the so called “noise” part of the data and treat it as an individual data.</p>
+<!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
+</section>
+<section id="scoring-on-new-data" class="level2">
+<h2 class="anchored" data-anchor-id="scoring-on-new-data">Scoring on New Data</h2>
+<p>Now you might be thinking while applying regression this sounds good but how will one score this on new data. Well to answer that we used our most simple yet very effective friend “KNN” (Though any multiclass Classifier can be used here). So ideally scoring involves two step method :</p>
+<ol type="1">
+<li>Score new value against each KNN / Multiclass Classifier model of the data</li>
+<li>Based on closeness we score it with the regression method used for that part of data.</li>
+</ol>
+<p>So now we know how we can improve the prediction power of data for regression.</p>
+<!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
+</section>
+<section id="code-and-flowchart" class="level2">
+<h2 class="anchored" data-anchor-id="code-and-flowchart">Code and Flowchart</h2>
+<p>If things are simple lets keep it simple. Refer flowchart and code below for implementation of this framework. <a href="https://arxiv.org/abs/1805.01618">Paper here!</a></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Here is the Flow Chart</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Click to Expand
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<script src="https://gist.github.com/jkapila/ccc3d0f05fce86ea3075dc7190f8c181.js"></script>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Click to Expand
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<script src="https://gist.github.com/jkapila/b97d881e2ae8b75141184ac0f7831601.js"></script>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TB
+    
+    subgraph Testing
+        p1(Finding bucket of model to choose)
+        p1 --&gt; p2([Making predictions &lt;br&gt; based on selected model for inference])
+        p2 --&gt; p3(Consolidate final score of prediction)
+    end
+
+    subgraph Training
+        md([Fitting a &lt;br&gt;Regression model])==&gt; di
+        di{Binning Data via &lt;br/&gt; evaluating Distribution &lt;br/&gt; MAPE values }
+        di --&gt; md2([Fitting a Buckteing model &lt;br/&gt; to Binned MAPE Buckets])
+        md2 --&gt; md3([Fitting Regression &lt;br&gt; Models on Binned Data])
+        md == Keeping main&lt;br/&gt;model ==&gt; ro        
+        md3 ==&gt; ro(Final Models &lt;br&gt; Binning Data Models + &lt;br&gt; Set of Regressoin Models)
+    end
+
+    
+    od([Data Input]) -- Training&lt;br&gt; Data--&gt; md
+    od -- Testing&lt;br&gt; Data--&gt; p1
+    ro -.-&gt; p1
+    ro -.-&gt; p2
+
+    classDef green fill:#9f6,stroke:#333,stroke-width:2px;
+    classDef yellow fill:#ff6,stroke:#333,stroke-width:2px;
+    classDef blue fill:#00f,stroke:#333,stroke-width:2px,color:#fff;
+    classDef orange fill:#f96,stroke:#333,stroke-width:4px;
+    class md,md2,md3 green
+    class di orange
+    class p1,p2 yellow
+    class ro,p3 blue
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/jitinkapila\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<script src="https://utteranc.es/client.js" repo="jkapila/perceptions" issue-term="url" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 Jitin Kapila</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/jitinkapila">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/jitinkapila">
+      <i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jkapila">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@jitinkapila">
+      <i class="bi bi-youtube" role="img" aria-label="YouTube">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://aicrosscurrent.substack.com/">
+      <i class="bi bi-substack" role="img" aria-label="Substack Newsletter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/jitinkapila">
+      <i class="bi bi-instagram" role="img" aria-label="Instagram">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

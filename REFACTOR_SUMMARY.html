@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>refactor_summary – Jitin Kapila | The AI Architect</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon-32x32.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-626b0fff7b0ff2cc043be631a594889b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-bf6ac82ea150da859c3069c6ef4fdf89.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script defer="" src="https://cloud.umami.is/script.js" data-website-id="aeaaf854-d53a-45ab-83d5-1963c96af264"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jitinkapila.com/#person",
+      "name": "Jitin Kapila",
+      "alternateName": "The AI Architect",
+      "description": "AI Strategy Consultant and Acting CTO with 14 years of enterprise AI implementation experience across Fortune 500 companies",
+      "url": "https://jitinkapila.com",
+      "image": "https://jitinkapila.com/display_image.jpg",
+      "jobTitle": "AI Strategy Consultant & Acting CTO",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Independent Consultant"
+      },
+      "knowsAbout": [
+        "Artificial Intelligence Strategy",
+        "Enterprise Architecture",
+        "Predictive Analytics",
+        "Machine Learning",
+        "Digital Transformation",
+        "Decision-Focused AI"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Mechanical Engineering & Applied Mathematics"
+      },
+      "sameAs": [
+        "https://linkedin.com/in/jitinkapila",
+        "https://github.com/jkapila",
+        "https://x.com/jitinkapila",
+        "https://youtube.com/@jitinkapila",
+        "https://aicrosscurrent.substack.com/",
+        "https://instagram.com/jitinkapila"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://jitinkapila.com/#service",
+      "name": "The AI Architect - AI Strategy Consulting",
+      "description": "AI Strategy Consulting and Enterprise AI Transformation for Fortune 500 companies. Specializing in cross-industry pattern recognition and decision-first AI implementation.",
+      "url": "https://jitinkapila.com",
+      "logo": "https://jitinkapila.com/favicon-32x32.png",
+      "image": "https://jitinkapila.com/display_image.jpg",
+      "founder": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "provider": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "serviceType": [
+        "AI Strategy Consulting",
+        "Enterprise AI Architecture",
+        "AI Transformation Roadmaps",
+        "Acting CTO Services",
+        "AI Training & Coaching"
+      ],
+      "priceRange": "$$$$"
+    },
+    {
+      "@type": "Course",
+      "@id": "https://jitinkapila.com/bootcamp.html#course",
+      "name": "The AI Architect Protocol",
+      "description": "A 3-day intensive bootcamp that transforms how enterprise leaders think about AI strategy. Master the OLCD Protocol, AI-ART Matrix, and Blueprint Methodology.",
+      "provider": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "url": "https://jitinkapila.com/bootcamp.html",
+      "courseMode": "Online",
+      "educationalLevel": "Executive",
+      "educationalCredentialAwarded": "Certificate of Completion",
+      "numberOfCredits": "3 days",
+      "timeRequired": "P3D",
+      "inLanguage": "en",
+      "coursePrerequisites": "Director or above at enterprise organization with AI strategy responsibility",
+      "teaches": [
+        "OLCD Protocol (Observe → Learn → Create → Deploy)",
+        "AI-ART Matrix framework",
+        "Blueprint Methodology for AI transformation",
+        "Cross-industry pattern recognition",
+        "Decision-first AI implementation"
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Online",
+        "courseWorkload": "P3D",
+        "instructor": {
+          "@id": "https://jitinkapila.com/#person"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "7999",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/LimitedAvailability",
+        "validFrom": "2025-01-01",
+        "url": "https://jitinkapila.com/bootcamp.html",
+        "seller": {
+          "@id": "https://jitinkapila.com/#person"
+        },
+        "priceValidUntil": "2025-12-31",
+        "description": "Limited to 20 seats per cohort. Includes live sessions, framework library, 90-day roadmap, and lifetime access."
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://jitinkapila.com/#website",
+      "url": "https://jitinkapila.com",
+      "name": "Jitin Kapila | The AI Architect",
+      "description": "AI Strategy & Enterprise Architecture for Fortune 500 Leaders",
+      "publisher": {
+        "@id": "https://jitinkapila.com/#person"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+
+
+<meta property="og:title" content="Jitin Kapila | The AI Architect">
+<meta property="og:site_name" content="Jitin Kapila | The AI Architect">
+<meta name="twitter:title" content="Jitin Kapila | The AI Architect">
+<meta name="twitter:creator" content="@jitinkapila">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">JITIN KAPILA</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./bootcamp.html"> 
+<span class="menu-text">The Protocol</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./vault.html"> 
+<span class="menu-text">The Vault</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./consulting.html"> 
+<span class="menu-text">Consulting</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://aicrosscurrent.substack.com/" target="_blank"> 
+<span class="menu-text">Newsletter</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="bootcamp-page-refactor---complete-summary" class="level1">
+<h1>Bootcamp Page Refactor - Complete Summary</h1>
+<section id="what-we-accomplished" class="level2">
+<h2 class="anchored" data-anchor-id="what-we-accomplished">What We Accomplished</h2>
+<section id="removed-445-lines-of-duplicate-css" class="level3">
+<h3 class="anchored" data-anchor-id="removed-445-lines-of-duplicate-css">✅ Removed 445 Lines of Duplicate CSS</h3>
+<p><strong>Before</strong>: 445 lines of page-specific CSS in <code>&lt;style&gt;</code> block <strong>After</strong>: 0 lines - everything uses global classes</p>
+</section>
+<section id="blueprint.scss-now-a-true-component-library" class="level3">
+<h3 class="anchored" data-anchor-id="blueprint.scss-now-a-true-component-library">✅ Blueprint.scss: Now a True Component Library</h3>
+<p><strong>Added Reusable Patterns:</strong> 1. <strong><code>.checklist-grid</code></strong> - For pros/features with checkmarks 2. <strong><code>.disqualify-grid</code></strong> - For cons/disqualifications with X marks 3. <strong><code>.meta-grid</code> / <code>.meta-box</code></strong> - Stats/info boxes (dates, formats, pricing) 4. <strong><code>.value-grid</code> / <code>.value-item</code> / <code>.value-total</code></strong> - Pricing breakdowns 5. <strong><code>.scarcity-box</code></strong> - Urgency boxes with pulsing border animation 6. <strong><code>.instructor-grid</code></strong> - Bio sections with image + text 7. <strong><code>.proof-section</code></strong> - Case studies with cream-gold accent 8. <strong><code>.faq-item</code></strong> - FAQ sections 9. <strong><code>.guarantee-text</code></strong> - Small print below CTAs 10. <strong><code>.btn-xlarge</code></strong> - Extra large button variant 11. <strong><code>.bg-contrast</code></strong> - Navy Royal background for subtle contrast 12. <strong><code>.card-dark</code></strong> - Dark card variant</p>
+<p><strong>Total Line Count:</strong> - Blueprint.scss: <strong>1,289 lines</strong> (added ~215 lines of reusable patterns) - Bootcamp.qmd: <strong>528 lines</strong> (removed 445 lines of CSS, down from 973)</p>
+</section>
+</section>
+<section id="build-once-use-many-times" class="level2">
+<h2 class="anchored" data-anchor-id="build-once-use-many-times">Build Once, Use Many Times ✅</h2>
+<p>Every pattern added to blueprint.scss can now be used across: - Homepage (index.qmd) - Bootcamp page (bootcamp.qmd) - Consulting page (consulting.qmd) - About page (about.qmd) - Future pages</p>
+</section>
+<section id="simplified-class-names" class="level2">
+<h2 class="anchored" data-anchor-id="simplified-class-names">Simplified Class Names</h2>
+<section id="before-page-specific" class="level3">
+<h3 class="anchored" data-anchor-id="before-page-specific">Before (Page-Specific)</h3>
+<pre class="qmd"><code>::: {.instructor-section .bg-warm}
+::: {.value-stack-section .bg-warm}
+::: {.guarantee-section}
+::: {.final-objection-handling}</code></pre>
+</section>
+<section id="after-generic-composable" class="level3">
+<h3 class="anchored" data-anchor-id="after-generic-composable">After (Generic + Composable)</h3>
+<pre class="qmd"><code>::: {.section .bg-warm}
+::: {.section .bg-warm}
+::: {.cta-section}
+::: {.section .bg-warm}</code></pre>
+</section>
+</section>
+<section id="key-principles-applied" class="level2">
+<h2 class="anchored" data-anchor-id="key-principles-applied">Key Principles Applied</h2>
+<section id="composition-over-specificity" class="level3">
+<h3 class="anchored" data-anchor-id="composition-over-specificity">1. Composition Over Specificity</h3>
+<p>Instead of <code>.instructor-section</code>, use <code>.section .bg-warm</code> - combine utilities</p>
+</section>
+<section id="reusable-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="reusable-patterns">2. Reusable Patterns</h3>
+<p>Every component works across multiple pages, not just one</p>
+</section>
+<section id="semantic-naming" class="level3">
+<h3 class="anchored" data-anchor-id="semantic-naming">3. Semantic Naming</h3>
+<ul>
+<li><code>.section</code> - Generic container</li>
+<li><code>.proof-section</code> - Specific purpose, clear intent</li>
+<li><code>.value-grid</code> - Describes what it contains</li>
+</ul>
+</section>
+<section id="single-source-of-truth" class="level3">
+<h3 class="anchored" data-anchor-id="single-source-of-truth">4. Single Source of Truth</h3>
+<p>All styles in blueprint.scss → Change once, affect everywhere</p>
+</section>
+</section>
+<section id="bootcamp-page-now-uses" class="level2">
+<h2 class="anchored" data-anchor-id="bootcamp-page-now-uses">Bootcamp Page Now Uses</h2>
+<section id="layout-classes" class="level3">
+<h3 class="anchored" data-anchor-id="layout-classes">Layout Classes</h3>
+<ul>
+<li><code>.hero-content</code> - Hero section</li>
+<li><code>.section</code> - Standard sections</li>
+<li><code>.section .text-center</code> - Centered sections</li>
+<li><code>.section .bg-warm</code> - Warm background sections</li>
+<li><code>.section .bg-navy</code> - Navy background sections</li>
+</ul>
+</section>
+<section id="component-classes" class="level3">
+<h3 class="anchored" data-anchor-id="component-classes">Component Classes</h3>
+<ul>
+<li><code>.meta-grid</code> - Stats boxes (date, format, price)</li>
+<li><code>.checklist-grid</code> - Qualification list</li>
+<li><code>.disqualify-grid</code> - Disqualification list</li>
+<li><code>.proof-section</code> - Case study highlight</li>
+<li><code>.quarto-listing-grid</code> - Card grid (Quarto built-in)</li>
+<li><code>.card</code> - Standard cards</li>
+<li><code>.timeline</code> - Day-by-day breakdown</li>
+<li><code>.instructor-grid</code> - Instructor bio</li>
+<li><code>.testimonial-grid</code> - Social proof</li>
+<li><code>.value-grid</code> - Pricing breakdown</li>
+<li><code>.scarcity-box</code> - Urgency box</li>
+<li><code>.cta-section</code> - Call-to-action sections</li>
+</ul>
+</section>
+<section id="utility-classes" class="level3">
+<h3 class="anchored" data-anchor-id="utility-classes">Utility Classes</h3>
+<ul>
+<li><code>.btn-primary</code> / <code>.btn-secondary</code> / <code>.btn-xlarge</code> - Buttons</li>
+<li><code>.text-center</code> - Center alignment</li>
+<li><code>.mt-lg</code> - Top margin</li>
+<li><code>.guarantee-text</code> - Small CTA text</li>
+</ul>
+</section>
+</section>
+<section id="what-to-do-next" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-do-next">What to Do Next</h2>
+<section id="if-you-add-a-new-page" class="level3">
+<h3 class="anchored" data-anchor-id="if-you-add-a-new-page">If You Add a New Page</h3>
+<ol type="1">
+<li>Use existing classes from blueprint.scss</li>
+<li>Only create new patterns if truly unique</li>
+<li>If you create 2+ pages needing the same pattern → move it to blueprint.scss</li>
+</ol>
+</section>
+<section id="if-you-need-a-new-component" class="level3">
+<h3 class="anchored" data-anchor-id="if-you-need-a-new-component">If You Need a New Component</h3>
+<ol type="1">
+<li>Check if existing classes can be combined (e.g., <code>.section .bg-warm .text-center</code>)</li>
+<li>If truly new, add to blueprint.scss under “REUSABLE COMPONENTS”</li>
+<li>Name it semantically (what it IS, not where it’s USED)</li>
+</ol>
+</section>
+<section id="future-optimization-ideas" class="level3">
+<h3 class="anchored" data-anchor-id="future-optimization-ideas">Future Optimization Ideas</h3>
+<ul>
+<li><strong>Further consolidation</strong>: Could <code>.timeline</code> be simplified?</li>
+<li><strong>Variant system</strong>: <code>.card</code>, <code>.card-dark</code>, <code>.card-outline</code> (consistent naming)</li>
+<li><strong>Spacing system</strong>: More granular margin/padding utilities</li>
+</ul>
+</section>
+</section>
+<section id="maintenance-benefits" class="level2">
+<h2 class="anchored" data-anchor-id="maintenance-benefits">Maintenance Benefits</h2>
+<section id="before-refactor" class="level3">
+<h3 class="anchored" data-anchor-id="before-refactor">Before Refactor</h3>
+<ul>
+<li>Change a pattern → Update 2 places (blueprint.scss + page <code>&lt;style&gt;</code>)</li>
+<li>Add similar feature → Copy-paste CSS, modify slightly</li>
+<li>Debug styling → Check global CSS AND page CSS</li>
+<li><strong>Maintenance cost: 2x work</strong></li>
+</ul>
+</section>
+<section id="after-refactor" class="level3">
+<h3 class="anchored" data-anchor-id="after-refactor">After Refactor</h3>
+<ul>
+<li>Change a pattern → Update 1 place (blueprint.scss)</li>
+<li>Add similar feature → Use existing classes, compose with utilities</li>
+<li>Debug styling → Check only blueprint.scss</li>
+<li><strong>Maintenance cost: 1x work</strong> ✅</li>
+</ul>
+</section>
+</section>
+<section id="file-structure-now" class="level2">
+<h2 class="anchored" data-anchor-id="file-structure-now">File Structure Now</h2>
+<pre><code>perceptions/
+├── blueprint.scss           # 1,289 lines - Component library
+├── bootcamp.qmd            # 528 lines - Just content + Quarto divs
+├── index.qmd               # Uses blueprint.scss classes
+├── consulting.qmd          # Uses blueprint.scss classes
+├── about.qmd               # Uses blueprint.scss classes
+├── SCSS_AUDIT.md           # Audit findings
+└── REFACTOR_SUMMARY.md     # This document</code></pre>
+</section>
+<section id="success-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="success-metrics">Success Metrics</h2>
+<p>✅ <strong>Removed 445 lines of duplicate CSS</strong> ✅ <strong>Zero page-specific <code>&lt;style&gt;</code> blocks</strong> ✅ <strong>12 new reusable component patterns</strong> ✅ <strong>Single source of truth for all styling</strong> ✅ <strong>Build once, use many times</strong> principle achieved</p>
+<hr>
+<p><em>Refactor completed: 2025-12-08</em></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/jitinkapila\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 Jitin Kapila</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/jitinkapila">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/jitinkapila">
+      <i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jkapila">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@jitinkapila">
+      <i class="bi bi-youtube" role="img" aria-label="YouTube">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://aicrosscurrent.substack.com/">
+      <i class="bi bi-substack" role="img" aria-label="Substack Newsletter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/jitinkapila">
+      <i class="bi bi-instagram" role="img" aria-label="Instagram">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

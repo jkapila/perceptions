@@ -1,1 +1,21 @@
-Sitemap: https://www.jitinkapila.com/sitemap.xml
+User-agent: *
+Allow: /
+
+# Block development/internal files
+Disallow: /extras/
+Disallow: /backup/
+Disallow: /_backup/
+Disallow: /CLAUDE.html
+Disallow: /.quarto/
+Disallow: /_site/
+Disallow: /_freeze/
+
+# Allow CSS and JS for rendering
+Allow: /*.css$
+Allow: /*.js$
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://jitinkapila.com/sitemap.xml
