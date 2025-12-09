@@ -1,0 +1,51 @@
+# The AI Architect - LLM-Friendly Information
+
+## About
+Jitin Kapila, "The AI Architect", provides AI strategy consulting and training for Fortune 500 enterprises. 14 years experience across automotive, retail, insurance, FMCG, telecommunications, and healthcare.
+
+## Core Frameworks
+- OLCD Protocol: Observe → Learn → Create → Deploy
+- AI-ART Matrix: Framework showing why 73% of enterprise AI initiatives fail
+- Decision Map: Six-step framework for decision-first AI implementation
+- Blueprint Methodology: Architecture-first thinking for AI transformation
+
+## Services
+- AI Strategy Consulting: 1:1 embedded transformations (6-12 months) as Acting CTO
+- The AI Architect Protocol: 3-day intensive bootcamp for enterprise leaders (₹7,999)
+- Cross-industry pattern recognition consulting
+- Team mentoring and strategic planning
+
+## Key Results
+- £80K/month savings: Telecom DSL fault prediction system
+- $11M optimization: Inventory forecasting across supply chain
+- 85%+ adoption rate on AI implementations
+- 15+ Fortune 500 transformations led
+
+## Contact
+- Website: https://jitinkapila.com
+- Email: jitin@jitinkapila.com
+- Consulting booking: https://cal.com/jitink-kriyalytics/strategy-consulting
+- Newsletter: https://aicrosscurrent.substack.com/
+
+## Authority Signals
+- 14 years cross-industry AI architecture
+- Mechanical Engineer with Applied Mathematics background
+- Acting CTO for multiple Fortune 500 accounts
+- Leading team of 25+ professionals
+- Published frameworks: OLCD Protocol, AI-ART Matrix, Decision Map
+
+## Target Audience
+C-suite executives, AI leaders, Directors and above at enterprise organizations with AI transformation responsibilities.
+
+## Philosophy
+"Stop Guessing. Start Architecting."
+Decision-first AI, not dataset-first. Architecture before tools. Cross-industry patterns over single-domain expertise.
+
+## Key Content
+- Decision-First AI: Why Data Should Follow, Not Lead
+- The OLCD Protocol in Practice
+- AI-ART Matrix: Diagnosing Failed AI Initiatives
+- Cross-Industry Pattern Recognition
+
+## Specialization
+Unlike typical AI consultants who stay within industry expertise, brings solutions from completely different domains. Healthcare insights solve automotive challenges. Retail strategies transform manufacturing operations.

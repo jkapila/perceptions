@@ -1,6 +1,8 @@
 ---
-title: ""
+title: "The Vault"
+pagetitle: "The Vault | AI Strategy & Engineering Knowledge Base"
 page-layout: full
+description: "AI frameworks, implementation patterns, and strategic insights for enterprise architects. Strategy guides for C-suite. Technical deep-dives for builders. Decision-first AI, OLCD Protocol, and more."
 listing:
   - id: strategy-posts
     contents: "../posts/strategy/*/index.qmd"

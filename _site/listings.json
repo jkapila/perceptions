@@ -1,9 +1,5 @@
 [
   {
-    "listing": "/vault/index.html",
-    "items": []
-  },
-  {
     "listing": "/insights.html",
     "items": [
       "/posts/strategy/decision-first-ai/index.html",

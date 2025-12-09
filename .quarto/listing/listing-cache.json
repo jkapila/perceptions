@@ -3,11 +3,6 @@
     "insights.qmd": [
       "posts"
     ],
-    "vault/index.qmd": [
-      "../posts/*/index.qmd",
-      "../posts/strategy/*/index.qmd",
-      "../posts/engineering/*/index.qmd"
-    ],
     "vault.qmd": [
       "../posts/strategy/*/index.qmd",
       "../posts/engineering/*/index.qmd"

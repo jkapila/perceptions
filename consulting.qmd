@@ -1,7 +1,9 @@
 ---
-title: ""
-pagetitle: "AI Strategy Consulting | Jitin Kapila"
+title: "AI Strategy Consulting"
+pagetitle: "AI Strategy Consulting | Fortune 500 Enterprise Transformation"
 page-layout: full
+page-navigation: false
+description: "Limited 1:1 AI consulting engagements for Fortune 500 enterprises. Acting CTO and Strategic AI Advisor. Cross-industry pattern recognition. 6-12 month embedded transformations."
 ---
 
 ::: {.hero-content}

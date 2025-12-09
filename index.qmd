@@ -1,100 +1,127 @@
 ---
 pagetitle: "Jitin Kapila | AI Strategy & Enterprise Architecture"
 page-layout: full
+description: "Transform from Corporate AI Lead to Strategic AI Architect. The AI-ART Matrix and OLCD Protocol for Fortune 500 enterprises. 14 years cross-industry AI implementation experience."
 ---
-
-::: {.hero-section}
-
 
 ::: {.hero-content}
 
-[Framework for AI Leaders]{.eyebrow}
+[The AI Protocol]{.eyebrow}
 
-# Stop Guessing. Start Architecting.
+# Don't Learn AI. Operationalize It.
 
-The operating system for AI-driven enterprises. Transform from 'Corporate AI Lead' to 'Strategic AI Architect'.
+**I help Senior Professionals & Business Owners build AI-Enabled Enterprises.**  
+No theory. No "prompt engineering" fluff. Just operational leverage.
 
 ::: {.hero-buttons}
 
-[Start the Protocol](https://YOUR-SYSTEME-IO-LINK.com){.btn-primary .btn-large}
-[Read the Manifesto](about.qmd){.btn-secondary .btn-large}
+[Join the Bootcamp (Tier 1)](https://YOUR-SYSTEME-IO-LINK.com){.btn-primary .btn-large}
+[Explore Consulting (Tier 2)](https://cal.com/jitink-kriyalytics/strategy-consulting){.btn-secondary .btn-large target="_blank"}
 
 :::
 
 :::
 
-:::
+```{=html}
+<div class="logo-ribbon" style='margin: 1em 0em;'>
+  <div class="ribbon-label">Strategies Deployed At</div>
+  <div class="logo-scroll-wrapper">
+    <div class="logo-container">
+      <!-- First set of logos -->
+      <div class="logo-item"><img src="logos/mercedes-benz.svg" alt="Mercedes Benz" /></div>
+      <div class="logo-item"><img src="logos/loreal.svg" alt="L'Oréal" /></div>
+      <div class="logo-item"><img src="logos/maruti-suzuki.svg" alt="Maruti Suzuki" /></div>
+      <div class="logo-item"><img src="logos/british-telecom.svg" alt="British Telecom" /></div>
+      <div class="logo-item"><img src="logos/harman Services.png" alt="Harman" /></div>
+      <div class="logo-item"><img src="logos/Zespri.png" alt="Zespri" /></div>
+      <!-- Duplicate set for seamless loop -->
+      <div class="logo-item"><img src="logos/mercedes-benz.svg" alt="Mercedes Benz" /></div>
+      <div class="logo-item"><img src="logos/loreal.svg" alt="L'Oréal" /></div>
+      <div class="logo-item"><img src="logos/maruti-suzuki.svg" alt="Maruti Suzuki" /></div>
+      <div class="logo-item"><img src="logos/british-telecom.svg" alt="British Telecom" /></div>
+      <div class="logo-item"><img src="logos/harman Services.png" alt="Harman" /></div>
+      <div class="logo-item"><img src="logos/Zespri.png" alt="Zespri" /></div>
+    </div>
+  </div>
+</div>
+```
 
-::: {.column-body-inset .bg-warm}
-#### Trusted by leaders at: Fortune 500 Automotive | Global Retail | Enterprise Insurance | FMCG
-:::
 
 ::: {.fixed-section}
 
-## The AI-ART Matrix
+## The Thesis
 
-Why 73% of enterprise AI initiatives fail to scale.
+You are managing ₹80M+ portfolios. You have 15 years of experience.
+**But you are still doing manual work.**
 
-| The Old Way | The Architect Way |
-|-------------|-------------------|
-| Prescriptive AI | Predictive Strategy |
-| Tool-first thinking | Outcome-first design |
-| Siloed implementations | Systemic integration |
-| Vendor-dependent | Architecture-independent |
-| Reactive problem-solving | Proactive pattern recognition |
-| Dashboard metrics | Business transformation |
+The market is shifting. Senior professionals are not being replaced by AI; they are being replaced by *junior* professionals who have **Operational Leverage**.
+
+I am **Jitin Kapila**. I am not a "Course Creator." I am an **AI Architect** who has deployed systems for Fortune 500 companies. My goal is simple: to help you move from "Corporate Employee" to "AI-Enabled Executive."
 
 :::
 
-::: {.fixed-section .bg-warm}
+::: {.fixed-section .bg-navy .text-white}
 
-[The Framework]{.eyebrow}
+## The Case Study: 182x ROI
 
-## The OLCD Protocol
+**The Problem:** A regional grocery chain losing ₹7.5Cr/year to inventory spoilage.
+**The "Architect" Fix:** We didn't hire a data team. We installed a **Predictive Ordering Agent** using simple Excel + OpenAI API.
 
-**Objective → Learner → Controller → Diagnostic**
+*   **Before:** 20 hours/week manual ordering.
+*   **After:** 2 hours/week automated review.
+*   **Result:** ₹8.2Cr profit increase in Year 1.
 
-A battle-tested operating system for enterprise AI transformation.
-
-After 14 years across automotive, retail, insurance, FMCG, and telecommunications, I've distilled what separates successful AI implementations from expensive experiments.
-
-It's not about having the best tools. It's about having the right architecture.
-
-[Explore the Protocol →](bootcamp.qmd){.text-link}
+*This is not magic. It is Architecture.*
 
 :::
 
-::: {.section }
+::: {.section}
 
-## What You'll Master
+## How We Work Together
 
-::: {.quarto-listing-grid}
+I offer two distinct protocols depending on your speed and needs.
 
-::: {.card}
-### Strategic Architecture
-Map your organization's AI maturity. Identify gaps between current state and AI-driven future. Design systems that scale.
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### Tier 1: The AI Profit OS™
+**3-Day Implementation Bootcamp**
+
+For leaders who want to build their personal AI Operating System in one weekend.
+We install the **Deep-Research System**, the **Governance Playbook**, and your first **Agentic Workflow**.
+
+*   **Format:** Live Virtual Sprint (3 Days)
+*   **Next Cohort:** Dec 19-21, 2025
+*   **Investment:** ~~₹15,999~~ **₹7,999 (Founding Member)**
+
+[Secure Your Seat →](https://YOUR-SYSTEME-IO-LINK.com){.btn-primary}
 :::
 
-::: {.card}
-### Pattern Recognition
-Apply cross-industry insights. See solutions others miss. Solve problems sideways.
+::: {.g-col-12 .g-col-md-6}
+### Tier 2: The AI Profit Accelerator™
+**4-Week Consulting Program**
+
+For business owners who need a full **AI-ART Matrix** deployment across Sales, Ops, and HR. We audit your Data Assets, design your Multi-Agent System, and build the "Bird's-Eye View" Dashboard.
+
+*   **Format:** Hybrid Consulting (Small Cohort)
+*   **Status:** Application Only
+*   **Investment:** ₹50,000+
+
+[Let's have a word →](https://cal.com/jitink-kriyalytics/strategy-consulting){.btn-primary target="_blank"}
 :::
 
-::: {.card}
-### Implementation Frameworks
-OLCD Protocol. AI-ART Matrix. Blueprint methodology. Deployable from day one.
 :::
 
-:::
+::: {.fixed-section .bg-warm .text-center}
+
+## The "Unheard Of" Guarantee
+
+My reputation is built on ROI, not views.
+If you join the **AI Profit OS™** and do not save at least 10 hours/week within 30 days, I will refund you 100% **AND** pay you ₹5,000 for your time.
+
+**Stop Guessing. Start Architecting.**
+
+[Start The Protocol (₹7,999)](https://YOUR-SYSTEME-IO-LINK.com){.btn-primary .btn-large}
 
 :::
 
-::: {.section .text-center}
-
-## Ready to Transform Your Approach?
-
-The next cohort of The AI Architect Protocol starts soon.
-
-[Join the Blueprint →](https://YOUR-SYSTEME-IO-LINK.com){.btn-primary .btn-large}
-
-:::

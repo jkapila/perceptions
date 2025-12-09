@@ -8,6 +8,8 @@ project:
     - favicon-32x32.png
     - favicon.ico
     - apple-touch-icon.png
+    - robots.txt
+    - llms.txt
 
 website:
   title: "Jitin Kapila | The AI Architect"
@@ -25,6 +27,7 @@ website:
   navbar:
     title: "JITIN KAPILA"
     background: transparent
+    page-navigation: true
     right:
       - text: "The Protocol"
         href: bootcamp.qmd

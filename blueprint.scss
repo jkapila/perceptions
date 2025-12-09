@@ -296,41 +296,34 @@ strong {
 }
 
 .btn-secondary {
-  background: transparent;
+  background: white;
   color: $primary;
   border: 2px solid $primary;
   box-shadow: none;
-
-  // Slide in background from left
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: $primary;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: -1;
-  }
+  transition: all 0.3s ease;
 
   &:hover {
+    background: $primary;
     color: white;
     border-color: $primary;
-
-    &::before {
-      width: 100%; // Fill from left to right
-    }
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(12, 43, 78, 0.2);
   }
 
   &:active {
-    transform: scale(0.98);
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(12, 43, 78, 0.15);
   }
 }
 
 .btn-large {
   padding: 1.125rem 2.25rem; // 18px 36px
   font-size: 0.875rem; // 14px
+}
+
+.btn-xlarge {
+  padding: 1.25rem 3rem; // 20px 48px
+  font-size: 1rem; // 16px
 }
 
 // ========================================
@@ -437,6 +430,26 @@ strong {
 // Background Utilities
 .bg-warm {
   background-color: $footer-bg;
+  padding: 0.5rem 1rem;
+}
+
+.bg-contrast {
+  background-color: $secondary; // Navy Royal for subtle contrast
+  color: white;
+  padding: 0.5rem 1rem;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
+
+  p, strong {
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .eyebrow {
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 1;
+  }
 }
 
 .bg-navy {
@@ -448,9 +461,9 @@ strong {
   }
 
   .eyebrow {
-    color: rgba(255, 255, 255, 0.7); // Slightly more visible (was 0.6)
-    text-align: center; // More appropriate than justify-content
-    opacity: 1; // Override default opacity on dark backgrounds
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    opacity: 1;
     width: 100%;
   }
 }
@@ -474,7 +487,37 @@ strong {
   h3 {
     text-transform: uppercase;
     font-size: 1.25rem; // 20px
-    margin-bottom: 1rem;
+    margin-bottom: 0,5rem;
+  }
+}
+
+// Dark Card Variant
+.card-dark {
+  background: $secondary; // Navy Royal
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  padding: $card-spacer-y $card-spacer-x;
+  color: white;
+  transition: box-shadow 0.8s ease, transform 0.8s ease;
+
+  &:hover {
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.3);
+    transform: translateY(-7px);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  h3, h4, h5 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p, li {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  strong {
+    color: $info; // Cream gold for emphasis on dark background
   }
 }
 
@@ -840,6 +883,7 @@ hr {
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
+.justify-center { justify-content: center; }
 
 .mt-sm { margin-top: map-get($spacers, 2); }
 .mt-md { margin-top: map-get($spacers, 3); }
@@ -850,3 +894,396 @@ hr {
 .mb-md { margin-bottom: map-get($spacers, 3); }
 .mb-lg { margin-bottom: map-get($spacers, 5); }
 .mb-xl { margin-bottom: map-get($spacers, 7); }
+
+// ========================================
+// REUSABLE COMPONENTS (Global patterns)
+// ========================================
+
+// Checklist Patterns - Reusable for pros/cons, qualifications, features
+.checklist-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0;
+
+  li {
+    list-style: none;
+    padding-left: 2rem;
+    position: relative;
+
+    &::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      font-weight: 600;
+      color: $success; // Slate Blue
+    }
+  }
+}
+
+.disqualify-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0;
+
+  li {
+    list-style: none;
+    padding-left: 2rem;
+    position: relative;
+
+    &::before {
+      content: "✗";
+      position: absolute;
+      left: 0;
+      font-weight: 600;
+      color: $text-muted;
+    }
+  }
+}
+
+// Meta Boxes - For showing stats, dates, formats
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.meta-box {
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid $border-color;
+  background: rgba($body-bg, 0.8);
+
+  strong {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: $body-color;
+    margin-bottom: 0.25rem;
+  }
+}
+
+// Trust Bar - Company logo strip (used on homepage + bootcamp)
+.trust-bar {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(12, 43, 78, 0.1);
+  font-size: 0.875rem;
+  color: $text-muted;
+  font-weight: 500;
+}
+
+// Logo Ribbon - Infinite scrolling animation
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-ribbon {
+  padding: 1rem 0;
+  background: $footer-bg; // Warm background
+  border-top: 1px solid rgba(12, 43, 78, 0.1);
+  border-bottom: 1px solid rgba(12, 43, 78, 0.1);
+  overflow: hidden;
+  position: relative;
+
+  .ribbon-label {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $text-muted;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .logo-scroll-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, $footer-bg, transparent);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, $footer-bg, transparent);
+    }
+  }
+
+  .logo-container {
+    display: flex;
+    height: 120px;
+    align-items: center;
+    gap: 6rem;
+    animation: scroll-logos 30s linear infinite;
+    width: max-content;
+
+    // Pause animation on hover
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .logo-item {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    filter: grayscale(100%);
+    flex-shrink: 0;
+    min-width: 120px;
+
+    img {
+      max-height: 100%;
+      max-width: 150px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    &:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+      transform: scale(1.15);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .logo-scroll-wrapper {
+      &::before,
+      &::after {
+        width: 50px;
+      }
+    }
+
+    .logo-container {
+      gap: 3rem;
+    }
+
+    .logo-item {
+      height: 60px;
+      min-width: 80px;
+
+      img {
+        max-width: 100px;
+      }
+    }
+  }
+}
+
+// Value Grid - For pricing breakdowns, feature lists
+.value-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2rem 0;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.value-item {
+  padding: 1.5rem;
+  border: 1px solid $border-color;
+  background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(12, 43, 78, 0.1);
+  }
+
+  strong {
+    display: block;
+    color: $primary;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+  em {
+    display: block;
+    font-size: 0.875rem;
+    color: $text-muted;
+    font-style: normal;
+    margin-top: 0.5rem;
+    font-weight: 500;
+  }
+}
+
+.value-total {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  background: rgba($info, 0.1); // Cream gold tint
+  border: 2px solid $info;
+  margin-top: 1rem;
+
+  strong {
+    font-size: 1.5rem;
+    color: $primary;
+    display: block;
+    margin: 0.5rem 0;
+  }
+}
+
+// Scarcity/Urgency Box - Pulsing border effect
+.scarcity-box {
+  background: rgba($info, 0.1);
+  border: 2px solid $info;
+  padding: 2rem;
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid $info;
+    animation: pulse-border 2s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  strong {
+    color: $primary;
+    font-size: 1.25rem;
+  }
+}
+
+@keyframes pulse-border {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
+// Instructor/Team Grid - For bio sections
+.instructor-grid {
+  display: grid;
+  gap: 3rem;
+  margin: 2rem 0;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  img {
+    width: 100%;
+    max-width: 300px;
+    border: 3px solid $primary;
+    box-shadow: 0 4px 12px rgba(12, 43, 78, 0.15);
+  }
+
+  strong {
+    color: $primary;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Proof Section - Case studies, testimonials
+.proof-section {
+  background: rgba($info, 0.05);
+  border-left: 4px solid $info;
+  padding: 2rem;
+  margin: 2rem 0;
+
+  strong {
+    color: $primary;
+    font-weight: 600;
+  }
+}
+
+// Testimonial Grid - Reusable testimonial pattern
+.testimonial-grid {
+  display: grid;
+  gap: 2rem;
+  margin: 2rem 0;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testimonial {
+  padding: 2rem;
+  border: 1px solid rgba(12, 43, 78, 0.1);
+  background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(12, 43, 78, 0.1);
+  }
+
+  strong {
+    display: block;
+    margin-top: 1rem;
+    color: $primary;
+  }
+
+  em {
+    display: block;
+    font-size: 0.875rem;
+    color: $text-muted;
+    font-style: normal;
+  }
+}
+
+// FAQ Pattern - Generic FAQ styling (reusable across pages)
+.faq-item {
+  margin-bottom: 2rem;
+
+  strong {
+    display: block;
+    color: $primary;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+// Guarantee/CTA Text - Small print below CTAs
+.guarantee-text {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: $body-color;
+}

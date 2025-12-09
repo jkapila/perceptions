@@ -1,8 +1,9 @@
 ---
 title: "Jitin Kapila"
-pagetitle: "About | Jitin Kapila - The AI Architect"
+pagetitle: "About Jitin Kapila - The AI Architect | 14 Years Enterprise AI Experience"
+description: "14 years architecting AI systems across automotive, retail, insurance, FMCG, and telecommunications. Mechanical engineer with applied mathematics background. Acting CTO for Fortune 500 accounts."
 about:
-  template: trestles
+  template: solana
   image: display_image.jpg
   image-width: 15em
   image-shape: rounded
@@ -19,11 +20,13 @@ about:
     - icon: youtube
       text: YouTube
       href: https://www.youtube.com/@jitinkapila
-    - text: "{{< iconify simple-icons substack >}} Newsletter"
+    - icon: substack
+      text: SubStack
       href: https://aicrosscurrent.substack.com/
     - icon: envelope
       text: Email
-      href: mailto:jitin@jitinkapila.com
+      href: mailto:info@kriyalytics.com
+page-layout: full
 ---
 
 ## The AI Architect

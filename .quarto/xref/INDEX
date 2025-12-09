@@ -141,5 +141,17 @@
   },
   "posts/engineering/10_treeknn/index.qmd": {
     "index.html": "2e8d902c"
+  },
+  "extras/SEO_TODO.md": {
+    "SEO_TODO.html": "25828c32"
+  },
+  "SCSS_AUDIT.md": {
+    "SCSS_AUDIT.html": "638007f7"
+  },
+  "REFACTOR_SUMMARY.md": {
+    "REFACTOR_SUMMARY.html": "8b0c6a7f"
+  },
+  "extras/CANVA_PROMPT.md": {
+    "CANVA_PROMPT.html": "37a4d9e8"
   }
 }
