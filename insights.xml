@@ -20,6 +20,7 @@
 
 
 
+
 <p>Start here: don’t open a notebook until you know the decision you want to change.</p>
 <p>Sounds obvious. But most AI projects don’t start there. They start with a dataset, or with a “let’s try this model,” or with a platform demo that looks great in the cloud. And then weeks later the obvious question appears: “Okay — what decision does this support?” People shrug. The project stalls. The models are good. The business impact is vague.</p>
 <p>This is the dataset-first trap. It wastes time, money, and faith. It also gives AI a bad name.</p>
@@ -124,7 +125,7 @@
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
+ ]]></description>
   <category>strategy</category>
   <category>roi</category>
   <category>business</category>
@@ -138,6 +139,7 @@
   <dc:creator>Jitin Kapila</dc:creator>
   <link>https://jitinkapila.com/posts/engineering/10_treeknn/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1192,7 +1194,7 @@ Predictions: [0.2 0.8]</code></pre>
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
+ ]]></description>
   <category>knn</category>
   <category>ml</category>
   <category>mixed-data</category>
@@ -1205,6 +1207,7 @@ Predictions: [0.2 0.8]</code></pre>
   <dc:creator>Jitin Kapila</dc:creator>
   <link>https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -4347,7 +4350,7 @@ font-style: inherit;">'Metric'</span>).T)</span></code></pre></div></div>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
+ ]]></description>
   <category>classification</category>
   <category>metric</category>
   <category>feature selection</category>
@@ -4590,7 +4593,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
+ ]]></description>
   <category>clustering</category>
   <category>analysis</category>
   <guid>https://jitinkapila.com/posts/engineering/03_crosstab_sparsity/</guid>
@@ -4602,6 +4605,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
   <dc:creator>Jitin Kapila</dc:creator>
   <link>https://jitinkapila.com/posts/engineering/02_hypothesis_test/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -5604,7 +5608,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
+ ]]></description>
   <category>eda</category>
   <category>hypothesis</category>
   <category>analysis</category>
@@ -5618,6 +5622,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
   <dc:creator>Jitin Kapila</dc:creator>
   <link>https://jitinkapila.com/posts/engineering/01_adaptive_regression/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -5815,7 +5820,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
+ ]]></description>
   <category>strategy</category>
   <guid>https://jitinkapila.com/posts/engineering/01_adaptive_regression/</guid>
   <pubDate>Mon, 30 Apr 2018 18:30:00 GMT</pubDate>

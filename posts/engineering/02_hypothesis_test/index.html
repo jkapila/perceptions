@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-626b0fff7b0ff2cc043be631a594889b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-47b0ca00fa58fe725db5702cbbe06d40.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-aec225e25687f09149c758017cf630bd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -111,6 +111,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: gold;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: gold;
+      }
+</style>
 <script defer="" src="https://cloud.umami.is/script.js" data-website-id="aeaaf854-d53a-45ab-83d5-1963c96af264"></script>
 <script type="application/ld+json">
 {
@@ -252,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="floating nav-fixed slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -294,7 +310,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A flow to Test Your Hypothesis in Python</h1>
+                  <div>
+        <div class="description">
+          Making life easy to do some serious hypothesis testing in python.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">eda</div>
+                <div class="quarto-category">hypothesis</div>
+                <div class="quarto-category">analysis</div>
+                <div class="quarto-category">python</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jitin Kapila </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 10, 2021</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
@@ -313,48 +368,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">A flow to Test Your Hypothesis in Python</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">eda</div>
-    <div class="quarto-category">hypothesis</div>
-    <div class="quarto-category">analysis</div>
-    <div class="quarto-category">python</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    Making life easy to do some serious hypothesis testing in python.
-  </div>
-</div>
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jitin Kapila </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 10, 2021</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <div class="quarto-figure quarto-figure-center page-columns page-full">
@@ -635,7 +652,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1042,11 +1059,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© 2025 Jitin Kapila</p>
-</div>   
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://cal.com/jitink-kriyalytics/strategy-consulting">
+      <i class="bi bi-person-check-fill" role="img" aria-label="Consulting">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://cal.com/jitink-kriyalytics/strategy-consulting">
+      <i class="bi bi-person-vcard" role="img" aria-label="Join the waitlist">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>   
     <div class="nav-footer-center">
-      &nbsp;
-    </div>
+<p>© 2025 Jitin Kapila</p>
+</div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

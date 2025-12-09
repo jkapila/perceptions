@@ -1,6 +1,6 @@
 [
   {
-    "listing": "/vault.html",
+    "listing": "/insights.html",
     "items": [
       "/posts/strategy/decision-first-ai/index.html",
       "/posts/engineering/10_treeknn/index.html",
@@ -11,7 +11,7 @@
     ]
   },
   {
-    "listing": "/insights.html",
+    "listing": "/vault.html",
     "items": [
       "/posts/strategy/decision-first-ai/index.html",
       "/posts/engineering/10_treeknn/index.html",

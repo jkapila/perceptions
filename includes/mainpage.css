@@ -1,0 +1,235 @@
+/*Title block*/
+
+#title-block-header{
+
+  text-align: center;
+  margin: 1.25rem 1rem;
+  /*width: 100%;*/
+  justify-content: center;
+  justify-items: center;
+
+
+  .title{
+    padding: 1rem 0rem;
+    font-size: clamp(3.5rem, 10vw, 6.5rem);
+    
+    &::after {
+       content: '';
+       display: block;
+       width: 6rem;
+       height: 3px;
+       background: #D8C4B6;
+       margin: 1.75rem auto 1.5rem;
+     }
+  }
+
+  .description{
+    padding: 1rem 0rem;
+    /*font-size: clamp(0.8rem, 2vw, 1.2rem); */
+  }
+
+  p {
+    margin-bottom: 1rem;
+    width: 100%; 
+  }
+
+}
+
+
+/*Accordian settings for FAQs and more*/
+
+.accordion .accordion-button {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+
+/* Trust Bar - Company logo strip (used on homepage + bootcamp)*/
+.trust-bar {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(12, 43, 78, 0.1);
+  font-size: 0.875rem;
+  color: $text-muted;
+  font-weight: 500;
+}
+
+/* Make logos work */
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-ribbon {
+  padding: 1rem 0;
+  background: #F8F6F3; /*Warm background*/
+  border-top: 1px solid rgba(12, 43, 78, 0.1);
+  border-bottom: 1px solid rgba(12, 43, 78, 0.1);
+  overflow: hidden;
+  position: relative;
+
+  .ribbon-label {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $text-muted;
+    /*margin-bottom: 2rem;*/
+    text-align: center;
+  }
+
+  .logo-scroll-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, $footer-bg, transparent);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, $footer-bg, transparent);
+    }
+  }
+
+  .logo-container {
+    display: flex;
+    height: 120px;
+    align-items: center;
+    gap: 6rem;
+    animation: scroll-logos 30s linear infinite;
+    width: max-content;
+
+    /*Pause animation on hover*/
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .logo-item {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    filter: grayscale(100%);
+    flex-shrink: 0;
+    min-width: 120px;
+
+    img {
+      max-height: 100%;
+      max-width: 150px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    &:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+      transform: scale(1.25);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .logo-scroll-wrapper {
+      &::before,
+      &::after {
+        width: 50px;
+      }
+    }
+
+    .logo-container {
+      gap: 3rem;
+    }
+
+    .logo-item {
+      height: 60px;
+      min-width: 80px;
+
+      img {
+        max-width: 100px;
+      }
+    }
+  }
+}
+
+
+/* CTA Section */
+/*-----------------------------------------------------------------*/
+
+.cta-section {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: #0C2B4E;
+  color: white;
+
+  h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto 1.5rem auto;
+    font-size: 1.125rem; 
+    /*// Slightly larger for readability*/
+  }
+
+  /*// Make links visible on dark background*/
+  a:not(.btn):not(.btn-primary):not(.btn-secondary) {
+    color: #D8C4B6; 
+    /*// Cream gold for contrast*/
+    text-decoration: underline;
+    font-weight: 500;
+
+    &:hover {
+      color: #C4B09E; 
+      /*// Gold hover*/
+    }
+  }
+
+  /*// Override button styles for dark background*/
+  .btn-primary {
+    background: white;
+    color: #0C2B4E;
+    border: 2px solid white;
+    margin: 2rem auto 1rem;
+
+    &:hover {
+      background: #D8C4B6; 
+      /*// Cream gold*/
+      color: #0C2B4E;
+      border-color: #D8C4B6;
+    }
+  }
+
+  /*// Strong text styling*/
+  strong {
+    color: white;
+    font-weight: 600;
+  }
+
+  /*// Spacing utilities*/
+  .mt-lg {
+    margin-top: 3rem;
+  }
+}
