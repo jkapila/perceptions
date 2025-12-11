@@ -57,7 +57,7 @@
 <li><p><strong>Plan the feedback loop.</strong> How will you measure the decision metric after deployment? How will you collect labels and iterate? Decide that upfront.</p></li>
 </ul>
 <p>If you complete this map, you’ll have done 80% of the work most teams skip. It forces alignment, and it reveals whether the project is worth doing.</p>
-<p><a href="../../../decision-map-framework.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://jitinkapila.com/decision-map-framework.webp" class="img-fluid"></a></p>
+<p><a href="../../../panel.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://jitinkapila.com/panel.jpg" class="img-fluid"></a></p>
 </section>
 <section id="a-telecom-example-mapped-end-to-end-real-story" class="level2">
 <h2 class="anchored" data-anchor-id="a-telecom-example-mapped-end-to-end-real-story">A telecom example, mapped end-to-end (real story)</h2>
@@ -125,21 +125,19 @@
 
 </section>
 
- ]]></description>
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>strategy</category>
   <category>roi</category>
   <category>business</category>
   <category>ai</category>
   <guid>https://jitinkapila.com/posts/strategy/decision-first-ai/</guid>
   <pubDate>Wed, 08 Oct 2025 18:30:00 GMT</pubDate>
-  <media:content url="https://jitinkapila.com/posts/strategy/decision-first-ai/decision-map-framework.webp" medium="image" type="image/webp"/>
 </item>
 <item>
   <title>TrieKNN: Unleashing KNN’s Power on Mixed Data Types</title>
   <dc:creator>Jitin Kapila</dc:creator>
   <link>https://jitinkapila.com/posts/engineering/10_treeknn/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -1194,7 +1192,7 @@ Predictions: [0.2 0.8]</code></pre>
 
 </section>
 
- ]]></description>
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>knn</category>
   <category>ml</category>
   <category>mixed-data</category>
@@ -1207,7 +1205,6 @@ Predictions: [0.2 0.8]</code></pre>
   <dc:creator>Jitin Kapila</dc:creator>
   <link>https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -4350,7 +4347,7 @@ font-style: inherit;">'Metric'</span>).T)</span></code></pre></div></div>
 </section>
 
 
- ]]></description>
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>classification</category>
   <category>metric</category>
   <category>feature selection</category>
@@ -4593,7 +4590,7 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
 </section>
 </section>
 
- ]]></description>
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>clustering</category>
   <category>analysis</category>
   <guid>https://jitinkapila.com/posts/engineering/03_crosstab_sparsity/</guid>
@@ -4605,7 +4602,6 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
   <dc:creator>Jitin Kapila</dc:creator>
   <link>https://jitinkapila.com/posts/engineering/02_hypothesis_test/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -5608,7 +5604,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 </section>
 
 
- ]]></description>
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>eda</category>
   <category>hypothesis</category>
   <category>analysis</category>
@@ -5627,12 +5623,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 
 
 
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><a href="img/pexels-zlfdmr23-20692065-thumb.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Adapting path through mountains! Photo by Zülfü Demir📸"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/pexels-zlfdmr23-20692065-thumb.jpg" class="img-fluid figure-img" alt="Adapting path through mountains! Photo by Zülfü Demir📸"></a></p>
-<figcaption class="margin-caption">Adapting path through mountains! <a href="https://www.pexels.com/photo/view-of-empty-railway-and-a-hill-in-distance-20692065/">Photo by Zülfü Demir📸</a></figcaption>
-</figure>
-</div>
+<!-- ![Adapting path through mountains! [Photo by Zülfü Demir📸](https://www.pexels.com/photo/view-of-empty-railway-and-a-hill-in-distance-20692065/) ](img/pexels-zlfdmr23-20692065-thumb.jpg) -->
 <!-- 
 <div class="parallax-container"><div class="parallax-image-container"></div></div>
 <style>
@@ -5663,13 +5654,13 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/Anscombe_Data.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Plot of Anscombe’s Quartet"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Anscombe_Data.png" class="img-fluid figure-img" alt="Plot of Anscombe’s Quartet"></a></p>
+<p><a href="img/Anscombe_Data.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Plot of Anscombe’s Quartet"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Anscombe_Data.png" class="img-fluid figure-img" alt="Plot of Anscombe’s Quartet"></a></p>
 <figcaption>Plot of Anscombe’s Quartet</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/Anscombe_Stats.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Some Descriptive Stats for Anscombe’s Quartet"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Anscombe_Stats.png" class="img-fluid figure-img" alt="Some Descriptive Stats for Anscombe’s Quartet"></a></p>
+<p><a href="img/Anscombe_Stats.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Some Descriptive Stats for Anscombe’s Quartet"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Anscombe_Stats.png" class="img-fluid figure-img" alt="Some Descriptive Stats for Anscombe’s Quartet"></a></p>
 <figcaption>Some Descriptive Stats for Anscombe’s Quartet</figcaption>
 </figure>
 </div>
@@ -5680,7 +5671,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 <h2 class="anchored" data-anchor-id="so-what-we-do-now">So what we do Now!</h2>
 <p>Astonished !!! Don’t be. This is what has been hiding behind those numbers. And this is why we really won’t be able to cross certain performance level. Unless you change some features or even do a lot of hyper parameter tuning, your results won’t vary much.</p>
 <p>If you look at the average value of MAPE in each decile you would see an interesting pattern. Let us show you what we see that pattern. One day while working on a business problem where I was using regression on a discussion with Kumarjit, we deviced a different way of model diagnosis. We worked together to give this a shape and build on it.</p>
-<p><a href="img/Pre_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Pre_Mape_Plot.png" class="img-fluid"></a></p>
+<p><a href="img/Pre_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Pre_Mape_Plot.png" class="img-fluid"></a></p>
 <p>As you can see it is absolutely evident that either of the side in the distribution of MAPE values is going wild!!!!!!! <strong><em>Still overall MAPE is good (18%).</em></strong></p>
 <!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
 </section>
@@ -5693,7 +5684,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/Image_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Plot for Classical Bath Tub Curve using a Hazard Function"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Image_2.png" class="img-fluid figure-img" alt="Plot for Classical Bath Tub Curve using a Hazard Function"></a></p>
+<p><a href="img/Image_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Plot for Classical Bath Tub Curve using a Hazard Function"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Image_2.png" class="img-fluid figure-img" alt="Plot for Classical Bath Tub Curve using a Hazard Function"></a></p>
 <figcaption>Plot for Classical Bath Tub Curve using a Hazard Function</figcaption>
 </figure>
 </div>
@@ -5702,7 +5693,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 <p>Lets look at BostonHousing data from “mlbench” package in R.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><a href="img/Plot_Bathtub.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Plot_Bathtub.png" class="img-fluid figure-img" alt="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"></a></p>
+<p><a href="img/Plot_Bathtub.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Plot_Bathtub.png" class="img-fluid figure-img" alt="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"></a></p>
 <figcaption class="margin-caption">Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data</figcaption>
 </figure>
 </div>
@@ -5712,7 +5703,7 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 <h2 class="anchored" data-anchor-id="final-analysis">Final Analysis</h2>
 <p>Now the DAR framework essentially fixes this weakness of regression method and understands the behavior of data which is stable and can be tweak in a fashion that can be use in general practice.</p>
 <p>Plot of MAPE Bath Tub Curve after applying DAR Framework for Decile Split “mdev” from Data</p>
-<p><a href="img/Post_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Post_Mape_Plot.png" class="img-fluid"></a></p>
+<p><a href="img/Post_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Post_Mape_Plot.png" class="img-fluid"></a></p>
 <p>How this framework with same method reduced MAPEs so much and made model much more stable…?? Well here it is:</p>
 <p>The DAR framework splits the data at either ends of the order target variable and performs regression on these “split” data individually. This inherently reduces the so called “noise” part of the data and treat it as an individual data.</p>
 <!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
@@ -5820,11 +5811,10 @@ font-style: inherit;">return</span> axp</span></code></pre></div></div>
 
 </section>
 
- ]]></description>
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>strategy</category>
   <guid>https://jitinkapila.com/posts/engineering/01_adaptive_regression/</guid>
   <pubDate>Mon, 30 Apr 2018 18:30:00 GMT</pubDate>
-  <media:content url="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/pexels-zlfdmr23-20692065.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

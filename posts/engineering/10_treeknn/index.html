@@ -68,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../favicon-32x32.png" rel="icon" type="image/png">
+<link href="../../../img/jk-logo.svg" rel="icon" type="image/svg+xml">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-626b0fff7b0ff2cc043be631a594889b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-aec225e25687f09149c758017cf630bd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-c25a8d107a8ef8de3aa36886a2f11a43.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -111,22 +111,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
-<style>
-
-      .quarto-title-block .quarto-title-banner h1,
-      .quarto-title-block .quarto-title-banner h2,
-      .quarto-title-block .quarto-title-banner h3,
-      .quarto-title-block .quarto-title-banner h4,
-      .quarto-title-block .quarto-title-banner h5,
-      .quarto-title-block .quarto-title-banner h6
-      {
-        color: gold;
-      }
-
-      .quarto-title-block .quarto-title-banner {
-        color: gold;
-      }
-</style>
 <script defer="" src="https://cloud.umami.is/script.js" data-website-id="aeaaf854-d53a-45ab-83d5-1963c96af264"></script>
 <script type="application/ld+json">
 {
@@ -262,16 +246,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="twitter:description" content="Discover TrieKNN, a novel approach to extend the K-Nearest Neighbors algorithm to datasets with both categorical and numerical features. Learn how it works, see it in action, and explore its potential.">
 <meta name="twitter:image" content="https://jitinkapila.com/posts/engineering/10_treeknn/pexels-anntarazevich-7299985.jpg">
 <meta name="twitter:creator" content="@jitinkapila">
+<meta name="twitter:site" content="@jitinkapila">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="floating nav-fixed slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../img/jk-logo.svg" alt="" class="navbar-logo light-content">
+    <img src="../../../img/jk-logo.svg" alt="" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">JITIN KAPILA</span>
     </a>
@@ -283,16 +272,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
+    <a class="nav-link" href="../../../consulting.html"> 
+<span class="menu-text">Consulting</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../../bootcamp.html"> 
-<span class="menu-text">The Protocol</span></a>
+<span class="menu-text">Courses</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../vault.html"> 
-<span class="menu-text">The Vault</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../consulting.html"> 
-<span class="menu-text">Consulting</span></a>
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../about.html"> 
@@ -300,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://aicrosscurrent.substack.com/" target="_blank"> 
-<span class="menu-text">Newsletter</span></a>
+<span class="menu-text">Newsletter!</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -310,45 +299,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">TrieKNN: Unleashing KNN’s Power on Mixed Data Types</h1>
-                  <div>
-        <div class="description">
-          Discover TrieKNN, a novel approach to extend the K-Nearest Neighbors algorithm to datasets with both categorical and numerical features. Learn how it works, see it in action, and explore its potential.
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">knn</div>
-                <div class="quarto-category">ml</div>
-                <div class="quarto-category">mixed-data</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Jitin Kapila </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">February 26, 2025</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
@@ -380,10 +331,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">TrieKNN: Unleashing KNN’s Power on Mixed Data Types</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">knn</div>
+    <div class="quarto-category">ml</div>
+    <div class="quarto-category">mixed-data</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Discover TrieKNN, a novel approach to extend the K-Nearest Neighbors algorithm to datasets with both categorical and numerical features. Learn how it works, see it in action, and explore its potential.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jitin Kapila </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 26, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <div class="quarto-figure quarto-figure-center page-columns page-full">
@@ -729,7 +717,7 @@ Predictions: [0.2 0.8]</code></pre>
 
 </section>
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1136,25 +1124,9 @@ Predictions: [0.2 0.8]</code></pre>
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://cal.com/jitink-kriyalytics/strategy-consulting">
-      <i class="bi bi-person-check-fill" role="img" aria-label="Consulting">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://cal.com/jitink-kriyalytics/strategy-consulting">
-      <i class="bi bi-person-vcard" role="img" aria-label="Join the waitlist">
-</i> 
-    </a>
-  </li>  
-</ul>
-    </div>   
+<p>© 2026 Jitin Kapila - All rights reserved</p>
+</div>   
     <div class="nav-footer-center">
-<p>© 2025 Jitin Kapila</p>
-</div>
-    <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
     <a class="nav-link" href="https://linkedin.com/in/jitinkapila">
@@ -1189,6 +1161,26 @@ Predictions: [0.2 0.8]</code></pre>
     <li class="nav-item compact">
     <a class="nav-link" href="https://instagram.com/jitinkapila">
       <i class="bi bi-instagram" role="img" aria-label="Instagram">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://cal.com/jitink-kriyalytics/strategy-consulting">
+<p>Consulting</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../404.html">
+<p>Privacy</p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../../posts/index.xml">
+      <i class="bi bi-rss" role="img">
 </i> 
     </a>
   </li>  

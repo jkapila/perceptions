@@ -2,9 +2,6 @@ User-agent: *
 Allow: /
 
 # Block development/internal files
-Disallow: /extras/
-Disallow: /backup/
-Disallow: /_backup/
 Disallow: /CLAUDE.html
 Disallow: /.quarto/
 Disallow: /_site/

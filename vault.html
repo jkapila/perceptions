@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Frameworks, code, and strategy for AI Architects.">
+<meta name="author" content="">
+<meta name="description" content="Frameworks, code, and strategy for AI Architects.   AI frameworks, implementation patterns, and strategic insights for enterprise architects. Strategy guides for C-suite. Technical deep-dives for builders. Decision-first AI, OLCD Protocol, and more.">
 
-<title>The Vault a.k.a Blog – Jitin Kapila | The AI Architect</title>
+<title>Blog – Jitin Kapila | The AI Architect</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./favicon-32x32.png" rel="icon" type="image/png">
+<link href="./img/jk-logo.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -44,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-626b0fff7b0ff2cc043be631a594889b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-82a82d79280555b9f10de73a53f51b45.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b06389d186abb95cf90c726c83558e4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,48 +76,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-strategy-posts .list');
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-subtitle','listing-categories','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-strategy-posts'] = new List('listing-strategy-posts', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-engineering-posts .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-description','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-engineering-posts'] = new List('listing-engineering-posts', options);
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -286,12 +259,16 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="The Vault a.k.a Blog – Jitin Kapila | The AI Architect">
-<meta property="og:description" content="Frameworks, code, and strategy for AI Architects.">
+<link rel="stylesheet" href="includes/mainpage.css">
+<meta property="og:title" content="Blog – Jitin Kapila | The AI Architect">
+<meta property="og:description" content="Frameworks, code, and strategy for AI Architects.  AI frameworks, implementation patterns, and strategic insights for enterprise architects. Strategy guides for C-suite. Technical deep-dives for builders. Decision-first AI, OLCD Protocol, and more.">
+<meta property="og:image" content="https://jitinkapila.com/posts/engineering/10_treeknn/pexels-anntarazevich-7299985.jpg">
 <meta property="og:site_name" content="Jitin Kapila | The AI Architect">
-<meta name="twitter:title" content="The Vault a.k.a Blog – Jitin Kapila | The AI Architect">
-<meta name="twitter:description" content="Frameworks, code, and strategy for AI Architects.">
+<meta name="twitter:title" content="Blog – Jitin Kapila | The AI Architect">
+<meta name="twitter:description" content="Frameworks, code, and strategy for AI Architects.  AI frameworks, implementation patterns, and strategic insights for enterprise architects. Strategy guides for C-suite. Technical deep-dives for builders. Decision-first AI, OLCD Protocol, and more.">
+<meta name="twitter:image" content="https://jitinkapila.com/posts/engineering/10_treeknn/pexels-anntarazevich-7299985.jpg">
 <meta name="twitter:creator" content="@jitinkapila">
+<meta name="twitter:site" content="@jitinkapila">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -302,6 +279,10 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/jk-logo.svg" alt="" class="navbar-logo light-content">
+    <img src="./img/jk-logo.svg" alt="" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">JITIN KAPILA</span>
     </a>
@@ -313,16 +294,16 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
+    <a class="nav-link" href="./consulting.html"> 
+<span class="menu-text">Consulting</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./bootcamp.html"> 
-<span class="menu-text">The Protocol</span></a>
+<span class="menu-text">Courses</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./vault.html" aria-current="page"> 
-<span class="menu-text">The Vault</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./consulting.html"> 
-<span class="menu-text">Consulting</span></a>
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
@@ -330,7 +311,7 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://aicrosscurrent.substack.com/" target="_blank"> 
-<span class="menu-text">Newsletter</span></a>
+<span class="menu-text">Newsletter!</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -340,27 +321,26 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="YWk=">ai <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YnVzaW5lc3M=">business <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2xhc3NpZmljYXRpb24=">classification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2x1c3RlcmluZw==">clustering <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWRh">eda <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmVhdHVyZSUyMHNlbGVjdGlvbg==">feature selection <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHlwb3RoZXNpcw==">hypothesis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="a25u">knn <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWV0cmlj">metric <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWl4ZWQtZGF0YQ==">mixed-data <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWw=">ml <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cm9p">roi <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3RyYXRlZ3k=">strategy <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Vault a.k.a Blog</h1>
+<h1 class="title">Blog</h1>
 </div>
 
 <div>
   <div class="description">
-    Frameworks, code, and strategy for AI Architects.
+    <p>Frameworks, code, and strategy for AI Architects. <br> AI frameworks, implementation patterns, and strategic insights for enterprise architects. Strategy guides for C-suite. Technical deep-dives for builders. Decision-first AI, OLCD Protocol, and more.</p>
   </div>
 </div>
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -372,18 +352,16 @@ window.Quarto = {
 </header>
 
 
-<p><strong>Bringing best of hands-on exprience of strategizing and implementing AI!</strong></p>
-<p>AI frameworks, implementation patterns, and strategic insights for enterprise architects. Strategy guides for C-suite. Technical deep-dives for builders. Decision-first AI, OLCD Protocol, and more.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset column-page">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Strategy</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Engineering</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><strong><em>For the C-Suite. ROI-focused frameworks and business transformation insights.</em></strong></p>
-<div id="listing-strategy-posts" class="quarto-listing quarto-listing-container-grid">
+
+
+
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="c3RyYXRlZ3klMkNyb2klMkNidXNpbmVzcyUyQ2Fp" data-listing-date-sort="1759948200000" data-listing-file-modified-sort="1765111056496" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1872">
+<div class="g-col-1" data-index="0" data-categories="c3RyYXRlZ3klMkNyb2klMkNidXNpbmVzcyUyQ2Fp" data-listing-date-sort="1759948200000" data-listing-file-modified-sort="1765394662402" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1872">
 <a href="./posts/strategy/decision-first-ai/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="panel.jpg" style="height: 100%;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Decision-First AI: Why Data Should Follow, Not Lead
@@ -399,9 +377,6 @@ Decision-First AI: Why Data Should Follow, Not Lead
 <div class="listing-category" onclick="window.quartoListingCategory('YWk='); return false;">ai</div>
 
 </div>
-<div class="card-text listing-description delink">
-<p>Let’s stop the habit of blaming data and AI and start with what decisions we want !!</p>
-</div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
 Oct 9, 2025
@@ -410,17 +385,12 @@ Oct 9, 2025
 </div>
 </div></a>
 </div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><strong><em>For the builders. Code, implementation patterns, and technical deep-dives.</em></strong></p>
-<div id="listing-engineering-posts" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="a25uJTJDbWwlMkNtaXhlZC1kYXRh" data-listing-date-sort="1740508200000" data-listing-file-modified-sort="1765023384631" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2417">
+<div class="g-col-1" data-index="1" data-categories="a25uJTJDbWwlMkNtaXhlZC1kYXRh" data-listing-date-sort="1740508200000" data-listing-file-modified-sort="1765023384631" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2417">
 <a href="./posts/engineering/10_treeknn/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/engineering/10_treeknn/pexels-anntarazevich-7299985.jpg" class="thumbnail-image card-img" style="height: 100%;">
+</p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 TrieKNN: Unleashing KNN’s Power on Mixed Data Types
@@ -434,9 +404,6 @@ TrieKNN: Unleashing KNN’s Power on Mixed Data Types
 <div class="listing-category" onclick="window.quartoListingCategory('bWl4ZWQtZGF0YQ=='); return false;">mixed-data</div>
 
 </div>
-<div class="card-text listing-description delink">
-<p>Discover TrieKNN, a novel approach to extend the K-Nearest Neighbors algorithm to datasets with both categorical and numerical features. Learn how it works, see it in…</p>
-</div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
 Feb 26, 2025
@@ -445,9 +412,12 @@ Feb 26, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="Y2xhc3NpZmljYXRpb24lMkNtZXRyaWMlMkNmZWF0dXJlJTIwc2VsZWN0aW9u" data-listing-date-sort="1672684200000" data-listing-file-modified-sort="1765023384627" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2738">
+<div class="g-col-1" data-index="2" data-categories="Y2xhc3NpZmljYXRpb24lMkNtZXRyaWMlMkNmZWF0dXJlJTIwc2VsZWN0aW9u" data-listing-date-sort="1672684200000" data-listing-file-modified-sort="1765023384627" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2738">
 <a href="./posts/engineering/04_crosstab_sparsity_classification/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/engineering/04_crosstab_sparsity_classification/crossroad-unsplash.jpg" class="thumbnail-image card-img" style="height: 100%;">
+</p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 CrossTab Sparsity for Classification
@@ -461,9 +431,6 @@ CrossTab Sparsity for Classification
 <div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZSUyMHNlbGVjdGlvbg=='); return false;">feature selection</div>
 
 </div>
-<div class="card-text listing-description delink">
-<p>Can our metric help us in making a classification problem work better ?</p>
-</div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
 Jan 3, 2023
@@ -472,9 +439,12 @@ Jan 3, 2023
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="Y2x1c3RlcmluZyUyQ2FuYWx5c2lz" data-listing-date-sort="1651516200000" data-listing-file-modified-sort="1765023384625" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1471">
+<div class="g-col-1" data-index="3" data-categories="Y2x1c3RlcmluZyUyQ2FuYWx5c2lz" data-listing-date-sort="1651516200000" data-listing-file-modified-sort="1765023384625" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1471">
 <a href="./posts/engineering/03_crosstab_sparsity/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/engineering/03_crosstab_sparsity/img/pexels-n-voitkevich-5712829.jpg" class="thumbnail-image card-img" style="height: 100%;" alt="Photo by Nataliya Vaitkevich - https://www.pexels.com/photo/empty-crossroads-in-hills-5712829/">
+</p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 CrossTab Sparsity
@@ -486,9 +456,6 @@ CrossTab Sparsity
 <div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
 
 </div>
-<div class="card-text listing-description delink">
-<p>A label and data type agnostic metric for evaluating clustering performance!</p>
-</div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
 May 3, 2022
@@ -497,9 +464,12 @@ May 3, 2022
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="ZWRhJTJDaHlwb3RoZXNpcyUyQ2FuYWx5c2lzJTJDcHl0aG9u" data-listing-date-sort="1628533800000" data-listing-file-modified-sort="1765023384623" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2181">
+<div class="g-col-1" data-index="4" data-categories="ZWRhJTJDaHlwb3RoZXNpcyUyQ2FuYWx5c2lzJTJDcHl0aG9u" data-listing-date-sort="1628533800000" data-listing-file-modified-sort="1765023384623" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2181">
 <a href="./posts/engineering/02_hypothesis_test/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/engineering/02_hypothesis_test/pexels-tara-winstead-7722866.jpg" class="thumbnail-image card-img" style="height: 100%;">
+</p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 A flow to Test Your Hypothesis in Python
@@ -515,9 +485,6 @@ A flow to Test Your Hypothesis in Python
 <div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
 
 </div>
-<div class="card-text listing-description delink">
-<p>Making life easy to do some serious hypothesis testing in python.</p>
-</div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
 Aug 10, 2021
@@ -526,9 +493,10 @@ Aug 10, 2021
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="c3RyYXRlZ3k=" data-listing-date-sort="1525113000000" data-listing-file-modified-sort="1765111057528" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1153">
+<div class="g-col-1" data-index="5" data-categories="c3RyYXRlZ3k=" data-listing-date-sort="1525113000000" data-listing-file-modified-sort="1765394438480" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1155">
 <a href="./posts/engineering/01_adaptive_regression/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="posts/engineering/01_adaptive_regression/img/Anscombe_Data.png" alt="Plot of Anscombe’s Quartet" style="height: 100%;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Adaptive Regression
@@ -537,9 +505,6 @@ Adaptive Regression
 
 <div class="listing-category" onclick="window.quartoListingCategory('c3RyYXRlZ3k='); return false;">strategy</div>
 
-</div>
-<div class="card-text listing-description delink">
-<p>We recently put through our observation on Regression Problem in our research. This post is a nonformal attempt to explain it.</p>
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -551,15 +516,7 @@ May 1, 2018
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-</main> <!-- /main -->
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -964,25 +921,9 @@ May 1, 2018
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://cal.com/jitink-kriyalytics/strategy-consulting">
-      <i class="bi bi-person-check-fill" role="img" aria-label="Consulting">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://cal.com/jitink-kriyalytics/strategy-consulting">
-      <i class="bi bi-person-vcard" role="img" aria-label="Join the waitlist">
-</i> 
-    </a>
-  </li>  
-</ul>
-    </div>   
+<p>© 2026 Jitin Kapila - All rights reserved</p>
+</div>   
     <div class="nav-footer-center">
-<p>© 2025 Jitin Kapila</p>
-</div>
-    <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
     <a class="nav-link" href="https://linkedin.com/in/jitinkapila">
@@ -1017,6 +958,26 @@ May 1, 2018
     <li class="nav-item compact">
     <a class="nav-link" href="https://instagram.com/jitinkapila">
       <i class="bi bi-instagram" role="img" aria-label="Instagram">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://cal.com/jitink-kriyalytics/strategy-consulting">
+<p>Consulting</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./404.html">
+<p>Privacy</p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="./posts/index.xml">
+      <i class="bi bi-rss" role="img">
 </i> 
     </a>
   </li>  
