@@ -30,13 +30,13 @@ $headings-letter-spacing: 1px !default;
 
 // Base Font Sizes
 $font-size-base:          1rem !default;  // 16px
-$line-height-base:        1.7 !default;
+$line-height-base:        1.5 !default;
 
 // Heading Sizes (Responsive via clamp in rules section)
-$h1-font-size:            4rem !default;   // 64px
-$h2-font-size:            2.5rem !default; // 40px
-$h3-font-size:            1.75rem !default; // 28px
-$h4-font-size:            1.25rem !default; // 20px
+$h1-font-size:            2.1rem !default;   // 64px
+$h2-font-size:            1.8rem !default; // 40px
+$h3-font-size:            1.25rem !default; // 28px
+$h4-font-size:            1.1rem !default; // 20px
 
 // Color Palette - Navy & Cream Gold
 $primary:                 #0C2B4E !default; // Navy Deep
@@ -64,7 +64,7 @@ $border-radius-lg:        0 !default;
 $border-radius-pill:      0 !default; // Override pill shapes
 
 // Borders
-$border-width:            1px !default;
+$border-width:            2px !default;
 $border-color:            rgba(12, 43, 78, 0.1) !default; // Subtle navy
 
 // Navbar
@@ -99,7 +99,7 @@ $card-border-width:       1px !default;
 $card-border-color:       rgba(12, 43, 78, 0.1) !default;
 $card-border-radius:      0 !default; // Sharp corners
 $card-bg:                 white !default;
-$card-spacer-y:           1.5rem !default;
+$card-spacer-y:           1rem !default;
 $card-spacer-x:           1.5rem !default;
 
 // Button Styling
@@ -122,6 +122,8 @@ $table-hover-bg:          rgba(12, 43, 78, 0.03) !default;
 $code-font-size:          0.9em !default;
 $code-color:              #0C2B4E !default;
 $pre-color:               #5A6A7A !default;
+
+
 
 
 /*-- scss:rules --*/
@@ -153,27 +155,30 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: $headings-letter-spacing;
   color: $primary;
   font-weight: $headings-font-weight;
-  padding: 0rem 1rem;
+  padding: 0rem 0rem;
   margin-top: 1rem;
+  
 }
 
 // Responsive Typography with clamp()
 h1 {
-  font-size: clamp(3.5rem, 10vw, 6.5rem); // 56px - 104px (increased from 48-80)
-  line-height: 0.95;
-  margin-bottom: 1.5rem;
+  font-size: clamp(2.1rem, 10vw, 2.8rem); // 56px - 104px (increased from 48-80)
+  line-height: 1.1;
+  margin-bottom: 1.1rem;
 }
 
 h2 {
-  font-size: clamp(2rem, 5vw, 3rem); // 32px - 48px
+  font-size: clamp(1.8rem, 5vw, 2.1rem); // 32px - 48px
   line-height: 1.1;
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 2px solid rgba(12, 43, 78, .7);
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem); // 24px - 32px
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
+  font-size: clamp(1.25rem, 3vw, 1.8rem); // 24px - 32px
+  line-height: 1.1;
+  margin-bottom: 0.95rem;
+  border-bottom: 2px solid rgba(12, 43, 78, .7);
 }
 
 // Eyebrow Text
@@ -204,15 +209,21 @@ strong {
   color: $primary;
 }
 
+.blockquote{
+
+    color: $code-color;
+}
+
 // ========================================
 // NAVBAR CUSTOMIZATION
 // ========================================
 
 #quarto-header,
 .navbar {
-  background: rgba(255, 255, 255, 0.7); // More transparent (was 0.95)
+  
+  background: rgba(255, 255, 255, 0.25); // More transparent (was 0.95)
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(12, 43, 78, 0.1); // Lighter border
+  border-bottom: 1px solid rgba(12, 43, 78, 0.2); // Lighter border
   box-shadow: none;
 
   // Top accent bar (Option A style)
@@ -234,7 +245,7 @@ strong {
   font-weight: 400; // Bebas Neue only has 400 weight
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding-left: 0.65em;
+  // padding-left: 0.65em;
   color: $primary;
   white-space: nowrap; // Keep "JITIN KAPILA | THE AI ARCHITECT" on one line
 }
@@ -245,8 +256,8 @@ strong {
   font-weight: 500;
   color: $navbar-color;
   letter-spacing: 0.5px;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s ease;
+  padding: 0.5rem 0.5rem;
+  transition: color 1s ease;
 
   &:hover,
   &:focus {
@@ -317,12 +328,13 @@ strong {
 }
 
 .btn-large {
-  padding: 1.125rem 2.25rem; // 18px 36px
+  padding: 1.125rem 2.25rem; // 
   font-size: 0.875rem; // 14px
+  text-wrap-mode: nowrap;
 }
 
 .btn-xlarge {
-  padding: 1.25rem 3rem; // 20px 48px
+  padding: 1.5rem 3rem; // 20px 48px
   font-size: 1rem; // 16px
 }
 
@@ -352,91 +364,38 @@ strong {
 }
 
 // ========================================
-// HERO SECTION (Option A Style)
-// ========================================
-
-.hero-section {
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 7.5rem 1.5rem; // 120px 24px
-  text-align: center;
-  position: relative; // For future enhancements
-}
-
-.hero-content {
-  max-width: 900px;
-  margin: 0 auto;
-  width: 100%;
-  text-align: center; // Center all content by default
-
-  h1 {
-    margin-bottom: 1rem;
-    width: 100%;
-
-    // Accent divider bar (Option A style)
-    &::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 2px;
-      background: $info; // Cream gold
-      margin: 1.75rem auto 1.5rem;
-    }
-  }
-
-  p {
-    margin-bottom: 1rem;
-    width: 100%; // Optimal reading width
-  }
-
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 3rem;
-  flex-wrap: wrap;
-}
-
-
-// ========================================
 // SECTIONS & CONTAINERS
 // ========================================
 
-.section {
-  padding: 4.5rem 1.5rem; // 72px
-  margin: 0 auto;
-}
+// .section {
+//   padding: 1rem 1rem; // 72px
+//   margin: 1.5rem 1rem ;
+// }
 
-.social-proof {
-  text-align: center;
-  padding: 3rem 0;
-  background: $footer-bg; // Warm background
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: $text-muted;
-  letter-spacing: 1px;
-}
+// .social-proof {
+//   text-align: center;
+//   padding: 3rem 0;
+//   background: $footer-bg; // Warm background
+//   font-size: 0.875rem;
+//   font-weight: 600;
+//   color: $text-muted;
+//   letter-spacing: 1px;
+// }
 
-.fixed-section {
-  padding: 4.5rem 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
+.padded {
+  padding: 0.8rem 1rem 0.5rem 1rem; // 72px
+  // margin: 1.5rem 1rem ;
+  // max-width: 1000px;
+  }
 
 // Background Utilities
 .bg-warm {
   background-color: $footer-bg;
-  padding: 0.5rem 1rem;
 }
 
 .bg-contrast {
   background-color: $secondary; // Navy Royal for subtle contrast
   color: white;
-  padding: 0.5rem 1rem;
 
   h1, h2, h3, h4, h5, h6 {
     color: white;
@@ -487,7 +446,11 @@ strong {
   h3 {
     text-transform: uppercase;
     font-size: 1.25rem; // 20px
-    margin-bottom: 0,5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p{
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -514,6 +477,7 @@ strong {
 
   p, li {
     color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
   }
 
   strong {
@@ -527,17 +491,15 @@ strong {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 1.5rem;
-  color: $primary;
   margin-bottom: 0.5rem;
-  padding: 1rem 1rem;
+  padding: 0.5rem 0.5rem;
 }
 
 .card-description,
 .listing-description {
   font-size: 0.875rem;
-  color: $body-color;
   line-height: 1.6;
-  padding: 1rem 1rem;
+  padding: 0.5rem 0.5rem;
 }
 
 // ========================================
@@ -546,7 +508,7 @@ strong {
 
 table {
   width: 100%;
-  margin: 3rem 0;
+  margin: 1rem 0rem;
   background: white;
 
   th {
@@ -560,60 +522,60 @@ table {
   }
 }
 
-// ========================================
-// DIVIDERS (Option A Style)
-// ========================================
+// // ========================================
+// // DIVIDERS (Option A Style)
+// // ========================================
 
-.divider {
-  width: 60px;
-  height: 2px;
-  background: $info; // Cream gold
-  margin: 1.75rem 0;
+// .divider {
+//   width: 60px;
+//   height: 2px;
+//   background: $info; // Cream gold
+//   margin: 1.75rem 0;
 
-  &.divider-center {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
+//   &.divider-center {
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+// }
 
-hr {
-  border: none;
-  border-top: 1px solid $border-color;
-  margin: 3rem 0;
-}
+// hr {
+//   border: none;
+//   border-top: 1px solid $border-color;
+//   margin: 3rem 0;
+// }
 
-// ========================================
-// BLOG LISTING (THE VAULT)
-// ========================================
+// // ========================================
+// // BLOG LISTING (THE VAULT)
+// // ========================================
 
-.vault-header {
-  text-align: center;
-  padding: 4.5rem 1.5rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
+// .vault-header {
+//   text-align: center;
+//   padding: 4.5rem 1.5rem;
+//   max-width: 800px;
+//   margin: 0 auto;
+// }
 
-.quarto-listing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 3rem;
-  padding: 3rem 1rem;
-}
+// .quarto-listing-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+//   gap: 1rem;
+//   padding: 1.5rem 1rem;
+// }
 
-.listing-category {
-  font-size: 0.6875rem; // 11px
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: $text-muted;
-  margin-bottom: 0.5rem;
-}
+// .listing-category {
+//   font-size: 0.6875rem; // 11px
+//   font-weight: 600;
+//   letter-spacing: 2px;
+//   text-transform: uppercase;
+//   color: $text-muted;
+//   margin-bottom: 0.5rem;
+// }
 
-.listing-date {
-  font-size: 0.8125rem; // 13px
-  color: $text-muted;
-  margin-top: 0.5rem;
-}
+// .listing-date {
+//   font-size: 0.8125rem; // 13px
+//   color: $text-muted;
+//   margin-top: 0.5rem;
+// }
 
 // ========================================
 // TABS (PANEL TABSET)
@@ -621,6 +583,7 @@ hr {
 
 .panel-tabset {
   margin: 1.5rem 0;
+  width: 100%;
 
   .nav-tabs {
     border-bottom: 2px solid $border-color;
@@ -653,29 +616,23 @@ hr {
 }
 
 // ========================================
-// BOOTCAMP / SALES PAGES
+// Timeline
 // ========================================
-
-.bootcamp-hero {
-  text-align: center;
-  padding: 7.5rem 1.5rem;
-  background: $footer-bg; // Warm background
-}
 
 .timeline {
   position: relative;
-  padding-left: 3rem;
+  padding-left: 2rem;
   border-left: 2px solid $border-color;
 
   &-item {
     position: relative;
     margin-bottom: 3rem;
-    padding-left: 1.5rem;
+    padding-left: 1rem;
 
     &::before {
       content: '';
       position: absolute;
-      left: -42px;
+      left: -5px;
       top: 8px;
       width: 12px;
       height: 12px;
@@ -690,60 +647,7 @@ hr {
   }
 }
 
-.cta-section {
-  text-align: center;
-  padding: 3rem 1.5rem;
-  background: $primary;
-  color: white;
 
-  h2 {
-    color: white;
-    margin-bottom: 1.5rem;
-  }
-
-  p {
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    margin: 0 auto 1.5rem auto;
-    font-size: 1.125rem; // Slightly larger for readability
-  }
-
-  // Make links visible on dark background
-  a:not(.btn):not(.btn-primary):not(.btn-secondary) {
-    color: $info; // Cream gold for contrast
-    text-decoration: underline;
-    font-weight: 500;
-
-    &:hover {
-      color: $warning; // Gold hover
-    }
-  }
-
-  // Override button styles for dark background
-  .btn-primary {
-    background: white;
-    color: $primary;
-    border: 2px solid white;
-    margin: 2rem auto 1rem;
-
-    &:hover {
-      background: $info; // Cream gold
-      color: $primary;
-      border-color: $info;
-    }
-  }
-
-  // Strong text styling
-  strong {
-    color: white;
-    font-weight: 600;
-  }
-
-  // Spacing utilities
-  .mt-lg {
-    margin-top: 3rem;
-  }
-}
 
 // ========================================
 // FOOTER
@@ -751,34 +655,40 @@ hr {
 
 .nav-footer {
   border-top: 2px solid $border-color;
-  padding: 1.5rem 0; // Reduced from 3rem
-  background: $footer-bg;
-  margin-top: 7.5rem;
+  padding: 0.875rem 0.5rem; // Reduced from 3rem
+  background: rgba(255, 255, 255, 0.25); // More transparent (was 0.95)
+  backdrop-filter: blur(12px);
+  // margin: 0.5rem 0rem;
 }
 
 .nav-footer-left {
-  font-size: 0.875rem; // 14px
+  font-size: 1.1rem; // 14px
   color: $body-color;
   font-weight: 500;
 }
 
-.nav-footer-right {
-  display: flex;
-  gap: 1.5rem; // Space between icons
-  align-items: center;
-}
+// .nav-footer-right {
+//   display: flex;
+//   gap: 0.5rem; // Space between icons
+//   align-items: right;
+//   text-align: right;
+
+//   &:hover {
+//       text-decoration: underline;
+//     }
+// }
 
 .nav-footer a {
   color: $primary;
-  font-size: 1.5rem; // Bigger social icons (24px)
-  transition: all 0.3s ease;
+  font-size: 1.1rem; // Bigger social icons (24px)
+  transition: all 0.5s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
     color: $secondary;
-    transform: translateY(-2px); // Subtle lift
+    transform: translateY(-5px); // Subtle lift
   }
 
   // Icon-specific styling
@@ -787,98 +697,53 @@ hr {
   }
 }
 
-// ========================================
-// ABOUT PAGE (Quarto About Template Customization)
-// ========================================
 
-.about-entity {
-  // Customize the about page header
-  .about-image {
-    border: 3px solid $primary;
-    box-shadow: 0 4px 12px rgba(12, 43, 78, 0.15);
-  }
+// // ========================================
+// // RESPONSIVE DESIGN
+// // ========================================
 
-  .about-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
-    margin-top: 1.5rem;
+// @media (max-width: 768px) {
+//   .hero-section {
+//     min-height: 60vh;
+//     padding: 4.5rem 1rem;
+//   }
 
-    .about-link {
-      font-family: $font-family-sans-serif;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: $primary;
-      background: white;
-      border: 2px solid $primary;
-      padding: 0.5rem 1rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+//   .hero-buttons {
+//     flex-direction: column;
+//     align-items: center;
 
-      &:hover {
-        background: $primary;
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(12, 43, 78, 0.15);
-      }
+//     .btn {
+//       width: 100%;
+//       max-width: 300px;
+//     }
+//   }
 
-      i {
-        font-size: 1.125rem;
-      }
-    }
-  }
-}
+//   .eyebrow {
+//     font-size: 0.75rem; // 12px on mobile (slightly smaller)
+//     letter-spacing: 2px; // Tighter on mobile
+//     margin-bottom: 1rem;
+//   }
 
-// ========================================
-// RESPONSIVE DESIGN
-// ========================================
+//   .quarto-listing-grid {
+//     grid-template-columns: 1fr;
+//   }
 
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 60vh;
-    padding: 4.5rem 1rem;
-  }
+//   .timeline {
+//     padding-left: 1.5rem;
+//   }
 
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
+//   table {
+//     font-size: 0.8125rem; // 13px
 
-    .btn {
-      width: 100%;
-      max-width: 300px;
-    }
-  }
+//     th, td {
+//       padding: 0.5rem;
+//     }
+//   }
+// }
 
-  .eyebrow {
-    font-size: 0.75rem; // 12px on mobile (slightly smaller)
-    letter-spacing: 2px; // Tighter on mobile
-    margin-bottom: 1rem;
-  }
-
-  .quarto-listing-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .timeline {
-    padding-left: 1.5rem;
-  }
-
-  table {
-    font-size: 0.8125rem; // 13px
-
-    th, td {
-      padding: 0.5rem;
-    }
-  }
-}
-
-// ========================================
-// UTILITY CLASSES
-// ========================================
+// // ========================================
+// // UTILITY CLASSES
+// // ========================================
 
 .text-center { text-align: center; }
 .text-left { text-align: left; }
@@ -895,19 +760,23 @@ hr {
 .mb-lg { margin-bottom: map-get($spacers, 5); }
 .mb-xl { margin-bottom: map-get($spacers, 7); }
 
-// ========================================
-// REUSABLE COMPONENTS (Global patterns)
-// ========================================
+// // ========================================
+// // REUSABLE COMPONENTS (Global patterns)
+// // ========================================
 
 // Checklist Patterns - Reusable for pros/cons, qualifications, features
 .checklist-grid {
   display: grid;
   gap: 1rem;
-  margin: 1.5rem 0;
+  margin: .1rem 0;
+
+  ul {
+    padding-left: 0rem;
+  }
 
   li {
     list-style: none;
-    padding-left: 2rem;
+    padding-left: 1rem;
     position: relative;
 
     &::before {
@@ -923,11 +792,15 @@ hr {
 .disqualify-grid {
   display: grid;
   gap: 1rem;
-  margin: 1.5rem 0;
+  margin: .1rem 0;
+
+  ul {
+    padding-left: 0rem;
+  }
 
   li {
     list-style: none;
-    padding-left: 2rem;
+    padding-left: 1rem;
     position: relative;
 
     &::before {
@@ -940,350 +813,198 @@ hr {
   }
 }
 
-// Meta Boxes - For showing stats, dates, formats
-.meta-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin: 2rem 0;
+// // Meta Boxes - For showing stats, dates, formats
+// .meta-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+//   gap: 1rem;
+//   margin: 2rem 0;
 
-  @media (max-width: 767px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+//   @media (max-width: 767px) {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+// }
 
-.meta-box {
-  text-align: center;
-  padding: 1rem;
-  border: 1px solid $border-color;
-  background: rgba($body-bg, 0.8);
+// .meta-box {
+//   text-align: center;
+//   padding: 1rem;
+//   border: 1px solid $border-color;
+//   background: rgba($body-bg, 0.8);
 
-  strong {
-    display: block;
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    color: $body-color;
-    margin-bottom: 0.25rem;
-  }
-}
+//   strong {
+//     display: block;
+//     font-size: 0.75rem;
+//     letter-spacing: 1px;
+//     color: $body-color;
+//     margin-bottom: 0.25rem;
+//   }
+// }
 
-// Trust Bar - Company logo strip (used on homepage + bootcamp)
-.trust-bar {
-  text-align: center;
-  padding: 2rem 0;
-  border-top: 1px solid rgba(12, 43, 78, 0.1);
-  font-size: 0.875rem;
-  color: $text-muted;
-  font-weight: 500;
-}
 
-// Logo Ribbon - Infinite scrolling animation
-@keyframes scroll-logos {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
+// // Value Grid - For pricing breakdowns, feature lists
+// .value-grid {
+//   display: grid;
+//   gap: 1.5rem;
+//   margin: 2rem 0;
 
-.logo-ribbon {
-  padding: 1rem 0;
-  background: $footer-bg; // Warm background
-  border-top: 1px solid rgba(12, 43, 78, 0.1);
-  border-bottom: 1px solid rgba(12, 43, 78, 0.1);
-  overflow: hidden;
-  position: relative;
+//   @media (min-width: 768px) {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+// }
 
-  .ribbon-label {
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: $text-muted;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
+// .value-item {
+//   padding: 1.5rem;
+//   border: 1px solid $border-color;
+//   background: white;
+//   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  .logo-scroll-wrapper {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
+//   &:hover {
+//     transform: translateY(-2px);
+//     box-shadow: 0 4px 12px rgba(12, 43, 78, 0.1);
+//   }
 
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 100px;
-      height: 100%;
-      z-index: 2;
-      pointer-events: none;
-    }
+//   strong {
+//     display: block;
+//     color: $primary;
+//     font-size: 1.125rem;
+//     margin-bottom: 0.5rem;
+//   }
 
-    &::before {
-      left: 0;
-      background: linear-gradient(to right, $footer-bg, transparent);
-    }
+//   em {
+//     display: block;
+//     font-size: 0.875rem;
+//     color: $text-muted;
+//     font-style: normal;
+//     margin-top: 0.5rem;
+//     font-weight: 500;
+//   }
+// }
 
-    &::after {
-      right: 0;
-      background: linear-gradient(to left, $footer-bg, transparent);
-    }
-  }
+// .value-total {
+//   grid-column: 1 / -1;
+//   text-align: center;
+//   padding: 2rem;
+//   background: rgba($info, 0.1); // Cream gold tint
+//   border: 2px solid $info;
+//   margin-top: 1rem;
 
-  .logo-container {
-    display: flex;
-    height: 120px;
-    align-items: center;
-    gap: 6rem;
-    animation: scroll-logos 30s linear infinite;
-    width: max-content;
+//   strong {
+//     font-size: 1.5rem;
+//     color: $primary;
+//     display: block;
+//     margin: 0.5rem 0;
+//   }
+// }
 
-    // Pause animation on hover
-    &:hover {
-      animation-play-state: paused;
-    }
-  }
+// // Scarcity/Urgency Box - Pulsing border effect
+// .scarcity-box {
+//   background: rgba($info, 0.1);
+//   border: 2px solid $info;
+//   padding: 2rem;
+//   text-align: center;
+//   margin: 2rem 0;
+//   position: relative;
 
-  .logo-item {
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.5;
-    transition: all 0.3s ease;
-    filter: grayscale(100%);
-    flex-shrink: 0;
-    min-width: 120px;
+//   &::after {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     border: 2px solid $info;
+//     animation: pulse-border 2s ease-in-out infinite;
+//     pointer-events: none;
+//   }
 
-    img {
-      max-height: 100%;
-      max-width: 150px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-    }
+//   strong {
+//     color: $primary;
+//     font-size: 1.25rem;
+//   }
+// }
 
-    &:hover {
-      opacity: 1;
-      filter: grayscale(0%);
-      transform: scale(1.15);
-    }
-  }
+// @keyframes pulse-border {
+//   0%, 100% {
+//     opacity: 1;
+//     transform: scale(1);
+//   }
+//   50% {
+//     opacity: 0;
+//     transform: scale(1.02);
+//   }
+// }
 
-  @media (max-width: 768px) {
-    .logo-scroll-wrapper {
-      &::before,
-      &::after {
-        width: 50px;
-      }
-    }
+// // Instructor/Team Grid - For bio sections
+// .instructor-grid {
+//   display: grid;
+//   gap: 3rem;
+//   margin: 2rem 0;
 
-    .logo-container {
-      gap: 3rem;
-    }
+//   @media (min-width: 768px) {
+//     grid-template-columns: 1fr 2fr;
+//   }
 
-    .logo-item {
-      height: 60px;
-      min-width: 80px;
+//   img {
+//     width: 100%;
+//     max-width: 300px;
+//     border: 3px solid $primary;
+//     box-shadow: 0 4px 12px rgba(12, 43, 78, 0.15);
+//   }
 
-      img {
-        max-width: 100px;
-      }
-    }
-  }
-}
+//   strong {
+//     color: $primary;
+//     display: block;
+//     margin-bottom: 0.5rem;
+//   }
+// }
 
-// Value Grid - For pricing breakdowns, feature lists
-.value-grid {
-  display: grid;
-  gap: 1.5rem;
-  margin: 2rem 0;
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+// // Testimonial Grid - Reusable testimonial pattern
+// .testimonial-grid {
+//   display: grid;
+//   gap: 2rem;
+//   margin: 2rem 0;
 
-.value-item {
-  padding: 1.5rem;
-  border: 1px solid $border-color;
-  background: white;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+//   @media (min-width: 768px) {
+//     grid-template-columns: repeat(3, 1fr);
+//   }
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(12, 43, 78, 0.1);
-  }
+//   @media (max-width: 767px) {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-  strong {
-    display: block;
-    color: $primary;
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-  }
+// .testimonial {
+//   padding: 2rem;
+//   border: 1px solid rgba(12, 43, 78, 0.1);
+//   background: white;
+//   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  em {
-    display: block;
-    font-size: 0.875rem;
-    color: $text-muted;
-    font-style: normal;
-    margin-top: 0.5rem;
-    font-weight: 500;
-  }
-}
+//   &:hover {
+//     transform: translateY(-4px);
+//     box-shadow: 0 8px 16px rgba(12, 43, 78, 0.1);
+//   }
 
-.value-total {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 2rem;
-  background: rgba($info, 0.1); // Cream gold tint
-  border: 2px solid $info;
-  margin-top: 1rem;
+//   strong {
+//     display: block;
+//     margin-top: 1rem;
+//     color: $primary;
+//   }
 
-  strong {
-    font-size: 1.5rem;
-    color: $primary;
-    display: block;
-    margin: 0.5rem 0;
-  }
-}
+//   em {
+//     display: block;
+//     font-size: 0.875rem;
+//     color: $text-muted;
+//     font-style: normal;
+//   }
+// }
 
-// Scarcity/Urgency Box - Pulsing border effect
-.scarcity-box {
-  background: rgba($info, 0.1);
-  border: 2px solid $info;
-  padding: 2rem;
-  text-align: center;
-  margin: 2rem 0;
-  position: relative;
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 2px solid $info;
-    animation: pulse-border 2s ease-in-out infinite;
-    pointer-events: none;
-  }
+// // Guarantee/CTA Text - Small print below CTAs
+// .guarantee-text {
+//   margin-top: 1.5rem;
+//   font-size: 0.875rem;
+//   color: $body-color;
+// }
 
-  strong {
-    color: $primary;
-    font-size: 1.25rem;
-  }
-}
 
-@keyframes pulse-border {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0;
-    transform: scale(1.02);
-  }
-}
-
-// Instructor/Team Grid - For bio sections
-.instructor-grid {
-  display: grid;
-  gap: 3rem;
-  margin: 2rem 0;
-
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 2fr;
-  }
-
-  img {
-    width: 100%;
-    max-width: 300px;
-    border: 3px solid $primary;
-    box-shadow: 0 4px 12px rgba(12, 43, 78, 0.15);
-  }
-
-  strong {
-    color: $primary;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-}
-
-// Proof Section - Case studies, testimonials
-.proof-section {
-  background: rgba($info, 0.05);
-  border-left: 4px solid $info;
-  padding: 2rem;
-  margin: 2rem 0;
-
-  strong {
-    color: $primary;
-    font-weight: 600;
-  }
-}
-
-// Testimonial Grid - Reusable testimonial pattern
-.testimonial-grid {
-  display: grid;
-  gap: 2rem;
-  margin: 2rem 0;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (max-width: 767px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.testimonial {
-  padding: 2rem;
-  border: 1px solid rgba(12, 43, 78, 0.1);
-  background: white;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(12, 43, 78, 0.1);
-  }
-
-  strong {
-    display: block;
-    margin-top: 1rem;
-    color: $primary;
-  }
-
-  em {
-    display: block;
-    font-size: 0.875rem;
-    color: $text-muted;
-    font-style: normal;
-  }
-}
-
-// FAQ Pattern - Generic FAQ styling (reusable across pages)
-.faq-item {
-  margin-bottom: 2rem;
-
-  strong {
-    display: block;
-    color: $primary;
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-  }
-}
-
-// Guarantee/CTA Text - Small print below CTAs
-.guarantee-text {
-  margin-top: 1.5rem;
-  font-size: 0.875rem;
-  color: $body-color;
-}

@@ -1,50 +1,32 @@
 ---
-title: "The Vault"
-pagetitle: "The Vault | AI Strategy & Engineering Knowledge Base"
-page-layout: full
-description: "AI frameworks, implementation patterns, and strategic insights for enterprise architects. Strategy guides for C-suite. Technical deep-dives for builders. Decision-first AI, OLCD Protocol, and more."
-listing:
-  - id: strategy-posts
-    contents: "../posts/strategy/*/index.qmd"
-    type: grid
-    grid-columns: 3
-    categories: true
-    sort: "date desc"
-    fields: [title, description, date, categories]
+title: "Blog"
+author: ""
+comments: false
+citation: false
+description: |
+  Frameworks, code, and strategy for AI Architects. <br> AI frameworks, implementation patterns, and strategic insights for enterprise architects. Strategy guides for C-suite. Technical deep-dives for builders. Decision-first AI, OLCD Protocol, and more.
+listing: 
+  contents:
+    - "../posts/strategy/*/index.qmd"
+    - "../posts/engineering/*/index.qmd"
+    # - "/*/index.md"
+    # - "external-items/metadata.yml"
+  type: grid
+  fields: [title, subtitle, categories, date, image]
+  sort: "date desc"
+  filter-ui: false
+  image-align: left
+  image-height: 100%
 
-  - id: engineering-posts
-    contents: "../posts/engineering/*/index.qmd"
-    type: grid
-    grid-columns: 3
-    categories: true
-    sort: "date desc"
-    fields: [title, description, date, categories]
+format: 
+  html: 
+    css: includes/mainpage.css
+    page-layout: full
+
+# title-block-banner: false
+
+# header-includes: >
+#   <link rel="stylesheet" href="includes/listing-page.css">
+# resources:
+#   - includes/listing-page.css
 ---
-
-::: {.hero-content}
-
-[Knowledge Base]{.eyebrow}
-
-# The Vault
-
-Frameworks, code, and strategy for AI Architects.
-
-:::
-
-::: {.panel-tabset .column-page}
-
-## Strategy
-
-***For the C-Suite. ROI-focused frameworks and business transformation insights.***
-
-::: {#strategy-posts}
-:::
-
-## Engineering
-
-***For the builders. Code, implementation patterns, and technical deep-dives.***
-
-::: {#engineering-posts}
-:::
-
-:::

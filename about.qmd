@@ -1,12 +1,12 @@
 ---
-title: "Jitin Kapila"
-pagetitle: "About Jitin Kapila - The AI Architect | 14 Years Enterprise AI Experience"
-description: "14 years architecting AI systems across automotive, retail, insurance, FMCG, and telecommunications. Mechanical engineer with applied mathematics background. Acting CTO for Fortune 500 accounts."
+title: ""
+description: ""
 about:
-  template: solana
-  image: display_image.jpg
-  image-width: 15em
-  image-shape: rounded
+  id: hero-heading
+  template: jolla
+  image: img/display_image.jpg
+  image-width: 20em
+  image-shape: round
   links:
     - icon: linkedin
       text: LinkedIn
@@ -26,14 +26,26 @@ about:
     - icon: envelope
       text: Email
       href: mailto:info@kriyalytics.com
-page-layout: full
+
+format:
+  html:
+    css: includes\custom_about.css
+
 ---
 
-## The AI Architect
 
-14 years. 6 industries. One insight that changes everything.
+## Hi - I am Jitin! I help business leverage AI for [Profits]{style='color=#FFFFFF'}
 
-::: {.section}
+<!-- ## [This content appears when you are searching for something that is no related to AI generated ! I guess you find one!]{.text-center} -->
+
+:::{#hero-heading}
+
+15 years architecting AI systems across automotive, retail, insurance, FMCG, and telecommunications. Mechanical engineer with applied mathematics background. Former AI-CTO for Fortune 500 accounts.
+
+:::
+
+
+
 
 ## The Origin Story
 
@@ -53,9 +65,9 @@ Not because I knew more about automotive than the automotive experts.
 
 **Because I was looking at it sideways.**
 
-:::
 
-::: {.section .bg-warm}
+
+::: {.bg-warm}
 
 ## The Pattern Emerges
 
@@ -71,7 +83,6 @@ I learned to look sideways.
 
 :::
 
-::: {.section}
 
 ## The Mathematical Mindset
 
@@ -86,9 +97,8 @@ This philosophy drives how I approach enterprise AI:
 
 When you've solved similar problems in healthcare, the path through retail becomes visible. When you understand the mathematics of one optimization challenge, you start seeing the same structures everywhere.
 
-:::
 
-::: {.section .bg-warm}
+::: {.bg-navy}
 
 ## Current Work
 
@@ -101,27 +111,12 @@ The work spans:
 - Executive team transformation and strategic planning
 - Implementation frameworks that actually scale
 
-I also run **The AI Architect Protocol** — a 3-day intensive that teaches enterprise leaders to think like architects instead of tool users.
+I also run **The AI Profit OS** — a 3-day intensive that teaches enterprise leaders to think like architects instead of tool users.
 
 :::
 
-::: {.section}
 
-## The Framework
-
-After years of cross-industry work, I've distilled the approach into repeatable systems:
-
-**The OLCD Protocol:** Observe → Learn → Create → Deploy
-
-**The AI-ART Matrix:** A diagnostic framework that reveals why 73% of enterprise AI initiatives fail to scale
-
-**The Blueprint Methodology:** Architecture-first thinking for AI transformation
-
-These aren't theoretical models. They're battle-tested frameworks deployed across six industries.
-
-:::
-
-::: {.section .text-center}
+::: {.bg-contrast .text-center}
 
 ## Beyond the Work
 

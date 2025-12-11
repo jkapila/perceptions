@@ -1139,7 +1139,7 @@ $card-border-width:       1px !default;
 $card-border-color:       rgba(12, 43, 78, 0.1) !default;
 $card-border-radius:      0 !default; // Sharp corners
 $card-bg:                 white !default;
-$card-spacer-y:           1.5rem !default;
+$card-spacer-y:           1rem !default;
 $card-spacer-x:           1.5rem !default;
 
 // Button Styling
@@ -13222,41 +13222,35 @@ strong {
 }
 
 .btn-secondary {
-  background: transparent;
+  background: white;
   color: $primary;
   border: 2px solid $primary;
   box-shadow: none;
-
-  // Slide in background from left
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: $primary;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: -1;
-  }
+  transition: all 0.3s ease;
 
   &:hover {
+    background: $primary;
     color: white;
     border-color: $primary;
-
-    &::before {
-      width: 100%; // Fill from left to right
-    }
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(12, 43, 78, 0.2);
   }
 
   &:active {
-    transform: scale(0.98);
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(12, 43, 78, 0.15);
   }
 }
 
 .btn-large {
-  padding: 1.125rem 2.25rem; // 18px 36px
+  padding: 1.125rem 2.25rem; // 
   font-size: 0.875rem; // 14px
+  text-wrap-mode: nowrap;
+}
+
+.btn-xlarge {
+  padding: 1.25rem 3rem; // 20px 48px
+  font-size: 1rem; // 16px
 }
 
 // ========================================
@@ -13340,8 +13334,8 @@ strong {
 // ========================================
 
 .section {
-  padding: 4.5rem 1.5rem; // 72px
-  margin: 0 auto;
+  padding: 1rem 1rem; // 72px
+  margin: 1.5rem 1rem ;
 }
 
 .social-proof {
@@ -13354,15 +13348,34 @@ strong {
   letter-spacing: 1px;
 }
 
+.
 .fixed-section {
-  padding: 4.5rem 1.5rem;
+  padding: 1.5rem 1rem; // 72px
+  // margin: 1.5rem 1rem ;
   max-width: 1000px;
-  margin: 0 auto;
-}
+  }
 
 // Background Utilities
 .bg-warm {
   background-color: $footer-bg;
+}
+
+.bg-contrast {
+  background-color: $secondary; // Navy Royal for subtle contrast
+  color: white;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
+
+  p, strong {
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .eyebrow {
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 1;
+  }
 }
 
 .bg-navy {
@@ -13374,9 +13387,9 @@ strong {
   }
 
   .eyebrow {
-    color: rgba(255, 255, 255, 0.7); // Slightly more visible (was 0.6)
-    text-align: center; // More appropriate than justify-content
-    opacity: 1; // Override default opacity on dark backgrounds
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    opacity: 1;
     width: 100%;
   }
 }
@@ -13400,7 +13413,42 @@ strong {
   h3 {
     text-transform: uppercase;
     font-size: 1.25rem; // 20px
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p{
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Dark Card Variant
+.card-dark {
+  background: $secondary; // Navy Royal
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  padding: $card-spacer-y $card-spacer-x;
+  color: white;
+  transition: box-shadow 0.8s ease, transform 0.8s ease;
+
+  &:hover {
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.3);
+    transform: translateY(-7px);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  h3, h4, h5 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p, li {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+  }
+
+  strong {
+    color: $info; // Cream gold for emphasis on dark background
   }
 }
 
@@ -13410,17 +13458,15 @@ strong {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 1.5rem;
-  color: $primary;
   margin-bottom: 0.5rem;
-  padding: 1rem 1rem;
+  padding: 0.5rem 0.5rem;
 }
 
 .card-description,
 .listing-description {
   font-size: 0.875rem;
-  color: $body-color;
   line-height: 1.6;
-  padding: 1rem 1rem;
+  padding: 0.5rem 0.5rem;
 }
 
 // ========================================
@@ -13547,18 +13593,18 @@ hr {
 
 .timeline {
   position: relative;
-  padding-left: 3rem;
+  padding-left: 2rem;
   border-left: 2px solid $border-color;
 
   &-item {
     position: relative;
     margin-bottom: 3rem;
-    padding-left: 1.5rem;
+    padding-left: 1rem;
 
     &::before {
       content: '';
       position: absolute;
-      left: -42px;
+      left: -5px;
       top: 8px;
       width: 12px;
       height: 12px;
@@ -13766,6 +13812,7 @@ hr {
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
+.justify-center { justify-content: center; }
 
 .mt-sm { margin-top: map-get($spacers, 2); }
 .mt-md { margin-top: map-get($spacers, 3); }
@@ -13778,10 +13825,86 @@ hr {
 .mb-xl { margin-bottom: map-get($spacers, 7); }
 
 // ========================================
-// BOOTCAMP PAGE - REUSABLE COMPONENTS
+// REUSABLE COMPONENTS (Global patterns)
 // ========================================
 
-// Trust Bar - Logo strip
+// Checklist Patterns - Reusable for pros/cons, qualifications, features
+.checklist-grid {
+  display: grid;
+  gap: 1rem;
+  margin: .1rem 0;
+
+  ul {
+    padding-left: 0rem;
+  }
+
+  li {
+    list-style: none;
+    padding-left: 1rem;
+    position: relative;
+
+    &::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      font-weight: 600;
+      color: $success; // Slate Blue
+    }
+  }
+}
+
+.disqualify-grid {
+  display: grid;
+  gap: 1rem;
+  margin: .1rem 0;
+
+  ul {
+    padding-left: 0rem;
+  }
+
+  li {
+    list-style: none;
+    padding-left: 1rem;
+    position: relative;
+
+    &::before {
+      content: "✗";
+      position: absolute;
+      left: 0;
+      font-weight: 600;
+      color: $text-muted;
+    }
+  }
+}
+
+// Meta Boxes - For showing stats, dates, formats
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.meta-box {
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid $border-color;
+  background: rgba($body-bg, 0.8);
+
+  strong {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: $body-color;
+    margin-bottom: 0.25rem;
+  }
+}
+
+// Trust Bar - Company logo strip (used on homepage + bootcamp)
 .trust-bar {
   text-align: center;
   padding: 2rem 0;
@@ -13791,80 +13914,125 @@ hr {
   font-weight: 500;
 }
 
-// Checklist & Disqualification Grids
-.checklist-grid,
-.disqualify-grid {
-  display: grid;
-  gap: 1rem;
-  margin: 1.5rem 0;
+// Logo Ribbon - Infinite scrolling animation
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
-  li {
-    list-style: none;
-    padding-left: 2rem;
+.logo-ribbon {
+  padding: 1rem 0;
+  background: $footer-bg; // Warm background
+  border-top: 1px solid rgba(12, 43, 78, 0.1);
+  border-bottom: 1px solid rgba(12, 43, 78, 0.1);
+  overflow: hidden;
+  position: relative;
+
+  .ribbon-label {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $text-muted;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .logo-scroll-wrapper {
+    overflow: hidden;
     position: relative;
+    width: 100%;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
 
     &::before {
-      position: absolute;
       left: 0;
-      font-weight: 600;
+      background: linear-gradient(to right, $footer-bg, transparent);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, $footer-bg, transparent);
+    }
+  }
+
+  .logo-container {
+    display: flex;
+    height: 120px;
+    align-items: center;
+    gap: 6rem;
+    animation: scroll-logos 30s linear infinite;
+    width: max-content;
+
+    // Pause animation on hover
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .logo-item {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    filter: grayscale(100%);
+    flex-shrink: 0;
+    min-width: 120px;
+
+    img {
+      max-height: 100%;
+      max-width: 150px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    &:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+      transform: scale(1.15);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .logo-scroll-wrapper {
+      &::before,
+      &::after {
+        width: 50px;
+      }
+    }
+
+    .logo-container {
+      gap: 3rem;
+    }
+
+    .logo-item {
+      height: 60px;
+      min-width: 80px;
+
+      img {
+        max-width: 100px;
+      }
     }
   }
 }
 
-.checklist-grid li::before {
-  content: "✓";
-  color: $success;
-}
-
-.disqualify-grid li::before {
-  content: "✗";
-  color: $text-muted;
-}
-
-// Case Study / Proof Section
-.case-study-detailed,
-.proof-section {
-  background: rgba(216, 196, 182, 0.05);
-  border-left: 4px solid $info;
-  padding: 2rem;
-  margin: 2rem 0;
-
-  strong {
-    color: $primary;
-    font-weight: 600;
-  }
-}
-
-// Guarantee Section
-.guarantee-section {
-  background: $primary;
-  color: white;
-  padding: 3rem 2rem;
-  text-align: center;
-  margin: 3rem 0;
-
-  h2 {
-    color: white;
-  }
-
-  strong {
-    color: $info;
-  }
-}
-
-// FAQ Items
-.faq-item {
-  margin-bottom: 2rem;
-
-  strong {
-    display: block;
-    color: $primary;
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-  }
-}
-
-// Value Stack Grid
+// Value Grid - For pricing breakdowns, feature lists
 .value-grid {
   display: grid;
   gap: 1.5rem;
@@ -13877,7 +14045,14 @@ hr {
 
 .value-item {
   padding: 1.5rem;
-  border: 1px solid rgba(12, 43, 78, 0.15);
+  border: 1px solid $border-color;
+  background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(12, 43, 78, 0.1);
+  }
 
   strong {
     display: block;
@@ -13892,6 +14067,7 @@ hr {
     color: $text-muted;
     font-style: normal;
     margin-top: 0.5rem;
+    font-weight: 500;
   }
 }
 
@@ -13899,49 +14075,38 @@ hr {
   grid-column: 1 / -1;
   text-align: center;
   padding: 2rem;
-  background: rgba(216, 196, 182, 0.1);
+  background: rgba($info, 0.1); // Cream gold tint
   border: 2px solid $info;
+  margin-top: 1rem;
 
   strong {
     font-size: 1.5rem;
     color: $primary;
+    display: block;
+    margin: 0.5rem 0;
   }
 }
 
-// Pricing Comparison Table
-.pricing-comparison {
-  margin: 2rem 0;
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-
-    th, td {
-      padding: 1rem;
-      text-align: center;
-      border: 1px solid rgba(12, 43, 78, 0.1);
-    }
-
-    th {
-      background: $primary;
-      color: white;
-      font-weight: 600;
-    }
-
-    strong {
-      font-size: 1.5rem;
-      color: $primary;
-    }
-  }
-}
-
-// Scarcity Box
+// Scarcity/Urgency Box - Pulsing border effect
 .scarcity-box {
-  background: rgba(216, 196, 182, 0.1);
+  background: rgba($info, 0.1);
   border: 2px solid $info;
   padding: 2rem;
   text-align: center;
   margin: 2rem 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid $info;
+    animation: pulse-border 2s ease-in-out infinite;
+    pointer-events: none;
+  }
 
   strong {
     color: $primary;
@@ -13949,7 +14114,43 @@ hr {
   }
 }
 
-// Testimonial Grid
+@keyframes pulse-border {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
+// Instructor/Team Grid - For bio sections
+.instructor-grid {
+  display: grid;
+  gap: 3rem;
+  margin: 2rem 0;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  img {
+    width: 100%;
+    max-width: 300px;
+    border: 3px solid $primary;
+    box-shadow: 0 4px 12px rgba(12, 43, 78, 0.15);
+  }
+
+  strong {
+    color: $primary;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}
+
+
+// Testimonial Grid - Reusable testimonial pattern
 .testimonial-grid {
   display: grid;
   gap: 2rem;
@@ -13958,20 +14159,21 @@ hr {
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .testimonial {
   padding: 2rem;
   border: 1px solid rgba(12, 43, 78, 0.1);
   background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  &::before {
-    content: """;
-    font-size: 3rem;
-    color: $info;
-    line-height: 1;
-    display: block;
-    margin-bottom: 1rem;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(12, 43, 78, 0.1);
   }
 
   strong {
@@ -13986,6 +14188,29 @@ hr {
     color: $text-muted;
     font-style: normal;
   }
+}
+
+// FAQ Pattern - Generic FAQ styling (reusable across pages)
+.faq-item {
+  margin-bottom: 2rem;
+
+  strong {
+    display: block;
+    color: $primary;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+// Guarantee/CTA Text - Small print below CTAs
+.guarantee-text {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: $body-color;
 }
 
 

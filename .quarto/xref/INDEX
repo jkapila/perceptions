@@ -153,5 +153,11 @@
   },
   "extras/CANVA_PROMPT.md": {
     "CANVA_PROMPT.html": "37a4d9e8"
+  },
+  "404.qmd": {
+    "404.html": "f1678cf3"
+  },
+  "consulting/index.qmd": {
+    "index.html": "979b6ade"
   }
 }

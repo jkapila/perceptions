@@ -15,36 +15,50 @@ website:
   title: "Jitin Kapila | The AI Architect"
   site-url: https://jitinkapila.com
   description: "Helping Fortune 500 leaders transition from Prescriptive AI to Predictive Strategy."
-  favicon: "favicon-32x32.png"
+  page-navigation: true
+  back-to-top-navigation: true
+  favicon: img/jk-logo.svg
 
   # SEO
   open-graph: true
   twitter-card:
     creator: "@jitinkapila"
+    site: "@jitinkapila"
     card-style: summary_large_image
 
   # NAVIGATION
   navbar:
+    logo: img/jk-logo.svg
     title: "JITIN KAPILA"
     background: transparent
-    page-navigation: true
     right:
-      - text: "The Protocol"
-        href: bootcamp.qmd
-      - text: "The Vault"
-        href: vault.qmd
       - text: "Consulting"
         href: consulting.qmd
+      - text: "Courses"
+        href: bootcamp.qmd
+      - text: "Blog"
+        href: vault.qmd
       - text: "About"
         href: about.qmd
-      - text: "Newsletter"
+      - text: "Newsletter!"
         href: https://aicrosscurrent.substack.com/
         target: _blank
 
   # FOOTER
   page-footer:
-    left: "© 2025 Jitin Kapila"
     right:
+      - text: "Consulting"
+        href: https://cal.com/jitink-kriyalytics/strategy-consulting
+        aria-label: Consulting
+      - text: "Privacy"
+        href: 404.qmd
+        aria-label: Privacy
+      - icon: rss
+        href: posts/index.xml
+    
+    left: "© 2026 Jitin Kapila - All rights reserved"
+    
+    center:
       - icon: linkedin
         href: https://linkedin.com/in/jitinkapila
         aria-label: LinkedIn
@@ -67,7 +81,7 @@ website:
 
 format:
   html:
-    theme: [cosmo, blueprint.scss]
+    theme: [literia, blueprint.scss]
     include-in-header:
       - includes/umami.html
       - includes/schema.html
@@ -82,5 +96,11 @@ execute:
   freeze: auto
   cache: true
 
-# Google Analytics (replace with your actual GA4 ID)
-google-analytics: "G-XXXXXXXXXX"
+cookie-consent:
+  type: implied
+  style: simple
+  palette: dark
+google-analytics:
+  tracking-id: "G-NHFL6KB2FQ"
+  anonymize-ip: true
+

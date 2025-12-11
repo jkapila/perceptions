@@ -1,69 +1,103 @@
 ---
-title: "The AI Architect Protocol"
-pagetitle: "The AI Architect Protocol | 3-Day AI Transformation Intensive"
-page-layout: full
+title: "Build Your Personal AI Operating System"
+subtitle: "AI Profit OS | A 3 Day Intensive Course"
+description: "**For Senior Professionals Who Refuse to Be Replaced by a Script and want to lead with AI**"
 page-navigation: false
-description: "3-day intensive AI strategy bootcamp for enterprise leaders. Master the OLCD Protocol, AI-ART Matrix, and Blueprint Methodology. ₹7,999 founding member pricing. Limited to 20 seats per cohort."
+page-layout: full
+format:
+  html:
+    css: includes/mainpage.css
+accordion:
+  - ac-1:
+    - header: "Do I need to know how to code?"
+      body: "No. The AI Profit OS is designed for senior professionals, not engineers. Everything is built in Excel + simple tools you already use. If you can use Google Sheets, you can build these systems."
+    - header: "**I'm not technical. Will I be able to follow?**"
+      body: "Absolutely. This training is designed for business leaders, not data scientists. I've trained CFOs, COOs, and Senior Directors with zero technical background. If you can manage a P&L, you can operationalize AI."
+    - header: "**What if I can't attend all 3 days live?**"
+      body: "You'll get lifetime recording access. However, the live workshops where you build YOUR specific systems are where the real value comes from. We strongly recommend attending live."
+    - header: "**Is this just ChatGPT training?**"
+      body: "No. ChatGPT is one tool in the AI Profit OS, but the system is much bigger. You'll learn: (a) How to structure your workflow for AI leverage, (b) How to build repeatable systems (not one-off prompts), (c) How to measure ROI and scale what works."
+    - header: "**What industries does this work for?**"
+      body: "If you're a senior professional doing knowledge work, this works. I've deployed AI systems across automotive, retail, FMCG, telecommunications, finance, and healthcare. The frameworks are industry-agnostic."
+    - header: "**What's the refund policy?**"
+      body: "The \"Unheard Of\" Guarantee (see above). If you implement the system and don't save 10+ hours/week within 30 days, refund + ₹5,000 paid to you. After 30 days, no refunds - but you can transfer your seat to a colleague."
+    - header: "**Can I bring my team?**"
+      body: "Yes! We offer team pricing for 3+ participants from the same organization. Email jitin@jitinkapila.com for custom team rates. (Recommended: Bring 2-3 key leaders to accelerate adoption.)"
+    - header: "**How is this different from other AI courses?**"
+      body: "Most AI courses teach theory or simple prompting. The AI Profit OS is a complete operational system you'll deploy in your workflow. You're not learning about AI - you're building leverage. By Day 3, you have working systems saving you time."
+    - header: "**What if AI changes? Will this become outdated?**"
+      body: "The OLCD Protocol, AI-ART Matrix, and operational frameworks are model-agnostic. Whether it's ChatGPT, Claude, Gemini, or whatever comes next, the system adapts. Plus, you get lifetime access to framework updates." 
+
+  - ac-2:
+    - header: "I'm not sure this will work for my specific industry/role."
+      body: "That's exactly why Day 1 is focused on YOUR workflow and YOUR 90-day roadmap. The frameworks are industry-agnostic, but the implementation is personalized to your reality."
+    - header: "₹7,999 feels expensive for a training."
+      body: "Compare it to: - (a) One hour of my consulting at ₹25,000/hour,   -(b) The cost of being replaced by a 22-year-old who knows how to use AI,   -(c) The ₹6.9Cr the grocery chain saved with this exact system. If you don't save 10+ hours/week, I'll refund you AND pay you ₹8,000."
+    - header: "What if I can't implement this alone?"
+      body: "You won't be alone. You'll join a private community of senior professionals building AI systems. Plus monthly office hours with me. And if you need hands-on implementation support, 1:1 consulting is available."
+    - header: "How do I know this isn't just hype?"
+      body: "Look at the results: ₹6.9Cr grocery chain savings. $11M automotive optimization. £80K/month retail revenue lift. These are real deployments at Mercedes, L'Oréal, Maruti, British Telecom. This isn't theory - it's operational leverage."
+    - header: "What if AI replaces me anyway?"
+      body: "AI will replace professionals who DON'T learn to operationalize it. Senior professionals who build AI systems become 10x more valuable. You're not competing with AI - you're building leverage ON TOP of your 10+ years of expertise."
+  
+filters:
+  - accordion
 ---
 
-::: {.hero-content}
 
-[Conducted By Jitin Kapila]{.eyebrow-small}
 
-# Build Your Personal AI Operating System in 3 Days
+::: {.grid .justify-center}
 
-Automate 40% of Your Workflow Without Learning to Code.
-
-**For Senior Professionals Who Refuse to Be Replaced by a Script.**
-
-::: {.quarto-listing-grid}
-
-::: {.card-dark}
-**FOUNDING COHORT**
-December 19-21, 2025
+::: {.g-col-6 .g-row-md-auto}
+::: {.card}
+[**FOUNDING COHORT**]{.card-title}  
+[December 19-21, 2025]{.card-description}
+:::
 :::
 
-::: {.card-dark}
-**FORMAT**
-3 Full Days Live
-9 AM - 5 PM IST
+::: {.g-col-6 .g-row-md-auto}
+::: {.card}
+[**FORMAT**]{.card-title}  
+[3 Days - Live - 7 PM - 10 PM IST]{.card-description}
+:::
 :::
 
-::: {.card-dark}
-**DELIVERY**
-Virtual + Lifetime Recordings
+::: {.g-col-6 .g-row-md-auto}
+::: {.card}
+[**DELIVERY**]{.card-title}  
+[Virtual + Lifetime Recordings]{.card-description}
+:::
 :::
 
-::: {.card-dark}
-**CLASS SIZE**
-Maximum 20 Participants
+::: {.g-col-6 .g-row-md-auto}
+::: {.card}
+[**CLASS SIZE**]{.card-title}  
+[Maximum 20 Participants]{.card-description}
+:::
 :::
 
 :::
 
-::: {.section .bg-warm .justify-center .text-center}
-
-[Secure Founding Cohort Pricing - ₹7,999](https://cal.com/jitink-kriyalytics/strategy-consulting){.btn-primary .btn-large }
 
 <br>
 
+
+::: {.padded .bg-warm .justify-center .text-center}
+
+[Secure Founding Cohort Pricing - ₹7,999](https://cal.com/jitink-kriyalytics/strategy-consulting){.btn-primary .btn-large }  
+<br>
 [Regular Price: ₹15,999 | Only 20 Seats Available]{.eyebrow}
 
 :::
 
-::: {.trust-bar}
-**Frameworks Deployed At:** Mercedes Benz | L'Oréal | Maruti Suzuki | British Telecom | Garnier | Maybelline | Abdul Latif Jameel
-:::
 
-
-
-::: {.fixed-section}
+::: {.section}
 
 ## The Market Isn't Waiting for You to Catch Up
 
-You're managing $80M portfolios.
-You're leading teams of 50+ people.
-You're making decisions that move markets.
+- You're managing $80M portfolios.
+- You're leading teams of 50+ people.
+- You're making decisions that move markets.
 
 **But you're still doing manual data entry.**
 
@@ -94,7 +128,7 @@ Senior professionals are being replaced by efficient systems. Not because they l
 
 :::
 
-::: {.section}
+::: {.padded}
 
 ## This Training Is NOT For You If:
 
@@ -111,39 +145,34 @@ Senior professionals are being replaced by efficient systems. Not because they l
 
 :::
 
-::: {.proof-section}
+::: {.padded .bg-warm}
 
 ## Proof of Concept: The Grocery Chain Story
 
-::: {.case-study-detailed}
 
-**The Context:**
-A regional grocery chain with ₹50Cr annual revenue, operating 15 stores across 3 cities.
-
-**The "Before" (Ambiguity & Pain):**
-- Lost 15% of inventory to spoilage (₹7.5Cr annual loss)
-- Manual ordering took 20 hours per week across all stores
-- No predictive capability - constantly over-ordering perishables
-- Supply chain decisions based on "gut feel" from 30-year veterans
-
-**The AI-ART Intervention:**
-We installed a Predictive Ordering Agent using simple Excel + OpenAI API (no coding, no data scientists, no million-dollar platforms).
-
-The system:
-- Analyzed 3 years of sales data (already sitting in Excel)
-- Factored in weather patterns, local events, seasonality
-- Generated daily ordering recommendations per store
-- Learned from feedback (what sold, what spoiled)
-
-**The "After" (ROI):**
-- Spoilage reduced by 92% (saving ₹6.9Cr annually)
-- Ordering time reduced from 20 hours/week to 2 hours/week
-- Profit margins increased by ₹8.2Cr in first year
-- **Total investment: ₹45,000 (including our training)**
-
-**ROI: 182x in Year 1.**
-
-:::
+> **The Context:**
+> A regional grocery chain with ₹50Cr annual revenue, operating 15 stores across 3 cities.
+> 
+> **The "Before" (Ambiguity & Pain):**
+> - Lost 15% of inventory to spoilage (₹7.5Cr annual loss)
+> - Manual ordering took 20 hours per week across all stores
+> - No predictive capability - constantly over-ordering perishables
+> - Supply chain decisions based on "gut feel" from 30-year veterans
+> **The AI-ART Intervention:**
+> We installed a Predictive Ordering Agent using simple Excel + OpenAI API (no coding, no data scientists, no million-dollar platforms).
+> 
+> The system:
+> - Analyzed 3 years of sales data (already sitting in Excel)
+> - Factored in weather patterns, local events, seasonality
+> - Generated daily ordering recommendations per store
+> - Learned from feedback (what sold, what spoiled)
+> 
+> **The "After" (ROI):**
+> - Spoilage reduced by 92% (saving ₹6.9Cr annually)
+> - Ordering time reduced from 20 hours/week to 2 hours/week
+> - Profit margins increased by ₹8.2Cr in first year
+> - **Total investment: ₹45,000 (including our training)**
+> **ROI: 182x in Year 1.**
 
 This isn't a unicorn story. This is what happens when senior professionals apply operational AI thinking to their existing expertise.
 
@@ -151,7 +180,7 @@ This isn't a unicorn story. This is what happens when senior professionals apply
 
 :::
 
-::: {.section .bg-contrast}
+::: {.padded .bg-contrast}
 
 ## [Before This Training → After This Training]{style="text-align: right; justify-items: center; margin: 0.5rem 0em;"}
 
@@ -160,7 +189,8 @@ This isn't a unicorn story. This is what happens when senior professionals apply
 
 ::: {.card-dark .disqualify-grid}
 
-### Before
+[**Before**]{.card-title}  
+
 - Spending 20+ hours/week on repetitive analysis
 - Drowning in emails, reports, data entry
 - Can't scale yourself without hiring more people
@@ -171,7 +201,8 @@ This isn't a unicorn story. This is what happens when senior professionals apply
 :::
 
 ::: {.card-dark .checklist-grid}
-### [After] 
+[**After**]{.card-title}  
+
 - AI Profit OS handles 40% of repetitive workflow
 - Email processing, report generation, data analysis automated
 - 10x team output without 10x headcount
@@ -185,7 +216,7 @@ This isn't a unicorn story. This is what happens when senior professionals apply
 
 :::
 
-::: {.fixed-section}
+::: {.padded}
 
 ## What You'll Build in 3 Days: The AI Profit OS
 
@@ -232,7 +263,7 @@ This isn't a unicorn story. This is what happens when senior professionals apply
 ::: {.timeline-item}
 ### Day 3: CONTROLLER & DIAGNOSTIC — Governance + ROI Calculator
 
-**Morning: AI Governance Playbooks**
+**Morning: AI Governance Playbooks**  
 - How to ensure AI output quality (avoid garbage-in-garbage-out)
 - Build review systems that catch AI mistakes before they matter
 - Team training: How to get your team using AI without breaking things
@@ -251,19 +282,16 @@ This isn't a unicorn story. This is what happens when senior professionals apply
 
 :::
 
-::: {.section .bg-warm}
 
 ## Meet Your Instructor: Jitin Kapila
 
-::: {.instructor-grid}
 
-![Jitin Kapila](display_image.jpg)
+::: {.grid}
 
+::: {.g-col-6 .g-row-md-auto}
 **Ex-Fortune 500 AI Lead. Managed $80M+ Portfolios.**
 
-**I don't teach theory. I build enterprise-grade systems.**
-
-Jitin Kapila has deployed AI systems across Mercedes Benz, L'Oréal, Maruti Suzuki, British Telecom, and 8+ other Fortune 500 enterprises.
+[**"I don't teach theory. I build enterprise-grade systems."**]{.timeline-item}
 
 **Background:**
 - 14+ years architecting AI solutions for Fortune 500 enterprises
@@ -279,18 +307,23 @@ Jitin Kapila has deployed AI systems across Mercedes Benz, L'Oréal, Maruti Suzu
 
 **Philosophy:**
 Senior professionals don't need more theory. They need operational systems that create leverage. The AI Profit OS isn't a course - it's a toolkit you'll use every day for the next decade.
+:::
+
+::: {.g-col-6 .g-row-md-auto}
+<img src="img/display_image.jpg" class="img-fluid figure-img" style="width:30em;border-radius: 50%;text-align: center;" data-border-radius="50%">
+:::
+
 
 :::
 
-:::
 
-::: {.section}
+
 
 ## What Senior Professionals Are Saying
 
-::: {.testimonial-grid}
+::: {.grid}
 
-::: {.testimonial}
+::: {.g-col-6 .g-col-md-auto}
 "I had the pleasure of working with Jitin for over two years (2023–2025) on a high-intensity AI program that was both technically complex and highly impactful for the business. Jitin played a pivotal role not only in experimenting with and developing the AI-driven forecasting solution but also in serving as an AI coach for end users, helping them understand and trust the forecasts produced by the model(s).
 
 His deep data science expertise, combined with his ability to translate technical concepts into clear business language, made a remarkable difference in co-creating a truly futuristic AI product."
@@ -299,14 +332,14 @@ His deep data science expertise, combined with his ability to translate technica
 *Client engagement: 2023-2025*
 :::
 
-::: {.testimonial}
+::: {.g-col-6 .g-col-md-auto}
 "Jitin has the profound expertise of advanced level of R and Python. Many people at Harman Connected Services find his enthusiasm and dedication both inspiring and motivating. He showed a high level of command on Data Science, Machine Learning techniques and was a valuable contributor to our projects. He learns quickly and I would have no hesitation in working with Jitin once again in the future."
 
 **— Aasheesh Barvey, Data-Informed Decision-Making & Advanced Analytics**
 *Senior Manager, Strategy & Project Management*
 :::
 
-::: {.testimonial}
+::: {.g-col-6 .g-col-md-auto}
 "Jitin Kapila is a transformed data scientist with huge enthusiasm to learn new things. I have seen him growing from level to level in data science. Clarity of thoughts and out of the box thinking comes naturally to him.
 
 He is a master class coding hand and can decompose any hard problem into simple logic and quickly build a scalable and ready to implement solution. I would like to have him any day any time working with me."
@@ -317,9 +350,7 @@ He is a master class coding hand and can decompose any hard problem into simple 
 
 :::
 
-:::
-
-::: {.section .bg-warm}
+::: {.padded .bg-warm}
 
 ## Everything Included in Your AI Profit OS
 
@@ -375,8 +406,8 @@ Ongoing support with fellow AI Profit OS users, monthly office hours with Jitin
 
 ::: {.value-total}
 **Total Value: ₹2,80,000**
-**Founding Cohort Investment: ₹4,999** (Saves ₹2,75,001)
-**Regular Price: ₹15,999** (after founding cohort closes)
+**Founding Cohort Investment: ₹7,490** (Saves ₹2,75,001)
+**Regular Price: ₹16,650** (after founding cohort closes)
 :::
 
 :::
@@ -401,69 +432,15 @@ If you implement the frameworks and don't save minimum 10 hours per week, I've f
 
 :::
 
-::: {.section .bg-warm}
 
 ## Frequently Asked Questions
 
-::: {.faq-item}
-**Do I need to know how to code?**
+{{< accordion ac-1 >}}
 
-No. The AI Profit OS is designed for senior professionals, not engineers. Everything is built in Excel + simple tools you already use. If you can use Google Sheets, you can build these systems.
-:::
 
-::: {.faq-item}
-**I'm not technical. Will I be able to follow?**
 
-Absolutely. This training is designed for business leaders, not data scientists. I've trained CFOs, COOs, and Senior Directors with zero technical background. If you can manage a P&L, you can operationalize AI.
-:::
 
-::: {.faq-item}
-**What if I can't attend all 3 days live?**
-
-You'll get lifetime recording access. However, the live workshops where you build YOUR specific systems are where the real value comes from. We strongly recommend attending live.
-:::
-
-::: {.faq-item}
-**Is this just ChatGPT training?**
-
-No. ChatGPT is one tool in the AI Profit OS, but the system is much bigger. You'll learn: (a) How to structure your workflow for AI leverage, (b) How to build repeatable systems (not one-off prompts), (c) How to measure ROI and scale what works.
-:::
-
-::: {.faq-item}
-**What industries does this work for?**
-
-If you're a senior professional doing knowledge work, this works. I've deployed AI systems across automotive, retail, FMCG, telecommunications, finance, and healthcare. The frameworks are industry-agnostic.
-:::
-
-::: {.faq-item}
-**What's the refund policy?**
-
-The "Unheard Of" Guarantee (see above). If you implement the system and don't save 10+ hours/week within 30 days, refund + ₹5,000 paid to you. After 30 days, no refunds - but you can transfer your seat to a colleague.
-:::
-
-::: {.faq-item}
-**Can I bring my team?**
-
-Yes! We offer team pricing for 3+ participants from the same organization. Email jitin@jitinkapila.com for custom team rates. (Recommended: Bring 2-3 key leaders to accelerate adoption.)
-:::
-
-::: {.faq-item}
-**How is this different from other AI courses?**
-
-Most AI courses teach theory or simple prompting. The AI Profit OS is a complete operational system you'll deploy in your workflow. You're not learning about AI - you're building leverage. By Day 3, you have working systems saving you time.
-:::
-
-::: {.faq-item}
-**What if AI changes? Will this become outdated?**
-
-The OLCD Protocol, AI-ART Matrix, and operational frameworks are model-agnostic. Whether it's ChatGPT, Claude, Gemini, or whatever comes next, the system adapts. Plus, you get lifetime access to framework updates.
-:::
-
-:::
-
-:::
-
-::: {.section .text-center}
+::: {.padded .text-center}
 
 ## Founding Cohort: December 19-21, 2025
 
@@ -474,58 +451,45 @@ We deliberately keep cohorts small to ensure personalized feedback on your AI sy
 
 **Founding Cohort Pricing Ends:** When all 20 seats fill OR December 10, 2025 (whichever comes first)
 
-After founding cohort closes, price increases to ₹15,999 permanently.
+After upcoming cohort closes, price increases to ₹16,650 permanently.
 :::
 
-::: {.pricing-comparison}
-| Founding Cohort (12 seats left) | Regular Price | My Consulting Rate |
+| Upcoming Cohort (12 seats left) | Regular Price | My Consulting Rate |
 |---------------------------------|---------------|--------------------|
-| **₹4,999** | ₹15,999 | ₹50,000/hour |
-| Save ₹2,75,001 in value | Standard rate | (200+ hours of frameworks) |
-:::
+| **₹7,490** | ₹16,650 | $185/hour |
+| Save ₹1,58,575 in value | Standard rate | (200+ hours of frameworks) |
+| |
 
 :::
 
-::: {.section .text-center}
+::: {.padded .text-center}
 
 ## Ready to Build Your AI Profit OS?
 
-**Investment:** ₹4,999 (Founding Cohort) | ₹15,999 (Regular)
+**Investment:** ₹7,490 (Founding Cohort) | ₹16,650(including GST) (Regular)
 **Next Cohort:** December 19-21, 2025
 **Seats Remaining:** 12 of 20
 
-[Secure Your Seat Now - Founding Cohort ₹4,999]{.btn-primary .btn-xlarge}
+[Secure Your Seat Now _at ₹7,490 Only_]{.btn-primary .btn-large style="text-wrap-mode: nowrap;"}
 
-::: {.guarantee-text}
+::: {style="margin-top: 1.5rem; font-size: 0.875rem; color: $body-color;"}
 **The "Unheard Of" Guarantee:** If you don't save 10+ hours/week within 30 days, refund + ₹5,000 paid to you.
 :::
 
 ::: {.mt-lg}
-**Questions?** Email me directly: [jitin@jitinkapila.com](mailto:jitin@jitinkapila.com)
-Or schedule a 15-minute clarity call: [cal.com/jitink-kriyalytics](https://cal.com/jitink-kriyalytics)
+**Questions?** [Email me directly](mailto:info@kriyalytics.com)
+Or schedule a [15-minute clarity call](https://cal.com/jitink-kriyalytics/strategy-consulting)
 :::
 
 :::
 
-::: {.section .bg-warm}
+::: {.padded .bg-warm}
 
 ## Still On The Fence?
 
-**"I'm not sure this will work for my specific industry/role."**
-That's exactly why Day 1 is focused on YOUR workflow and YOUR 90-day roadmap. The frameworks are industry-agnostic, but the implementation is personalized to your reality.
 
-**"₹4,999 feels expensive for a training."**
-Compare it to: (a) One hour of my consulting at ₹50,000/hour, (b) The cost of being replaced by a 22-year-old who knows how to use AI, (c) The ₹6.9Cr the grocery chain saved with this exact system. If you don't save 10+ hours/week, I'll refund you AND pay you ₹5,000.
-
-**"What if I can't implement this alone?"**
-You won't be alone. You'll join a private community of senior professionals building AI systems. Plus monthly office hours with me. And if you need hands-on implementation support, 1:1 consulting is available.
-
-**"How do I know this isn't just hype?"**
-Look at the results: ₹6.9Cr grocery chain savings. $11M automotive optimization. £80K/month retail revenue lift. These are real deployments at Mercedes, L'Oréal, Maruti, British Telecom. This isn't theory - it's operational leverage.
-
-**"What if AI replaces me anyway?"**
-AI will replace professionals who DON'T learn to operationalize it. Senior professionals who build AI systems become 10x more valuable. You're not competing with AI - you're building leverage ON TOP of your 10+ years of expertise.
-
+ {{< accordion ac-2 >}}
 :::
 
-:::
+
+

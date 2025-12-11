@@ -4,12 +4,12 @@ description : We recently put through our observation on Regression Problem in o
 date: "2018-05-01"
 categories: [strategy]
 tags: [regression, adaptive]
-image: "img/pexels-zlfdmr23-20692065.jpg"
+title-block-banner: "img/pexels-zlfdmr23-20692065.jpg"
 image-alt: Adapting path through mountains! Photo by Zülfü Demir📸
 draft: false
 ---
 
-![Adapting path through mountains! [Photo by Zülfü Demir📸](https://www.pexels.com/photo/view-of-empty-railway-and-a-hill-in-distance-20692065/) ](img/pexels-zlfdmr23-20692065-thumb.jpg)
+<!-- ![Adapting path through mountains! [Photo by Zülfü Demir📸](https://www.pexels.com/photo/view-of-empty-railway-and-a-hill-in-distance-20692065/) ](img/pexels-zlfdmr23-20692065-thumb.jpg) -->
 
 <!-- 
 <div class="parallax-container"><div class="parallax-image-container"></div></div>

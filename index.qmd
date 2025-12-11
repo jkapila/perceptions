@@ -1,107 +1,136 @@
 ---
-pagetitle: "Jitin Kapila | AI Strategy & Enterprise Architecture"
-page-layout: full
-description: "Transform from Corporate AI Lead to Strategic AI Architect. The AI-ART Matrix and OLCD Protocol for Fortune 500 enterprises. 14 years cross-industry AI implementation experience."
+title: "Don't Learn AI. Operationalize It."
+description: "**I help Senior Professionals & Business Owners build AI-Enabled Enterprises.**  <br> No theory. No \"prompt engineering\" fluff. Just operational leverage."
+page-layout: article
+format:
+  html:
+    css: includes/mainpage.css
 ---
 
-::: {.hero-content}
+::: {.grid .justify-center}
 
-[The AI Protocol]{.eyebrow}
+::: {.g-col-6 .g-row-md-auto}
+[Join the Bootcamp (Tier 1)](https://YOUR-SYSTEME-IO-LINK.com){.btn .btn-primary .px-4 .py-3 .w-100}
+:::
 
-# Don't Learn AI. Operationalize It.
-
-**I help Senior Professionals & Business Owners build AI-Enabled Enterprises.**  
-No theory. No "prompt engineering" fluff. Just operational leverage.
-
-::: {.hero-buttons}
-
-[Join the Bootcamp (Tier 1)](https://YOUR-SYSTEME-IO-LINK.com){.btn-primary .btn-large}
-[Explore Consulting (Tier 2)](https://cal.com/jitink-kriyalytics/strategy-consulting){.btn-secondary .btn-large target="_blank"}
-
+::: {.g-col-6 .g-row-md-auto}
+[Explore Consulting (Tier 2)](https://cal.com/jitink-kriyalytics/strategy-consulting){.btn .btn-outline-primary .px-4 .py-3 .w-100 target="_blank"}
 :::
 
 :::
+
 
 ```{=html}
-<div class="logo-ribbon" style='margin: 1em 0em;'>
+<div class="logo-ribbon">
   <div class="ribbon-label">Strategies Deployed At</div>
   <div class="logo-scroll-wrapper">
     <div class="logo-container">
       <!-- First set of logos -->
-      <div class="logo-item"><img src="logos/mercedes-benz.svg" alt="Mercedes Benz" /></div>
-      <div class="logo-item"><img src="logos/loreal.svg" alt="L'Oréal" /></div>
-      <div class="logo-item"><img src="logos/maruti-suzuki.svg" alt="Maruti Suzuki" /></div>
-      <div class="logo-item"><img src="logos/british-telecom.svg" alt="British Telecom" /></div>
-      <div class="logo-item"><img src="logos/harman Services.png" alt="Harman" /></div>
-      <div class="logo-item"><img src="logos/Zespri.png" alt="Zespri" /></div>
+      <div class="logo-item"><img src="img/mercedes-benz.svg" alt="Mercedes Benz" /></div>
+      <div class="logo-item"><img src="img/loreal.svg" alt="L'Oréal" /></div>
+      <div class="logo-item"><img src="img/maruti-suzuki.svg" alt="Maruti Suzuki" /></div>
+      <div class="logo-item"><img src="img/british-telecom.svg" alt="British Telecom" /></div>
+      <div class="logo-item"><img src="img/harman Services.png" alt="Harman" /></div>
+      <div class="logo-item"><img src="img/Zespri.png" alt="Zespri" /></div>
+      <div class="logo-item"><img src="img/betsson.svg" alt="Betsson" /></div>
+      <div class="logo-item"><img src="img/Abdul_Latif_Jameel_logo.png" alt="ALJ" /></div>
+      <div class="logo-item"><img src="img/ZETA_BIG.svg" alt="Zeta" /></div>
+      <div class="logo-item"><img src="img/dish.svg" alt="Dish" /></div>
       <!-- Duplicate set for seamless loop -->
-      <div class="logo-item"><img src="logos/mercedes-benz.svg" alt="Mercedes Benz" /></div>
-      <div class="logo-item"><img src="logos/loreal.svg" alt="L'Oréal" /></div>
-      <div class="logo-item"><img src="logos/maruti-suzuki.svg" alt="Maruti Suzuki" /></div>
-      <div class="logo-item"><img src="logos/british-telecom.svg" alt="British Telecom" /></div>
-      <div class="logo-item"><img src="logos/harman Services.png" alt="Harman" /></div>
-      <div class="logo-item"><img src="logos/Zespri.png" alt="Zespri" /></div>
+      <div class="logo-item"><img src="img/mercedes-benz.svg" alt="Mercedes Benz" /></div>
+      <div class="logo-item"><img src="img/loreal.svg" alt="L'Oréal" /></div>
+      <div class="logo-item"><img src="img/maruti-suzuki.svg" alt="Maruti Suzuki" /></div>
+      <div class="logo-item"><img src="img/british-telecom.svg" alt="British Telecom" /></div>
+      <div class="logo-item"><img src="img/harman Services.png" alt="Harman" /></div>
+      <div class="logo-item"><img src="img/Zespri.png" alt="Zespri" /></div>
+      <div class="logo-item"><img src="img/betsson.svg" alt="Betsson" /></div>
+      <div class="logo-item"><img src="img/Abdul_Latif_Jameel_logo.png" alt="ALJ" /></div>
+      <div class="logo-item"><img src="img/ZETA_BIG.svg" alt="Zeta" /></div>
+      <div class="logo-item"><img src="img/dish.svg" alt="Dish" /></div>
     </div>
   </div>
 </div>
 ```
 
 
-::: {.fixed-section}
+<br>
 
-## The Thesis
+::: {.padded .text-center}
 
-You are managing ₹80M+ portfolios. You have 15 years of experience.
-**But you are still doing manual work.**
+## The Ever Widening Gap
 
-The market is shifting. Senior professionals are not being replaced by AI; they are being replaced by *junior* professionals who have **Operational Leverage**.
+[**IF**]{style="font-size=2.2rem"}  
 
-I am **Jitin Kapila**. I am not a "Course Creator." I am an **AI Architect** who has deployed systems for Fortune 500 companies. My goal is simple: to help you move from "Corporate Employee" to "AI-Enabled Executive."
-
-:::
-
-::: {.fixed-section .bg-navy .text-white}
-
-## The Case Study: 182x ROI
-
-**The Problem:** A regional grocery chain losing ₹7.5Cr/year to inventory spoilage.
-**The "Architect" Fix:** We didn't hire a data team. We installed a **Predictive Ordering Agent** using simple Excel + OpenAI API.
-
-*   **Before:** 20 hours/week manual ordering.
-*   **After:** 2 hours/week automated review.
-*   **Result:** ₹8.2Cr profit increase in Year 1.
-
-*This is not magic. It is Architecture.*
+::: {.text-left style="font-size=1.8rem"}  
+ 
+ → You have 12+ years of experience.  
+ → You understand business very well.  
+ → You want to grow or make you business grow.  
+ → You are managing Multi-millions or Corers of portfolios.    
+ → You are having a FOMO of AI Hype  
+ → Your boardroom is asking you "What is you AI game-plan?"  
 
 :::
 
-::: {.section}
+<br>
 
-## How We Work Together
+[**BUT**]{style="font-size=2.2rem"}  
 
-I offer two distinct protocols depending on your speed and needs.
+::: {.text-left style="font-size=1.8rem"}  
+
+ → **You are still unable to leverage AI**   
+ → **You are confused what to use and what not to**  
+ → **You are not sure about ROI of AI**  
+ → **You have no game-plan/roadmap!**  
+
+:::
+
+<br>
+
+### [If this is you, then you are at right place !!]{.text-center}
+
+:::
+
+
+::: {.padded }
+
+The market is shifting. **Senior** professionals are not being replaced by AI; they are being replaced by *junior* professionals who potentially have **AI Operational Leverage**. These thoughts are not random and honestly, I hear them every other day from CEOs to Non-tech Mangers who are struggling with current day AI Hype. This ***pain of AI is REAL!***
+
+<br>
+
+Well, I am **Jitin Kapila**. I am not a "Course Creator." I am an **AI Architect** who has deployed systems for Fortune 500 companies. My goal is simple: **to help you move from "Corporate Employee" to "AI-Enabled Executive."**
+
+:::
+
+<br>
+
+::: {.padded .bg-warm}
+
+## How can I help You
+
+We can work depending on your speed and needs.
 
 ::: {.grid}
 
-::: {.g-col-12 .g-col-md-6}
-### Tier 1: The AI Profit OS™
-**3-Day Implementation Bootcamp**
+::: {.g-col-12 .g-col-md-6 .card}
+[Tier 1: The AI Profit OS™]{.card-title}  
+**3-Day D.I.Y Implementation Bootcamp**
 
 For leaders who want to build their personal AI Operating System in one weekend.
 We install the **Deep-Research System**, the **Governance Playbook**, and your first **Agentic Workflow**.
 
 *   **Format:** Live Virtual Sprint (3 Days)
 *   **Next Cohort:** Dec 19-21, 2025
-*   **Investment:** ~~₹15,999~~ **₹7,999 (Founding Member)**
+*   **Investment:** ~~₹16,650~~ **₹7,490 (Founding Member)**
 
 [Secure Your Seat →](https://YOUR-SYSTEME-IO-LINK.com){.btn-primary}
 :::
 
-::: {.g-col-12 .g-col-md-6}
-### Tier 2: The AI Profit Accelerator™
-**4-Week Consulting Program**
+::: {.g-col-12 .g-col-md-6 .card}
+[Tier 2: The AI Profit Accelerator™]{.card-title}  
+**D.W.Y 4-Week Consulting Program**
 
-For business owners who need a full **AI-ART Matrix** deployment across Sales, Ops, and HR. We audit your Data Assets, design your Multi-Agent System, and build the "Bird's-Eye View" Dashboard.
+For business owners who need a full **AI-ART Matrix** deployment across Sales, Ops, and HR. We audit your Data Assets, design your _AI Leverage Roadmap_ which you can start from Day 0.
 
 *   **Format:** Hybrid Consulting (Small Cohort)
 *   **Status:** Application Only
@@ -112,16 +141,18 @@ For business owners who need a full **AI-ART Matrix** deployment across Sales, O
 
 :::
 
-::: {.fixed-section .bg-warm .text-center}
+:::
 
-## The "Unheard Of" Guarantee
+::: {.fixed-section .bg-contrast .text-center}
+
+### The "Unheard Of" Guarantee
 
 My reputation is built on ROI, not views.
-If you join the **AI Profit OS™** and do not save at least 10 hours/week within 30 days, I will refund you 100% **AND** pay you ₹5,000 for your time.
+If you join the **AI Profit OS™** and do not save at least 10 hours/week within 30 days, I will refund you 100% **AND** pay you ₹7,500 for your time.
 
 **Stop Guessing. Start Architecting.**
 
-[Start The Protocol (₹7,999)](https://YOUR-SYSTEME-IO-LINK.com){.btn-primary .btn-large}
+[Start your AI journey (₹7,490)](https://YOUR-SYSTEME-IO-LINK.com){.btn-primary .btn-large}
 
 :::
 

@@ -1,22 +1,16 @@
 ---
-title: "AI Strategy Consulting"
-pagetitle: "AI Strategy Consulting | Fortune 500 Enterprise Transformation"
-page-layout: full
+title: "Work Directly With Me"
+subtitle: "AI Strategy Consulting | Fortune 500 Enterprise Transformation"
+description: "Limited 1:1 AI Strategy and Consulting engagements"
 page-navigation: false
-description: "Limited 1:1 AI consulting engagements for Fortune 500 enterprises. Acting CTO and Strategic AI Advisor. Cross-industry pattern recognition. 6-12 month embedded transformations."
+page-layout: article
+format:
+  html:
+    css: includes/mainpage.css
 ---
 
-::: {.hero-content}
 
-[Strategic Consulting]{.eyebrow}
-
-# Work Directly With Me
-
-Limited 1:1 consulting engagements for Fortune 500 enterprises.
-
-:::
-
-::: {.section}
+::: {.padded}
 
 ## The Approach
 
@@ -30,7 +24,7 @@ Healthcare insights solving automotive challenges. Retail strategies transformin
 
 :::
 
-::: {.section .bg-warm}
+::: {.padded .bg-warm}
 
 ## What We'll Work On
 
@@ -60,7 +54,7 @@ I don't just hand you a deck and leave. I work alongside your team until the sys
 
 :::
 
-::: {.section .text-center}
+::: {.padded .text-center}
 
 ## Who This Is For
 
@@ -74,7 +68,7 @@ This isn't for everyone. But if you're the right fit, the ROI is undeniable.
 
 :::
 
-::: {.section}
+::: {.padded}
 
 ## Current Engagement Model
 

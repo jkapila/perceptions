@@ -4,7 +4,7 @@ description: "Let's stop the habit of blaming data and AI and start with what de
 author: "Jitin Kapila"
 date: "2025-10-09"
 categories: [strategy, roi, business, ai]
-image: decision-map-framework.webp
+title-block-banner: "panel.jpg"
 draft: false
 ---
 
@@ -59,7 +59,7 @@ Here’s the Decision Map — six steps. Do them in order.
 
 If you complete this map, you’ll have done 80% of the work most teams skip. It forces alignment, and it reveals whether the project is worth doing.
 
-![](/decision-map-framework.webp)
+![](/panel.jpg)
 
 ## A telecom example, mapped end-to-end (real story)
 A brief, real example matters. I built a real-time anomaly detection system for a European telecom client early in my career. The project didn’t begin with “we have logs.” It began with this decision map:

@@ -1,0 +1,10 @@
+---
+title: "Work Directly With Me"
+subtitle: "AI Strategy Consulting | Fortune 500 Enterprise Transformation"
+description: "Limited 1:1 AI Strategy and Consulting engagements"
+page-navigation: false
+page-layout: article
+format:
+  html:
+    css: includes/mainpage.css
+---

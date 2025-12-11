@@ -11,3 +11,4 @@ extras
 _backup
 backup
 /.quarto/
+*.md
