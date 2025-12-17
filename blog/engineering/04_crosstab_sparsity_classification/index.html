@@ -112,6 +112,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <script defer="" src="https://cloud.umami.is/script.js" data-website-id="aeaaf854-d53a-45ab-83d5-1963c96af264"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NHFL6KB2FQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NHFL6KB2FQ');
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -243,11 +252,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta property="og:title" content="CrossTab Sparsity for Classification – Jitin Kapila | The AI Architect">
 <meta property="og:description" content="Can our metric help us in making a classification problem work better ?">
-<meta property="og:image" content="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/crossroad-unsplash.jpg">
+<meta property="og:image" content="https://jitinkapila.com/blog/engineering/04_crosstab_sparsity_classification/crossroad-unsplash.jpg">
 <meta property="og:site_name" content="Jitin Kapila | The AI Architect">
 <meta name="twitter:title" content="CrossTab Sparsity for Classification – Jitin Kapila | The AI Architect">
 <meta name="twitter:description" content="Can our metric help us in making a classification problem work better ?">
-<meta name="twitter:image" content="https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/crossroad-unsplash.jpg">
+<meta name="twitter:image" content="https://jitinkapila.com/blog/engineering/04_crosstab_sparsity_classification/crossroad-unsplash.jpg">
 <meta name="twitter:creator" content="@jitinkapila">
 <meta name="twitter:site" content="@jitinkapila">
 <meta name="twitter:card" content="summary_large_image">
@@ -275,16 +284,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../consulting.html"> 
+    <a class="nav-link" href="../../../consulting/index.html"> 
 <span class="menu-text">Consulting</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../bootcamp.html"> 
+    <a class="nav-link" href="../../../cohort/index.html"> 
 <span class="menu-text">Courses</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../vault.html"> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../casestudies/index.html"> 
+<span class="menu-text">Case Studies</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Insights</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../about.html"> 
@@ -300,6 +313,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <div id="quarto-announcement" data-announcement-id="9616bfb5c47a60811ea96e08f2ae1bd0" class="alert alert-primary hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p><strong>Alert</strong> - this is some information that you should pay attention to</p>
+</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
@@ -434,7 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="eda-for-obesity-data" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="eda-for-obesity-data">EDA for Obesity Data</h3>
 <p>Here’s a brief code snippet to perform essential EDA on the Obesity dataset:</p>
-<div id="a4a53412" class="cell" data-execution_count="2">
+<div id="640ef0e8" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Loading data and generating basic descriptive</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load the Obesity data</span></span>
@@ -721,7 +737,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><em>Target distribution</em></p>
-<div id="9d65205e" class="cell" data-execution_count="3">
+<div id="1c835f13" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Target and Correlation</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Visualize target data distribution</span></span>
@@ -764,7 +780,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="6bd2c320" class="cell" data-execution_count="4">
+<div id="4d6286b8" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>EDA code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Visualize the distribution of numerical variables</span></span>
@@ -856,7 +872,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="model-creation-establishing-a-baseline" class="level1 page-columns page-full">
 <h1>Model Creation: Establishing a Baseline</h1>
 <p>With our exploratory analysis complete, we’re ready to create our baseline model using logistic regression with Statsmodels. This initial model will serve as our reference point—like setting up a benchmark for your favorite video game.</p>
-<div id="faaa424e" class="cell" data-execution_count="5">
+<div id="876b6fcc" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Splitting data and training a default Multinomila Logit model on our data</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>data_df <span class="op">=</span> raw_df.dropna().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
@@ -895,7 +911,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="7577a83a" class="cell" data-execution_count="6">
+<div id="c70fd1f5" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Display summary</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>display(logit_model.summary())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -924,13 +940,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Date:</th>
-<td>Sun, 07 Dec 2025</td>
+<td>Mon, 15 Dec 2025</td>
 <th data-quarto-table-cell-role="th">Pseudo R-squ.:</th>
 <td>0.9122</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Time:</th>
-<td>16:56:59</td>
+<td>16:07:33</td>
 <th data-quarto-table-cell-role="th">Log-Likelihood:</th>
 <td>-324.09</td>
 </tr>
@@ -2312,7 +2328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div></div><section id="evaluating-model-performance" class="level3">
 <h3 class="anchored" data-anchor-id="evaluating-model-performance">Evaluating Model Performance</h3>
 <p>To gauge our models’ effectiveness, we’ll employ various metrics such as accuracy, precision, recall, and F1-score. A confusion matrix will help visualize how well our models perform in classifying outcomes—think of it as a report card for your model!</p>
-<div id="792a2d55" class="cell" data-execution_count="7">
+<div id="411813f4" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Evaluating the Logit model</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Predict on test data</span></span>
@@ -2364,7 +2380,7 @@ weighted avg       0.91      0.91      0.91       211
 </ol>
 <p>Here we go!!!</p>
 <div class="page-columns page-full">
-<div id="68b36f78" class="cell page-columns page-full" data-execution_count="9">
+<div id="b518b716" class="cell page-columns page-full" data-execution_count="9">
 <details class="code-fold">
 <summary>Doing what needs to Done Code ;)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>sns.set_style(<span class="st">"white"</span>)</span>
@@ -2415,7 +2431,7 @@ Scores for 7 groups(s) is : 140.96057955229762</code></pre>
 <section id="and-drum-rolls-pelase" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="and-drum-rolls-pelase">And Drum Rolls pelase!!!</h3>
 <p>Using just top 5 varaibles we are getting almost similar or better overall accuracy. This amounts to greatly simplifing the models and clearly explain why some variable are not useful for modeling.</p>
-<div id="5134fbcb" class="cell" data-execution_count="10">
+<div id="f36616a7" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>And finally training and evaluating with drum rolls</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>logit_model_rev <span class="op">=</span> sm.MNLogit.from_formula(<span class="ss">f"</span><span class="sc">{</span>target<span class="sc">}</span><span class="ss"> ~ </span><span class="sc">{</span><span class="st">' + '</span><span class="sc">.</span>join(results[<span class="st">'scores'</span>].loc[:<span class="dv">5</span>,<span class="st">'Columns'</span>].values)<span class="sc">}</span><span class="ss">"</span>, </span>
@@ -2476,7 +2492,7 @@ weighted avg       0.94      0.94      0.94       211
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="c496c9bc" class="cell" data-execution_count="11">
+<div id="4036574f" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>display(logit_model_rev.summary())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2505,13 +2521,13 @@ weighted avg       0.94      0.94      0.94       211
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Date:</th>
-<td>Sun, 07 Dec 2025</td>
+<td>Mon, 15 Dec 2025</td>
 <th data-quarto-table-cell-role="th">Pseudo R-squ.:</th>
 <td>nan</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Time:</th>
-<td>16:57:01</td>
+<td>16:07:34</td>
 <th data-quarto-table-cell-role="th">Log-Likelihood:</th>
 <td>nan</td>
 </tr>
@@ -2981,7 +2997,7 @@ weighted avg       0.94      0.94      0.94       211
 <h3 class="anchored" data-anchor-id="results-and-discussion-unveiling-insights">Results and Discussion: Unveiling Insights</h3>
 <p><strong>Model Comparison Table</strong></p>
 <p>After implementing CrossTab Sparsity in our feature selection process, let’s take a look at the results:</p>
-<div id="6729a497" class="cell" data-execution_count="12">
+<div id="a65aefae" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Comparision Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>metrics <span class="op">=</span> {</span>
@@ -3038,7 +3054,7 @@ weighted avg       0.94      0.94      0.94       211
 </div>
 <p><strong>Insights Gained</strong></p>
 <p>Through this analysis, several key insights emerge:</p>
-<div id="30305fa1" class="cell" data-execution_count="13">
+<div id="935b2859" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-stdout">
 <pre><code>Reduction of similar accuracy from 16 to 5 i.e 68.75% reduction</code></pre>
 </div>
@@ -3517,17 +3533,22 @@ weighted avg       0.94      0.94      0.94       211
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="https://cal.com/jitink-kriyalytics/strategy-consulting">
-<p>Consulting</p>
+    <a class="nav-link" href="../../../policies.html">
+<p>Our Policies</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../../404.html">
-<p>Privacy</p>
+    <a class="nav-link" href="../../../faq.html">
+<p>FAQs</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../contact.html">
+<p>Contact</p>
 </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="../../../posts/index.xml">
+    <a class="nav-link" href="../../../blog/index.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>

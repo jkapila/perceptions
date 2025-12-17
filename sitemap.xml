@@ -1,59 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jitinkapila.com/posts/engineering/10_treeknn/index.html</loc>
-    <lastmod>2025-12-06T12:16:24.631Z</lastmod>
+    <loc>https://jitinkapila.com/webinar/index.html</loc>
+    <lastmod>2025-12-15T11:04:57.395Z</lastmod>
   </url>
   <url>
-    <loc>https://jitinkapila.com/posts/engineering/02_hypothesis_test/index.html</loc>
-    <lastmod>2025-12-06T12:16:24.623Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jitinkapila.com/posts/engineering/04_crosstab_sparsity_classification/index.html</loc>
-    <lastmod>2025-12-06T12:16:24.627Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jitinkapila.com/bootcamp.html</loc>
-    <lastmod>2025-12-09T16:02:19.102Z</lastmod>
+    <loc>https://jitinkapila.com/policies.html</loc>
+    <lastmod>2025-12-15T11:23:13.242Z</lastmod>
   </url>
   <url>
     <loc>https://jitinkapila.com/CLAUDE.html</loc>
     <lastmod>2025-12-07T08:18:05.646Z</lastmod>
   </url>
   <url>
-    <loc>https://jitinkapila.com/about.html</loc>
-    <lastmod>2025-12-10T06:37:14.171Z</lastmod>
+    <loc>https://jitinkapila.com/blog/engineering/10_treeknn/index.html</loc>
+    <lastmod>2025-12-06T12:16:24.631Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/blog/engineering/02_hypothesis_test/index.html</loc>
+    <lastmod>2025-12-06T12:16:24.623Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/blog/engineering/04_crosstab_sparsity_classification/index.html</loc>
+    <lastmod>2025-12-06T12:16:24.627Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/blog/index.html</loc>
+    <lastmod>2025-12-16T06:03:59.489Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/contact.html</loc>
+    <lastmod>2025-12-15T11:27:42.191Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/faq.html</loc>
+    <lastmod>2025-12-15T11:23:06.591Z</lastmod>
   </url>
   <url>
     <loc>https://jitinkapila.com/index.html</loc>
     <lastmod>2025-12-09T16:30:49.462Z</lastmod>
   </url>
   <url>
-    <loc>https://jitinkapila.com/insights.html</loc>
-    <lastmod>2025-12-06T12:16:24.621Z</lastmod>
+    <loc>https://jitinkapila.com/casestudies/index.html</loc>
+    <lastmod>2025-12-15T10:40:32.631Z</lastmod>
   </url>
   <url>
-    <loc>https://jitinkapila.com/vault.html</loc>
-    <lastmod>2025-12-11T05:23:31.292Z</lastmod>
+    <loc>https://jitinkapila.com/about.html</loc>
+    <lastmod>2025-12-15T10:59:15.122Z</lastmod>
   </url>
   <url>
-    <loc>https://jitinkapila.com/consulting.html</loc>
-    <lastmod>2025-12-09T15:11:12.933Z</lastmod>
+    <loc>https://jitinkapila.com/blog/strategy/decision-first-ai/index.html</loc>
+    <lastmod>2025-12-15T10:49:03.234Z</lastmod>
   </url>
   <url>
-    <loc>https://jitinkapila.com/consulting/index.html</loc>
-    <lastmod>2025-12-11T05:22:41.347Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jitinkapila.com/posts/strategy/decision-first-ai/index.html</loc>
-    <lastmod>2025-12-10T19:24:22.402Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jitinkapila.com/posts/engineering/01_adaptive_regression/index.html</loc>
+    <loc>https://jitinkapila.com/blog/engineering/01_adaptive_regression/index.html</loc>
     <lastmod>2025-12-10T19:20:38.480Z</lastmod>
   </url>
   <url>
-    <loc>https://jitinkapila.com/posts/engineering/03_crosstab_sparsity/index.html</loc>
+    <loc>https://jitinkapila.com/blog/engineering/03_crosstab_sparsity/index.html</loc>
     <lastmod>2025-12-06T12:16:24.625Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/consulting/index.html</loc>
+    <lastmod>2025-12-15T10:40:43.694Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jitinkapila.com/cohort/index.html</loc>
+    <lastmod>2025-12-15T10:43:11.086Z</lastmod>
   </url>
 </urlset>

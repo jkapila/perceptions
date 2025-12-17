@@ -112,6 +112,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <script defer="" src="https://cloud.umami.is/script.js" data-website-id="aeaaf854-d53a-45ab-83d5-1963c96af264"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NHFL6KB2FQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NHFL6KB2FQ');
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -240,11 +249,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta property="og:title" content="TrieKNN: Unleashing KNN’s Power on Mixed Data Types – Jitin Kapila | The AI Architect">
 <meta property="og:description" content="Discover TrieKNN, a novel approach to extend the K-Nearest Neighbors algorithm to datasets with both categorical and numerical features. Learn how it works, see it in action, and explore its potential.">
-<meta property="og:image" content="https://jitinkapila.com/posts/engineering/10_treeknn/pexels-anntarazevich-7299985.jpg">
+<meta property="og:image" content="https://jitinkapila.com/blog/engineering/10_treeknn/pexels-anntarazevich-7299985.jpg">
 <meta property="og:site_name" content="Jitin Kapila | The AI Architect">
 <meta name="twitter:title" content="TrieKNN: Unleashing KNN’s Power on Mixed Data Types – Jitin Kapila | The AI Architect">
 <meta name="twitter:description" content="Discover TrieKNN, a novel approach to extend the K-Nearest Neighbors algorithm to datasets with both categorical and numerical features. Learn how it works, see it in action, and explore its potential.">
-<meta name="twitter:image" content="https://jitinkapila.com/posts/engineering/10_treeknn/pexels-anntarazevich-7299985.jpg">
+<meta name="twitter:image" content="https://jitinkapila.com/blog/engineering/10_treeknn/pexels-anntarazevich-7299985.jpg">
 <meta name="twitter:creator" content="@jitinkapila">
 <meta name="twitter:site" content="@jitinkapila">
 <meta name="twitter:card" content="summary_large_image">
@@ -272,16 +281,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../consulting.html"> 
+    <a class="nav-link" href="../../../consulting/index.html"> 
 <span class="menu-text">Consulting</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../bootcamp.html"> 
+    <a class="nav-link" href="../../../cohort/index.html"> 
 <span class="menu-text">Courses</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../vault.html"> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../casestudies/index.html"> 
+<span class="menu-text">Case Studies</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Insights</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../about.html"> 
@@ -297,6 +310,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <div id="quarto-announcement" data-announcement-id="9616bfb5c47a60811ea96e08f2ae1bd0" class="alert alert-primary hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p><strong>Alert</strong> - this is some information that you should pay attention to</p>
+</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
@@ -439,7 +455,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Let’s dive into the implementation. We’ll start with the <code>TrieNode</code> and <code>Trie</code> classes, then move on to the KNN model and the training/prediction process.</p>
 <section id="trie-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="trie-implementation">Trie Implementation</h3>
-<div id="baecf651" class="cell" data-execution_count="1">
+<div id="c8d535ce" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -556,7 +572,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="knn-model" class="level3">
 <h3 class="anchored" data-anchor-id="knn-model">KNN Model</h3>
-<div id="e6060356" class="cell" data-execution_count="2">
+<div id="1abd1623" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> KNNModel:</span>
@@ -584,7 +600,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="training-and-evaluation" class="level3">
 <h3 class="anchored" data-anchor-id="training-and-evaluation">Training and Evaluation</h3>
 <p>Here’s how we train and evaluate the TrieKNN model:</p>
-<div id="6428a5e2" class="cell" data-execution_count="3">
+<div id="da75006f" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Sample data</span></span>
@@ -633,36 +649,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Let us display the trie.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<div id="5e086fb7" class="cell" data-execution_count="4">
+<div id="68acb8da" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>trie.display()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Data: Anything see, Count: 2429, Indexes: 2429 Classes :{np.int64(0): 1690, np.int64(1): 739} weights:2429
-Data: Anything here, Count: 576, Indexes: 576 Classes :{np.int64(0): 407, np.int64(1): 169} weights:576
-Data: Anything lets, Count: 1166, Indexes: 1166 Classes :{np.int64(1): 335, np.int64(0): 831} weights:1166
-Data: Anything go, Count: 599, Indexes: 599 Classes :{np.int64(1): 172, np.int64(0): 427} weights:599
-Data: Anything can, Count: 623, Indexes: 623 Classes :{np.int64(0): 439, np.int64(1): 184} weights:623
-Data: Anything it, Count: 614, Indexes: 614 Classes :{np.int64(0): 432, np.int64(1): 182} weights:614
-Data: Chance can, Count: 300, Indexes: 300 Classes :{np.int64(1): 84, np.int64(0): 216} weights:300
-Data: Chance see, Count: 1247, Indexes: 1247 Classes :{np.int64(1): 403, np.int64(0): 844} weights:1247
-Data: Chance it, Count: 295, Indexes: 295 Classes :{np.int64(1): 101, np.int64(0): 194} weights:295
-Data: Chance lets, Count: 602, Indexes: 602 Classes :{np.int64(1): 182, np.int64(0): 420} weights:602
-Data: Chance here, Count: 301, Indexes: 301 Classes :{np.int64(0): 209, np.int64(1): 92} weights:301
-Data: Chance go, Count: 314, Indexes: 314 Classes :{np.int64(0): 228, np.int64(1): 86} weights:314
-Data: By lets, Count: 177, Indexes: 177 Classes :{np.int64(0): 120, np.int64(1): 57} weights:177
-Data: By see, Count: 386, Indexes: 386 Classes :{np.int64(0): 279, np.int64(1): 107} weights:386
-Data: By here, Count: 91, Indexes: 91 Classes :{np.int64(0): 74, np.int64(1): 17} weights:91
-Data: By go, Count: 83, Indexes: 83 Classes :{np.int64(0): 54, np.int64(1): 29} weights:83
-Data: By can, Count: 102, Indexes: 102 Classes :{np.int64(0): 68, np.int64(1): 34} weights:102
-Data: By it, Count: 95, Indexes: 95 Classes :{np.int64(1): 24, np.int64(0): 71} weights:95</code></pre>
+<pre><code>Data: Anything lets, Count: 1209, Indexes: 1209 Classes :{np.int64(0): 832, np.int64(1): 377} weights:1209
+Data: Anything here, Count: 636, Indexes: 636 Classes :{np.int64(0): 432, np.int64(1): 204} weights:636
+Data: Anything can, Count: 666, Indexes: 666 Classes :{np.int64(0): 455, np.int64(1): 211} weights:666
+Data: Anything go, Count: 585, Indexes: 585 Classes :{np.int64(0): 407, np.int64(1): 178} weights:585
+Data: Anything see, Count: 2363, Indexes: 2363 Classes :{np.int64(0): 1637, np.int64(1): 726} weights:2363
+Data: Anything it, Count: 571, Indexes: 571 Classes :{np.int64(0): 410, np.int64(1): 161} weights:571
+Data: Chance see, Count: 1210, Indexes: 1210 Classes :{np.int64(1): 372, np.int64(0): 838} weights:1210
+Data: Chance lets, Count: 599, Indexes: 599 Classes :{np.int64(1): 187, np.int64(0): 412} weights:599
+Data: Chance go, Count: 270, Indexes: 270 Classes :{np.int64(0): 176, np.int64(1): 94} weights:270
+Data: Chance here, Count: 278, Indexes: 278 Classes :{np.int64(0): 200, np.int64(1): 78} weights:278
+Data: Chance it, Count: 316, Indexes: 316 Classes :{np.int64(0): 213, np.int64(1): 103} weights:316
+Data: Chance can, Count: 309, Indexes: 309 Classes :{np.int64(0): 228, np.int64(1): 81} weights:309
+Data: By can, Count: 76, Indexes: 76 Classes :{np.int64(0): 45, np.int64(1): 31} weights:76
+Data: By see, Count: 397, Indexes: 397 Classes :{np.int64(1): 128, np.int64(0): 269} weights:397
+Data: By here, Count: 107, Indexes: 107 Classes :{np.int64(1): 43, np.int64(0): 64} weights:107
+Data: By lets, Count: 226, Indexes: 226 Classes :{np.int64(1): 77, np.int64(0): 149} weights:226
+Data: By it, Count: 89, Indexes: 89 Classes :{np.int64(0): 55, np.int64(1): 34} weights:89
+Data: By go, Count: 93, Indexes: 93 Classes :{np.int64(0): 64, np.int64(1): 29} weights:93</code></pre>
 </div>
 </div>
 </div></div><p>The model predicted the following values:</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<div id="fc99edcc" class="cell" data-execution_count="5">
+<div id="08a849d4" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Prediction example</span></span>
@@ -673,24 +689,24 @@ Data: By it, Count: 95, Indexes: 95 Classes :{np.int64(1): 24, np.int64(0): 71} 
 <span id="cb6-6"><a href="#cb6-6"></a>trie.<span class="bu">apply</span>(predict_with_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Predictions: [0.6 0.4]
+<pre><code>Predictions: [0.4 0.6]
+Predictions: [0.6 0.4]
+Predictions: [0.4 0.6]
+Predictions: [0.8 0.2]
+Predictions: [0.4 0.6]
+Predictions: [0.8 0.2]
+Predictions: [0.4 0.6]
+Predictions: [0.6 0.4]
+Predictions: [0.2 0.8]
+Predictions: [0.4 0.6]
+Predictions: [0.8 0.2]
 Predictions: [0.4 0.6]
 Predictions: [0.4 0.6]
 Predictions: [0.6 0.4]
 Predictions: [1.]
-Predictions: [0.8 0.2]
-Predictions: [0.8 0.2]
-Predictions: [1.]
-Predictions: [0.4 0.6]
-Predictions: [0.8 0.2]
-Predictions: [0.8 0.2]
 Predictions: [0.4 0.6]
 Predictions: [0.6 0.4]
-Predictions: [0.8 0.2]
-Predictions: [0.8 0.2]
-Predictions: [0.6 0.4]
-Predictions: [0.8 0.2]
-Predictions: [0.2 0.8]</code></pre>
+Predictions: [0.6 0.4]</code></pre>
 </div>
 </div>
 </div></div><p>The predictions will vary on each run. From this we can see that we can use KNN on mixed data types.</p>
@@ -1169,17 +1185,22 @@ Predictions: [0.2 0.8]</code></pre>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="https://cal.com/jitink-kriyalytics/strategy-consulting">
-<p>Consulting</p>
+    <a class="nav-link" href="../../../policies.html">
+<p>Our Policies</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../../404.html">
-<p>Privacy</p>
+    <a class="nav-link" href="../../../faq.html">
+<p>FAQs</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../contact.html">
+<p>Contact</p>
 </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="../../../posts/index.xml">
+    <a class="nav-link" href="../../../blog/index.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>

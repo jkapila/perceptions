@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jitin Kapila">
-<meta name="dcterms.date" content="2018-05-01">
-<meta name="description" content="We recently put through our observation on Regression Problem in our research. This post is a nonformal attempt to explain it.">
 
-<title>Adaptive Regression – Jitin Kapila | The AI Architect</title>
+<title>Frequently Asked Questions (FAQs) – Jitin Kapila | The AI Architect</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,28 +23,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<link href="../../../img/jk-logo.svg" rel="icon" type="image/svg+xml">
-<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-626b0fff7b0ff2cc043be631a594889b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-c25a8d107a8ef8de3aa36886a2f11a43.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./img/jk-logo.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-626b0fff7b0ff2cc043be631a594889b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-b06389d186abb95cf90c726c83558e4d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/accordion/accordion.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,11 +74,19 @@ ul.task-list li input[type="checkbox"] {
 <style>
 
       .quarto-title-block .quarto-title-banner {
-        background-image: url(img/pexels-zlfdmr23-20692065.jpg);
-background-size: cover;
+        background: #FFFAF0;
       }
 </style>
 <script defer="" src="https://cloud.umami.is/script.js" data-website-id="aeaaf854-d53a-45ab-83d5-1963c96af264"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NHFL6KB2FQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NHFL6KB2FQ');
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -208,41 +211,28 @@ background-size: cover;
   ]
 }
 </script>
-<script src="../../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<meta property="og:title" content="Adaptive Regression – Jitin Kapila | The AI Architect">
-<meta property="og:description" content="We recently put through our observation on Regression Problem in our research. This post is a nonformal attempt to explain it.">
-<meta property="og:image" content="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Anscombe_Data.png">
+<meta property="og:title" content="Frequently Asked Questions (FAQs) – Jitin Kapila | The AI Architect">
 <meta property="og:site_name" content="Jitin Kapila | The AI Architect">
-<meta property="og:image:alt" content="Plot of Anscombe’s Quartet">
-<meta property="og:image:height" content="464">
-<meta property="og:image:width" content="638">
-<meta name="twitter:title" content="Adaptive Regression – Jitin Kapila | The AI Architect">
-<meta name="twitter:description" content="We recently put through our observation on Regression Problem in our research. This post is a nonformal attempt to explain it.">
-<meta name="twitter:image" content="https://jitinkapila.com/posts/engineering/01_adaptive_regression/img/Anscombe_Data.png">
+<meta name="twitter:title" content="Frequently Asked Questions (FAQs) – Jitin Kapila | The AI Architect">
 <meta name="twitter:creator" content="@jitinkapila">
 <meta name="twitter:site" content="@jitinkapila">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image:alt" content="Plot of Anscombe’s Quartet">
-<meta name="twitter:image-height" content="464">
-<meta name="twitter:image-width" content="638">
 </head>
 
-<body class="floating nav-fixed slimcontent quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../img/jk-logo.svg" alt="" class="navbar-logo light-content">
-    <img src="../../../img/jk-logo.svg" alt="" class="navbar-logo dark-content">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/jk-logo.svg" alt="" class="navbar-logo light-content">
+    <img src="./img/jk-logo.svg" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">JITIN KAPILA</span>
     </a>
   </div>
@@ -253,19 +243,23 @@ background-size: cover;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../consulting.html"> 
+    <a class="nav-link" href="./consulting/index.html"> 
 <span class="menu-text">Consulting</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../bootcamp.html"> 
+    <a class="nav-link" href="./cohort/index.html"> 
 <span class="menu-text">Courses</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../vault.html"> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="./casestudies/index.html"> 
+<span class="menu-text">Case Studies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html"> 
+    <a class="nav-link" href="./blog/index.html"> 
+<span class="menu-text">Insights</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
@@ -278,39 +272,22 @@ background-size: cover;
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <div id="quarto-announcement" data-announcement-id="9616bfb5c47a60811ea96e08f2ae1bd0" class="alert alert-primary hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p><strong>Alert</strong> - this is some information that you should pay attention to</p>
+</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Adaptive Regression</h1>
-                  <div>
-        <div class="description">
-          We recently put through our observation on Regression Problem in our research. This post is a nonformal attempt to explain it.
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">strategy</div>
-              </div>
-                  </div>
+      <h1 class="title">Frequently Asked Questions (FAQs)</h1>
+                      </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Jitin Kapila </p>
-            </div>
-    </div>
       
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">May 1, 2018</p>
-      </div>
-    </div>
     
       
     </div>
@@ -318,215 +295,163 @@ background-size: cover;
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#so-what-we-do-now" id="toc-so-what-we-do-now" class="nav-link" data-scroll-target="#so-what-we-do-now">So what we do Now!</a></li>
-  <li><a href="#seeking-scope-of-improvement" id="toc-seeking-scope-of-improvement" class="nav-link" data-scroll-target="#seeking-scope-of-improvement">Seeking Scope of Improvement</a></li>
-  <li><a href="#final-analysis" id="toc-final-analysis" class="nav-link" data-scroll-target="#final-analysis">Final Analysis</a></li>
-  <li><a href="#scoring-on-new-data" id="toc-scoring-on-new-data" class="nav-link" data-scroll-target="#scoring-on-new-data">Scoring on New Data</a></li>
-  <li><a href="#code-and-flowchart" id="toc-code-and-flowchart" class="nav-link" data-scroll-target="#code-and-flowchart">Code and Flowchart</a></li>
-  </ul>
-</nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
-<!-- ![Adapting path through mountains! [Photo by Zülfü Demir📸](https://www.pexels.com/photo/view-of-empty-railway-and-a-hill-in-distance-20692065/) ](img/pexels-zlfdmr23-20692065-thumb.jpg) -->
-<!-- 
-<div class="parallax-container"><div class="parallax-image-container"></div></div>
-<style>
-.parallax-container {
-  position: relative;
-}
-
-.parallax-image-container {
-  background-image: url(https://github.com/holtzy/dataviz-inspiration/blob/main/public/misc/overview1.png?raw=true);
-  height: 50px;
-  background-attachment: fixed;
-  opacity: 1;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: screen;
-}
-</style>
-
-
-<div class="parallax-container"><div class="parallax-image-container"></div></div> 
--->
-<section id="introduction" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Here I am trying to express our logic to find such Observation. Lets dive in.</p>
-<p>There are different value estimation technique like regression analysis and time-series analysis. Everyone of us has experimented on regression using OLS ,MLE, Ridge, LASSO, Robust etc., and also might have evaluated them using RMSE (Root Mean/Median Square Error), MAD (Mean/Median Absolute Deviation), MAE (Mean / Median Absolute Error) and MAPE (Mean/Median Absolute Percentage Error), etc…</p>
-<p>But all of these gives a single point estimate that what is the overall error looks like. Just a different thought!! can we be sure that this single value of MAPE or MAE? How easy it is to infer that our trained model has fitted well across the distribution of dependent variable?</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/Anscombe_Data.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Plot of Anscombe’s Quartet"><img src="img/Anscombe_Data.png" class="img-fluid figure-img" alt="Plot of Anscombe’s Quartet"></a></p>
-<figcaption>Plot of Anscombe’s Quartet</figcaption>
-</figure>
+<section id="uh-oh" class="level3">
+<h3 class="anchored" data-anchor-id="uh-oh">Uh OH! :(</h3>
+<p></p><div id="ac-1" class="accordion quarto-accordion">
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-1-wtocodeesystems">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-1-wtocodeesystems" aria-expanded="false" aria-controls="collapse-ac-1-wtocodeesystems">
+<div class="accordion-header-content">Do I need to know how to code?</div></button>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/Anscombe_Stats.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Some Descriptive Stats for Anscombe’s Quartet"><img src="img/Anscombe_Stats.png" class="img-fluid figure-img" alt="Some Descriptive Stats for Anscombe’s Quartet"></a></p>
-<figcaption>Some Descriptive Stats for Anscombe’s Quartet</figcaption>
-</figure>
+<div id="collapse-ac-1-wtocodeesystems" class="accordion-collapse collapse" aria-labelledby="heading-ac-1-wtocodeesystems" data-bs-parent="ac-1">
+<div class="accordion-body">
+<div class="accordion-body-content">No.&nbsp;The AI Profit OS is designed for senior professionals, not engineers. Everything is built in Excel + simple tools you already use. If you can use Google Sheets, you can build these systems.</div></div>
 </div>
-</div></div><p>Let me give you a pretty small data-set to play with “The Anscombe’s quartet”. This is a very famous data-set by Francis Anscombe. Please refer the plots below to understand the distribution of y1, y2, y3, y4. Isn’t it different?</p>
-<p>Would the measure of central tendency and disportion be same for this data? I am sure none of us would believe but to our utter surprise we see all the descriptive stats are kind of same. Don’t believe me !!! Please see the results below ( Source: Wikipedia ):</p>
-</section>
-<section id="so-what-we-do-now" class="level2">
-<h2 class="anchored" data-anchor-id="so-what-we-do-now">So what we do Now!</h2>
-<p>Astonished !!! Don’t be. This is what has been hiding behind those numbers. And this is why we really won’t be able to cross certain performance level. Unless you change some features or even do a lot of hyper parameter tuning, your results won’t vary much.</p>
-<p>If you look at the average value of MAPE in each decile you would see an interesting pattern. Let us show you what we see that pattern. One day while working on a business problem where I was using regression on a discussion with Kumarjit, we deviced a different way of model diagnosis. We worked together to give this a shape and build on it.</p>
-<p><a href="img/Pre_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/Pre_Mape_Plot.png" class="img-fluid"></a></p>
-<p>As you can see it is absolutely evident that either of the side in the distribution of MAPE values is going wild!!!!!!! <strong><em>Still overall MAPE is good (18%).</em></strong></p>
-<!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
-</section>
-<section id="seeking-scope-of-improvement" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="seeking-scope-of-improvement">Seeking Scope of Improvement</h2>
-<p>We worked together to build a different framework to address such issues on the go and reduce the MAPE deterioration on the edge of the distribution.</p>
-<p>This problems gives rise to a concept we named as <strong>Distribution Assertive Regression (DAR).</strong></p>
-<p>DAR is a framework that is based on cancelling the weakness of one point summaries by using the classical concepts of <strong><em>Reliability Engineering : The Bath Tub Curve.</em></strong></p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/Image_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Plot for Classical Bath Tub Curve using a Hazard Function"><img src="img/Image_2.png" class="img-fluid figure-img" alt="Plot for Classical Bath Tub Curve using a Hazard Function"></a></p>
-<figcaption>Plot for Classical Bath Tub Curve using a Hazard Function</figcaption>
-</figure>
 </div>
-</div></div><p>The Specialty of this curve is that it gives you the likelihood which areas one tends to have high failure rates. In our experiments when we replace failure with MAPE value and the Time with sorted (ascending) value of target / dependent variable, we observe the same phenomenon. This is likely to happen because most of regression techniques assumes Normal (Gaussian) Distribution of data and fits itself towards the central tendency of this distribution.</p>
-<p>Because of this tendency, any regression methods tends to learn less about data which are away from the central tendency of the target.</p>
-<p>Lets look at BostonHousing data from “mlbench” package in R.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><a href="img/Plot_Bathtub.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"><img src="img/Plot_Bathtub.png" class="img-fluid figure-img" alt="Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data"></a></p>
-<figcaption class="margin-caption">Plot for MAPE Bath Tub Curve for Decile Split “mdev” from Data</figcaption>
-</figure>
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-1-tofollownalizeai">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-1-tofollownalizeai" aria-expanded="false" aria-controls="collapse-ac-1-tofollownalizeai">
+<div class="accordion-header-content">I’m not technical. Will I be able to follow?</div></button>
 </div>
-<p>Here the MAPE is calculated for each decile split of ordered target variable. As you can observe it is following the bath tub curve. Hence the validates our hypothesis that the regression method is not able to understand much about the data at the either ends of the distribution.</p>
-</section>
-<section id="final-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="final-analysis">Final Analysis</h2>
-<p>Now the DAR framework essentially fixes this weakness of regression method and understands the behavior of data which is stable and can be tweak in a fashion that can be use in general practice.</p>
-<p>Plot of MAPE Bath Tub Curve after applying DAR Framework for Decile Split “mdev” from Data</p>
-<p><a href="img/Post_Mape_Plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/Post_Mape_Plot.png" class="img-fluid"></a></p>
-<p>How this framework with same method reduced MAPEs so much and made model much more stable…?? Well here it is:</p>
-<p>The DAR framework splits the data at either ends of the order target variable and performs regression on these “split” data individually. This inherently reduces the so called “noise” part of the data and treat it as an individual data.</p>
-<!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
-</section>
-<section id="scoring-on-new-data" class="level2">
-<h2 class="anchored" data-anchor-id="scoring-on-new-data">Scoring on New Data</h2>
-<p>Now you might be thinking while applying regression this sounds good but how will one score this on new data. Well to answer that we used our most simple yet very effective friend “KNN” (Though any multiclass Classifier can be used here). So ideally scoring involves two step method :</p>
-<ol type="1">
-<li>Score new value against each KNN / Multiclass Classifier model of the data</li>
-<li>Based on closeness we score it with the regression method used for that part of data.</li>
-</ol>
-<p>So now we know how we can improve the prediction power of data for regression.</p>
-<!-- <div class="parallax-container"><div class="parallax-image-container"></div></div> -->
-</section>
-<section id="code-and-flowchart" class="level2">
-<h2 class="anchored" data-anchor-id="code-and-flowchart">Code and Flowchart</h2>
-<p>If things are simple lets keep it simple. Refer flowchart and code below for implementation of this framework. <a href="https://arxiv.org/abs/1805.01618">Paper here!</a></p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Here is the Flow Chart</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div id="collapse-ac-1-tofollownalizeai" class="accordion-collapse collapse" aria-labelledby="heading-ac-1-tofollownalizeai" data-bs-parent="ac-1">
+<div class="accordion-body">
+<div class="accordion-body-content">Absolutely. This training is designed for business leaders, not data scientists. I’ve trained CFOs, COOs, and Senior Directors with zero technical background. If you can manage a P&amp;L, you can operationalize AI.</div></div>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Click to Expand
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-1-dayslivedinglive">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-1-dayslivedinglive" aria-expanded="false" aria-controls="collapse-ac-1-dayslivedinglive">
+<div class="accordion-header-content">What if I can’t attend all 3 days live?</div></button>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<script src="https://gist.github.com/jkapila/ccc3d0f05fce86ea3075dc7190f8c181.js"></script>
+<div id="collapse-ac-1-dayslivedinglive" class="accordion-collapse collapse" aria-labelledby="heading-ac-1-dayslivedinglive" data-bs-parent="ac-1">
+<div class="accordion-body">
+<div class="accordion-body-content">You’ll get lifetime recording access. However, the live workshops where you build YOUR specific systems are where the real value comes from. We strongly recommend attending live.</div></div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-1-traininghatworks">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-1-traininghatworks" aria-expanded="false" aria-controls="collapse-ac-1-traininghatworks">
+<div class="accordion-header-content">Is this just ChatGPT training?</div></button>
+</div>
+<div id="collapse-ac-1-traininghatworks" class="accordion-collapse collapse" aria-labelledby="heading-ac-1-traininghatworks" data-bs-parent="ac-1">
+<div class="accordion-body">
+<div class="accordion-body-content">No.&nbsp;ChatGPT is one tool in the AI Profit OS, but the system is much bigger. You’ll learn: (a) How to structure your workflow for AI leverage, (b) How to build repeatable systems (not one-off prompts), (c) How to measure ROI and scale what works.</div></div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-1-workforagnostic">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-1-workforagnostic" aria-expanded="false" aria-controls="collapse-ac-1-workforagnostic">
+<div class="accordion-header-content">What industries does this work for?</div></button>
+</div>
+<div id="collapse-ac-1-workforagnostic" class="accordion-collapse collapse" aria-labelledby="heading-ac-1-workforagnostic" data-bs-parent="ac-1">
+<div class="accordion-body">
+<div class="accordion-body-content">If you’re a senior professional doing knowledge work, this works. I’ve deployed AI systems across automotive, retail, FMCG, telecommunications, finance, and healthcare. The frameworks are industry-agnostic.</div></div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-1-ndpolicycolleague">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-1-ndpolicycolleague" aria-expanded="false" aria-controls="collapse-ac-1-ndpolicycolleague">
+<div class="accordion-header-content">What’s the refund policy?</div></button>
+</div>
+<div id="collapse-ac-1-ndpolicycolleague" class="accordion-collapse collapse" aria-labelledby="heading-ac-1-ndpolicycolleague" data-bs-parent="ac-1">
+<div class="accordion-body">
+<div class="accordion-body-content">The “Unheard Of” Guarantee (see above). If you implement the system and don’t save 10+ hours/week within 30 days, refund + ₹5,000 paid to you. After 30 days, no refunds - but you can transfer your seat to a colleague.</div></div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-1-gmyteamadoption">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-1-gmyteamadoption" aria-expanded="false" aria-controls="collapse-ac-1-gmyteamadoption">
+<div class="accordion-header-content">Can I bring my team?</div></button>
+</div>
+<div id="collapse-ac-1-gmyteamadoption" class="accordion-collapse collapse" aria-labelledby="heading-ac-1-gmyteamadoption" data-bs-parent="ac-1">
+<div class="accordion-body">
+<div class="accordion-body-content">Yes! We offer team pricing for 3+ participants from the same organization. Email jitin@jitinkapila.com for custom team rates. (Recommended: Bring 2-3 key leaders to accelerate adoption.)</div></div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-1-icoursesyoutime">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-1-icoursesyoutime" aria-expanded="false" aria-controls="collapse-ac-1-icoursesyoutime">
+<div class="accordion-header-content">How is this different from other AI courses?</div></button>
+</div>
+<div id="collapse-ac-1-icoursesyoutime" class="accordion-collapse collapse" aria-labelledby="heading-ac-1-icoursesyoutime" data-bs-parent="ac-1">
+<div class="accordion-body">
+<div class="accordion-body-content">Most AI courses teach theory or simple prompting. The AI Profit OS is a complete operational system you’ll deploy in your workflow. You’re not learning about AI - you’re building leverage. By Day 3, you have working systems saving you time.</div></div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-1-outdatedkupdates">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-1-outdatedkupdates" aria-expanded="false" aria-controls="collapse-ac-1-outdatedkupdates">
+<div class="accordion-header-content">What if AI changes? Will this become outdated?</div></button>
+</div>
+<div id="collapse-ac-1-outdatedkupdates" class="accordion-collapse collapse" aria-labelledby="heading-ac-1-outdatedkupdates" data-bs-parent="ac-1">
+<div class="accordion-body">
+<div class="accordion-body-content">The OLCD Protocol, AI-ART Matrix, and operational frameworks are model-agnostic. Whether it’s ChatGPT, Claude, Gemini, or whatever comes next, the system adapts. Plus, you get lifetime access to framework updates.</div></div>
 </div>
 </div>
 </div>
+<p></p>
+<p></p><div id="ac-2" class="accordion quarto-accordion">
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-2-stryrolerreality">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-2-stryrolerreality" aria-expanded="false" aria-controls="collapse-ac-2-stryrolerreality">
+<div class="accordion-header-content">I’m not sure this will work for my specific industry/role.</div></button>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Click to Expand
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<script src="https://gist.github.com/jkapila/b97d881e2ae8b75141184ac0f7831601.js"></script>
+<div id="collapse-ac-2-stryrolerreality" class="accordion-collapse collapse" aria-labelledby="heading-ac-2-stryrolerreality" data-bs-parent="ac-2">
+<div class="accordion-body">
+<div class="accordion-body-content">That’s exactly why Day 1 is focused on YOUR workflow and YOUR 90-day roadmap. The frameworks are industry-agnostic, but the implementation is personalized to your reality.</div></div>
 </div>
 </div>
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-2-training8000">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-2-training8000" aria-expanded="false" aria-controls="collapse-ac-2-training8000">
+<div class="accordion-header-content">₹7,999 feels expensive for a training.</div></button>
+</div>
+<div id="collapse-ac-2-training8000" class="accordion-collapse collapse" aria-labelledby="heading-ac-2-training8000" data-bs-parent="ac-2">
+<div class="accordion-body">
+<div class="accordion-body-content">Compare it to: - (a) One hour of my consulting at ₹25,000/hour, -(b) The cost of being replaced by a 22-year-old who knows how to use AI, -(c) The ₹6.9Cr the grocery chain saved with this exact system. If you don’t save 10+ hours/week, I’ll refund you AND pay you ₹8,000.</div></div>
 </div>
 </div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TB
-    
-    subgraph Testing
-        p1(Finding bucket of model to choose)
-        p1 --&gt; p2([Making predictions &lt;br&gt; based on selected model for inference])
-        p2 --&gt; p3(Consolidate final score of prediction)
-    end
-
-    subgraph Training
-        md([Fitting a &lt;br&gt;Regression model])==&gt; di
-        di{Binning Data via &lt;br/&gt; evaluating Distribution &lt;br/&gt; MAPE values }
-        di --&gt; md2([Fitting a Buckteing model &lt;br/&gt; to Binned MAPE Buckets])
-        md2 --&gt; md3([Fitting Regression &lt;br&gt; Models on Binned Data])
-        md == Keeping main&lt;br/&gt;model ==&gt; ro        
-        md3 ==&gt; ro(Final Models &lt;br&gt; Binning Data Models + &lt;br&gt; Set of Regressoin Models)
-    end
-
-    
-    od([Data Input]) -- Training&lt;br&gt; Data--&gt; md
-    od -- Testing&lt;br&gt; Data--&gt; p1
-    ro -.-&gt; p1
-    ro -.-&gt; p2
-
-    classDef green fill:#9f6,stroke:#333,stroke-width:2px;
-    classDef yellow fill:#ff6,stroke:#333,stroke-width:2px;
-    classDef blue fill:#00f,stroke:#333,stroke-width:2px,color:#fff;
-    classDef orange fill:#f96,stroke:#333,stroke-width:4px;
-    class md,md2,md3 green
-    class di orange
-    class p1,p2 yellow
-    class ro,p3 blue
-
-</pre>
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-2-hisaloneavailable">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-2-hisaloneavailable" aria-expanded="false" aria-controls="collapse-ac-2-hisaloneavailable">
+<div class="accordion-header-content">What if I can’t implement this alone?</div></button>
 </div>
-<p></p></figure><p></p>
+<div id="collapse-ac-2-hisaloneavailable" class="accordion-collapse collapse" aria-labelledby="heading-ac-2-hisaloneavailable" data-bs-parent="ac-2">
+<div class="accordion-body">
+<div class="accordion-body-content">You won’t be alone. You’ll join a private community of senior professionals building AI systems. Plus monthly office hours with me. And if you need hands-on implementation support, 1:1 consulting is available.</div></div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-2-justhypeleverage">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-2-justhypeleverage" aria-expanded="false" aria-controls="collapse-ac-2-justhypeleverage">
+<div class="accordion-header-content">How do I know this isn’t just hype?</div></button>
+</div>
+<div id="collapse-ac-2-justhypeleverage" class="accordion-collapse collapse" aria-labelledby="heading-ac-2-justhypeleverage" data-bs-parent="ac-2">
+<div class="accordion-body">
+<div class="accordion-body-content">Look at the results: ₹6.9Cr grocery chain savings. $11M automotive optimization. £80K/month retail revenue lift. These are real deployments at Mercedes, L’Oréal, Maruti, British Telecom. This isn’t theory - it’s operational leverage.</div></div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header" id="heading-ac-2-meanywayexpertise">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ac-2-meanywayexpertise" aria-expanded="false" aria-controls="collapse-ac-2-meanywayexpertise">
+<div class="accordion-header-content">What if AI replaces me anyway?</div></button>
+</div>
+<div id="collapse-ac-2-meanywayexpertise" class="accordion-collapse collapse" aria-labelledby="heading-ac-2-meanywayexpertise" data-bs-parent="ac-2">
+<div class="accordion-body">
+<div class="accordion-body-content">AI will replace professionals who DON’T learn to operationalize it. Senior professionals who build AI systems become 10x more valuable. You’re not competing with AI - you’re building leverage ON TOP of your 10+ years of expertise.</div></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+<p></p>
 
 
 </section>
@@ -932,8 +857,6 @@ background-size: cover;
     }
   });
   </script>
-<script src="https://utteranc.es/client.js" repo="jkapila/perceptions" issue-term="url" theme="github-light" crossorigin="anonymous" async="">
-</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -983,17 +906,22 @@ background-size: cover;
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="https://cal.com/jitink-kriyalytics/strategy-consulting">
-<p>Consulting</p>
+    <a class="nav-link" href="./policies.html">
+<p>Our Policies</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../../404.html">
-<p>Privacy</p>
+    <a class="nav-link active" href="./faq.html" aria-current="page">
+<p>FAQs</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./contact.html">
+<p>Contact</p>
 </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="../../../posts/index.xml">
+    <a class="nav-link" href="./blog/index.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>
@@ -1002,41 +930,9 @@ background-size: cover;
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 
 
-<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -112,6 +112,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <script defer="" src="https://cloud.umami.is/script.js" data-website-id="aeaaf854-d53a-45ab-83d5-1963c96af264"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NHFL6KB2FQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NHFL6KB2FQ');
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -240,11 +249,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta property="og:title" content="A flow to Test Your Hypothesis in Python – Jitin Kapila | The AI Architect">
 <meta property="og:description" content="Making life easy to do some serious hypothesis testing in python.">
-<meta property="og:image" content="https://jitinkapila.com/posts/engineering/02_hypothesis_test/pexels-tara-winstead-7722866.jpg">
+<meta property="og:image" content="https://jitinkapila.com/blog/engineering/02_hypothesis_test/pexels-tara-winstead-7722866.jpg">
 <meta property="og:site_name" content="Jitin Kapila | The AI Architect">
 <meta name="twitter:title" content="A flow to Test Your Hypothesis in Python – Jitin Kapila | The AI Architect">
 <meta name="twitter:description" content="Making life easy to do some serious hypothesis testing in python.">
-<meta name="twitter:image" content="https://jitinkapila.com/posts/engineering/02_hypothesis_test/pexels-tara-winstead-7722866.jpg">
+<meta name="twitter:image" content="https://jitinkapila.com/blog/engineering/02_hypothesis_test/pexels-tara-winstead-7722866.jpg">
 <meta name="twitter:creator" content="@jitinkapila">
 <meta name="twitter:site" content="@jitinkapila">
 <meta name="twitter:card" content="summary_large_image">
@@ -272,16 +281,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../consulting.html"> 
+    <a class="nav-link" href="../../../consulting/index.html"> 
 <span class="menu-text">Consulting</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../bootcamp.html"> 
+    <a class="nav-link" href="../../../cohort/index.html"> 
 <span class="menu-text">Courses</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../vault.html"> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../casestudies/index.html"> 
+<span class="menu-text">Case Studies</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Insights</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../about.html"> 
@@ -297,6 +310,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <div id="quarto-announcement" data-announcement-id="9616bfb5c47a60811ea96e08f2ae1bd0" class="alert alert-primary hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p><strong>Alert</strong> - this is some information that you should pay attention to</p>
+</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
@@ -395,7 +411,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="what-are-the-results" class="level1 page-columns page-full">
 <h1>What are the results</h1>
 <p>Pheww… Thats too much code right. But that would save a lot of your time in real life. So in real life you would write code as 3 steps below:</p>
-<div id="bd899efb" class="cell" data-execution_count="1">
+<div id="e6e835be" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># import libraries</span></span>
@@ -450,7 +466,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Nice!!!</p>
 <p><br></p>
 <p>And plotting is even easier</p>
-<div id="1abd8537" class="cell" data-execution_count="2">
+<div id="3ac46aa9" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Numbers are clumsy for most. Making more interpretable plot on above results.</span></span>
@@ -476,7 +492,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Performing Anova</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Plotting Results</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div id="5f00ba05" class="cell" data-execution_count="3">
+<div id="c49853ad" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Anova Test <code>anova_test.py</code></summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">from</span> bioinfokit <span class="im">import</span> analys</span>
@@ -574,7 +590,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div id="f3ff8504" class="cell" data-execution_count="4">
+<div id="1563b5ab" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Plotting results <code>plot_hsd.py</code></summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -1092,17 +1108,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="https://cal.com/jitink-kriyalytics/strategy-consulting">
-<p>Consulting</p>
+    <a class="nav-link" href="../../../policies.html">
+<p>Our Policies</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../../404.html">
-<p>Privacy</p>
+    <a class="nav-link" href="../../../faq.html">
+<p>FAQs</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../contact.html">
+<p>Contact</p>
 </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="../../../posts/index.xml">
+    <a class="nav-link" href="../../../blog/index.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>

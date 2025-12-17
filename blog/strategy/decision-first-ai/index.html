@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jitin Kapila">
-<meta name="dcterms.date" content="2022-05-03">
-<meta name="description" content="A label and data type agnostic metric for evaluating clustering performance!">
+<meta name="dcterms.date" content="2025-10-09">
+<meta name="description" content="Let’s stop the habit of blaming data and AI and start with what decisions we want !!">
 
-<title>CrossTab Sparsity – Jitin Kapila | The AI Architect</title>
+<title>Decision-First AI: Why Data Should Follow, Not Lead – Jitin Kapila | The AI Architect</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -114,11 +79,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <style>
 
       .quarto-title-block .quarto-title-banner {
-        background-image: url(img/pexels-n-voitkevich-5712829-thumb.jpg);
-background-size: cover;
+        background: /panel.jpg;
       }
 </style>
 <script defer="" src="https://cloud.umami.is/script.js" data-website-id="aeaaf854-d53a-45ab-83d5-1963c96af264"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NHFL6KB2FQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NHFL6KB2FQ');
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -244,51 +217,20 @@ background-size: cover;
 }
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="CrossTab Sparsity – Jitin Kapila | The AI Architect">
-<meta property="og:description" content="A label and data type agnostic metric for evaluating clustering performance!">
-<meta property="og:image" content="https://jitinkapila.com/posts/engineering/03_crosstab_sparsity/img/pexels-n-voitkevich-5712829.jpg">
+<meta property="og:title" content="Decision-First AI: Why Data Should Follow, Not Lead – Jitin Kapila | The AI Architect">
+<meta property="og:description" content="Let’s stop the habit of blaming data and AI and start with what decisions we want !!">
+<meta property="og:image" content="https://jitinkapila.com/blog/strategy/decision-first-ai/panel.jpg">
 <meta property="og:site_name" content="Jitin Kapila | The AI Architect">
-<meta property="og:image:alt" content="Photo by Nataliya Vaitkevich - https://www.pexels.com/photo/empty-crossroads-in-hills-5712829/">
-<meta name="twitter:title" content="CrossTab Sparsity – Jitin Kapila | The AI Architect">
-<meta name="twitter:description" content="A label and data type agnostic metric for evaluating clustering performance!">
-<meta name="twitter:image" content="https://jitinkapila.com/posts/engineering/03_crosstab_sparsity/img/pexels-n-voitkevich-5712829.jpg">
+<meta name="twitter:title" content="Decision-First AI: Why Data Should Follow, Not Lead – Jitin Kapila | The AI Architect">
+<meta name="twitter:description" content="Let’s stop the habit of blaming data and AI and start with what decisions we want !!">
+<meta name="twitter:image" content="https://jitinkapila.com/blog/strategy/decision-first-ai/panel.jpg">
 <meta name="twitter:creator" content="@jitinkapila">
 <meta name="twitter:site" content="@jitinkapila">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image:alt" content="Photo by Nataliya Vaitkevich - https://www.pexels.com/photo/empty-crossroads-in-hills-5712829/">
 </head>
 
-<body class="floating nav-fixed slimcontent quarto-light">
+<body class="floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -310,16 +252,20 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../consulting.html"> 
+    <a class="nav-link" href="../../../consulting/index.html"> 
 <span class="menu-text">Consulting</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../bootcamp.html"> 
+    <a class="nav-link" href="../../../cohort/index.html"> 
 <span class="menu-text">Courses</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../vault.html"> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../casestudies/index.html"> 
+<span class="menu-text">Case Studies</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Insights</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../about.html"> 
@@ -335,20 +281,25 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <div id="quarto-announcement" data-announcement-id="9616bfb5c47a60811ea96e08f2ae1bd0" class="alert alert-primary hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p><strong>Alert</strong> - this is some information that you should pay attention to</p>
+</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">CrossTab Sparsity</h1>
+      <h1 class="title">Decision-First AI: Why Data Should Follow, Not Lead</h1>
                   <div>
         <div class="description">
-          A label and data type agnostic metric for evaluating clustering performance!
+          Let’s stop the habit of blaming data and AI and start with what decisions we want !!
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">clustering</div>
-                <div class="quarto-category">analysis</div>
+                <div class="quarto-category">strategy</div>
+                <div class="quarto-category">roi</div>
+                <div class="quarto-category">business</div>
+                <div class="quarto-category">ai</div>
               </div>
                   </div>
   </div>
@@ -366,7 +317,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 3, 2022</p>
+        <p class="date">October 9, 2025</p>
       </div>
     </div>
     
@@ -381,21 +332,16 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#the-birth-of-the-metric-a-first-person-perspective" id="toc-the-birth-of-the-metric-a-first-person-perspective" class="nav-link" data-scroll-target="#the-birth-of-the-metric-a-first-person-perspective">The Birth of the Metric: A First-Person Perspective</a>
-  <ul class="collapse">
-  <li><a href="#our-aha-moment---crosstab-sparsity" id="toc-our-aha-moment---crosstab-sparsity" class="nav-link" data-scroll-target="#our-aha-moment---crosstab-sparsity">Our “Aha!” Moment - Crosstab Sparsity</a></li>
-  </ul></li>
-  <li><a href="#case-study-vehicle-silhouettes-through-my-eyes" id="toc-case-study-vehicle-silhouettes-through-my-eyes" class="nav-link" data-scroll-target="#case-study-vehicle-silhouettes-through-my-eyes">Case Study: Vehicle Silhouettes (Through My Eyes)</a>
-  <ul class="collapse">
-  <li><a href="#the-dataset-that-almost-broke-us" id="toc-the-dataset-that-almost-broke-us" class="nav-link" data-scroll-target="#the-dataset-that-almost-broke-us">The Dataset That Almost Broke Us</a></li>
-  <li><a href="#the-breakthrough" id="toc-the-breakthrough" class="nav-link" data-scroll-target="#the-breakthrough">The Breakthrough</a></li>
-  </ul></li>
-  <li><a href="#comparative-advantages-and-creativity-at-work" id="toc-comparative-advantages-and-creativity-at-work" class="nav-link" data-scroll-target="#comparative-advantages-and-creativity-at-work">Comparative Advantages and Creativity at Work</a></li>
-  <li><a href="#lessons-learned-and-future-vision" id="toc-lessons-learned-and-future-vision" class="nav-link" data-scroll-target="#lessons-learned-and-future-vision">Lessons Learned and Future Vision</a>
-  <ul class="collapse">
-  <li><a href="#a-personal-reflection" id="toc-a-personal-reflection" class="nav-link" data-scroll-target="#a-personal-reflection">A Personal Reflection</a></li>
-  </ul></li>
+  <li><a href="#the-dataset-first-trap-what-it-looks-like-and-why-it-hurts" id="toc-the-dataset-first-trap-what-it-looks-like-and-why-it-hurts" class="nav-link active" data-scroll-target="#the-dataset-first-trap-what-it-looks-like-and-why-it-hurts">The “dataset-first” trap — what it looks like, and why it hurts</a></li>
+  <li><a href="#decision-first-in-research-not-new-but-finally-practical" id="toc-decision-first-in-research-not-new-but-finally-practical" class="nav-link" data-scroll-target="#decision-first-in-research-not-new-but-finally-practical">Decision-first in research: not new, but finally practical</a></li>
+  <li><a href="#the-decision-map-simple-framework-you-can-use-today" id="toc-the-decision-map-simple-framework-you-can-use-today" class="nav-link" data-scroll-target="#the-decision-map-simple-framework-you-can-use-today">The Decision Map: simple framework you can use today</a></li>
+  <li><a href="#a-telecom-example-mapped-end-to-end-real-story" id="toc-a-telecom-example-mapped-end-to-end-real-story" class="nav-link" data-scroll-target="#a-telecom-example-mapped-end-to-end-real-story">A telecom example, mapped end-to-end (real story)</a></li>
+  <li><a href="#another-quick-example-inventory-decisions" id="toc-another-quick-example-inventory-decisions" class="nav-link" data-scroll-target="#another-quick-example-inventory-decisions">Another quick example: inventory decisions</a></li>
+  <li><a href="#practical-tips-for-teams-do-this-in-week-one" id="toc-practical-tips-for-teams-do-this-in-week-one" class="nav-link" data-scroll-target="#practical-tips-for-teams-do-this-in-week-one">Practical tips for teams (do this in week one)</a></li>
+  <li><a href="#common-objections-and-how-to-handle-them" id="toc-common-objections-and-how-to-handle-them" class="nav-link" data-scroll-target="#common-objections-and-how-to-handle-them">Common objections and how to handle them</a></li>
+  <li><a href="#one-page-checklist-copy-this" id="toc-one-page-checklist-copy-this" class="nav-link" data-scroll-target="#one-page-checklist-copy-this">One-page checklist (copy this)</a></li>
+  <li><a href="#final-note-start-small-measure-fast-then-scale-with-discipline" id="toc-final-note-start-small-measure-fast-then-scale-with-discipline" class="nav-link" data-scroll-target="#final-note-start-small-measure-fast-then-scale-with-discipline">Final note — start small, measure fast, then scale with discipline</a></li>
+  <li><a href="#key-sources-further-reading" id="toc-key-sources-further-reading" class="nav-link" data-scroll-target="#key-sources-further-reading">Key sources &amp; further reading</a></li>
   </ul>
 </nav>
 </nav>
@@ -404,217 +350,122 @@ window.Quarto = {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Cluster analysis has always fascinated me as a window into the hidden structures of data. During my collaboration with Kumarjit Pathak, we grappled with a persistent challenge in unsupervised learning: <strong>how to objectively evaluate clustering quality across different algorithms</strong>. Traditional metrics like the Silhouette Index or Bayesian Information Criterion felt restrictive—they were siloed within specific methodologies, making cross-algorithm comparisons unreliable.</p>
-<p>This frustration led us to develop a <strong>universal cluster evaluation metric</strong>, detailed in our paper <em>“Cross Comparison of Results from Different Clustering Approaches”</em>. Our goal was to create a framework that transcends algorithmic biases, enabling:<br>
-- Direct comparison of K-Means vs GMM vs DBSCAN vs PAM vs SOM vs Anything results<br>
-- Identification of variables muddying cluster separation<br>
-- Automated determination of optimal cluster counts</p>
-<p>In this blog, I’ll walk you through our journey—from conceptualization to real-world validation—and share insights that didn’t make it into the final paper.</p>
-</section>
-<section id="the-birth-of-the-metric-a-first-person-perspective" class="level1 page-columns page-full">
-<h1>The Birth of the Metric: A First-Person Perspective</h1>
-<p><strong><em>Why Existing Methods Fell Short</em></strong><br>
-Early in our research, we cataloged limitations of popular evaluation techniques:</p>
-<ol type="1">
-<li>Method Dependency<br>
-</li>
-</ol>
+<p>Start here: don’t open a notebook until you know the decision you want to change.</p>
+<p>Sounds obvious. But most AI projects don’t start there. They start with a dataset, or with a “let’s try this model,” or with a platform demo that looks great in the cloud. And then weeks later the obvious question appears: “Okay — what decision does this support?” People shrug. The project stalls. The models are good. The business impact is vague.</p>
+<p>This is the dataset-first trap. It wastes time, money, and faith. It also gives AI a bad name.</p>
+<p>I’ve seen the opposite work — a lot. Start with the decision. Map the decision. Then pick the simplest data and model that make the decision better. The result? Faster pilots, clearer ROI, and systems that actually get used.</p>
+<p>That approach is not just a management neat-idea. There’s a real body of research showing that aligning models to downstream decision goals yields better decisions than optimizing prediction accuracy alone. And there are real, practical wins — from telecom fault detection to inventory systems — when you flip the order. arXiv+1</p>
+<section id="the-dataset-first-trap-what-it-looks-like-and-why-it-hurts" class="level2">
+<h2 class="anchored" data-anchor-id="the-dataset-first-trap-what-it-looks-like-and-why-it-hurts">The “dataset-first” trap — what it looks like, and why it hurts</h2>
+<p>Here’s the typical playbook I see in companies:</p>
 <ul>
-<li>Silhouette scores worked beautifully for K-Means but faltered with Gaussian Mixture Models (GMM).<br>
-</li>
-<li>Probability-based metrics like BIC couldn’t handle distance-based clusters.</li>
+<li>Someone discovers a new dataset.</li>
+<li>They build dashboards, then a model, then a fine model, then a fancier model.</li>
+<li>They show a demo. The demo gets applause. Then the work hits integration, governance, and the messy reality of people who must make decisions every day. The model’s outputs don’t map to a decision process. So adoption fails.</li>
 </ul>
-<ol start="2" type="1">
-<li><p>Noise Blindness<br>
-Noisy variables often contaminated clusters, but traditional methods required manual outlier detection.</p></li>
-<li><p>Subjective Optimization* Elbow plots and dendrograms left too much room for human interpretation.</p></li>
-</ol>
-<section id="our-aha-moment---crosstab-sparsity" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="our-aha-moment---crosstab-sparsity">Our “Aha!” Moment - Crosstab Sparsity</h2>
-<div class="page-columns page-full">
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="img/Picture 1.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Best Cluster for K-means Using Crosstab sparsity"><img src="img/Picture 1.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for K-means Using Crosstab sparsity"></a></p>
-<figcaption>Best Cluster for K-means Using Crosstab sparsity</figcaption>
-</figure>
-</div>
-</div>
-<p>While analyzing cross-tab matrices of variable distributions across clusters, we noticed a pattern: <strong>well-segregated clusters consistently showed higher frequencies along matrix diagonals</strong>. This inspired our two-part metric:</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
+<p>Why? Because the project optimized the wrong thing. It optimized prediction metrics — error, F1, AUC, MAPE. And those are useful. But they’re not the measure of business impact. A model with better accuracy can still be useless if it doesn’t change what someone does.</p>
+<p>Harvard Business Review captured this idea well: decisions don’t start with data. They start with a problem, a role, a process, and a behavior. If your analytics don’t connect to that reality, you get slides and disappointment. Harvard Business Review</p>
+<p>There are more subtle costs too. Dataset-first projects often create models that are brittle in production: they overfit to historical quirks, they require constant data wrangling, and they produce numbers no one trusts. That kills scale.</p>
+</section>
+<section id="decision-first-in-research-not-new-but-finally-practical" class="level2">
+<h2 class="anchored" data-anchor-id="decision-first-in-research-not-new-but-finally-practical">Decision-first in research: not new, but finally practical</h2>
+<p>There’s academic grounding for starting with decisions. In the machine-learning community this shows up as “decision-focused learning” or “smart predict-then-optimize.” The idea: train predictive models not for pure accuracy, but to minimize the loss that matters to the downstream optimization or decision task. When you optimize directly for the decision loss, you often get better business outcomes — even with “worse” prediction metrics. arXiv+1</p>
+<p>Recent papers and reviews show both the theory and practical methods: surrogate losses that reflect decision outcomes, techniques to differentiate through optimization, and heuristics for discrete problems. The takeaway: the math supports the intuition. If you want a model to help choose inventory levels, price points, or routing, train it with that decision in mind — not just with RMSE. Optimization Online+1</p>
+<p>That doesn’t mean every model must be complex. Often the opposite. Framing the decision reduces model complexity because you only model what matters. This is your Occam’s Razor</p>
+</section>
+<section id="the-decision-map-simple-framework-you-can-use-today" class="level2">
+<h2 class="anchored" data-anchor-id="the-decision-map-simple-framework-you-can-use-today">The Decision Map: simple framework you can use today</h2>
+<p>If you want to flip to decision-first, start with a small, disciplined tool I call a Decision Map. It’s a one-page artefact. Build it before you touch data.</p>
+<p>Here’s the Decision Map — six steps. Do them in order.</p>
+<ul>
+<li><p><strong>Name the decision.</strong> Who decides, how often, and what options do they choose? Example: “Field-ops decides whether to dispatch a technician to a suspected DSL fault.” Be specific. Frequency matters — hourly, daily, weekly change what you can do.</p></li>
+<li><p><strong>Define the decision metric(s).</strong>What counts as success? Lower cost? Faster response time? Increase in net revenue? Pick one primary metric and one secondary. If you can’t name it in a single measurable sentence, you don’t have a decision.</p></li>
+<li><p><strong>Map the current process.</strong> Where is the decision made today? Which people and tools are involved? Where does data enter? Where do delays happen? This step exposes the friction you must remove.</p></li>
+<li><p><strong>Identify the minimal action the model must trigger.</strong> The model doesn’t need to be perfect. It needs to change behavior. If the model’s output is a probability, what threshold triggers action? Who gets the alert? What’s the handoff?</p></li>
+<li><p><strong>List the minimal signals (data) needed.</strong> Only include data that directly reduces uncertainty for the decision. You’ll be surprised how small this list often is. Think: signal → action. Not “all the data.”</p></li>
+<li><p><strong>Plan the feedback loop.</strong> How will you measure the decision metric after deployment? How will you collect labels and iterate? Decide that upfront.</p></li>
+</ul>
+<p>If you complete this map, you’ll have done 80% of the work most teams skip. It forces alignment, and it reveals whether the project is worth doing.</p>
+<p><a href="panel.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="panel.jpg" class="img-fluid"></a></p>
+</section>
+<section id="a-telecom-example-mapped-end-to-end-real-story" class="level2">
+<h2 class="anchored" data-anchor-id="a-telecom-example-mapped-end-to-end-real-story">A telecom example, mapped end-to-end (real story)</h2>
+<p>A brief, real example matters. I built a real-time anomaly detection system for a European telecom client early in my career. The project didn’t begin with “we have logs.” It began with this decision map:</p>
+<ul>
+<li><strong>Decision:</strong> Should operations dispatch a field technician proactively for a suspected DSL fault?</li>
+<li><strong>Metric:</strong> Reduce customer reported faults and improve Net Promoter Score (NPS) by reducing time-to-detect. Also: monthly cost savings from fewer reactive truck rolls and more planned truck rolls.</li>
+<li><strong>Process:</strong> Operations received the customer call, created a ticket, and dispatched if needed — often hours or days later. That was slow and expensive.
+<ul>
+<li><strong>Action:</strong> If the system flags an anomaly with high confidence</li>
+<li><strong>Red :</strong> Very high probability in next 48 hours,</li>
+<li><strong>Amber:</strong> probability in next 2-15 days</li>
+<li><strong>Green:</strong> No visibility of error in next 15 days This creates a high-priority ticket and dispatch a remote check or technician and was planned in region wise manner.</li>
+</ul></li>
+<li><strong>Signals:</strong> DSL line metrics, error rates, device telemetry, event logs — a handful of streams, not every log.</li>
+<li><strong>Feedback:</strong> Compare flagged incidents to customer complaints and adjust thresholds.</li>
+</ul>
+<p>Because the decision was so clear, we could measure value before full scale. The pilot cut detection time from days to hours, raised customer satisfaction significantly ( We sent messages to possible signal disruption early), and saved ~£80K per month ( because reducing complete breakdown to DSL by heat or so and by planning the route than going everywhere) . It wasn’t an exotic model (or may be it was, tech details some other day); it was a tightly scoped system that informed a clear action.</p>
+<p>Notice how this maps to the <strong>Decision-First steps</strong>. The model existed to change a single operational choice. That focus made deployment possible and measurable fast.</p>
+</section>
+<section id="another-quick-example-inventory-decisions" class="level2">
+<h2 class="anchored" data-anchor-id="another-quick-example-inventory-decisions">Another quick example: inventory decisions</h2>
+<p>Inventory forecasting is a classic area where decision-first matters. You can chase lower MAPE and never change stocking policy. Or you can ask: what decision do merchandisers make with this forecast? When you frame it as “which SKUs do we order for next week, and what reorder points trigger expedited shipments,” you design the forecast differently: shorter horizons, bias for understock on fast movers, and direct constraints on reorder costs.</p>
+<p>I’ve led projects that delivered $11M in inventory optimization by building forecasts and decision rules that match merchant behavior and supply constraints. The trick was not better models — it was framing forecasts so the merchandisers could act with confidence.</p>
+</section>
+<section id="practical-tips-for-teams-do-this-in-week-one" class="level2">
+<h2 class="anchored" data-anchor-id="practical-tips-for-teams-do-this-in-week-one">Practical tips for teams (do this in week one)</h2>
 <ol type="1">
-<li><p><strong>Segregation Factor</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Simplified calculation from our codebase  </span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>median <span class="op">=</span> np.median(cross_tab)  </span>
-<span id="cb1-3"><a href="#cb1-3"></a>N_vk <span class="op">=</span> np.<span class="bu">sum</span>(cross_tab <span class="op">&gt;</span> median)  <span class="co"># Count "well-segregated" instances  </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p><strong>Explanation Factor</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>explanation <span class="op">=</span> np.log(<span class="bu">len</span>(data) <span class="op">/</span> (bins <span class="op">*</span> clusters))  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-</ol>
-</div></div><ol type="1">
-<li><strong>Segregation Factor</strong>: Measures how distinctly clusters separate data points. We used the median (not mean) to avoid skew from outlier-dominated matrices.</li>
-<li><strong>Explanation Factor</strong>: Quantifies how well clusters capture data variability. The logarithmic term penalizes overfitting—a critical insight from debugging early over-segmented clusters.</li>
-</ol>
-<p><strong>And the Final Formula</strong>:<br>
-For variable <span class="math inline">\(v\)</span> with <span class="math inline">\(k\)</span> clusters:<br>
-<span class="math display">\[
-S_v^k = \underbrace{\frac{N_v^k}{\max(l, k)}}_{\text{Segregation}} \times \underbrace{\ln\left(\frac{N_d}{l \times k}\right)}_{\text{Explanation}}
-\]</span></p>
-<p>where:<br>
-- <span class="math inline">\(N_v^k\)</span>: Segregated instances (values above cross-tab matrix median)<br>
-- <span class="math inline">\(l\)</span>: Number of value intervals for variable <span class="math inline">\(v\)</span><br>
-- <span class="math inline">\(N_d\)</span>: Total observations</p>
-<p>This formulation ensures <strong>algorithmic invariance</strong>, allowing comparison across methods like K-Means (distance-based) and GMM (probability-based). Also, now you can see from the formula two scenarios happens: 1. If each variable crosstab is too dense then their is no separation between classes 2. If each variable crosstab is too sparse then we loose on explanation.</p>
-<p>Hence the curve reaches a maximum and then falls down giving use the separability that the cluster can produce:</p>
-</section>
-</section>
-<section id="case-study-vehicle-silhouettes-through-my-eyes" class="level1 page-columns page-full">
-<h1>Case Study: Vehicle Silhouettes (Through My Eyes)</h1>
-<section id="the-dataset-that-almost-broke-us" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="the-dataset-that-almost-broke-us">The Dataset That Almost Broke Us</h3>
-<p>We tested our metric on a vehicle silhouette dataset with 18 shape-related features (e.g., compactness, circularity). Initially, inconsistent results plagued us—until we realized our binning strategy for continuous variables was flawed.</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p><strong>Key Adjustments</strong>:<br>
-- Switched from equal-width to <strong>quantile-based binning</strong> (10 bins per variable).<br>
-- For categorical variables, retained native levels instead of coercing bins.</p>
-</div></div></section>
-<section id="the-breakthrough" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="the-breakthrough">The Breakthrough</h3>
-<p>After refining the preprocessing:</p>
-<blockquote class="blockquote">
-<p>Optimal Clusters: Our metric plateaued at <span class="math inline">\(k=6\)</span> , aligning perfectly with known vehicle categories (sedans, trucks, etc.).<br>
-Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poorly, revealing inconsistent clustering. We later found this was due to manufacturers’ design variances.</p>
-</blockquote>
-<p>Finding best cluster for K-Means alone:</p>
-<div class="page-columns page-full">
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="img/Kmeans on Vehicle.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Best Cluster for PAM method Using Crosstab sparsity"><img src="img/Kmeans on Vehicle.png" class="img-fluid figure-img column-page-right" alt="Best Cluster for PAM method Using Crosstab sparsity"></a></p>
-<figcaption>Best Cluster for PAM method Using Crosstab sparsity</figcaption>
-</figure>
-</div>
-</div>
-<p>Comparing all cluster methods and find the optimal one:</p>
-<div class="page-columns page-full">
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="img/Comparision across many methods.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Optimal Cluster for many methods"><img src="img/Comparision across many methods.png" class="img-fluid figure-img column-page-right" alt="Optimal Cluster for many methods"></a></p>
-<figcaption>Optimal Cluster for many methods</figcaption>
-</figure>
-</div>
-</div>
-<p><strong>The chunkiest part</strong> : Understanding your variable for separateness. This gives direct insight of what variable in your data is most critical separator.</p>
-<div class="page-columns page-full">
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p class="page-columns page-full"><a href="img/Variable segregation.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="All kind of variable scored against Metrics"><img src="img/Variable segregation.png" class="img-fluid figure-img column-page-right" alt="All kind of variable scored against Metrics"></a></p>
-<figcaption>All kind of variable scored against Metrics</figcaption>
-</figure>
-</div>
-</div>
-</section>
-</section>
-<section id="comparative-advantages-and-creativity-at-work" class="level1">
-<h1>Comparative Advantages and Creativity at Work</h1>
-<p><strong><em>Comparative Advantage Over Traditional Metrics</em></strong></p>
-<table class="table">
-<colgroup>
-<col style="width: 24%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Feature/Scenario</strong></th>
-<th><strong>Silhouette Index</strong></th>
-<th><strong>Davies-Bouldin</strong></th>
-<th><strong>Crosstab Sparsity</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Algorithm Agnostic</td>
-<td>❌ (Distance-based only)</td>
-<td>❌</td>
-<td>✔️</td>
-</tr>
-<tr class="even">
-<td>Handles Mixed Data</td>
-<td>❌</td>
-<td>❌</td>
-<td>✔️</td>
-</tr>
-<tr class="odd">
-<td>Identifies Noisy Vars</td>
-<td>❌</td>
-<td>❌</td>
-<td>✔️</td>
-</tr>
-<tr class="even">
-<td>Optimal Cluster Detection</td>
-<td>Manual elbow analysis</td>
-<td>Manual analysis</td>
-<td>Automated plateau detection</td>
-</tr>
-<tr class="odd">
-<td>Mixed Algorithms</td>
-<td>Failed (GMM vs K-Means)</td>
-<td>Failed (needs numerical data)</td>
-<td>Achieved 92% consistency[1]</td>
-</tr>
-<tr class="even">
-<td>Noisy Variables</td>
-<td>Manual outlier removal</td>
-<td>Manual outlier removal</td>
-<td>Auto-detected (e.g., Max.LWR)</td>
-</tr>
-<tr class="odd">
-<td>Optimal Cluster Detection</td>
-<td>Subjective elbow plots</td>
-<td>Subjective to Elbow plots</td>
-<td>Objective plateau detection</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<p>Our creativity yielding boons. We wanted a simple metric to judge different kind of cluster, but we got much more from our experiments and work on this metric:</p>
-<ol type="1">
-<li>Variable-Level Diagnostics: Low <span class="math inline">\(S_v^k\)</span> scores pinpoint variables muddying cluster separation.<br>
-</li>
-<li>Cross-Method Benchmarking: Compare K-Means (distance) vs GMM (probability) vs hierarchical vs partition clustering fairly using a unified score.<br>
-</li>
-<li>Scale Invariance: Logarithmic term makes scores comparable across datasets of varying sizes.<br>
-</li>
-<li>Debug Cluster Quality: Identify and remove noisy variables preemptively<br>
-</li>
-<li>Automate Model Selection: Objectively choose between K-Means, GMM, PAM, Agglomerative.</li>
+<li><strong>Run a one-hour Decision Map workshop.</strong> Invite the decision owner, one operator, one engineer, and one product owner. Build the one-page map. If the owner can’t commit to a metric, pause the project.</li>
+<li><strong>Start with a simple rule baseline.</strong> Before modeling, define a rule that will be your baseline (e.g., “if X &gt; T, create ticket”). If the model can’t beat that rule in decision impact, scrap it.</li>
+<li><strong>Measure decision impact, not model accuracy.</strong> Your dashboard should show business metric delta — not just RMSE. If you show the board a change in cost or conversion, you’ll get attention.</li>
+<li><strong>Prioritize deployment constraints.</strong> Decide telemetry, latency, and handoff requirements first. Models that can’t meet latency or trust constraints are useless no matter how accurate.</li>
+<li><strong>Iterate with real feedback.</strong> Don’t wait for “perfect.” Ship an MVP that can be measured, then refine. Real decisions provide labels and operational learning.</li>
 </ol>
 </section>
-<section id="lessons-learned-and-future-vision" class="level1">
-<h1>Lessons Learned and Future Vision</h1>
-<p><strong>Few take away from these experiments</strong><br>
-1. Binning Sensitivity: Quantile-based binning was transformation. Equal-width bins distorted scores for skewed variables.<br>
-2. Categorical Handling: Native levels for categorical outperformed frequency-based grouping.<br>
-3. Non-Parametric Approach: This approach allowed us to make sense of data without being tied down by assumptions. We have seen how this metric can be a game-changer for statisticians, providing insights not just into cluster behavior but also into rare event modeling.</p>
-<p>The plots from these experiments not only clarify how clusters behave but also offer valuable insights for identifying outliers. I believe there’s exciting potential to extend this metric into classification and value estimation modeling. Imagine using it as a loss function in both linear and non-linear methods to achieve better data segmentation! Thing for another blog someday!</p>
-<section id="a-personal-reflection" class="level3">
-<h3 class="anchored" data-anchor-id="a-personal-reflection">A Personal Reflection</h3>
-<p>Developing this metric taught me that <strong>simplicity often masks depth</strong>. A two-component formula now underpins clustering decisions in industries we never imagined—from fraud detection to genomics. Yet, I’m most proud of how it democratizes cluster analysis: business analysts at our partner firms now optimize clusters without PhD-level stats.</p>
-<p>You can find implementation of <a href="https://gist.github.com/jkapila/83bb8f6461ec91bfced437762f2c9220">python code here</a></p>
-<p><em>This blog synthesizes findings from our original paper, available <a href="https://arxiv.org/abs/1810.03419">here</a>. For a deeper dive into the math, check Section 3 of the paper.</em></p>
-<p><strong>To my readers</strong>: Have you tried implementing cross-algorithm clustering? Share your war stories in the comments—I’d love to troubleshoot together!</p>
-
-
+<section id="common-objections-and-how-to-handle-them" class="level2">
+<h2 class="anchored" data-anchor-id="common-objections-and-how-to-handle-them">Common objections and how to handle them</h2>
+<p><strong><em>“But we don’t have a clear decision owner.”</em></strong> Then don’t build a model. Decisions live in roles. Pull the right owner in early, or you’ll build for nobody.</p>
+<p><strong><em>“Our data is messy.”</em></strong> Fine. If you can define the minimal signals, you can often create a proxy or start with manual labels. Messy data is easier to handle when you only need a few signals for a specific decision.</p>
+<p><strong><em>“We need predictions for many uses.”</em></strong> Build a simple decision-first pilot first. Use its success to fund broader platform work. Pilots create proof that unlocks investment.</p>
+<p><strong><em>“Decision-focused methods are academic — too hard.”</em></strong> There’s truth and myth here. The academic techniques show big wins when decision loss can be written down. But you don’t need complicated differentiable optimization to start. Use a decision map, simple thresholds, A/B tests, and iterative measurement. Graduate to decision-focused training once you have a stable objective. The research just tells us — unsurprisingly — that when you train with the decision in mind, outcomes improve. Optimization Online+1</p>
 </section>
+<section id="one-page-checklist-copy-this" class="level2">
+<h2 class="anchored" data-anchor-id="one-page-checklist-copy-this">One-page checklist (copy this)</h2>
+<ul>
+<li>Decision name (The GOTO problem statement): ____________________</li>
+<li>Primary / Secondary metric (which can accounted for ROI calculation later ): _____</li>
+<li>Decision owner (I don’t want to debate on this): ________________________</li>
+<li>Frequency of predictions: real-time / hourly / daily / weekly / monthly</li>
+<li>Action / interventions which can be triggered by model: ____________________</li>
+<li>Minimal signals required( The core Data to begin with): ______________________</li>
+<li>Baseline rule (your fail-safe if everything goes wrong): ____________________</li>
+<li>Feedback source ( might be tricky, but you should have one): __________________</li>
+</ul>
+<p>If you can fill this in, you’re set for a pilot.</p>
+</section>
+<section id="final-note-start-small-measure-fast-then-scale-with-discipline" class="level2">
+<h2 class="anchored" data-anchor-id="final-note-start-small-measure-fast-then-scale-with-discipline">Final note — start small, measure fast, then scale with discipline</h2>
+<p>The decision-first approach is simple because business problems are simple when stated well. The hard part is discipline: saying no to shiny demos and yes to measurable change. Start with one decision that matters. Map it. Ship a small system that changes behavior. Measure the business metric. Iterate.</p>
+<p>Research supports this: models trained with the decision in mind perform better on the actual outcomes you care about. And in practice, teams that flip the order — decision first, data second — get to value faster. arXiv+1</p>
+<p>If you want help mapping a decision in your company, send me one line describing the decision and the current process. I’ll reply with the Decision Map template you can use in a one-hour workshop. Or if you want we can connect too.</p>
+<p>If this post help you or think help someone in need, please do share it. Thanks!!!</p>
+</section>
+<section id="key-sources-further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="key-sources-further-reading">Key sources &amp; further reading</h2>
+<ul>
+<li>Elmachtoub, A.N., &amp; Grigas, P. — Smart “Predict, then Optimize” (foundational paper on decision-focused loss and SPO). arXiv</li>
+<li>Reviews and recent work on decision-focused learning (predict-and-optimize / decision-focused methods). arXiv+1</li>
+<li>Harvard Business Review — Decisions Don’t Start with Data — on why framing the decision matters. Harvard Business Review</li>
+</ul>
+<p><strong>(And — the telecom and inventory examples referenced above are from projects on my profile/resume: <a href="https://cal.com/jitink-kriyalytics/strategy-consulting">Ask, if you want more details !!</a> )</strong></p>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1069,17 +920,22 @@ Noise Detection: Variables like <em>Max.LWR</em> (length-width ratio) scored poo
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="https://cal.com/jitink-kriyalytics/strategy-consulting">
-<p>Consulting</p>
+    <a class="nav-link" href="../../../policies.html">
+<p>Our Policies</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../../404.html">
-<p>Privacy</p>
+    <a class="nav-link" href="../../../faq.html">
+<p>FAQs</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../contact.html">
+<p>Contact</p>
 </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="../../../posts/index.xml">
+    <a class="nav-link" href="../../../blog/index.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>
