@@ -5,10 +5,10 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Jitin Kapila | The AI Architect</title>
+<title>Jitin Kapila</title>
 <link>https://jitinkapila.com/blog/</link>
 <atom:link href="https://jitinkapila.com/blog/index.xml" rel="self" type="application/rss+xml"/>
-<description>Helping Fortune 500 leaders transition from Prescriptive AI to Predictive Strategy.</description>
+<description>Helping business leaders transition from exploring AI to Leverage AI.</description>
 <generator>quarto-1.8.26</generator>
 <lastBuildDate>Wed, 08 Oct 2025 18:30:00 GMT</lastBuildDate>
 <item>

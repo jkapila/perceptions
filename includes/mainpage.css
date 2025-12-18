@@ -65,11 +65,13 @@
 
 .logo-ribbon {
   padding: 1rem 0;
-  background: #F8F6F3; /*Warm background*/
-  border-top: 1px solid rgba(12, 43, 78, 0.1);
-  border-bottom: 1px solid rgba(12, 43, 78, 0.1);
+  /*background: #F8F6F3; */ /*Warm background*/
+  background: transparent;
+  /*border-top: 1px solid rgba(12, 43, 78, 0.1);*/
+  /*border-bottom: 1px solid rgba(12, 43, 78, 0.1);*/
   overflow: hidden;
   position: relative;
+  margin: 2rem 0rem;
 
   .ribbon-label {
     font-size: 1rem;
