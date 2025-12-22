@@ -4,14 +4,19 @@
 
   text-align: center;
   margin: 1.25rem 1rem;
-  /*width: 100%;*/
+  width: 100%;
   justify-content: center;
   justify-items: center;
+  /*background: linear-gradient()#0C2B4E;*/
+  /*background: linear-gradient(135deg, #0a1628 0%, #0C2B4E 100%);*/
 
+  h1{
+    border-bottom: none;
+  }
 
   .title{
     padding: 1rem 0rem;
-    font-size: clamp(3.5rem, 10vw, 6.5rem);
+    font-size: clamp(2.8rem, 10vw, 5.5rem);
     
     &::after {
        content: '';
@@ -25,13 +30,14 @@
 
   .description{
     padding: 1rem 0rem;
-    /*font-size: clamp(0.8rem, 2vw, 1.2rem); */
+    font-size: clamp(1.1rem, 2vw, 1.5rem); 
   }
 
   p {
     margin-bottom: 1rem;
     width: 100%; 
   }
+
 
 }
 
@@ -71,15 +77,15 @@
   /*border-bottom: 1px solid rgba(12, 43, 78, 0.1);*/
   overflow: hidden;
   position: relative;
-  margin: 2rem 0rem;
+  margin: 1rem 0rem;
 
   .ribbon-label {
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: $text-muted;
-    /*margin-bottom: 2rem;*/
+    margin-bottom: 1.5rem;
     text-align: center;
   }
 
@@ -233,5 +239,61 @@
   /*// Spacing utilities*/
   .mt-lg {
     margin-top: 3rem;
+  }
+}
+
+/*khurafati cursor animation*/
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+/*Khurafati Arrow animation*/
+
+
+/*another attempt of arrow animation*/
+@keyframes slideIn {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(50%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideTop {
+  from {
+    transform: translatey(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translatey(50%);
+    opacity: 1;
+  }
+}
+
+.animated-span {
+
+  display: inline-block;
+  animation: slideIn 2s infinite forwards;
+}
+
+@media screen and (max-width: 768px) {
+  .animated-span {
+    writing-mode: vertical-rl; /* Text flows top-to-bottom, right-to-left columns */
+    text-orientation: upright; /* Optional: keeps characters upright within the vertical line */
+    animation: slideIn 2s infinite forwards;
+    /*transform: rotate(90deg);*/
+    transform-origin: center;
+
   }
 }

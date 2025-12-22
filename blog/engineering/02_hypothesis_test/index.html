@@ -76,10 +76,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-626b0fff7b0ff2cc043be631a594889b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2dd424cac55da6011314b5d900643f0b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-1c95faf5db9766d5801f2e48e112ecf1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-50491df635d490da3ec3d02e97cef426.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -247,11 +247,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </script>
 
 
-<meta property="og:title" content="A flow to Test Your Hypothesis in Python – Jitin Kapila">
+<meta property="og:title" content="A flow to Test Your Hypothesis in Python">
 <meta property="og:description" content="Making life easy to do some serious hypothesis testing in python.">
 <meta property="og:image" content="https://jitinkapila.com/blog/engineering/02_hypothesis_test/pexels-tara-winstead-7722866.jpg">
 <meta property="og:site_name" content="Jitin Kapila">
-<meta name="twitter:title" content="A flow to Test Your Hypothesis in Python – Jitin Kapila">
+<meta name="twitter:title" content="A flow to Test Your Hypothesis in Python">
 <meta name="twitter:description" content="Making life easy to do some serious hypothesis testing in python.">
 <meta name="twitter:image" content="https://jitinkapila.com/blog/engineering/02_hypothesis_test/pexels-tara-winstead-7722866.jpg">
 <meta name="twitter:creator" content="@jitinkapila">
@@ -266,10 +266,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../img/jk-logo.svg" alt="" class="navbar-logo light-content">
-    <img src="../../../img/jk-logo.svg" alt="" class="navbar-logo dark-content">
-    </a>
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">JITIN KAPILA</span>
     </a>
@@ -298,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <div id="quarto-announcement" data-announcement-id="f676454d1f753fa979410f19d0a26cb4" class="alert alert-primary hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+  <div id="quarto-announcement" data-announcement-id="f676454d1f753fa979410f19d0a26cb4" class="alert alert-light hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
 <p><strong>Alert</strong> - New course dates to be announced soon! Stay Tuned!</p>
 </div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
@@ -372,8 +368,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption class="margin-caption">Hypothesis testing <a href="https://www.pexels.com/photo/text-7722866/">Photo by Tara Winstead</a></figcaption>
 </figure>
 </div>
-<section id="overview" class="level1 page-columns page-full">
-<h1>Overview</h1>
+<section id="overview" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>All the practitioners of data science always hit one giant thing to do with data and you know it well its <em>EDA -Exploratory Data Analysis</em>. This word <em>EDA</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> was coined by Tukey himself in his seminal book published in 1983. But do you think that before that <em>EDA</em> doesn’t existed ?</p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Emerson, J. D., &amp; Hoaglin, D. C. (1983). Stem-and-leaf displays. In D. C. Hoaglin, F. Mosteller, &amp; J. W. Tukey (Eds.) Understanding Robust and Exploratory Data Analysis, pp.&nbsp;7–32. New York: Wiley. <a href="https://www.wiley.com/en-in/Understanding+Robust+and+Exploratory+Data+Analysis-p-9780471384915">Book is here.</a></p></div></div><p>Well glad you thought. Before that all were doing what is called as <em><em>Hypothesis Testing</em></em>. Yes, before this the race was majorly to fit the data and make most unbiased and robust estimate. But remember one thing when you talk about <em>Hypothesis Testing</em> it was always and majorly would be related to <em>RCTs (Randomized Controlled Trials)</em> a.k.a Randomized Clinical Trials and is <em>Gold Standard</em> of data.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -396,10 +392,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Lets move on. The big question is, for whatever reason you are doing <em>HT</em> , you are doing it for finding <em>something intreating</em>. And that something interesting is usually found by using <em><em>Post-Hoc Tests</em></em>. Now there are variety of <em>Post-Hocs</em> available but what is more know and hence easily found to be implemented in <em>Tukey’s HSD</em>.</p>
 <p>So lets directly jump to how to follow this procedure. We’ll be using <code>bioinfokit</code> for this, as it is much simpler wrapper around whats implemented in <code>statsmodels</code>.</p>
 </section>
-<section id="what-are-the-results" class="level1 page-columns page-full">
-<h1>What are the results</h1>
+<section id="what-are-the-results" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="what-are-the-results">What are the results</h2>
 <p>Pheww… Thats too much code right. But that would save a lot of your time in real life. So in real life you would write code as 3 steps below:</p>
-<div id="e6e835be" class="cell" data-execution_count="1">
+<div id="e6e835be" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># import libraries</span></span>
@@ -454,7 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Nice!!!</p>
 <p><br></p>
 <p>And plotting is even easier</p>
-<div id="3ac46aa9" class="cell" data-execution_count="2">
+<div id="3ac46aa9" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Numbers are clumsy for most. Making more interpretable plot on above results.</span></span>
@@ -470,17 +466,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Plots look good with ‘p-values’.</p>
 </section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p><span data-bg="lightgreen">Now since we applied the above to a <em><em>Non RCT</em></em> we cannot conclude that Difference in mpg based on cylinder is huge specially as number of cylinders goes up. But this statement might not be as explicit as might be appearing from plot. Unless you have a strong believe that the data follows with rules and assumptions of RCTs, we should be only seeking <em>interesting</em> as in <em>associated</em> results and not <em>cause-effect</em> results.</span></p>
 </section>
-<section id="give-me-the-code" class="level1">
-<h1>Give me “The Code”</h1>
+<section id="give-me-the-code" class="level2">
+<h2 class="anchored" data-anchor-id="give-me-the-code">Give me “The Code”</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Performing Anova</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Plotting Results</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div id="c49853ad" class="cell" data-execution_count="3">
+<div id="c49853ad" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Anova Test <code>anova_test.py</code></summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">from</span> bioinfokit <span class="im">import</span> analys</span>
@@ -578,7 +574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div id="1563b5ab" class="cell" data-execution_count="4">
+<div id="1563b5ab" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Plotting results <code>plot_hsd.py</code></summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
