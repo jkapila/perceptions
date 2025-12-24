@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="I help Senior Professionals &amp; Business Owners build AI-Enabled Enterprises.   No theory. No “prompt engineering” fluff. Just operational leverage.">
 
-<title>Hi - I am Jitin! I help business leverage AI for &lt;span style="color=#FFFFFF"&gt;Profits&lt;/span&gt; – Jitin Kapila</title>
+<title>Who is Jitin Kapila? About Me – Jitin Kapila</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,12 +36,16 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2dd424cac55da6011314b5d900643f0b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9296723196024aa58aaf41094addff46.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f6051ad68193878a06d6a0aa295d5bf5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/bootstrap-icons-1.13.1/bootstrap-icons.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -205,30 +208,108 @@ ul.task-list li input[type="checkbox"] {
   ]
 }
 </script>
-<link rel="stylesheet" href="includes/custom_about.css">
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const heroSection = document.querySelector('#quarto-content');
+    if (!heroSection) return;
+
+    let cursor = null;
+
+    heroSection.addEventListener('mouseenter', () => {
+      if (!cursor) {
+        cursor = document.createElement('div');
+        cursor.className = 'premium-crosshair';
+        document.body.appendChild(cursor);
+      }
+    });
+
+    heroSection.addEventListener('mousemove', (e) => {
+      if (cursor) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      }
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      if (cursor) {
+        cursor.remove();
+        cursor = null;
+      }
+    });
+  });
+</script>
+
+<!-- 
+```{=html}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const heroSection = document.querySelector('#quarto-content');
+    if (!heroSection) return;
+
+    const particles = [];
+
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Create particle
+      const particle = document.createElement('div');
+      particle.className = 'cursor-particle';
+      heroSection.appendChild(particle);
+
+      particle.style.left = x + 'px';
+      particle.style.top = y + 'px';
+
+      // Animate and remove
+      let opacity = 1;
+      const interval = setInterval(() => {
+        opacity -= 0.05;
+        particle.style.opacity = opacity;
+
+        if (opacity <= 0) {
+          clearInterval(interval);
+          particle.remove();
+        }
+      }, 30);
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      document.querySelectorAll('.cursor-particle').forEach(p => p.style.opacity = '0');
+    });
+  });
+</script>
+```
+ -->
 
 
-<meta property="og:title" content="Hi - I am Jitin! I help business leverage AI for Profits">
-<meta property="og:description" content="I help Senior Professionals &amp; Business Owners build AI-Enabled Enterprises.  No theory. No “prompt engineering” fluff. Just operational leverage.">
-<meta property="og:image" content="https://jitinkapila.com/img/display_image.jpg">
+<link rel="stylesheet" href="../includes/indexpage.css">
+<meta property="og:title" content="Who is Jitin Kapila? About Me">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://jitinkapila.com/../img/display_image.jpg">
 <meta property="og:site_name" content="Jitin Kapila">
-<meta name="twitter:title" content="Hi - I am Jitin! I help business leverage AI for Profits">
-<meta name="twitter:description" content="I help Senior Professionals &amp; Business Owners build AI-Enabled Enterprises.  No theory. No “prompt engineering” fluff. Just operational leverage.">
-<meta name="twitter:image" content="https://jitinkapila.com/img/display_image.jpg">
+<meta name="twitter:title" content="Who is Jitin Kapila? About Me">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://jitinkapila.com/../img/display_image.jpg">
 <meta name="twitter:creator" content="@jitinkapila">
 <meta name="twitter:site" content="@jitinkapila">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/jk-logo.svg" alt="" class="navbar-logo light-content">
+    <img src="./img/jk-logo.svg" alt="" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">JITIN KAPILA</span>
+    <span class="navbar-title">Jitin Kapila</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -240,6 +321,10 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="./cohort/index.html"> 
 <span class="menu-text">Courses</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./case-studies/index.html"> 
+<span class="menu-text">Case Studies</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./blog/index.html"> 
@@ -260,17 +345,92 @@ ul.task-list li input[type="checkbox"] {
 </div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content page-columns page-full column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><p><span style="line-height: 4.5rem; letter-spacing: 1px;"><strong>Hi. I’m Jitin. I help Senior Professionals &amp; Business Owners build AI-Enabled Enterprises.</strong></span></p></h1>
+</div>
+
+<div>
+  <div class="description">
+    <p><a href="../img/display_image.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../img/display_image.jpg" class="hero-image-col hero-wrapper img-fluid" style="width:15rem; border-radius: 50%;"></a></p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- <br>
 
 
 
+    ::: {.grid .column-screen-inset}
 
-<p><br> <!-- ## [This content appears when you are searching for something that is no related to AI generated ! I guess you find one!]{.text-center} 
+    ::: {.g-col-12 .g-col-md-6}
+
+    ::: {grid}
+
+    ::: {.g-col-12 .g-col-md-12 .text-left}
+    [I've built AI systems that saved companies ₹6Cr+. Now I teach leaders to do it themselves—in 3 days, without consultants.]{style="font-weight: bold; font-size: x-large; line-height: 2rem; padding: 2rem 0rem; letter-spacing: 1px;"}
+    :::
+
+    <br>
+
+    ::: {.g-col-12 .g-col-md-12  .text-left}
+
+    
+
+    [No theory. No \"prompt engineering\" fluff. Just operational leverage.]{style="font-weight: bold; font-size: x-large; line-height: 2rem; padding: 2rem 0rem; letter-spacing: 1px;"}
+
+    :::
+    
+    ::: {.g-col-12 .g-col-md-6 .text-left}
+
+    ::: {style="margin: auto; font-size: large; letter-spacing: 2px;" }
+    
+    No theory. No \"prompt engineering\" fluff. Just operational leverage.
+    
+    **No theory. No fluff. Just frameworks that actually work.**
+
+    :::
+
+    :::
+    
+    :::
+
+    <br>
+    
+    :::
+
+    ::: {.g-col-0 .g-col-md-2}
+    :::
+
+    ::: {.g-col-12 .g-col-md-4 style="margin: auto;"}
+    
+    :::
+    
+
+    :::
+
+    <br>
+ -->
+<!-- ## [This content appears when you are searching for something that is no related to AI generated ! I guess you find one!]{.text-center} 
 
 <br>
 
@@ -306,103 +466,247 @@ For information about **courses and training programs**, please visit our [Cours
 
 
 
---></p>
-<div class="quarto-about-solana column-page">
-  <div class="about-entity">
-    <div class="entity-contents">
-      <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Hi - I am Jitin! I help business leverage AI for <span style="color=#FFFFFF">Profits</span></h1>
-</div>
-<div>
-  <div class="description">
-    <strong>I help Senior Professionals &amp; Business Owners build AI-Enabled Enterprises.</strong> <br> No theory. No “prompt engineering” fluff. Just operational leverage.
-  </div>
-</div>
-<div class="quarto-title-meta column-page">
-  </div>
-</header> 
-      <div class="about-contents"><div id="hero-heading">
-</div></div>
-    </div>
-    <img src="img/display_image.jpg" class="about-image
-  round " style="height: 25em; width: 25em;">
-  </div>
-</div>
+-->
+<div id="hero-heading">
 
-<section id="the-origin-story" class="level2">
-<h2 data-anchor-id="the-origin-story">The Origin Story</h2>
-<p>I didn’t set out to become “The AI Architect.”</p>
-<p>I started as a mechanical engineer with a background in applied mathematics. Early in my career, I was hired to solve automotive inventory problems that traditional approaches couldn’t crack.</p>
-<p>The patterns were too complex. The variables too numerous. The standard playbooks weren’t working.</p>
-<p><strong>Then I had a realization:</strong></p>
-<p>What if I stopped thinking about this like an automotive problem and started thinking about it like a healthcare system managing patient flow?</p>
-<p>Suddenly, the solution became obvious. We eliminated 45,000 excess units.</p>
-<p>Not because I knew more about automotive than the automotive experts.</p>
-<p><strong>Because I was looking at it sideways.</strong></p>
+</div>
+<div class="padded bg-faded text-center">
+<p><span class="text-herofy text-center">THE REAL STORY: Why I Left Corporate</span></p>
+<p>For 15 years, I was inside Fortune 500s. CTO-level roles. Building AI systems from scratch.</p>
+<p>My job? Solve problems nobody else could.</p>
+<p>And I got good at it.</p>
+<p>A ₹500Cr retail chain losing ₹7.5Cr/year to bad forecasting? I fixed it. ₹6Cr saved.</p>
+<p>A telecom giant with 11M in preventable downtime? I built the system that prevented it.</p>
+<p>A logistics company bleeding ₹2Cr annually on route optimization? Problem solved.</p>
+<p>But here’s what broke for me:</p>
+<p>I couldn’t teach it.</p>
+<p><strong>Corporate policy:</strong> I wasn’t allowed to share the framework. Wasn’t allowed to work with external clients. Wasn’t allowed to teach what I’d learned.</p>
+<p>I was sitting on a system that worked 50+ times. And I couldn’t help the people who needed it most.</p>
+<p>One day, a VP from a competitor reached out: “I heard you solve this. Can you help us? We’re about to spend ₹50L with a consultant and have no idea if it’ll work.”</p>
+<p>I said: “I’d love to, but my company won’t allow it.”</p>
+<p>That moment changed everything.</p>
+<p>I realized: <strong>The gap isn’t in AI technology. The gap is that leaders have no clarity on which problems AI can actually solve.</strong></p>
+<p>So they hire consultants for ₹100K+ and spend 6 months finding out.</p>
+<p>I decided to fix that gap.</p>
+<p>I left corporate. Built a framework that teaches leaders to diagnose AI opportunities themselves. Tested it with 50+ professionals across automotive, retail, finance, logistics.</p>
+<p>Same result every time: Clarity. Confidence. Execution.</p>
+</div>
+<section id="the-system-i-built" class="level2">
+<h2 class="anchored" data-anchor-id="the-system-i-built">THE SYSTEM I BUILT</h2>
+<p><strong>The AI Profit OS</strong> is what I couldn’t teach inside corporate walls.</p>
+<p>Three days. Three frameworks. Everything leaders need to:</p>
+<ol type="1">
+<li><strong>Know which problems in their business actually need AI</strong> (most don’t)</li>
+<li><strong>Map those problems to real solutions</strong> (without hiring consultants)</li>
+<li><strong>Quantify ROI and execute in 30–90 days</strong> (with a roadmap that works)</li>
+</ol>
+<p>The result? Leaders become AI strategists. They never get fooled by hype again. They ship real use cases that move the business.</p>
+<hr>
 </section>
-<section id="the-pattern-emerges" class="level2 bg-warm padded">
-<h2 data-anchor-id="the-pattern-emerges">The Pattern Emerges</h2>
-<p>Over 15 years architecting AI systems across automotive, retail, insurance, FMCG, and telecommunications for Fortune 500s.</p>
-<p>As a mechanical engineer with applied mathematics background, I kept seeing the same thing:</p>
-<p><strong>The breakthrough comes from applying insights from completely different domains.</strong></p>
-<p>Healthcare solving automotive. Retail transforming manufacturing. Mathematical frameworks from physics applied to business systems.</p>
-<p>Most experts stay within their industry expertise. They know their domain deeply, but they’re looking straight ahead.</p>
-<p>I learned to look sideways.</p>
+<section id="how-i-think" class="level2">
+<h2 class="anchored" data-anchor-id="how-i-think">HOW I THINK</h2>
+<p>I started as a mechanical engineer with a background in applied mathematics. This shaped everything.</p>
+<p><strong>Early in my career, I solved an inventory problem in automotive by asking: “What if I think about this like a healthcare system, not a car factory?”</strong></p>
+<p>Suddenly, the answer was obvious. We eliminated 45,000 excess units.</p>
+<p>Over 15 years, I noticed a pattern:</p>
+<p><strong>The breakthroughs don’t come from going deeper in your industry. They come from looking sideways.</strong></p>
+<p>Healthcare solving automotive problems. Retail solving manufacturing challenges. Mathematical patterns from physics applied to business operations.</p>
+<p>Most experts stay in their domain. They look straight ahead. I learned to look sideways.</p>
+<p><strong>That’s why I can diagnose any AI opportunity in 1 hour.</strong></p>
+<p>Not because I know everything. But because I’ve seen the same patterns 50+ times across different industries. I can spot what fits and what doesn’t.</p>
+<hr>
 </section>
-<section id="the-mathematical-mindset" class="level2 padded">
-<h2 data-anchor-id="the-mathematical-mindset">The Mathematical Mindset</h2>
-<p>In mathematics, there’s never just one solution to a problem. Some roots are simply more beautiful than others.</p>
-<p>This philosophy drives how I approach enterprise AI:</p>
+<section id="what-ive-done" class="level2">
+<h2 class="anchored" data-anchor-id="what-ive-done">WHAT I’VE DONE</h2>
+<p><strong>Enterprise deployments:</strong> - ₹6Cr+ saved in inventory optimization (retail) - $11M in downtime prevention (telecom) - ₹2Cr+ in route optimization (logistics) - 99.2% accuracy in invoice automation (finance) - 70% reduction in onboarding time (services)</p>
+<p><strong>Industries I’ve worked in:</strong> - Automotive (Mercedes, Maruti) - Retail (L’Oréal, major chains) - Telecom (British Telecom, major carriers) - Finance (banks, CFOs, procurement) - Logistics (supply chain, inventory) - FMCG (demand forecasting)</p>
+<p><strong>What this taught me:</strong></p>
+<p>There’s no such thing as an “AI problem.” There are only business problems that can sometimes be solved with AI.</p>
+<p>The skill isn’t knowing AI. It’s knowing the difference.</p>
+<p>That’s what I teach.</p>
+<hr>
+</section>
+<section id="why-i-built-this-cohort" class="level2">
+<h2 class="anchored" data-anchor-id="why-i-built-this-cohort">WHY I BUILT THIS COHORT</h2>
+<p>Leaders don’t need more AI education. They need clarity.</p>
+<p>Right now: - YouTube teaches tools (ChatGPT, prompts, etc.) - MBA programs teach strategy (generic, slow) - Consultants charge ₹100K+ (expensive, 6-month timelines) - Nobody teaches: “How to know if AI is even the answer”</p>
+<p><strong>That’s the gap.</strong></p>
+<p>So I built a 3-day intensive that teaches the exact diagnostic system I’ve used 50+ times. The one that works whether you’re in automotive, finance, retail, or logistics.</p>
+<p>Same frameworks. Different problems. Same results: clarity + execution.</p>
+<hr>
+</section>
+<section id="what-changed-for-people" class="level2">
+<h2 class="anchored" data-anchor-id="what-changed-for-people">WHAT CHANGED FOR PEOPLE</h2>
+<p>A VP of Operations at a ₹500Cr retail chain: - Before: “Is AI even right for our problem?” - After 3 days: “Yes. Here’s what we need to build. Here’s the ROI. Here’s the roadmap.” - After 90 days: ₹6Cr saved annually.</p>
+<p>A CFO at a ₹50Cr services company: - Before: “Should we automate invoicing?” - After 3 days: “Yes, with RPA + OCR. Here’s what we need.” - After 6 weeks: 40 hrs/week → 6 hrs/week. 99.2% accuracy.</p>
+<p>A founder at a ₹15Cr consulting firm: - Before: “How do we scale without hiring 10 new ops people?” - After 3 days: “Automate onboarding. Here’s the roadmap.” - After 4 weeks: 3 weeks → 4 days. 3x faster scaling.</p>
+<p><strong>The pattern:</strong> Clarity first. Execution follows. ROI is real.</p>
+<hr>
+</section>
+<section id="beyond-the-work" class="level2">
+<h2 class="anchored" data-anchor-id="beyond-the-work">BEYOND THE WORK</h2>
+<p>When I’m not building AI systems or teaching leaders, you’ll find me:</p>
 <ul>
-<li><strong>Pattern recognition across domains</strong> instead of single-industry expertise</li>
-<li><strong>Root cause analysis</strong> instead of surface-level fixes</li>
-<li><strong>Elegant solutions</strong> over brute force approaches</li>
-<li><strong>Systemic thinking</strong> instead of point solutions</li>
-</ul>
-<p>When you’ve solved similar problems in healthcare, the path through retail becomes visible. When you understand the mathematics of one optimization challenge, you start seeing the same structures everywhere.</p>
-</section>
-<section id="current-work" class="level2 bg-contrast padded">
-<h2 data-anchor-id="current-work">Current Work</h2>
-<p>I serve as AI Strategist (Ex-AI CTO) across multiple Fortune 500 accounts while mentoring a team of 30+ professionals.</p>
-<p>The work spans:</p>
-<ul>
-<li>Predictive analytics and AI strategy architecture</li>
-<li>Cross-industry system optimization</li>
-<li>Executive team transformation and strategic planning</li>
-<li>Implementation frameworks that actually scale</li>
-</ul>
-<p>I also run <strong>The AI Profit OS</strong> — a 3-day intensive that teaches enterprise leaders to think like architects instead of tool users.</p>
-</section>
-<section id="beyond-the-work" class="level2 padded">
-<h2 data-anchor-id="beyond-the-work">Beyond the Work</h2>
-<p>When I’m not architecting AI systems, you’ll find me:</p>
-<ul>
-<li>Playing guitar (badly but enthusiastically)</li>
-<li>Planning the next off-the-beaten-path adventure</li>
 <li>Reading mathematical proofs for fun (yes, really)</li>
+<li>Planning next adventure to somewhere unfamiliar</li>
+<li>Playing guitar badly but enthusiastically</li>
 </ul>
-<p>Getting lost in unfamiliar places keeps the mind flexible. Some of my best insights come from being completely outside my comfort zone.</p>
+<p>The unfamiliar keeps me sharp. Some of my best insights come from being completely outside my comfort zone. That’s why I travel to places I’ve never been. That’s why I left corporate (the scariest decision I’ve made).</p>
+<p>Growth happens in discomfort.</p>
+<hr>
 </section>
-<section id="want-to-work-together" class="level2 padded bg-warm">
-<h2 data-anchor-id="want-to-work-together">Want to Work Together?</h2>
-<p>I take on a limited number of consulting engagements and run cohort-based training for enterprise AI leaders.</p>
-<p>If you’re exploring a major AI transformation, let’s talk.</p>
-<p><br></p>
-<div style="justify-items:center;">
-<p><a href="./consulting/index.html" class="btn-primary btn-large">Explore Consulting</a> <a href="./cohort/index.html" class="btn-secondary btn-large">Join The Protocol</a></p>
-<div class="mt-lg">
-<p>Or just <a href="mailto:info@kriyaytics.com">email me</a> to discuss your challenge.</p>
-</div>
-</div>
+<section id="why-now" class="level2">
+<h2 class="anchored" data-anchor-id="why-now">WHY NOW?</h2>
+<p>AI is table stakes. Every company knows this. But most are moving in the wrong direction.</p>
+<p>They ask: “What AI tools should we use?”</p>
+<p>Wrong question.</p>
+<p>Right question: “Which of our problems can actually be solved by AI?”</p>
+<p>By the time most leaders figure this out, they’ve wasted ₹50L+ and 6 months.</p>
+<p>I’m here to prevent that.</p>
+<p><strong>The cohort is live. 3 days. Limited to 50 leaders per cohort. January 9–11, 2026.</strong></p>
+<hr>
 </section>
+<section id="want-to-work-with-me" class="level2">
+<h2 class="anchored" data-anchor-id="want-to-work-with-me">WANT TO WORK WITH ME?</h2>
+<p><strong>Option 1: Join the AI Profit OS Cohort</strong></p>
+<p>3 days. Learn the diagnostic system. Execute in 30–90 days. Walk away with frameworks you’ll use forever.</p>
+<p>₹24,978 (founding rate for January cohort).</p>
+<p><a href="https://jitinkapila.com/cohort/"><strong>Join The Cohort</strong></a></p>
+<hr>
+<p><strong>Option 2: Direct Consulting</strong> (Limited Availability)</p>
+<p>I take on a select number of consulting engagements for organizations ready to move fast.</p>
+<p><a href="mailto:jitin@jitinkapila.com"><strong>Explore Consulting</strong></a></p>
+<hr>
+<p><strong>Option 3: Just Talk</strong></p>
+<p>No pressure. No sales. Just a conversation about your challenge.</p>
+<p><a href="mailto:jitin@jitinkapila.com"><strong>Email me</strong></a></p>
+<p>{{&lt; include includes/_subs.qmd&gt;}} <!-- 
+
+## The Origin Story
+
+I didn't set out to become "The AI Architect."
+
+I started as a mechanical engineer with a background in applied mathematics. Early in my career, I was hired to solve automotive inventory problems that traditional approaches couldn't crack.
+
+The patterns were too complex. The variables too numerous. The standard playbooks weren't working.
+
+**Then I had a realization:**
+
+What if I stopped thinking about this like an automotive problem and started thinking about it like a healthcare system managing patient flow?
+
+Suddenly, the solution became obvious. We eliminated 45,000 excess units.
+
+Not because I knew more about automotive than the automotive experts.
+
+**Because I was looking at it sideways.**
 
 
 
+
+::: {.bg-warm .padded}
+
+## The Pattern Emerges
+
+Over 15 years architecting AI systems across automotive, retail, insurance, FMCG, and telecommunications for Fortune 500s. 
+
+As a mechanical engineer with applied mathematics background, I kept seeing the same thing:
+
+**The breakthrough comes from applying insights from completely different domains.**
+
+Healthcare solving automotive. Retail transforming manufacturing. Mathematical frameworks from physics applied to business systems.
+
+Most experts stay within their industry expertise. They know their domain deeply, but they're looking straight ahead.
+
+I learned to look sideways.
+
+:::
+
+
+::: {.padded}
+## The Mathematical Mindset
+
+In mathematics, there's never just one solution to a problem. Some roots are simply more beautiful than others.
+
+This philosophy drives how I approach enterprise AI:
+
+- **Pattern recognition across domains** instead of single-industry expertise
+- **Root cause analysis** instead of surface-level fixes
+- **Elegant solutions** over brute force approaches
+- **Systemic thinking** instead of point solutions
+
+When you've solved similar problems in healthcare, the path through retail becomes visible. When you understand the mathematics of one optimization challenge, you start seeing the same structures everywhere.
+:::
+
+::: {.bg-contrast .padded}
+
+## Current Work
+
+I serve as AI Strategist (Ex-AI CTO) across multiple Fortune 500 accounts while mentoring a team of 30+ professionals.
+
+The work spans:
+
+- Predictive analytics and AI strategy architecture
+- Cross-industry system optimization
+- Executive team transformation and strategic planning
+- Implementation frameworks that actually scale
+
+I also run **The AI Profit OS** — a 3-day intensive that teaches enterprise leaders to think like architects instead of tool users.
+
+:::
+
+
+::: {.padded}
+
+## Beyond the Work
+
+When I'm not architecting AI systems, you'll find me:
+
+- Playing guitar (badly but enthusiastically)
+- Planning the next off-the-beaten-path adventure
+- Reading mathematical proofs for fun (yes, really)
+
+Getting lost in unfamiliar places keeps the mind flexible. Some of my best insights come from being completely outside my comfort zone.
+
+:::
+
+::: {.padded .bg-warm}
+
+## Want to Work Together?
+
+I take on a limited number of consulting engagements and run cohort-based training for enterprise AI leaders.
+
+If you're exploring a major AI transformation, let's talk.
+
+
+<br>
+
+::: {style="justify-items:center;"}
+
+[Explore Consulting](consulting/index.qmd){.btn-primary .btn-large}
+[Join The Protocol](cohort/index.qmd){.btn-secondary .btn-large}
+
+::: {.mt-lg}
+Or just [email me](mailto:info@kriyaytics.com) to discuss your challenge.
+:::
+
+:::
+
+:::
+ --></p>
+
+
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -857,6 +1161,38 @@ For information about **courses and training programs**, please visit our [Cours
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

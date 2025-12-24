@@ -41,10 +41,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2dd424cac55da6011314b5d900643f0b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-13c066914389908816f72557aa4aa8f7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-21a5897dc2345447435f366dfc92de72.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/bootstrap-icons-1.13.1/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,6 +71,12 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #FEfcfd;
+      }
+</style>
 <script defer="" src="https://cloud.umami.is/script.js" data-website-id="aeaaf854-d53a-45ab-83d5-1963c96af264"></script>
 <!-- Google tag (gtag.js) -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NHFL6KB2FQ"></script>
@@ -207,6 +211,80 @@ ul.task-list li input[type="checkbox"] {
   ]
 }
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const heroSection = document.querySelector('#quarto-content');
+    if (!heroSection) return;
+
+    let cursor = null;
+
+    heroSection.addEventListener('mouseenter', () => {
+      if (!cursor) {
+        cursor = document.createElement('div');
+        cursor.className = 'premium-crosshair';
+        document.body.appendChild(cursor);
+      }
+    });
+
+    heroSection.addEventListener('mousemove', (e) => {
+      if (cursor) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      }
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      if (cursor) {
+        cursor.remove();
+        cursor = null;
+      }
+    });
+  });
+</script>
+
+<!-- 
+```{=html}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const heroSection = document.querySelector('#quarto-content');
+    if (!heroSection) return;
+
+    const particles = [];
+
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Create particle
+      const particle = document.createElement('div');
+      particle.className = 'cursor-particle';
+      heroSection.appendChild(particle);
+
+      particle.style.left = x + 'px';
+      particle.style.top = y + 'px';
+
+      // Animate and remove
+      let opacity = 1;
+      const interval = setInterval(() => {
+        opacity -= 0.05;
+        particle.style.opacity = opacity;
+
+        if (opacity <= 0) {
+          clearInterval(interval);
+          particle.remove();
+        }
+      }, 30);
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      document.querySelectorAll('.cursor-particle').forEach(p => p.style.opacity = '0');
+    });
+  });
+</script>
+```
+ -->
 
 
 <meta property="og:title" content="Get in Touch">
@@ -220,12 +298,16 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/jk-logo.svg" alt="" class="navbar-logo light-content">
+    <img src="./img/jk-logo.svg" alt="" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">JITIN KAPILA</span>
+    <span class="navbar-title">Jitin Kapila</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -237,6 +319,10 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="./cohort/index.html"> 
 <span class="menu-text">Courses</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./case-studies/index.html"> 
+<span class="menu-text">Case Studies</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./blog/index.html"> 
@@ -257,89 +343,65 @@ ul.task-list li input[type="checkbox"] {
 </div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Get in Touch</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Get in Touch</h1>
+
+
+
+
+<div class="column-screen bg-warm page-columns page-full">
+<p><br></p>
+<div class="grid column-page-inset">
+<div class="g-col-12 g-col-md-5">
+<p><br></p>
+<p><br></p>
+<p>Want to explore AI opportunities before committing to consulting? Subscribe for curated case studies, frameworks, and real-world examples from my work.</p>
+<p>For information about <strong>courses and training programs</strong>, please visit our <a href="./cohort/index.html"><strong><em>Courses page</em></strong></a>.</p>
+<p><br></p>
+<div style="padding: 1rem 1.2rem; font-size: 2rem;">
+<p><a class="padded" href="https://linkedin.com/in/jitinkapila" title="LinkedIn" target="_blank" rel="noopener"><i class="bi-linkedin " style="" role="img" aria-hidden="true"></i></a> <a class="padded" href="https://aicrosscurrent.substack.com/" title="github" target="_blank" rel="noopener"><i class="bi-substack " style="" role="img" aria-hidden="true"></i></a> <a class="padded" href="https://github.com/jkapila" title="github" target="_blank" rel="noopener"><i class="bi-github " style="" role="img" aria-hidden="true"></i></a> <a class="padded" href="mailto:info@kriyalytics.com" title="Email" target="_blank" rel="noopener"><i class="bi-envelope " style="" role="img" aria-hidden="true"></i></a></p>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<div class="grid">
-<div id="note" class="g-col-5">
-<p>Contact me for <strong>AI Consulting and Strategy</strong> services, or to discuss how AI can transform your business.</p>
-<p>For information about <strong>courses and training programs</strong>, please visit our <a href="./cohort/index.html">Courses page</a>.</p>
-<p><a class="" href="https://linkedin.com/in/jitinkapila" title="LinkedIn" target="_blank" rel="noopener"><i class="bi-linkedin " style="" role="img" aria-hidden="true"></i></a> <a class="" href="https://aicrosscurrent.substack.com/" title="github" target="_blank" rel="noopener"><i class="bi-substack " style="" role="img" aria-hidden="true"></i></a> <a class="" href="https://github.com/jkapila" title="github" target="_blank" rel="noopener"><i class="bi-github " style="" role="img" aria-hidden="true"></i></a> <a class="" href="mailto:info@kriyalytics.com" title="Email" target="_blank" rel="noopener"><i class="bi-envelope " style="" role="img" aria-hidden="true"></i></a></p>
 </div>
-<div class="g-col-1">
+<div class="g-col-12 g-col-md-1">
 
 </div>
-<div id="form" class="g-col-6">
-<form style="margin-top: -2rem;" action="https://systeme.io/embedded/36144701/subscription" method="POST" accept-charset="utf-8">
+<div class="g-col-12 g-col-md-6">
+<p><br></p>
+<form action="https://systeme.io/embedded/36144701/subscription" method="POST" accept-charset="utf-8">
 <p><label for="full-name">Full Name</label> <input type="text" name="name" id="full-name" class="form-control" placeholder="First and Last" required=""></p>
 <p><label for="email-address">Email Address</label> <input type="email" name="email" id="email-address" class="form-control" placeholder="your@email.here" required=""></p>
 <label for="message">Message</label>
-<textarea rows="6" name="message" id="message" class="form-control" placeholder="Tell me about your AI consulting needs or strategic questions..." required=""></textarea>
+<textarea rows="4" name="message" id="message" class="form-control" placeholder="Tell me about your AI consulting needs or strategic questions..." required=""></textarea>
 <button type="submit" class="btn btn-primary mt-4">Send message</button>
 </form>
 </div>
-<section id="subscribe-to-updates" class="level1 g-col-5">
-<h1>Subscribe to Updates <i class="fa-solid fa-envelope" aria-label="envelope"></i></h1>
-<p>Stay informed about AI trends, insights, and new content. Subscribe to receive updates directly to your inbox.</p>
-</section>
-<div class="g-col-1">
+</div>
+<p><br></p>
+<p><br></p>
+
 
 </div>
-<div class="g-col-6">
-<form style="margin-top: 4em;" method="post" action="https://systeme.io/embedded/36144701/subscription">
-  <label for="bd-email">Email Address</label>
-  <input class="form-control" placeholder="your@email.here" type="email" name="email" id="bd-email">
-  
-  <input class="btn btn-primary" style="margin-top: 1em;" type="submit" value="Subscribe">
-</form>
-</div>
-</div>
-<!-- end grid -->
-<!-- 
-<form method="post" action="https://systeme.io/embedded/36144701/subscription"> <input type=text name=email />
-  <div class="f-row">
-    <button type="submit" class="btn">Subscribe</button>
-  </div>
-  </form>
-   -->
-<hr>
-<form method="post" action="https://systeme.io/embedded/36146564/subscription">
-<input type="text" name="first_name"> <input type="text" name="surname"> <input type="text" name="email">
-<div class="f-row">
-<pre><code>&lt;button type="submit" class="btn"&gt;Subscribe&lt;/button&gt;</code></pre>
-</div>
-</form>
-<hr>
-<!-- <script id="form-script-tag-21996647" src="https://jitin-kapila.systeme.io/public/remote/page/3614656419bfba8521494a170242ec7bd34e6497.js"></script>
-
-***
-
-<iframe src="https://jitin-kapila.systeme.io/orderpage" width="100%" height="600px"></iframe>    -->
-
-
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

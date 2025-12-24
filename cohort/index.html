@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="In 3 days, architect AI use cases that matter. In 30–90 days, ship them with your team. No $100K consultant. No waiting. For Senior Professionals Who Refuse to Be Replaced by a Script and want to lead with AI Secure Your Seat – ₹24,999">
+<meta name="description" content="The only leadership program designed for executing AI strategy (not learning tools) In 3 days, architect AI strategy. In 30–90 days, your team ships the first use case. Secure Your Seat – ₹24,978">
 
-<title>Build Your Personal &lt;br&gt; AI Operating System – Jitin Kapila</title>
+<title>Build Your AI Operating System for Business – Jitin Kapila</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2dd424cac55da6011314b5d900643f0b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9296723196024aa58aaf41094addff46.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f6051ad68193878a06d6a0aa295d5bf5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/accordion/accordion.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -209,30 +209,116 @@ ul.task-list li input[type="checkbox"] {
   ]
 }
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const heroSection = document.querySelector('#quarto-content');
+    if (!heroSection) return;
+
+    let cursor = null;
+
+    heroSection.addEventListener('mouseenter', () => {
+      if (!cursor) {
+        cursor = document.createElement('div');
+        cursor.className = 'premium-crosshair';
+        document.body.appendChild(cursor);
+      }
+    });
+
+    heroSection.addEventListener('mousemove', (e) => {
+      if (cursor) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      }
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      if (cursor) {
+        cursor.remove();
+        cursor = null;
+      }
+    });
+  });
+</script>
+
+<!-- 
+```{=html}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const heroSection = document.querySelector('#quarto-content');
+    if (!heroSection) return;
+
+    const particles = [];
+
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Create particle
+      const particle = document.createElement('div');
+      particle.className = 'cursor-particle';
+      heroSection.appendChild(particle);
+
+      particle.style.left = x + 'px';
+      particle.style.top = y + 'px';
+
+      // Animate and remove
+      let opacity = 1;
+      const interval = setInterval(() => {
+        opacity -= 0.05;
+        particle.style.opacity = opacity;
+
+        if (opacity <= 0) {
+          clearInterval(interval);
+          particle.remove();
+        }
+      }, 30);
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      document.querySelectorAll('.cursor-particle').forEach(p => p.style.opacity = '0');
+    });
+  });
+</script>
+```
+ -->
 
 
 <link rel="stylesheet" href="../includes/indexpage.css">
-<meta property="og:title" content="Build Your Personal  AI Operating System">
-<meta property="og:description" content="**In 3 days, architect AI use cases that matter. In 30–90 days, ship them with your team. No $100K consultant. No waiting.">
+<meta property="og:title" content="Build Your AI Operating System for Business">
+<meta property="og:description" content="**The only leadership program designed for executing AI strategy (not learning tools)**
+
+<br>
+
+***In 3 days, architect AI strategy. In 30–90 days, your team ships the first use case.">
 <meta property="og:image" content="https://jitinkapila.com/img/display_image.jpg">
 <meta property="og:site_name" content="Jitin Kapila">
-<meta name="twitter:title" content="Build Your Personal  AI Operating System">
-<meta name="twitter:description" content="**In 3 days, architect AI use cases that matter. In 30–90 days, ship them with your team. No $100K consultant. No waiting.">
+<meta name="twitter:title" content="Build Your AI Operating System for Business">
+<meta name="twitter:description" content="**The only leadership program designed for executing AI strategy (not learning tools)**
+
+<br>
+
+***In 3 days, architect AI strategy. In 30–90 days, your team ships the first use case.">
 <meta name="twitter:image" content="https://jitinkapila.com/img/display_image.jpg">
 <meta name="twitter:creator" content="@jitinkapila">
 <meta name="twitter:site" content="@jitinkapila">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../img/jk-logo.svg" alt="" class="navbar-logo light-content">
+    <img src="../img/jk-logo.svg" alt="" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">JITIN KAPILA</span>
+    <span class="navbar-title">Jitin Kapila</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -244,6 +330,10 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link active" href="../cohort/index.html" aria-current="page"> 
 <span class="menu-text">Courses</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../case-studies/index.html"> 
+<span class="menu-text">Case Studies</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../blog/index.html"> 
@@ -267,41 +357,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#for-senior-professionals-who" id="toc-for-senior-professionals-who" class="nav-link active" data-scroll-target="#for-senior-professionals-who">FOR SENIOR PROFESSIONALS WHO…</a></li>
-  <li><a href="#this-is-not-for-you-if" id="toc-this-is-not-for-you-if" class="nav-link" data-scroll-target="#this-is-not-for-you-if">THIS IS NOT FOR YOU IF…</a></li>
-  <li><a href="#your-3-day-roadmap" id="toc-your-3-day-roadmap" class="nav-link" data-scroll-target="#your-3-day-roadmap">YOUR 3-DAY ROADMAP</a>
-  <ul class="collapse">
-  <li><a href="#day-1-ai-art-matrix-strategic-foundation" id="toc-day-1-ai-art-matrix-strategic-foundation" class="nav-link" data-scroll-target="#day-1-ai-art-matrix-strategic-foundation">Day 1: AI ART Matrix™ – Strategic Foundation</a></li>
-  <li><a href="#day-2-o.l.c.d-framework-diagnostic-mapping" id="toc-day-2-o.l.c.d-framework-diagnostic-mapping" class="nav-link" data-scroll-target="#day-2-o.l.c.d-framework-diagnostic-mapping">Day 2: O.L.C.D Framework™ – Diagnostic Mapping</a></li>
-  <li><a href="#day-3-roi-mapping-execution-measurement" id="toc-day-3-roi-mapping-execution-measurement" class="nav-link" data-scroll-target="#day-3-roi-mapping-execution-measurement">Day 3: ROI Mapping – Execution &amp; Measurement</a></li>
-  </ul></li>
-  <li><a href="#what-past-leaders-say" id="toc-what-past-leaders-say" class="nav-link" data-scroll-target="#what-past-leaders-say">WHAT PAST LEADERS SAY</a></li>
-  <li><a href="#terms-clear-unambiguous" id="toc-terms-clear-unambiguous" class="nav-link" data-scroll-target="#terms-clear-unambiguous">Terms (Clear &amp; Unambiguous):</a></li>
-  <li><a href="#common-questions" id="toc-common-questions" class="nav-link" data-scroll-target="#common-questions">COMMON QUESTIONS</a></li>
-  <li><a href="#still-on-the-fence" id="toc-still-on-the-fence" class="nav-link" data-scroll-target="#still-on-the-fence">Still On The Fence?</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Build Your Personal <br> AI Operating System</h1>
+<h1 class="title">Build Your AI Operating System for Business</h1>
 </div>
 
 <div>
   <div class="description">
-    <p><strong>In 3 days, architect AI use cases that matter. In 30–90 days, ship them with your team. No $100K consultant. No waiting.</strong></p>
+    <p><strong>The only leadership program designed for executing AI strategy (not learning tools)</strong></p>
     <p><br></p>
-    <p><strong><em>For Senior Professionals Who Refuse to Be Replaced by a Script and want to lead with AI</em></strong></p>
+    <p><strong><em>In 3 days, architect AI strategy. In 30–90 days, your team ships the first use case.</em></strong></p>
     <p><br></p>
-    <p><a href="{{< var cohort.reglink >}}" class="btn btn-hero-primary px-4 py-3">Secure Your Seat – ₹24,999</a></p>
+    <p><a href="https://jitin-kapila.systeme.io/bootcamp" class="btn btn-hero-primary px-4 py-3">Secure Your Seat – ₹24,978</a></p>
   </div>
 </div>
 
@@ -327,7 +398,7 @@ TYPOGRAPHY:
 - No excessive spacing; premium = controlled, not airy
 
 CONVERSION FOCUS:
-- One primary CTA: "Secure Your Seat – ₹₹24,999"
+- One primary CTA: "Secure Your Seat – ₹₹24,978"
 - No competing CTAs (no "Apply," no "Learn More," no secondary routes)
 - Urgency: Dates confirmed, seat cap real, next price increase real
 - Proof-heavy: Case blocks + testimonials prevent objections
@@ -363,7 +434,7 @@ CONVERSION FOCUS:
 <div class="g-col-12 g-col-md-4">
 <div class="card">
 <p><span class="card-title"><strong>Investment</strong></span><br>
-<span class="card-description">₹24,999 (Founding rate. Next cohort: ₹36,999)</span></p>
+<span class="card-description">₹24,978 (<strong>New Year Discount Applied</strong>. Next cohort: ₹42,978)</span></p>
 </div>
 </div>
 </div>
@@ -377,12 +448,12 @@ CONVERSION FOCUS:
 
 <br>
 
-[Secure Your Seat – ₹24,999](<script id="form-script-tag-21995900" src="https://jitin-kapila.systeme.io/public/remote/page/3614470194399fb5188a8f85af6d49dc4344ef43.js">){.btn .btn-outline-primary .px-4 .py-3}
+[Secure Your Seat – ₹24,978](<script id="form-script-tag-21995900" src="https://jitin-kapila.systeme.io/public/remote/page/3614470194399fb5188a8f85af6d49dc4344ef43.js">){.btn .btn-outline-primary .px-4 .py-3}
 
 
 <br>
 
-[<a href="#" class="systeme-show-popup-21995900"> Secure Your Seat – ₹24,999</a><script id="form-script-tag-21995900" src="https://jitin-kapila.systeme.io/public/remote/page/3614470194399fb5188a8f85af6d49dc4344ef43.js"></script>]{.btn .btn-outline-primary .px-4 .py-3}
+[<a href="#" class="systeme-show-popup-21995900"> Secure Your Seat – ₹24,978</a><script id="form-script-tag-21995900" src="https://jitin-kapila.systeme.io/public/remote/page/3614470194399fb5188a8f85af6d49dc4344ef43.js"></script>]{.btn .btn-outline-primary .px-4 .py-3}
 
 <br>
 
@@ -504,7 +575,7 @@ This modal uses the extra large size option.
 </div>
 <p><br></p>
 <div class="justify-center justify-items-center text-center">
-<p><a href="https://jitin-kapila.systeme.io/bootcamp" class="btn hero-cta-buttons btn-hero-primary px-4 py-3">Secure Your Seat – ₹24,999</a></p>
+<p><a href="https://jitin-kapila.systeme.io/bootcamp" class="btn hero-cta-buttons btn-hero-primary px-4 py-3">Secure Your Seat – ₹24,978</a></p>
 </div>
 <p><br></p>
 </div>
@@ -641,7 +712,7 @@ NOTE: Placeholder copy below. Replace with real testimonials from:
 <p><em>More testimonials coming after January cohort concludes. Previous 1-on-1 students available for reference upon request.</em></p>
 <div class="justify-center justify-items-center text-center">
 <p><br></p>
-<p><a href="https://jitin-kapila.systeme.io/bootcamp" class="btn btn-hero-primary px-4 py-3">Secure Your Seat – ₹24,999</a></p>
+<p><a href="https://jitin-kapila.systeme.io/bootcamp" class="btn btn-hero-primary px-4 py-3">Secure Your Seat – ₹24,978</a></p>
 <p><br></p>
 </div>
 </section>
@@ -657,8 +728,8 @@ NOTE: Placeholder copy below. Replace with real testimonials from:
 -->
 <p><br></p>
 <div class="justify-center text-center" style="font-size: x-large; font-weight: bold;">
-<p>The Investment: ₹24,999 (January Cohort – Founding Rate)</p>
-<p><strong>Next cohort: ₹36,999.</strong> Price increases as demand grows.</p>
+<p>The Investment: ₹24,978 (January Cohort – Founding Rate)</p>
+<p><strong>Next cohort: ₹42,978.</strong> Price increases as demand grows.</p>
 </div>
 <p><br></p>
 <div class="card-dark" style="line-height: 1.6rem">
@@ -719,7 +790,7 @@ NOTE: This guarantee is detailed and specific. No ambiguity.
 <li><strong>Mapped at least one viable AI use case</strong> with clear ROI (before/after scenario modeled), AND</li>
 <li><strong>Created a 30–90 day roadmap</strong> you can hand to your team or leadership,</li>
 </ol>
-<p>I’ll refund you 100% of your investment <strong>AND</strong> pay you ₹2,599 directly for your time.</p>
+<p>I’ll refund you 100% of your investment <strong>AND</strong> pay you ₹2,499 directly for your time.</p>
 </div>
 </section>
 <p><br></p>
@@ -750,9 +821,9 @@ NOTE: This guarantee is detailed and specific. No ambiguity.
 <div class="g-col-12 g-col-md-6">
 <p><strong>What the refund includes:</strong></p>
 <ul>
-<li>100% refund of ₹24,999<br>
+<li>100% refund of ₹24,978<br>
 </li>
-<li>Plus ₹2,599 paid directly to you (compensation for your time)<br>
+<li>Plus ₹2,499 paid directly to you (compensation for your time)<br>
 </li>
 <li>No questions asked, no strings attached</li>
 </ul>
@@ -764,7 +835,7 @@ NOTE: This guarantee is detailed and specific. No ambiguity.
 </li>
 <li>Refund processed within 7 business days<br>
 </li>
-<li>The ₹2,599 bonus is sent via bank transfer or credit to a future cohort</li>
+<li>The ₹2,499 bonus is sent via bank transfer or credit to a future cohort</li>
 </ul>
 </div>
 </div>
@@ -1013,8 +1084,8 @@ NOTE: This guarantee is detailed and specific. No ambiguity.
 <p>No consultant. No waiting. No confusion.</p>
 <p><strong>January 09-11, 2026. Limited to 50 leaders per cohort.</strong></p>
 <div class="justify-center justify-items-center text-center">
-<p><a href="https://jitin-kapila.systeme.io/bootcamp" class="btn hero-cta-buttons btn-hero-primary px-4 py-3">Secure Your Seat – ₹24,999</a></p>
-<p><em>Next cohort: ₹36,999. Invest early.</em></p>
+<p><a href="https://jitin-kapila.systeme.io/bootcamp" class="btn hero-cta-buttons btn-hero-primary px-4 py-3">Secure Your Seat – ₹24,978</a></p>
+<p><em>Next cohort: ₹42,978. Invest early.</em></p>
 </div>
 </section>
 <p><br></p>

@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Examples of how cross-industry pattern recognition transforms complex challenges into elegant solutions.">
+<meta name="description" content="Results From Leaders Who Built Real AI Systems You’re not alone. These leaders faced the same confusion you do now. They went through the framework. They architected. They shipped.Here’s what happened.">
 
-<title>Case Studies – Jitin Kapila</title>
+<title>Case Studies – Real Results – Jitin Kapila</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2dd424cac55da6011314b5d900643f0b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9296723196024aa58aaf41094addff46.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f6051ad68193878a06d6a0aa295d5bf5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -205,28 +205,116 @@ ul.task-list li input[type="checkbox"] {
   ]
 }
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const heroSection = document.querySelector('#quarto-content');
+    if (!heroSection) return;
+
+    let cursor = null;
+
+    heroSection.addEventListener('mouseenter', () => {
+      if (!cursor) {
+        cursor = document.createElement('div');
+        cursor.className = 'premium-crosshair';
+        document.body.appendChild(cursor);
+      }
+    });
+
+    heroSection.addEventListener('mousemove', (e) => {
+      if (cursor) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      }
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      if (cursor) {
+        cursor.remove();
+        cursor = null;
+      }
+    });
+  });
+</script>
+
+<!-- 
+```{=html}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const heroSection = document.querySelector('#quarto-content');
+    if (!heroSection) return;
+
+    const particles = [];
+
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Create particle
+      const particle = document.createElement('div');
+      particle.className = 'cursor-particle';
+      heroSection.appendChild(particle);
+
+      particle.style.left = x + 'px';
+      particle.style.top = y + 'px';
+
+      // Animate and remove
+      let opacity = 1;
+      const interval = setInterval(() => {
+        opacity -= 0.05;
+        particle.style.opacity = opacity;
+
+        if (opacity <= 0) {
+          clearInterval(interval);
+          particle.remove();
+        }
+      }, 30);
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      document.querySelectorAll('.cursor-particle').forEach(p => p.style.opacity = '0');
+    });
+  });
+</script>
+```
+ -->
 
 
-<link rel="stylesheet" href="../includes/mainpage.css">
-<meta property="og:title" content="Case Studies">
-<meta property="og:description" content="Examples of how cross-industry pattern recognition transforms complex challenges into elegant solutions.">
+<link rel="stylesheet" href="../includes/indexpage.css">
+<meta property="og:title" content="Case Studies – Real Results">
+<meta property="og:description" content="**Results From Leaders Who Built Real AI Systems**
+
+<br>
+
+You're not alone. These leaders faced the same confusion you do now.
+They went through the framework. They architected. They shipped.">
 <meta property="og:site_name" content="Jitin Kapila">
-<meta name="twitter:title" content="Case Studies">
-<meta name="twitter:description" content="Examples of how cross-industry pattern recognition transforms complex challenges into elegant solutions.">
+<meta name="twitter:title" content="Case Studies – Real Results">
+<meta name="twitter:description" content="**Results From Leaders Who Built Real AI Systems**
+
+<br>
+
+You're not alone. These leaders faced the same confusion you do now.
+They went through the framework. They architected. They shipped.">
 <meta name="twitter:creator" content="@jitinkapila">
 <meta name="twitter:site" content="@jitinkapila">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../img/jk-logo.svg" alt="" class="navbar-logo light-content">
+    <img src="../img/jk-logo.svg" alt="" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">JITIN KAPILA</span>
+    <span class="navbar-title">Jitin Kapila</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -238,6 +326,10 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../cohort/index.html"> 
 <span class="menu-text">Courses</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../case-studies/index.html" aria-current="page"> 
+<span class="menu-text">Case Studies</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../blog/index.html"> 
@@ -258,27 +350,29 @@ ul.task-list li input[type="checkbox"] {
 </div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Case Studies</h1>
-<p class="subtitle lead">How problems got actually solved at Fortune 500s ?</p>
+<h1 class="title">Case Studies – Real Results</h1>
 </div>
 
 <div>
   <div class="description">
-    Examples of how cross-industry pattern recognition transforms complex challenges into elegant solutions.
+    <p><strong>Results From Leaders Who Built Real AI Systems</strong></p>
+    <p><br></p>
+    <p>You’re not alone. These leaders faced the same confusion you do now. They went through the framework. They architected. They shipped.</p>
+    <p><strong>Here’s what happened.</strong></p>
   </div>
 </div>
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta">
 
     
   
@@ -290,11 +384,374 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="mathematical-thinking-applied-to-business-problems" class="level2">
-<h2 class="anchored" data-anchor-id="mathematical-thinking-applied-to-business-problems">Mathematical Thinking Applied to Business Problems</h2>
-
-
+<div class="column-screen bg-warm page-columns page-full">
+<div class="column-page padded">
+<section id="case-study-1-grocery-chain-inventory-optimization" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-1-grocery-chain-inventory-optimization">CASE STUDY #1: Grocery Chain – Inventory Optimization</h2>
+<section id="the-snapshot" class="level3">
+<h3 class="anchored" data-anchor-id="the-snapshot">The Snapshot</h3>
+<p><strong>Company:</strong> Multi-location retail chain (₹500Cr+ revenue)<br>
+<strong>Industry:</strong> FMCG/Retail<br>
+<strong>Challenge:</strong> Manual demand forecasting wasting ₹7.5Cr/year<br>
+<strong>Timeline to first result:</strong> 3 months</p>
+<hr>
 </section>
+<section id="the-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-problem">The Problem</h3>
+<p>60+ hours per week spent on manual demand forecasting.</p>
+<p>Forecast accuracy: 65% (too low for reliable ordering).</p>
+<p>Inventory waste: ₹7.5Cr annually (obsolete stock, overstock, markdowns).</p>
+<p>Suppliers upset because orders were unpredictable.</p>
+<p>Competitors using AI were ordering more accurately. This company was falling behind.</p>
+<p>The VP of Operations knew AI could help. But didn’t know which AI, how to evaluate it, or whether it was worth the investment.</p>
+<hr>
+</section>
+<section id="the-constraints" class="level3">
+<h3 class="anchored" data-anchor-id="the-constraints">The Constraints</h3>
+<ul>
+<li>No dedicated data science team (but had data analysts)</li>
+<li>Couldn’t spend ₹50L+ on a 6-month consulting project</li>
+<li>Needed proof-of-concept in under 4 months</li>
+<li>Leadership wouldn’t approve ₹100K+ spend without clear ROI</li>
+</ul>
+<hr>
+</section>
+<section id="what-we-did-the-framework" class="level3">
+<h3 class="anchored" data-anchor-id="what-we-did-the-framework">What We Did (The Framework)</h3>
+<p><strong>Day 1: AI ART Matrix (Is this an AI problem?)</strong> - Applied the framework to their forecasting challenge - Confirmed: YES, this is an AI fit (historical data exists, patterns are learnable) - Ruled out: No, other operational problems in their chain weren’t AI-solvable</p>
+<p><strong>Day 2: O.L.C.D Diagnostic (What exactly do we build?)</strong> - Outcome: Improve forecast accuracy from 65% → 90%+ - Logic: Predictive model for demand signals - Capability: No custom ML needed—existing tools (ML via API, Python) could work - Data: They had 3 years of historical orders, seasonal patterns, supplier data</p>
+<p><strong>Day 3: ROI Model (What’s the business case?)</strong> - Modeled the before/after: - Labor saved: 60 hrs/week → 12 hrs/week = ₹2.4Cr/year saved - Inventory optimization: ₹7.5Cr waste → ₹1.5Cr waste = ₹6Cr saved - Total: ₹8.4Cr ROI in Year 1 - Presented to CFO: “For ₹50L investment + 3-month build, we save ₹8.4Cr.” - CFO said yes.</p>
+<hr>
+</section>
+<section id="the-result" class="level3">
+<h3 class="anchored" data-anchor-id="the-result">The Result</h3>
+<p><strong>After 3 months of execution:</strong></p>
+<p>✓ <strong>Forecast accuracy:</strong> 65% → 91%</p>
+<p>✓ <strong>Manual hours:</strong> 60/week → 12/week (48 hours saved per person per week)</p>
+<p>✓ <strong>Inventory waste:</strong> ₹7.5Cr → ₹1.5Cr (₹6Cr saved annually)</p>
+<p>✓ <strong>Additional win:</strong> Supplier relationships improved (orders now predictable)</p>
+<p>✓ <strong>Avoided cost:</strong> Didn’t need to hire external consultant (₹100K+ saved)</p>
+<hr>
+</section>
+<section id="the-lesson" class="level3">
+<h3 class="anchored" data-anchor-id="the-lesson">The Lesson</h3>
+<p><strong>“Non-technical operators can architect AI when they have a framework.”</strong></p>
+<p>This VP didn’t code. Didn’t know ML. But by following the three frameworks (AI ART → O.L.C.D → ROI), she: - Diagnosed the problem correctly - Understood what her team needed to build - Convinced her CFO in one meeting - Shipped in 3 months instead of 6+</p>
+<p>The framework works. The clarity is the bottleneck, not the technology.</p>
+<hr>
+</section>
+</section>
+<section id="ready-for-your-clarity-moment" class="level2">
+<h2 class="anchored" data-anchor-id="ready-for-your-clarity-moment">Ready for Your Clarity Moment?</h2>
+<p>You’re 3 days away from knowing exactly which problems in your business can be solved by AI.</p>
+<p>The same framework that worked for this grocery chain works across industries—retail, finance, auto, healthcare, logistics.</p>
+<p><strong>January cohort starts January 9, 2026.</strong></p>
+<p><a href="cohort/index.qmd"><strong>Secure Your Seat – ₹24,978</strong></a></p>
+<p><strong>Next cohort: ₹42,978. Lock in the founding rate.</strong></p>
+</section>
+<section id="ready-for-your-clarity-moment-1" class="level2">
+<h2 class="anchored" data-anchor-id="ready-for-your-clarity-moment-1">Ready for Your Clarity Moment?</h2>
+<p>[CTA: Join Cohort - Learn the framework] 3 days, ₹24,978. Same frameworks that delivered these results.</p>
+<p>[CTA: Work With Me - Custom strategy] 2–12 weeks. Consulting engagement. More guidance.</p>
+</section>
+</div>
+<p><br></p>
+</div>
+<div class="column-screen bg-contrast page-columns page-full">
+<p><br></p>
+<div class="column-page padded">
+<hr>
+<section id="case-study-2-fortune-500-finance-invoice-processing-automation" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-2-fortune-500-finance-invoice-processing-automation">CASE STUDY #2: Fortune 500 Finance – Invoice Processing Automation</h2>
+<section id="the-snapshot-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-snapshot-1">The Snapshot</h3>
+<p><strong>Company:</strong> Mid-market B2B services firm (₹50Cr revenue)<br>
+<strong>Industry:</strong> Finance/Back-office<br>
+<strong>Challenge:</strong> Manual invoice processing eating 40 hrs/week + 12% error rate<br>
+<strong>Timeline to first result:</strong> 6 weeks</p>
+<hr>
+</section>
+<section id="the-problem-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-problem-1">The Problem</h3>
+<p>Every invoice = 10+ manual steps: 1. Email arrives 2. Data extraction (manual) 3. Reconciliation against PO 4. Exception handling (% don’t match) 5. Approval workflows 6. Entry into accounting system 7. Follow-up on late invoices</p>
+<p>40 hours/week of pure manual work.</p>
+<p>Error rate: 12% (wrong amounts, wrong vendors, wrong accounts—costing money and credibility).</p>
+<p>CFO said: “Can AI automate this?” Team said: “Maybe? We don’t know.”</p>
+<p>No budget for a ₹100K consulting firm.</p>
+<hr>
+</section>
+<section id="the-constraints-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-constraints-1">The Constraints</h3>
+<ul>
+<li>Limited technical capability (had finance team, not data scientists)</li>
+<li>Small IT budget</li>
+<li>Couldn’t afford to be wrong (accounting errors have real consequences)</li>
+<li>Leadership needed ROI proof before approval</li>
+</ul>
+<hr>
+</section>
+<section id="what-we-did-the-framework-1" class="level3">
+<h3 class="anchored" data-anchor-id="what-we-did-the-framework-1">What We Did (The Framework)</h3>
+<p><strong>Day 1: AI ART Matrix (Is automation even the right answer?)</strong> - First question: “Is this an AI problem or an RPA problem or both?” - Applied the matrix: Clarity emerged - AI alone won’t work (unstructured data) - RPA alone won’t work (too many exceptions) - <strong>Answer: Hybrid approach (OCR + RPA + Rule-based logic)</strong></p>
+<p><strong>Day 2: O.L.C.D Diagnostic (What’s the architecture?)</strong> - Outcome: Process 95% of invoices automatically, 99%+ accuracy - Logic: OCR to extract → RPA to route → Rules engine for exceptions - Capability: All low-code/no-code tools available (UiPath, Zapier, APIs) - Data: Had invoice PDFs + vendor master + PO system</p>
+<p><strong>Day 3: ROI Model (Does it pay for itself?)</strong> - Labor savings: 40 hrs/week @ ₹2000/hr = ₹80L/year - Error reduction: 12% errors → 0.5% errors = ₹20L saved - Total Year 1: ₹100L ROI - Cost: ₹10L for tools + implementation - Payback: 1.2 months</p>
+<hr>
+</section>
+<section id="the-result-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-result-1">The Result</h3>
+<p><strong>After 6 weeks of execution:</strong></p>
+<p>✓ <strong>Automation rate:</strong> 85% of invoices process automatically (remaining 15% = true exceptions)</p>
+<p>✓ <strong>Time saved:</strong> 40 hrs/week → 6 hrs/week (34 hrs saved = ₹68L/year)</p>
+<p>✓ <strong>Accuracy:</strong> 12% errors → 99.2% accuracy (errors nearly eliminated)</p>
+<p>✓ <strong>Cost savings:</strong> ₹50L+/year ongoing</p>
+<p>✓ <strong>Speed:</strong> Invoice-to-payment cycle: 12 days → 3 days</p>
+<hr>
+</section>
+<section id="the-lesson-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-lesson-1">The Lesson</h3>
+<p><strong>“The right diagnosis beats the fanciest technology.”</strong></p>
+<p>This CFO could have bought “AI invoice processing software” (wrong). Could have hired a custom coding team (expensive, slow).</p>
+<p>Instead, she diagnosed first: “Is this RPA? Is it AI? Is it both?”</p>
+<p>Then architected: “OCR for data extraction, RPA for routing, rules for exceptions.”</p>
+<p>Simple, low-cost, fast to deploy.</p>
+<p>The framework led to the right answer.</p>
+<hr>
+</section>
+</section>
+<section id="cta-module-2" class="level2">
+<h2 class="anchored" data-anchor-id="cta-module-2">CTA MODULE #2</h2>
+<section id="this-could-be-your-next-success-story" class="level3">
+<h3 class="anchored" data-anchor-id="this-could-be-your-next-success-story">This Could Be Your Next Success Story</h3>
+<p>Imagine: Clear diagnosis. Confident roadmap. Shipped in 8 weeks instead of 6 months.</p>
+<p>That’s what happens when leaders have the framework.</p>
+<p><strong>Want to be the next case study?</strong></p>
+<p><a href="cohort/index.qmd"><strong>Join the January Cohort</strong></a> – Learn the same diagnostic system that’s worked 50+ times.</p>
+<p>Or if you’d rather explore a custom engagement:</p>
+<p><a href="mailto:jitin@jitinkapila.com"><strong>Book a Strategy Consultation</strong></a> – We’ll map your top 3 opportunities in 60 minutes.</p>
+</section>
+</section>
+</div>
+<p><br></p>
+</div>
+<div class="column-screen bg-warm page-columns page-full">
+<p><br></p>
+<section id="case-study-3-automotive-supplier-demand-planning" class="level2 column-page padded">
+<h2 class="anchored" data-anchor-id="case-study-3-automotive-supplier-demand-planning">CASE STUDY #3: Automotive Supplier – Demand Planning</h2>
+<section id="the-snapshot-2" class="level3">
+<h3 class="anchored" data-anchor-id="the-snapshot-2">The Snapshot</h3>
+<p><strong>Company:</strong> Tier-1 automotive supplier (₹2000Cr+ revenue)<br>
+<strong>Industry:</strong> Manufacturing/Supply Chain<br>
+<strong>Challenge:</strong> Inaccurate demand forecasts causing excess inventory + stockouts<br>
+<strong>Timeline to results:</strong> 4 months</p>
+<hr>
+</section>
+<section id="the-problem-2" class="level3">
+<h3 class="anchored" data-anchor-id="the-problem-2">The Problem</h3>
+<p>Demand planning was a guessing game:</p>
+<ul>
+<li>Customers’ actual orders arrived at unpredictable times</li>
+<li>Supplier built inventory based on estimates (not real data)</li>
+<li>Result: 35% overstock in some SKUs, 12% stockouts in others</li>
+<li>Tied up ₹50Cr in excess inventory</li>
+<li>Angry OEMs because deliveries were inconsistent</li>
+</ul>
+<p>The VP of Supply Chain knew competitors were using AI for this. But didn’t know: - Which AI approach (predictive models? Reinforcement learning? Simple forecasting?) - How much it would cost - How long it would take - Whether it would actually work</p>
+<hr>
+</section>
+<section id="the-constraints-2" class="level3">
+<h3 class="anchored" data-anchor-id="the-constraints-2">The Constraints</h3>
+<ul>
+<li>Large company, but supply chain team had limited data science access</li>
+<li>Needed to work within existing IT infrastructure</li>
+<li>Board approval required (meant explaining in plain business terms)</li>
+<li>₹1Cr budget cap (couldn’t overspend)</li>
+</ul>
+<hr>
+</section>
+<section id="what-we-did-the-framework-2" class="level3">
+<h3 class="anchored" data-anchor-id="what-we-did-the-framework-2">What We Did (The Framework)</h3>
+<p><strong>Day 1: AI ART Matrix (Strategic fit check)</strong> - Alignment: YES (competitive advantage if we forecast 10% better than competitors) - Readiness: Partial (had data, but it was siloed across 3 systems) - Transformation: YES (₹50Cr inventory reduction = massive impact) - Decision: Proceed, but phase in</p>
+<p><strong>Day 2: O.L.C.D Diagnostic (Build vs.&nbsp;buy vs.&nbsp;hybrid?)</strong> - Outcome: Improve demand forecast accuracy to 88%+ (from 65%) - Logic: Time-series forecasting model + incorporating customer signals - Capability: Could use existing ML platform (already had cloud ML subscription) - Data: Historical orders (5 years) + customer signals + market data</p>
+<p><strong>Day 3: ROI Model (Board presentation)</strong> - Inventory reduction: ₹50Cr excess → ₹15Cr excess = ₹35Cr freed up - Working capital improvement: ₹35Cr deployed elsewhere - Stockout reduction: 12% → 3% = Improved customer satisfaction - Year 1 ROI: ₹35Cr + ₹5Cr customer satisfaction gains - Cost: ₹80L for build + deployment</p>
+<hr>
+</section>
+<section id="the-result-2" class="level3">
+<h3 class="anchored" data-anchor-id="the-result-2">The Result</h3>
+<p><strong>After 4 months:</strong></p>
+<p>✓ <strong>Forecast accuracy:</strong> 65% → 88%</p>
+<p>✓ <strong>Inventory optimization:</strong> ₹50Cr → ₹15Cr excess inventory (₹35Cr working capital freed)</p>
+<p>✓ <strong>Stockouts:</strong> 12% → 3% (customer satisfaction improved)</p>
+<p>✓ <strong>Timeline:</strong> Built and deployed in 4 months (faster than industry standard of 6-9 months)</p>
+<p>✓ <strong>Team adoption:</strong> Supply chain team now owns the forecasting system (not dependent on external consultants)</p>
+<hr>
+</section>
+<section id="the-lesson-2" class="level3">
+<h3 class="anchored" data-anchor-id="the-lesson-2">The Lesson</h3>
+<p><strong>“Strategic clarity beats technical complexity.”</strong></p>
+<p>This VP of Supply Chain could have: - Hired a ₹500L+ consulting firm (too expensive, too slow) - Bought an off-the-shelf solution (doesn’t fit their specific data) - Built something custom from scratch (6+ months, ₹300L+)</p>
+<p>Instead, she: 1. Diagnosed the problem clearly (AI ART Matrix) 2. Mapped the solution (O.L.C.D) 3. Built the business case (ROI model) 4. Executed with her internal team in 4 months</p>
+<p>The framework saved time, money, and gave her team ownership.</p>
+</section>
+</section>
+<p><br></p>
+</div>
+<div class="column-screen bg-contrast page-columns page-full">
+<section id="cta-module-3" class="level2 column-page padded">
+<h2 class="anchored" data-anchor-id="cta-module-3">CTA MODULE #3</h2>
+<section id="the-pattern-is-clear" class="level3">
+<h3 class="anchored" data-anchor-id="the-pattern-is-clear">The Pattern Is Clear</h3>
+<p>Clear diagnosis → Right solution → Real results.</p>
+<p>Whether you’re in retail, finance, auto, or logistics, the framework works.</p>
+<p><strong>You’re 3 days away from having your own clarity.</strong></p>
+<p><a href="cohort/index.qmd"><strong>Secure Your Spot in January Cohort</strong></a></p>
+<p><strong>Cost:</strong> ₹24,978<br>
+<strong>Time:</strong> 3 days (Jan 9–11, 2026)<br>
+<strong>Outcome:</strong> Diagnostic framework + roadmap + ROI model for YOUR top opportunity</p>
+<p>Or book time with me directly if you want to explore before committing:</p>
+<p><a href="mailto:jitin@jitinkapila.com"><strong>Schedule a 15-Min Strategy Call</strong></a></p>
+</section>
+</section>
+</div>
+<div class="column-screen bg-contrast page-columns page-full">
+<div class="column-page padded">
+<section id="case-study-4-consulting-founder-client-onboarding" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-4-consulting-founder-client-onboarding">CASE STUDY #4: Consulting Founder – Client Onboarding</h2>
+<section id="the-snapshot-3" class="level3">
+<h3 class="anchored" data-anchor-id="the-snapshot-3">The Snapshot</h3>
+<p><strong>Company:</strong> Consulting services firm (₹5Cr ARR)<br>
+<strong>Industry:</strong> Services/Professional Services<br>
+<strong>Challenge:</strong> Manual client onboarding limiting growth<br>
+<strong>Timeline to results:</strong> 4 weeks</p>
+<hr>
+</section>
+<section id="the-problem-3" class="level3">
+<h3 class="anchored" data-anchor-id="the-problem-3">The Problem</h3>
+<p>Every new client = 3–4 weeks of onboarding:</p>
+<ul>
+<li>Manual contract review</li>
+<li>Data entry into CRM</li>
+<li>Approval loops (2–3 rounds)</li>
+<li>Document collection (scattered across emails)</li>
+<li>Compliance checks</li>
+<li>Access provisioning</li>
+</ul>
+<p>15+ manual steps = bottleneck.</p>
+<p>Founder wanted to scale to 3x revenue, but couldn’t do it without hiring 3 new ops people.</p>
+<p>Ops people cost ₹40L/year each = ₹120L overhead.</p>
+<p>The founder asked: “Can AI or automation help here?”</p>
+<p>Team said: “Maybe? We use Zapier for some things, but don’t know if AI changes anything.”</p>
+<hr>
+</section>
+<section id="the-constraints-3" class="level3">
+<h3 class="anchored" data-anchor-id="the-constraints-3">The Constraints</h3>
+<ul>
+<li>Bootstrapped company (no VC money, limited budget)</li>
+<li>Founder is the only technical person</li>
+<li>Needed fast turnaround (wanted to scale now, not in 6 months)</li>
+<li>Couldn’t afford to break the onboarding process (client experience matters)</li>
+</ul>
+<hr>
+</section>
+<section id="what-we-did-the-framework-3" class="level3">
+<h3 class="anchored" data-anchor-id="what-we-did-the-framework-3">What We Did (The Framework)</h3>
+<p><strong>Day 1: AI ART Matrix (Is this an AI, RPA, or workflow problem?)</strong> - Applied the matrix: “Is onboarding really an AI problem?” - Honest answer: Not pure AI. More RPA + document automation + workflow - Key insight: Document extraction (AI piece) + automation (RPA piece)</p>
+<p><strong>Day 2: O.L.C.D Diagnostic (What’s the specific architecture?)</strong> - Outcome: 3–4 weeks → 4 days for standard clients - Logic: Automate document upload → Extract key fields (AI) → Route to approval → Provision access - Capability: Zapier + Make.com + document extraction API (no-code/low-code) - Data: Had past contracts to train extraction rules</p>
+<p><strong>Day 3: ROI Model (Cost vs.&nbsp;hiring)</strong> - Automation cost: ₹2L for tools + build-out - Founder’s time: 2 weeks to implement - Savings vs.&nbsp;hiring: Avoid ₹120L/year in 3 new hires - Payback: &lt; 1 month - Additional benefit: 3x faster onboarding = faster revenue recognition</p>
+<hr>
+</section>
+<section id="the-result-3" class="level3">
+<h3 class="anchored" data-anchor-id="the-result-3">The Result</h3>
+<p><strong>After 4 weeks:</strong></p>
+<p>✓ <strong>Onboarding timeline:</strong> 3–4 weeks → 4 days (for standard contracts)</p>
+<p>✓ <strong>Manual steps:</strong> 15 → 2 (automation handles 13)</p>
+<p>✓ <strong>Founder time saved:</strong> 8 hrs/week → 30 mins/week</p>
+<p>✓ <strong>Scaling enabled:</strong> Founder could now handle 3x revenue without new hires</p>
+<p>✓ <strong>Cost avoided:</strong> Didn’t need to hire 3 ops people (saved ₹120L/year)</p>
+<p>✓ <strong>Client satisfaction:</strong> Faster onboarding = happier clients, faster project starts</p>
+<hr>
+</section>
+<section id="the-lesson-3" class="level3">
+<h3 class="anchored" data-anchor-id="the-lesson-3">The Lesson</h3>
+<p><strong>“The diagnosis matters more than the tool.”</strong></p>
+<p>This founder could have: - Hired ops people (expensive, didn’t solve the problem, just moved it) - Looked for “AI onboarding software” (overkill, didn’t fit his specific workflow) - Given up on scaling (kept revenue capped)</p>
+<p>Instead, she: 1. Asked the right diagnostic question: “Is this an AI problem? RPA? Workflow?” 2. Got honest answer: “It’s a hybrid (document extraction + workflow automation)” 3. Built a ₹2L solution instead of hiring ₹120L in new people 4. Scaled her company without new headcount</p>
+<p>The framework = clarity. Clarity = right decision.</p>
+<hr>
+</section>
+</section>
+<section id="cta-module-4" class="level2">
+<h2 class="anchored" data-anchor-id="cta-module-4">CTA MODULE #4</h2>
+<section id="your-onboarding-might-look-different" class="level3">
+<h3 class="anchored" data-anchor-id="your-onboarding-might-look-different">Your Onboarding Might Look Different</h3>
+<p>But the principle is the same:</p>
+<p><strong>Diagnose first. Then build.</strong></p>
+<p>If you’re scaling but manual processes are killing you, you need the framework.</p>
+<p><strong>January cohort:</strong> Learn to diagnose your own opportunities.</p>
+<p><a href="cohort/index.qmd"><strong>Reserve Your Spot</strong></a> – ₹24,978, 3 days, lifetime coaching included.</p>
+</section>
+</section>
+</div>
+<p><br></p>
+</div>
+<div class="column-screen bg-warm page-columns page-full">
+<div class="column-page padded">
+<section id="final-cta-section" class="level2">
+<h2 class="anchored" data-anchor-id="final-cta-section">FINAL CTA SECTION</h2>
+<section id="from-confusion-to-clarity-in-3-days" class="level3">
+<h3 class="anchored" data-anchor-id="from-confusion-to-clarity-in-3-days">From Confusion to Clarity in 3 Days</h3>
+<p>You’ve seen what clarity looks like:</p>
+<ul>
+<li>Grocery chain: From guessing to 91% accuracy</li>
+<li>Finance: From 12% errors to 99.2% accuracy</li>
+<li>Automotive: From 65% forecast accuracy to 88%</li>
+<li>Consulting founder: From 3-week onboarding to 4-day onboarding</li>
+</ul>
+<p>All started with the same diagnostic question:</p>
+<p><strong>“Which problems in my business actually need AI?”</strong></p>
+<p>That’s not a question you answer in 6 months with consultants.</p>
+<p>That’s a question you answer in 3 days with a framework.</p>
+<hr>
+</section>
+<section id="your-next-move" class="level3">
+<h3 class="anchored" data-anchor-id="your-next-move">Your Next Move</h3>
+<p><strong>Option 1: Learn the framework (cohort)</strong> - 3 days live - Build your own roadmap - Lifetime access to coaching - ₹24,978</p>
+<p><a href="cohort/index.qmd"><strong>Secure Your Seat – January 9</strong></a></p>
+<p><strong>Option 2: Explore a custom engagement</strong> - If you have a specific problem you want to solve fast - Limited consulting availability - ₹25,000/hour</p>
+<p><a href="mailto:jitin@jitinkapila.com"><strong>Schedule a Strategy Call</strong></a></p>
+<p><strong>Option 3: Just learn more</strong> - Subscribe to my newsletter for more frameworks and real-world examples - No pressure, no pitch</p>
+<p><a href="#newsletter"><strong>Subscribe Here</strong></a></p>
+<hr>
+</section>
+</section>
+<section id="design-notes" class="level2">
+<h2 class="anchored" data-anchor-id="design-notes">DESIGN NOTES</h2>
+<p><strong>Case Study Tile Template (Consistent Across All):</strong></p>
+<pre><code>┌─────────────────────────────────┐
+│ CASE STUDY HEADER               │
+│ Company | Industry | Challenge  │
+│ Timeline to Result              │
+└─────────────────────────────────┘
+
+THE SNAPSHOT (4 lines, quick context)
+
+THE PROBLEM (2-3 paragraphs, relatable)
+
+THE CONSTRAINTS (3-4 bullets, show real barriers)
+
+WHAT WE DID (3 sections: Day 1/2/3 framework application)
+
+THE RESULT (Before/after metrics, bold the wins)
+
+THE LESSON (1-2 sentences, the key insight)
+
+[CTA MODULE between each case study]</code></pre>
+<p><strong>Color coding:</strong> - Headers: Dark blue (#0a0e27) or white on dark - Metrics: Cyan (#00B8D4) highlight - CTAs: Cyan button (consistent with homepage)</p>
+<hr>
+</section>
+</div>
+</div>
+
+
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
